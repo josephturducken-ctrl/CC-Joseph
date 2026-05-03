@@ -291,7 +291,7 @@
 // Not actually a virtue, but kept in the category for convenience. Miner-role only. Component handles all of the messaging and logic, this is just a wrapper, basically.
 /mob/living/carbon/human/proc/toggle_oresight()
 	set name = "Toggle (Ore Sight)"
-	set category = "MINER"
+	set category = "VIRTUES"
 
 	var/datum/component/ore_sight/COS = GetComponent(/datum/component/ore_sight)
 	if(COS)
@@ -299,7 +299,7 @@
 
 /mob/living/carbon/human/proc/range_oresight()
 	set name = "Change Range (Ore Sight)"
-	set category = "MINER"
+	set category = "VIRTUES"
 
 	var/datum/component/ore_sight/COS = GetComponent(/datum/component/ore_sight)
 	if(COS)
