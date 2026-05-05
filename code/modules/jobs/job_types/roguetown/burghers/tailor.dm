@@ -8,7 +8,7 @@
 	spawn_positions = 1
 	display_order = 6
 	selection_color = JCOLOR_BURGHER
-	allowed_races = ACCEPTED_RACES
+	forbidden_races = list(RACES_DESPISED)
 	display_order = JDO_TAILOR
 	job_traits = list(TRAIT_SEWING_EXPERT)
 	outfit = /datum/outfit/job/roguetown/tailor

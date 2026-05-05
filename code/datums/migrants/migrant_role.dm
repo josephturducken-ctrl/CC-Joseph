@@ -5,7 +5,7 @@
 	/// Umbrella category used by systems that group roles (e.g. talkstatue lists every "Adventurer" role together)
 	var/role_category = ""
 	/// Restricts species if the list is not null
-	var/list/allowed_races
+	var/list/forbidden_races
 	/// Restricts sexes if list is not null
 	var/list/allowed_sexes
 	/// Restricts ages if list is not null
