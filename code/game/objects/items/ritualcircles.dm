@@ -91,35 +91,38 @@
 	var/riteselection = input(user, "Rituals of the Sun", src) as null|anything in solarrites // When you use a open hand on a rune, It'll give you a selection of all the rites available from that rune
 	switch(riteselection) // rite selection goes in this section, try to do something fluffy. Presentation is most important here, truthfully.
 		if("Guiding Light") // User selects Guiding Light, begins the stuff for it
-			if(do_after(user, 50)) // just flavor stuff before activation
-				user.say("I beseech the guidance of the Sun!!")
-				if(do_after(user, 50))
-					user.say("To bring Order to a world of naught!!")
-					if(do_after(user, 50))
-						user.say("Place your gaze upon me, oh Radiant one!!")
-						to_chat(user,span_danger("You feel the eye of Astrata turned upon you. Her warmth dances upon your cheek. You feel yourself warming up...")) // A bunch of flavor stuff, slow incanting.
-						icon_state = "astrata_active"
-						if(!HAS_TRAIT(user, TRAIT_CHOSEN)) //Priests don't burst into flames.
-							loc.visible_message(span_warning("[user]'s bursts to flames! Embraced by Her Warmth wholly!"))
-							playsound(loc, 'sound/combat/hits/burn (1).ogg', 100, FALSE, -1)
-							user.adjust_fire_stacks(10)
-							user.ignite_mob()
-							//Caustic Edit
-							if(user.show_redflash())
-								user.flash_fullscreen("redflash3")
-							//Caustic Edit End
-							user.emote("firescream")
-						guidinglight(src) // Actually starts the proc for applying the buff
-						user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
-						spawn(120)
-							icon_state = "astrata_chalky"
+			if(!do_after(user, 5 SECONDS)) // just flavor stuff before activation
+				return
+			user.say("I beseech the guidance of the Sun!!")
+			if(!do_after(user, 5 SECONDS))
+				return
+			user.say("To bring Order to a world of naught!!")
+			if(!do_after(user, 5 SECONDS))
+				return
+			user.say("Place your gaze upon me, oh Radiant one!!")
+			to_chat(user,span_danger("You feel the eye of Astrata turned upon you. Her warmth dances upon your cheek. You feel yourself warming up...")) // A bunch of flavor stuff, slow incanting.
+			icon_state = "astrata_active"
+			if(!HAS_TRAIT(user, TRAIT_CHOSEN)) //Priests don't burst into flames.
+				loc.visible_message(span_warning("[user]'s bursts to flames! Embraced by Her Warmth wholly!"))
+				playsound(loc, 'sound/combat/hits/burn (1).ogg', 100, FALSE, -1)
+				user.adjust_fire_stacks(10)
+				user.ignite_mob()
+				//Caustic Edit
+				if(user.show_redflash())
+					user.flash_fullscreen("redflash3")
+				//Caustic Edit End
+				user.emote("firescream")
+			guidinglight(src) // Actually starts the proc for applying the buff
+			playsound(user, 'sound/magic/holyshield.ogg', 60, FALSE, -1) // Cool sound! But it blows out eardrums with large groups so we move it here.
+			user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
+			spawn(120)
+				icon_state = "astrata_chalky"
 
 /obj/structure/ritualcircle/astrata/proc/guidinglight(src)
 	var/ritualtargets = view(7, loc) // Range of 7 from the source, which is the rune
 	for(var/mob/living/carbon/human/target in ritualtargets) // defines the target as every human in this range
 		target.apply_status_effect(/datum/status_effect/buff/guidinglight) // applies the status effect
 		to_chat(target,span_cultsmall("Astrata's light guides me forward, drawn to me by the Ritualist's pyre!"))
-		playsound(target, 'sound/magic/holyshield.ogg', 80, FALSE, -1) // Cool sound!
 // If you want to review a more complicated one, Undermaiden's Bargain is probs the most complicated of the starting set. - Have fun! - Onutsio 🏳️‍⚧️
 
 
@@ -244,8 +247,7 @@
 	name = "Rune of Plague"
 	desc = "A Holy Rune of Pestra. A sickle to cleanse the weeds, and bring forth life."
 	icon_state = "pestra_chalky"
-	var/plaguerites = list("Flylord's Triage")
-
+	var/plaguerites = list("Flylord's Triage", "Vow of Aesculapius")
 
 /obj/structure/ritualcircle/pestra/attack_hand(mob/living/user)
 	if(!..())
@@ -279,6 +281,32 @@
 							user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
 							spawn(120)
 								icon_state = "pestra_chalky"
+		if("Vow of Aesculapius")//Probably come up with a better name for this ngl?
+			var/onrune = view(1, loc)
+			var/list/folksonrune = list()
+			for(var/mob/living/carbon/human/persononrune in onrune)
+				if(HAS_TRAIT(persononrune, TRAIT_UNDIVIDED))
+					folksonrune += persononrune
+			var/target = input(user, "Choose a host") as null|anything in folksonrune
+			if(!target)
+				return
+			user.say("Before your greatness, I swear a vow!!")
+			if(!do_after(user, 5 SECONDS))
+				return
+			user.say("To do no harm!!")
+			if(!do_after(user, 5 SECONDS))
+				return
+			user.say("To take care of those in need!!")
+			if(!do_after(user, 5 SECONDS))
+				return
+			user.say("To be your shining beacon in the darkness!!")
+			if(!do_after(user, 5 SECONDS))
+				return
+			icon_state = "pestra_active"
+			user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
+			pestraaura(target)
+			spawn(120)
+				icon_state = "pestra_chalky"						
 
 /obj/structure/ritualcircle/pestra/proc/flylordstriage(src)
 	var/ritualtargets = view(0, loc)
@@ -293,6 +321,27 @@
 		target.Knockdown(200)
 		to_chat(target, span_userdanger("UNIMAGINABLE PAIN!"))
 		target.apply_status_effect(/datum/status_effect/buff/flylordstriage)
+
+/obj/structure/ritualcircle/pestra/proc/pestraaura(mob/living/carbon/human/target)
+	var/pestra_cockblock = target.get_skill_level(/datum/skill/magic/holy)
+	if(!HAS_TRAIT(target, TRAIT_ROT_EATER))
+		loc.visible_message(span_cult("THE RITE REJECTS ONE WITHOUT PURE HEART!!"))
+		return FALSE
+	if(pestra_cockblock < SKILL_LEVEL_JOURNEYMAN)//Only clerics can put it on.
+		loc.visible_message(span_cult("THE RITE REJECTS ONE WITHOUT PURE HEART!!"))
+		return FALSE
+	target.Stun(120)
+	to_chat(target, span_userdanger("UNIMAGINABLE PAIN!"))
+	target.emote("Agony")
+	playsound(loc, 'sound/magic/undivided_bless.ogg', 70)
+	loc.visible_message(span_good("[target]'s form becomes enveloped in rot."))
+	spawn(20)
+		target.apply_status_effect(/datum/status_effect/plaguebringer)
+		playsound(target, 'sound/magic/undivided_solemnity.ogg', 90, FALSE, -1)
+		to_chat(target, span_boldred("I can do no HARM."))
+		ADD_TRAIT(target, TRAIT_PACIFISM, TRAIT_RITUAL)
+		to_chat(target, span_boldred("My body is susceptible to CRITICAL STRIKES."))
+		ADD_TRAIT(target, TRAIT_CRITICAL_WEAKNESS, TRAIT_RITUAL)
 
 /obj/structure/ritualcircle/dendor
 	name = "Rune of Beasts"
@@ -1427,7 +1476,7 @@
 	name = "Rune of Deca Divinity"
 	desc = "A Holy Rune of The Undivided Pantheon"
 	icon_state = "undivided_chalky"
-	var/decarites = list("Crusader's Oath", "Vow of Aesculapius")
+	var/decarites = list("Crusader's Oath")
 
 /obj/structure/ritualcircle/undivided/attack_hand(mob/living/user)
 	if(!..())
@@ -1467,32 +1516,6 @@
 			icon_state = "undivided_active"
 			user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
 			undividedarmaments(target)
-			spawn(120)
-				icon_state = "undivided_chalky"
-		if("Vow of Aesculapius")//Probably come up with a better name for this ngl?
-			var/onrune = view(1, loc)
-			var/list/folksonrune = list()
-			for(var/mob/living/carbon/human/persononrune in onrune)
-				if(HAS_TRAIT(persononrune, TRAIT_UNDIVIDED))
-					folksonrune += persononrune
-			var/target = input(user, "Choose a host") as null|anything in folksonrune
-			if(!target)
-				return
-			user.say("Before your greatness, I swear a vow!!")
-			if(!do_after(user, 5 SECONDS))
-				return
-			user.say("To do no harm!!")
-			if(!do_after(user, 5 SECONDS))
-				return
-			user.say("To take care of those in need!!")
-			if(!do_after(user, 5 SECONDS))
-				return
-			user.say("To be your shining beacon in the darkness!!")
-			if(!do_after(user, 5 SECONDS))
-				return
-			icon_state = "undivided_active"
-			user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
-			undividedaura(target)
 			spawn(120)
 				icon_state = "undivided_chalky"
 
@@ -1547,30 +1570,6 @@
 	backr = /obj/item/rogueweapon/shield/tower/holysee
 
 	H.mind.AddSpell(new /datum/action/cooldown/spell/mending/lesser)
-
-/obj/structure/ritualcircle/undivided/proc/undividedaura(mob/living/carbon/human/target)
-	var/undivided_cockblock = target.get_skill_level(/datum/skill/magic/holy)
-	if(!HAS_TRAIT(target, TRAIT_UNDIVIDED))
-		loc.visible_message(span_cult("THE RITE REJECTS ONE WITHOUT PURE HEART!!"))
-		return FALSE
-	if(undivided_cockblock < SKILL_LEVEL_JOURNEYMAN)//Only clerics can put it on.
-		loc.visible_message(span_cult("THE RITE REJECTS ONE WITHOUT PURE HEART!!"))
-		return FALSE
-	target.Stun(120)
-	to_chat(target, span_userdanger("UNIMAGINABLE PAIN!"))
-	target.emote("Agony")
-	playsound(loc, 'sound/magic/undivided_bless.ogg', 70)
-	loc.visible_message(span_good("[target]'s form becomes enveloped in divine aura."))
-	spawn(20)
-		target.apply_status_effect(/datum/status_effect/buff/guidinglight/undivided)
-		target.apply_status_effect(/datum/status_effect/orderbringer)
-		playsound(target, 'sound/magic/undivided_solemnity.ogg', 90, FALSE, -1)
-		to_chat(target, span_boldred("I can do no HARM."))
-		ADD_TRAIT(target, TRAIT_PACIFISM, TRAIT_RITUAL)
-		to_chat(target, span_boldred("This is my only chance at LYFE."))
-		ADD_TRAIT(target, TRAIT_DNR, TRAIT_RITUAL)
-		to_chat(target, span_boldred("My body is susceptible to CRITICAL STRIKES."))
-		ADD_TRAIT(target, TRAIT_CRITICAL_WEAKNESS, TRAIT_RITUAL)
 
 // TIME FOR THE ASCENDANT. These can be stronger. As they are pretty much antag exclusive - Iconoclast for Matthios, Lich for ZIZO. ZIZO!
 
