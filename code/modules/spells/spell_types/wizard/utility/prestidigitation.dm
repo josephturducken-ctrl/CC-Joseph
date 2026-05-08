@@ -5,10 +5,10 @@
 /datum/action/cooldown/spell/touch/prestidigitation
 	name = "Prestidigitation"
 	desc = "A few basic tricks many apprentices use to practice basic manipulation of the arcyne. Except for light, cooldown is decreased by 10% per point of Int above 10 up to 50%. Includes the following modes:\n \
-	<b>Touch</b>: Use your arcyne powers to scrub an object or something clean, like using soap. Also known as the Apprentice's Woe.\n \
-	<b>Shove</b>: Will forth a spark on an item of your choosing (or in front of you, if used on the ground) to ignite flammable items and things like torches, lanterns or campfires. \n \
-	<b>Use</b>: Conjure forth an orbiting mote of magelight to light your way. Starts at 5 tiles light range and get one more per Int above 10 up to 15.\n \
-	<b>Grab</b>: Attune to the veil and sense nearby leylines. "
+	<b>Clean</b>: Use your arcyne powers to scrub an object or something clean, like using soap. Also known as the Apprentice's Woe.\n \
+	<b>Spark</b>: Will forth a spark on an item of your choosing (or in front of you, if used on the ground) to ignite flammable items and things like torches, lanterns or campfires. \n \
+	<b>Light</b>: Conjure forth an orbiting mote of magelight to light your way. Starts at 5 tiles light range and get one more per Int above 10 up to 15.\n \
+	<b>Sense</b>: Attune to the veil and sense nearby leylines. "
 	button_icon_state = "prestidigitation"
 
 	draw_message = span_notice("I prepare to perform a minor arcyne incantation.")
@@ -35,7 +35,7 @@
 		return FALSE
 
 	switch(caster.used_intent.type)
-		if(INTENT_HELP)
+		if(/datum/intent/clean)
 			//Caustic Edit - Re-add gathering Mana Crystals and Obsidian!
 			if(istype(victim, /obj/structure/well/fountain/mana) || istype(victim, /turf/open/lava))
 				var/skill_level = caster.get_skill_level(associated_skill)
@@ -45,13 +45,13 @@
 			//Caustic Edit End
 			if(presti_hand.clean_thing(victim, caster))
 				handle_presti_cost(caster, PRESTI_CLEAN)
-		if(INTENT_DISARM)
+		if(/datum/intent/spark)
 			if(presti_hand.create_spark(caster, victim))
 				handle_presti_cost(caster, PRESTI_SPARK)
-		if(/datum/intent/use)
+		if(/datum/intent/light)
 			if(presti_hand.handle_mote(caster))
 				handle_presti_cost(caster, PRESTI_MOTE)
-		/*if(INTENT_GRAB) //Caustic Edit - We don't have the typed leylines, so lets remove this for now
+		if(/datum/intent/sense)
 			if(presti_hand.sense_leylines(caster))
 				handle_presti_cost(caster, PRESTI_SENSE)*/
 
@@ -80,7 +80,7 @@
 
 /obj/item/melee/new_touch_attack/prestidigitation
 	name = "\improper prestidigitating touch"
-	possible_item_intents = list(INTENT_HELP, INTENT_DISARM, /datum/intent/use) //Caustic Edit - We don't have the leylines so no need to have a dead intent -- , INTENT_GRAB
+	possible_item_intents = list(/datum/intent/clean, /datum/intent/spark, /datum/intent/light, /datum/intent/sense)
 	icon = 'icons/mob/roguehudgrabs.dmi'
 	icon_state = "grabbing_greyscale"
 	color = "#3FBAFD"

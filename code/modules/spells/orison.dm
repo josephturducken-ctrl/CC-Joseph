@@ -5,9 +5,10 @@
 /datum/action/cooldown/spell/touch/orison
 	name = "Orison"
 	desc = "The fundamental teachings of theology return to you:\n \
-		<b>Fill</b>: Beseech your Divine to create a small quantity of water in a container that you touch for some devotion.\n \
-		<b>Touch</b>: Direct a sliver of divine thaumaturgy into your being, causing your voice to become LOUD when you next speak. Known to sometimes scare the rats inside the SCOMlines. Can be used on light sources at range, and it will cause them flicker. You may also use this to speak to others of the same patron, or to all if you're from the church. Aim for your MOUTH to speak to others, aim for your NECK to change who you direct your voice towards, and aim for your EARS to silence, or unsilence the utterances of others.\n \
-		<b>Voice</b>: Issue a prayer for illumination, causing you or another living creature to begin glowing with light for five minutes - this stacks each time you cast it, with no upper limit. Using thaumaturgy on a person will remove this blessing from them, and MMB on your praying hand will remove any light blessings from yourself."
+	<b>Light</b>: Issue a prayer for illumination, causing you or another living creature to begin glowing with light for five minutes - this stacks each time you cast it, with no upper limit. Using thaumaturgy on a person will remove this blessing from them, and MMB on your praying hand will remove any light blessings from yourself.\n \
+	<b>Fill</b>: Beseech your Divine to create a small quantity of water in a container that you touch for some devotion.\n \
+	<b>Voice</b>: Direct a sliver of divine thaumaturgy into your being, causing your voice to become LOUD when you next speak. Known to sometimes scare the rats inside the SCOMlines. Can be used on light sources at range, and it will cause them flicker. You may also use this to speak to others of the same patron, or to all if you're from the church. Aim for your MOUTH to speak to others, aim for your NECK to change who you direct your voice towards, and aim for your EARS to silence, or unsilence the utterances of others.\n \
+	<b>Bless</>: Request a small boon of your diety, to grant an individual or object of your choosing a lesser blessing. This can help improve someone's mood slightly, and potentially clear any divine curses they may have acquired."
 
 	background_icon = 'icons/mob/actions/genericmiracles.dmi'
 	button_icon = 'icons/mob/actions/genericmiracles.dmi'
@@ -50,11 +51,11 @@
 
 /datum/action/cooldown/spell/touch/orison/cast_on_hand_hit(obj/item/melee/new_touch_attack/hand, atom/victim, mob/living/carbon/caster, list/modifiers)
 	switch(caster.used_intent.type)
-		if(INTENT_HELP)
+		if(/datum/intent/light)
 			cast_light(hand, victim, caster)
 			qdel(hand)
 			return TRUE
-		if(/datum/intent/use)
+		if(/datum/intent/voice)
 			thaumaturgy(hand, victim, caster)
 			//qdel(hand) //Caustic Edit - For QoL with the Thaum Coms, lets not force them to draw a new orison hand each time
 			return TRUE
