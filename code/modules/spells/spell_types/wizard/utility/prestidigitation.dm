@@ -35,7 +35,7 @@
 		return FALSE
 
 	switch(caster.used_intent.type)
-		if(/datum/intent/clean)
+		if(/datum/intent/hand/clean)
 			//Caustic Edit - Re-add gathering Mana Crystals and Obsidian!
 			if(istype(victim, /obj/structure/well/fountain/mana) || istype(victim, /turf/open/lava))
 				var/skill_level = caster.get_skill_level(associated_skill)
@@ -45,13 +45,13 @@
 			//Caustic Edit End
 			if(presti_hand.clean_thing(victim, caster))
 				handle_presti_cost(caster, PRESTI_CLEAN)
-		if(/datum/intent/spark)
+		if(/datum/intent/hand/spark)
 			if(presti_hand.create_spark(caster, victim))
 				handle_presti_cost(caster, PRESTI_SPARK)
-		if(/datum/intent/light)
+		if(/datum/intent/hand/light)
 			if(presti_hand.handle_mote(caster))
 				handle_presti_cost(caster, PRESTI_MOTE)
-		if(/datum/intent/sense)
+		if(/datum/intent/hand/sense)
 			if(presti_hand.sense_leylines(caster))
 				handle_presti_cost(caster, PRESTI_SENSE)*/
 
@@ -80,7 +80,7 @@
 
 /obj/item/melee/new_touch_attack/prestidigitation
 	name = "\improper prestidigitating touch"
-	possible_item_intents = list(/datum/intent/clean, /datum/intent/spark, /datum/intent/light, /datum/intent/sense)
+	possible_item_intents = list(/datum/intent/hand/clean, /datum/intent/hand/spark, /datum/intent/hand/light, /datum/intent/hand/sense)
 	icon = 'icons/mob/roguehudgrabs.dmi'
 	icon_state = "grabbing_greyscale"
 	color = "#3FBAFD"
