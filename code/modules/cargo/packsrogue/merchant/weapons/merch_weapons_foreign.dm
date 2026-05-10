@@ -1,4 +1,5 @@
-// Special Mercenary Weapons, at exorbitant prices
+// Special Mercenary Weapons, at exorbitant prices.
+// I just wish someone explained how to price these.
 /datum/supply_pack/rogue/merc_weapons
 	group = "Weapons (Foreign)"
 	crate_name = "merchant guild's crate"
@@ -15,7 +16,7 @@
 	contains = list(/obj/item/rogueweapon/huntingknife/idagger/steel/parrying/vaquero)
 
 /datum/supply_pack/rogue/merc_weapons/erapier
-	name = "Etruscan Cup-Hilt Rapier"
+	name = "Cup-Hilt Rapier"
 	cost = 120
 	contains = list(/obj/item/rogueweapon/sword/rapier/vaquero)
 
@@ -59,13 +60,8 @@
 	cost = 140
 	contains = list(/obj/item/rogueweapon/spear/naginata)
 
-/datum/supply_pack/rogue/merc_weapons/katana
-	name = "Kazengun Hwando"
-	cost = 120
-	contains = list(/obj/item/rogueweapon/sword/sabre/mulyeog)
-
-/datum/supply_pack/rogue/merc_weapons/kazengunhookblade
-	name = "Kazengun Hook Sword"
+/datum/supply_pack/rogue/merc_weapons/hookblade
+	name = "Hook Sword"
 	cost = 150
 	contains = list(/obj/item/rogueweapon/sword/sabre/hook)
 
@@ -108,11 +104,11 @@
 	contains = list(/obj/item/rogueweapon/stoneaxe/woodcut/steel/atgervi)
 
 /datum/supply_pack/rogue/merc_weapons/handclaw_iron
-	name = "Gronnic Iron Claw"
+	name = "Iron Claw"
 	cost = 150
 	contains = list(/obj/item/rogueweapon/handclaw)
 
 /datum/supply_pack/rogue/merc_weapons/handclaw_steel
-	name = "Gronnic Steel Claw"
+	name = "Steel Claw"
 	cost = 200
 	contains = list(/obj/item/rogueweapon/handclaw/steel)
