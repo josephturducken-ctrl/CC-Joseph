@@ -175,12 +175,12 @@
 /datum/supply_pack/rogue/luxury/stamppot
 	name = "Tallowpot"
 	cost = 100
-	contains = list(/obj/item/inqarticles/tallowpot)
+	contains = list(/obj/item/tallowpot)
 
 /datum/supply_pack/rogue/luxury/stampstuff
 	name = "Lump of Greentallow"
 	cost = 50
-	contains = list(/obj/item/reagent_containers/food/snacks/tallow/green)
+	contains = list(/obj/item/reagent_containers/food/snacks/tallow/black)
 
 //Caustic edit start
 /datum/supply_pack/rogue/luxury/sizescroll
