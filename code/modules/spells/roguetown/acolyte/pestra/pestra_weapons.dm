@@ -53,7 +53,7 @@
 				if(intent_cd > CLICK_CD_QUICK)
 					predicted_rot += 2
 				if(intent_delay > 5)
-					predicted_rot += 4
+					predicted_rot += 3
 				if(!intent_can_dodge || !intent_can_parry)
 					predicted_rot = 0
 				examine_list += span_info(" - <b>[uppertext(intent_name)]</b>: [predicted_rot] stacks")
@@ -101,7 +101,7 @@
 		if(!I.canparry || !I.candodge)
 			rot_to_apply = 0
 
-		if(I.blade_class == BCLASS_BLUNT)
+		if(!I.canparry || !I.candodge)
 			rot_to_apply = 0
 
 	if(rot_to_apply)
