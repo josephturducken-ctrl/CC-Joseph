@@ -35,7 +35,7 @@
 
 /datum/outfit/job/roguetown/wretch/plaguebearer/pre_equip(mob/living/carbon/human/H)
 	head = /obj/item/clothing/head/roguetown/physician
-	mask = /obj/item/clothing/mask/rogue/physician
+	mask = /obj/item/clothing/mask/rogue/physician/plaguebearer
 	neck = /obj/item/clothing/neck/roguetown/chaincoif 
 	pants = /obj/item/clothing/under/roguetown/trou/leather/mourning
 	armor = /obj/item/clothing/suit/roguetown/shirt/robe/physician
@@ -76,3 +76,11 @@
 				r_hand = /obj/item/rogueweapon/sword/rapier
 				beltl = /obj/item/rogueweapon/scabbard/sword
 		wretch_select_bounty(H)
+
+/obj/item/clothing/mask/rogue/physician/plaguebearer
+	desc = "What better laboratory than the blood-soaked battlefield? This one seems to be uniquely armored."
+	armor = ARMOR_PLATE
+	// Less than an actual steel mask.
+	max_integrity = 160
+	// Consistency with other masks.
+	body_parts_covered = FACE
