@@ -84,3 +84,4 @@
 	max_integrity = 160
 	// Consistency with other masks.
 	body_parts_covered = FACE
+	blocksound = PLATEHIT
