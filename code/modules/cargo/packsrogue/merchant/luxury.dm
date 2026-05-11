@@ -178,7 +178,7 @@
 	contains = list(/obj/item/tallowpot)
 
 /datum/supply_pack/rogue/luxury/stampstuff
-	name = "Lump of Greentallow"
+	name = "Lump of Blacktallow"
 	cost = 50
 	contains = list(/obj/item/reagent_containers/food/snacks/tallow/black)
 
