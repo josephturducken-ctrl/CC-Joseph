@@ -2320,8 +2320,9 @@
 	var/image/I = image(icon = 'icons/effects/effects.dmi', loc = tloc, icon_state = "found_above[tag]", layer = 18)
 	if(!I)
 		return
-	I.layer = 18
-	I.plane = 18
+	I.alpha = 155
+	I.layer = 19
+	I.plane = 19
 	if(!I)
 		return
 	I.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
