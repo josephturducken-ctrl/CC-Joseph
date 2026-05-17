@@ -44,6 +44,7 @@ GLOBAL_LIST_EMPTY(active_economic_events)
 		var/datum/trade_good/tg = GLOB.trade_goods[good_id]
 		if(tg && price_mod != 0)
 			tg.global_price_mod /= price_mod
+	refresh_affected_stockpile_caches()
 	// Withdraw auto-price ratchets downward only, so a glut that pushed it below
 	// baseline never recovers on its own. When an oversupply ends, snap any
 	// auto-priced stockpile entry back to the restored market.
