@@ -210,6 +210,7 @@ SUBSYSTEM_DEF(economy)
 			region.produces_today[good_id] = max(1, round(region.produces[good_id] * pop_mult))
 		for(var/good_id in region.demands)
 			region.demands_today[good_id] = max(1, round(region.demands[good_id] * pop_mult))
+	SStreasury.dirty_market_view()
 
 	var/list/expired = list()
 	for(var/datum/standing_order/O as anything in GLOB.standing_order_pool)
@@ -759,7 +760,9 @@ SUBSYSTEM_DEF(economy)
 		var/list/entry = avail[good_id]
 		var/datum/roguestock/stockpile_entry = find_stockpile_by_trade_good(good_id)
 		if(stockpile_entry)
-			stockpile_entry.stockpile_amount -= entry["delivered_units"]
+			stockpile_entry.stockpile_amount -= delivered
+		credit_economic_event_saturation(good_id, delivered)
+	SStreasury.dirty_market_view()
 
 /datum/controller/subsystem/economy/proc/preview_partial_fulfillment(datum/standing_order/order)
 	var/list/equip_goods = list()

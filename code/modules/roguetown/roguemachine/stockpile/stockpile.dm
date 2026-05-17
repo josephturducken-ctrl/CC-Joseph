@@ -321,6 +321,7 @@
 			var/true_value = I.get_real_price()
 			if(!R.transport_item)
 				R.stockpile_amount += 1 //stacked logs need to check for multiple
+				SStreasury.dirty_market_view()
 				qdel(I)
 				if(message == TRUE)
 					stock_announce("[R.name] has been stockpiled.")

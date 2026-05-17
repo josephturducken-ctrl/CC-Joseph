@@ -570,6 +570,7 @@ SUBSYSTEM_DEF(treasury)
 		return FALSE
 	var/amt = D.get_export_price()
 	D.stockpile_amount -= D.importexport_amt
+	dirty_market_view()
 
 	mint(discretionary_fund, amt, "exported [D.name]")
 	SStreasury.total_export += amt
