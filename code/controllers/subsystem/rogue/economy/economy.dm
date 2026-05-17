@@ -25,6 +25,9 @@ SUBSYSTEM_DEF(economy)
 		for(var/good_id in region.produces)
 			if(region.produces[good_id])
 				goods_with_producers[good_id] = TRUE
+		for(var/good_id in region.demands)
+			if(region.demands[good_id])
+				goods_with_demand[good_id] = TRUE
 	daily_report_diff = list(
 		"day" = GLOB.dayspassed,
 		"events_fired" = list(),
