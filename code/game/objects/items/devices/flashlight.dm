@@ -478,6 +478,7 @@
 	name = "bronze handlamptern"
 	icon_state = "lesserbronzelamp"
 	desc = "A light to guide the way, and a cage to carry your flame."
+	on = FALSE
 
 /obj/item/flashlight/flare/torch/lantern/bronzelamptern
 	name = "bronze lamptern"
