@@ -1593,6 +1593,8 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	if(user.get_active_held_item() == src)
 		user.update_a_intents()
 	user.changeNext_move(CLICK_CD_RAPID)
+	if(toggle_state)
+		apply_override_state(toggle_state)
 	return TRUE
 
 /obj/item/proc/altgrip(mob/living/carbon/user)
