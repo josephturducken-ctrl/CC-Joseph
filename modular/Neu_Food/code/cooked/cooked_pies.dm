@@ -98,6 +98,8 @@
 /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat/meat
 	icon_state = "meatpie"
 	tastes = list("succulent meat and crispy butterdough" = 1)
+	eat_effect = /datum/status_effect/buff/snackbuff
+	foodtype = GRAIN | DAIRY | MEAT
 	filling_color = "#b43628"
 	slice_name = "meat pie slice"
 	//CC Edit Begin
@@ -118,6 +120,14 @@
 	diet_change_amount = FOOD_DIETARY_VALUE_GREAT
 	//CC Edit End
 
+// -------------- SPIDER PIE --------------
+/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat/spider
+	name = "de-scallax pie"
+	desc = "A delicious, homemade pie made with the inside of a spider. Still needs to be sliced."
+	icon_state = "spiderpie"
+	tastes = list("spider innards and crispy butterdough" = 1)
+	filling_color = "#6a9153"
+	slice_name = "de-scallax pie slice"
 
 // -------------- POT PIE -----------------
 /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/pot
