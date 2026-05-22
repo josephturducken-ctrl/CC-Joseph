@@ -53,7 +53,7 @@
 	for(var/mob/living/L in GLOB.mob_living_list)
 		if(L == user || istype(L, /mob/living/carbon/human/dummy))
 			continue
-		if(L.has_flaw(/datum/charflaw/hunted))
+		if(HAS_TRAIT(L, TRAIT_HUNTED))
 			var/entry_name = "[L.real_name][L.job ? " - [L.job]" : ""]"
 			possible_targets[entry_name] = L
 			display_names += entry_name
@@ -140,7 +140,7 @@
 
 	// Determine Channel Time
 	var/channel_time = 10 SECONDS
-	if(target.has_flaw(/datum/charflaw/hunted))
+	if(HAS_TRAIT(target, TRAIT_HUNTED))
 		channel_time = 3 SECONDS
 
 	to_chat(user, span_notice("You begin pulling [target] into graggar's plane"))
