@@ -159,8 +159,8 @@
 		TAT_VIRTUE_CHOICE_COMBAT_WHIPS = list(/datum/skill/combat/whipsflails = SKILL_LEVEL_JOURNEYMAN), \
 		TAT_VIRTUE_CHOICE_COMBAT_MACES = list(/datum/skill/combat/maces = SKILL_LEVEL_JOURNEYMAN), \
 		TAT_VIRTUE_CHOICE_COMBAT_POLEARMS = list(/datum/skill/combat/polearms = SKILL_LEVEL_JOURNEYMAN), \
-		TAT_VIRTUE_CHOICE_COMBAT_STAVES = list(/datum/skill/combat/staves = SKILL_LEVEL_JOURNEYMAN) \
-		TAT_VIRTUE_CHOICE_COMBAT_BOWS = list(/datum/skill/combat/bows = SKILL_LEVEL_JOURNEYMAN) \
+		TAT_VIRTUE_CHOICE_COMBAT_STAVES = list(/datum/skill/combat/staves = SKILL_LEVEL_JOURNEYMAN), \
+		TAT_VIRTUE_CHOICE_COMBAT_BOWS = list(/datum/skill/combat/bows = SKILL_LEVEL_JOURNEYMAN), \
 		TAT_VIRTUE_CHOICE_COMBAT_CROSSBOWS = list(/datum/skill/combat/crossbows = SKILL_LEVEL_JOURNEYMAN) \
 	), \
 	/datum/virtue/utility/apprentice = list( \
