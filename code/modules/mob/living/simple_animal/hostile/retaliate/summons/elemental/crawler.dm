@@ -59,5 +59,5 @@
 	for(var/i =1 to 6)
 		new /obj/item/magic/elemental/mote(deathspot) ///Caustic edit end
 	update_icon()
-	sleep(1)
-	qdel(src)
+	spawn(1)
+		qdel(src)
