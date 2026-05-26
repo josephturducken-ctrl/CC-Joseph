@@ -237,6 +237,7 @@ GLOBAL_LIST_INIT(tat_donation_access_all_ckeys, TAT_DONATION_ACCESS_ALL_CKEYS)
 	/obj/item/clothing/mask/rogue/wildguard = TAT_ITEM_ENTRY("Wildguard Mask", 1, "clothing", "weapon_supply", TAT_SUPPLY_IRON, "mask"), \
 	/obj/item/clothing/mask/rogue/facemask/steel/kazengun = TAT_ITEM_ENTRY("Soldier's Half-Mask", 1, "clothing", "weapon_supply", TAT_SUPPLY_STEEL, "mask"), \
 	/obj/item/clothing/mask/rogue/facemask/steel/kazengun/full = TAT_ITEM_ENTRY("Soldier's Mask", 2, "clothing", "weapon_supply", TAT_SUPPLY_STEEL, "mask"), \
+	/obj/item/clothing/mask/rogue/facemask/steel/steppesman/anthro = TAT_ITEM_ENTRY("Steppesman Beast Mask", 2, "clothing", "weapon_supply", TAT_SUPPLY_STEEL, "mask"), \
 	/obj/item/clothing/mask/rogue/facemask/steel/steppesman = TAT_ITEM_ENTRY("Steppesman Mask", 2, "clothing", "weapon_supply", TAT_SUPPLY_STEEL, "mask"), \
 	/obj/item/clothing/neck/roguetown/bevor = TAT_ITEM_ENTRY("Bevor", 2.5, "clothing", "armor_family", TAT_ARMOR_PLATE, "neck"), \
 	/obj/item/clothing/neck/roguetown/bevor/bronze = TAT_ITEM_ENTRY("Bronze Bevor", 1, "clothing", "armor_family", TAT_ARMOR_MAIL, "neck"), \
