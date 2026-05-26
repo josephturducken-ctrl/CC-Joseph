@@ -801,7 +801,7 @@
 		if(!M.client)
 			to_chat(usr, span_warning("[M] doesn't seem to have an active client."), MESSAGE_TYPE_ADMINLOG)
 			return
-		var/datum/job/mob_job = SSjob.GetJob(M.mind.assigned_role)
+		var/datum/job/mob_job
 		var/target_job = SSrole_class_handler.get_advclass_by_name(M.advjob)
 		if(M.mind)
 			mob_job = SSjob.GetJob(M.mind.assigned_role)
