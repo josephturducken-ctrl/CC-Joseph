@@ -1,11 +1,6 @@
 import type { CSSProperties } from 'react';
 
-import {
-  FONT_BODY,
-  INK,
-  INK_FAINT,
-  INK_SOFT,
-} from '../common/parchment';
+import { INK, INK_FAINT, INK_SOFT } from '../common/parchment';
 import { AMBER_TINT, AMBER_TINT_STRONG } from './parchment_calendar';
 import { EventBar } from './EventBar';
 import type { CalendarEvent } from './shared';

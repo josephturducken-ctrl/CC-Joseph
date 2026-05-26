@@ -1,9 +1,6 @@
 import type { CSSProperties } from 'react';
 
-import {
-  FONT_BODY,
-  SERIF,
-} from '../common/parchment';
+import { SERIF } from '../common/parchment';
 import { RIBBON_TEXT } from './parchment_calendar';
 
 type EventBarProps = {
