@@ -45,3 +45,7 @@
 /datum/mob_descriptor/height/skyscraping
 	name = "Sky-Scraping"
 	prefix = "a"
+
+/datum/mob_descriptor/height/miniscule
+	name = "Miniscule"
+	prefix = "a"

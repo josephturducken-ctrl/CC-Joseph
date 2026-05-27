@@ -310,3 +310,59 @@
 /datum/mob_descriptor/trait/twozennies
 	name = "Two Zennies Short"
 	prefix = "%ARE% very"
+
+/datum/mob_descriptor/trait/feral
+	name = "Feral"
+	prefix = "%ARE% very"
+
+/datum/mob_descriptor/trait/hungry
+	name = "Hungry"
+	prefix = "%ARE% very"
+
+/datum/mob_descriptor/trait/breasted
+	name = "Breasted"
+	prefix = "%ARE% boobily"
+
+/datum/mob_descriptor/trait/silly
+	name = "Silly"
+	prefix = "%ARE% very"
+
+/datum/mob_descriptor/trait/squishy
+	name = "Squishy"
+	prefix = "%ARE% very"
+
+/datum/mob_descriptor/trait/lumpy
+	name = "Lumpy"
+	prefix = "%ARE% very"
+
+/datum/mob_descriptor/trait/concave
+	name = "Concave"
+	prefix = "%ARE% very"
+
+/datum/mob_descriptor/trait/obsidian
+	name = "Obsidian"
+	prefix = "%ARE% very"
+
+/datum/mob_descriptor/trait/alabaster
+	name = "Alabaster"
+	prefix = "%ARE% very"
+
+/datum/mob_descriptor/trait/amaranth
+	name = "Amaranth"
+	prefix = "%ARE% very"
+
+/datum/mob_descriptor/trait/annoying
+	name = "Annoying"
+	prefix = "%ARE% very"
+
+/datum/mob_descriptor/trait/tasty
+	name = "Tasty"
+	prefix = "%ARE% very"
+
+/datum/mob_descriptor/trait/pompous
+	name = "Pompous"
+	prefix = "%ARE% very"
+
+/datum/mob_descriptor/trait/bugeyed
+	name = "Bug-Eyed"
+	prefix = "%ARE% very"

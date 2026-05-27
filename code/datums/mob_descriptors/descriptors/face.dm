@@ -59,6 +59,15 @@
 /datum/mob_descriptor/face/full
 	name = "Full"
 
+/datum/mob_descriptor/face/flat
+	name = "Flat"
+
+/datum/mob_descriptor/face/symmetrical
+	name = "Symmetrical"
+
+/datum/mob_descriptor/face/shiny
+	name = "Shiny"
+
 /datum/mob_descriptor/face_exp
 	abstract_type = /datum/mob_descriptor/face_exp
 	suffix = "face"
@@ -198,3 +207,21 @@
 
 /datum/mob_descriptor/face_exp/bored
 	name = "Bored"
+
+/datum/mob_descriptor/face_exp/feral
+	name = "Feral"
+
+/datum/mob_descriptor/face_exp/frothing
+	name = "Frothing"
+
+/datum/mob_descriptor/face_exp/grimacing
+	name = "Grimacing"
+
+/datum/mob_descriptor/face_exp/weepy
+	name = "Weepy"
+
+/datum/mob_descriptor/face_exp/dusky
+	name = "Dusky"
+
+/datum/mob_descriptor/face_exp/pained
+	name = "Pained"

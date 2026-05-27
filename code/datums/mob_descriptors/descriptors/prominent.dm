@@ -435,3 +435,33 @@
 /datum/mob_descriptor/prominent/noisy_balls
 	name = "Noisy Balls"
 	verbage = "%HAVE%"
+
+/datum/mob_descriptor/prominent/prominent_penis
+	name = "Prominent Penis"
+	verbage = "%HAVE%"
+
+/datum/mob_descriptor/prominent/lamptern_sized_knot
+	name = "Lamptern Size Knot"
+	verbage = "%HAVE%"
+	prefix = "a"
+
+/datum/mob_descriptor/prominent/prominent_paws
+	name = "Prominent Paws"
+	verbage = "%HAVE%"
+
+/datum/mob_descriptor/prominent/prominent_feet
+	name = "Prominent Feet"
+	verbage = "%HAVE%"
+
+/datum/mob_descriptor/prominent/sumacly
+	name = "Sumac-ly"
+	verbage = "%ARE%"
+
+/datum/mob_descriptor/prominent/lovehandles
+	name = "Lovehandles"
+	verbage = "%HAVE%"
+
+/datum/mob_descriptor/prominent/cellulite_riddled_ass
+	name = "Cellulite Riddled Ass"
+	verbage = "%HAVE%"
+	prefix = "a"
