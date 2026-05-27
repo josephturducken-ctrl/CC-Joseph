@@ -159,6 +159,8 @@ GLOBAL_LIST_INIT(tat_trait_skill_cap_bonus_rules, TAT_TRAIT_SKILL_CAP_BONUS_RULE
 	TRAIT_PACIFISM, \
 	TRAIT_CRITICAL_WEAKNESS, \
 	TRAIT_NUDIST, \
+	TRAIT_DEFILED_NOBLE, \
+	TRAIT_JESTERPHOBIA, \
 	TRAIT_INHUMEN_ANATOMY, \
 	TRAIT_DISFIGURED, \
 	TRAIT_SPELLCOCKBLOCK, \
@@ -329,6 +331,8 @@ GLOBAL_LIST_INIT(tat_trait_skill_cap_bonus_rules, TAT_TRAIT_SKILL_CAP_BONUS_RULE
 	TRAIT_BAD_MOOD = TAT_TRAIT_ENTRY("Bad Mood", -5, TAT_CATEGORY_ODDITY, TAT_CATEGORY_ODDITY_NAME, "All stress you receive is doubled."), \
 	TRAIT_PACIFISM = TAT_TRAIT_ENTRY("Pacifist", -20, TAT_CATEGORY_ODDITY, TAT_CATEGORY_ODDITY_NAME, "You cannot harm living beings."), \
 	TRAIT_CRITICAL_WEAKNESS = TAT_TRAIT_ENTRY("Critical Weakness", -15, TAT_CATEGORY_ODDITY, TAT_CATEGORY_ODDITY_NAME, "You are far more vulnerable to critical wounds."), \
+	TRAIT_JESTERPHOBIA = TAT_TRAIT_ENTRY("Jesterphobic", 0, TAT_CATEGORY_ODDITY, TAT_CATEGORY_ODDITY_NAME, "I have a severe irrational fear of Jesters."), \
+	TRAIT_DEFILED_NOBLE = TAT_TRAIT_ENTRY("Drained Noble Blood", -5, TAT_CATEGORY_ODDITY, TAT_CATEGORY_ODDITY_NAME, "I'm of noble blood but... Something feels off!"), \
 	TRAIT_NUDIST = TAT_TRAIT_ENTRY("Nudist", -10, TAT_CATEGORY_ODDITY, TAT_CATEGORY_ODDITY_NAME, "You refuse to wear clothes."), \
 	TRAIT_INHUMEN_ANATOMY = TAT_TRAIT_ENTRY("Inhumen Anatomy", -5, TAT_CATEGORY_ODDITY, TAT_CATEGORY_ODDITY_NAME, "Your anatomy prevents you from wearing hats and boots."), \
 	TRAIT_DISFIGURED = TAT_TRAIT_ENTRY("Disfigured", 5, TAT_CATEGORY_ODDITY, TAT_CATEGORY_ODDITY_NAME, "You are unknowned to everyone."), \
