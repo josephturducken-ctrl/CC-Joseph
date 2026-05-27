@@ -15863,6 +15863,10 @@
 /obj/effect/decal/cleanable/vomit,
 /turf/open/floor/rogue/naturalstone/sandstone,
 /area/rogue/under/cavewet/bogcaves/desert)
+"fVd" = (
+/obj/structure/table/wood/poor,
+/turf/open/floor/rogue/naturalstone/sandstone,
+/area/rogue/under/cavewet/bogcaves/desert)
 "fVi" = (
 /obj/structure/chair/wood/zybantine{
 	dir = 8
@@ -19371,6 +19375,10 @@
 /obj/structure/fluff/railing/border/north,
 /turf/open/floor/rogue/lightpath,
 /area/rogue/outdoors/town/roofs/desert)
+"hpR" = (
+/obj/effect/spawner/lootdrop/roguegem,
+/turf/open/floor/rogue/naturalstone/sandstone,
+/area/rogue/under/cavewet/bogcaves/desert)
 "hpT" = (
 /obj/machinery/light/rogue/hearth{
 	pixel_y = 10
@@ -19880,6 +19888,7 @@
 /area/rogue/indoors/town/desert/warden)
 "hCw" = (
 /obj/structure/table/wood/poor,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/food,
 /turf/open/floor/rogue/concrete{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
@@ -31355,6 +31364,13 @@
 "mdN" = (
 /turf/closed/wall/mineral/rogue/wooddark/horizontal,
 /area/rogue/outdoors/desertdeep)
+"mdU" = (
+/obj/structure/table/wood/poor,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/food,
+/turf/open/floor/rogue/metal{
+	icon_state = "plating2"
+	},
+/area/rogue/under/cavewet/bogcaves/desert)
 "mdW" = (
 /obj/machinery/light/rogue/candle/l,
 /obj/structure/bookcase/random,
@@ -269025,7 +269041,7 @@ pVD
 und
 und
 kVm
-kVm
+hpR
 wRw
 kVm
 und
@@ -276818,7 +276834,7 @@ pVD
 gVN
 kVm
 rBe
-vas
+fVd
 mLq
 kVm
 kVm
@@ -277127,7 +277143,7 @@ xJw
 xwm
 xJw
 pVD
-dVe
+kVm
 kVm
 kVm
 wvI
@@ -283694,7 +283710,7 @@ xwm
 xJw
 pVD
 xui
-aQv
+hBy
 rSp
 hBy
 hBy
@@ -283738,7 +283754,7 @@ rwS
 rwS
 rwS
 vGp
-qyZ
+mdU
 qyZ
 rwS
 rwS
@@ -393183,11 +393199,11 @@ vTa
 vTa
 vTa
 vTa
-meZ
-meZ
-meZ
-meZ
-meZ
+oqm
+oqm
+oqm
+oqm
+oqm
 vTa
 vTa
 vTa
@@ -393495,11 +393511,11 @@ nJm
 vTa
 vTa
 vTa
-meZ
+oqm
 icQ
 deR
-pkC
-meZ
+ury
+oqm
 vTa
 vTa
 vTa
@@ -393810,8 +393826,8 @@ lrn
 bep
 icQ
 oqm
-meZ
-meZ
+oqm
+oqm
 vTa
 vTa
 vTa
