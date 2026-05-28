@@ -65,7 +65,7 @@
 /atom/movable/screen/alert/status_effect/swingdelay
 	name = "Swinging!"
 	desc = "I am swinging my weapon! Why did I have the time to read this?!"
-	icon = 'icons/mob/combat_debuffs.dmi'
+	icon = 'icons/mob/screen_alert_combat.dmi'
 	icon_state = "swingdelay"
 
 /datum/status_effect/swingdelay/penalty
