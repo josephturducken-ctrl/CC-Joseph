@@ -226,6 +226,8 @@
 /obj/effect/landmark/start/wretchlate,
 /obj/effect/landmark/start/wildsoul,
 /obj/effect/landmark/start/wildsoullate,
+/obj/effect/landmark/start/gnoll,
+/obj/effect/landmark/start/gnolllate,
 /turf/open/floor/rogue/churchrough,
 /area/rogue/underworld/adventurespawn)
 "Aa" = (
@@ -400,6 +402,23 @@
 	},
 /turf/open/floor/rogue/churchrough,
 /area/rogue/underworld/adventurespawn)
+"UY" = (
+/obj/effect/landmark/start/adventurerlate{
+	dir = 1
+	},
+/obj/effect/landmark/start/courtagent,
+/obj/effect/landmark/start/adventurerlate{
+	dir = 1
+	},
+/obj/effect/landmark/start/adventurerlate{
+	dir = 1
+	},
+/obj/effect/landmark/start/wildsoul,
+/obj/effect/landmark/start/wildsoullate,
+/obj/effect/landmark/start/gnoll,
+/obj/effect/landmark/start/gnolllate,
+/turf/open/floor/rogue/churchrough,
+/area/rogue/underworld/desert)
 "VA" = (
 /turf/closed/wall/mineral/rogue/decowood,
 /area/rogue/underworld/adventurespawn)
@@ -897,7 +916,7 @@ MR
 MR
 MR
 MR
-Pk
+UY
 dA
 dA
 MR
