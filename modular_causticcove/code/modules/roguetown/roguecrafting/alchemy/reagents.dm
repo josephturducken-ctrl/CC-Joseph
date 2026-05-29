@@ -1,6 +1,6 @@
 // Stat poisons for caustic
 
-datum/reagent/debuff/strengthpoison
+/datum/reagent/debuff/strengthpoison
 	name = "Strength Poison"
 	description = "Makes you feel like an out of shape towner."
 	reagent_state = LIQUID
@@ -13,7 +13,7 @@ datum/reagent/debuff/strengthpoison
 	M.apply_status_effect(/datum/status_effect/debuff/alch/strengthpoison)
 	return ..()
 
-datum/reagent/debuff/strongstrengthpoison
+/datum/reagent/debuff/strongstrengthpoison
 	name = "Strong Strength Poison"
 	description = "Makes you feel like an effeminate male attempting to pick up a jug of milk."
 	reagent_state = LIQUID
@@ -26,7 +26,7 @@ datum/reagent/debuff/strongstrengthpoison
 	M.apply_status_effect(/datum/status_effect/debuff/alch/strong/strengthpoison)
 	return ..()
 
-datum/reagent/debuff/perceptionpoison
+/datum/reagent/debuff/perceptionpoison
 	name = "Perception Poison"
 	description = "Makes you feel like you just dropped your glasses."
 	reagent_state = LIQUID
@@ -39,7 +39,7 @@ datum/reagent/debuff/perceptionpoison
 	M.apply_status_effect(/datum/status_effect/debuff/alch/perceptionpoison)
 	return ..()
 
-datum/reagent/debuff/strongperceptionpoison
+/datum/reagent/debuff/strongperceptionpoison
 	name = "Strong Perception Poison"
 	description = "Makes you feel like you're getting punished for biting your mother's hair."
 	reagent_state = LIQUID
@@ -52,7 +52,7 @@ datum/reagent/debuff/strongperceptionpoison
 	M.apply_status_effect(/datum/status_effect/debuff/alch/strong/perceptionpoison)
 	return ..()
 
-datum/reagent/debuff/intelligencepoison
+/datum/reagent/debuff/intelligencepoison
 	name = "Intelligence Poison"
 	description = "Makes you feel like you're dumber than a box of rocks."
 	reagent_state = LIQUID
@@ -65,7 +65,7 @@ datum/reagent/debuff/intelligencepoison
 	M.apply_status_effect(/datum/status_effect/debuff/alch/intelligencepoison)
 	return ..()
 
-datum/reagent/debuff/strongintelligencepoison
+/datum/reagent/debuff/strongintelligencepoison
 	name = "Strong Intelligence Poison"
 	description = "Makes you feel lobotomized and happy."
 	reagent_state = LIQUID
@@ -78,7 +78,7 @@ datum/reagent/debuff/strongintelligencepoison
 	M.apply_status_effect(/datum/status_effect/debuff/alch/strong/intelligencepoison)
 	return ..()
 
-datum/reagent/debuff/constitutionpoison
+/datum/reagent/debuff/constitutionpoison
 	name = "Constitution Poison"
 	description = "Makes you feel like a soft pillow."
 	reagent_state = LIQUID
@@ -91,7 +91,7 @@ datum/reagent/debuff/constitutionpoison
 	M.apply_status_effect(/datum/status_effect/debuff/alch/constitutionpoison)
 	return ..()
 
-datum/reagent/debuff/strongconstitutionpoison
+/datum/reagent/debuff/strongconstitutionpoison
 	name = "Strong Constitution Poison"
 	description = "Makes you feel like a target."
 	reagent_state = LIQUID
@@ -104,7 +104,7 @@ datum/reagent/debuff/strongconstitutionpoison
 	M.apply_status_effect(/datum/status_effect/debuff/alch/strong/constitutionpoison)
 	return ..()
 
-datum/reagent/debuff/endurancepoison
+/datum/reagent/debuff/endurancepoison
 	name = "Endurance Poison"
 	description = "Makes you feel like you're high on swampweed but better."
 	reagent_state = LIQUID
@@ -117,7 +117,7 @@ datum/reagent/debuff/endurancepoison
 	M.apply_status_effect(/datum/status_effect/debuff/alch/endurancepoison)
 	return ..()
 
-datum/reagent/debuff/strongendurancepoison
+/datum/reagent/debuff/strongendurancepoison
 	name = "Strong Endurance Poison"
 	description = "Makes you feel like a weak duke being spoken to by their evil eunuch."
 	reagent_state = LIQUID
@@ -130,7 +130,7 @@ datum/reagent/debuff/strongendurancepoison
 	M.apply_status_effect(/datum/status_effect/debuff/alch/strong/endurancepoison)
 	return ..()
 
-datum/reagent/debuff/speedpoison
+/datum/reagent/debuff/speedpoison
 	name = "Speed Poison"
 	description = "Makes you feel like you're moving in slow-motion."
 	reagent_state = LIQUID
@@ -143,7 +143,7 @@ datum/reagent/debuff/speedpoison
 	M.apply_status_effect(/datum/status_effect/debuff/alch/speedpoison)
 	return ..()
 
-datum/reagent/debuff/strongspeedpoison
+/datum/reagent/debuff/strongspeedpoison
 	name = "Strong Speed Poison"
 	description = "Makes you feel like your legs just gave up."
 	reagent_state = LIQUID
@@ -156,7 +156,7 @@ datum/reagent/debuff/strongspeedpoison
 	M.apply_status_effect(/datum/status_effect/debuff/alch/strong/speedpoison)
 	return ..()
 
-datum/reagent/debuff/fortunepoison
+/datum/reagent/debuff/fortunepoison
 	name = "Luck Poison"
 	description = "Makes you feel like Xylix is giggling at you."
 	reagent_state = LIQUID
@@ -169,7 +169,7 @@ datum/reagent/debuff/fortunepoison
 	M.apply_status_effect(/datum/status_effect/debuff/alch/fortunepoison)
 	return ..()
 
-datum/reagent/debuff/strongfortunepoison
+/datum/reagent/debuff/strongfortunepoison
 	name = "Strong Luck Poison"
 	description = "Makes you feel like Xylix is guffawing at you."
 	reagent_state = LIQUID
@@ -184,7 +184,7 @@ datum/reagent/debuff/strongfortunepoison
 
 //Kink-related ones
 
-datum/reagent/buff/bimboliquer
+/datum/reagent/buff/bimboliquer
 	name = "Bimbo Liquer"
 	description = "This hot pink liquid smells deliciously like schnapps. Make sure you know what you're doing when you drink this!"
 	reagent_state = LIQUID
@@ -197,7 +197,7 @@ datum/reagent/buff/bimboliquer
 	M.apply_status_effect(/datum/status_effect/buff/alch/bimboliquer)
 	return ..()
 
-datum/reagent/debuff/baothasantidote
+/datum/reagent/debuff/baothasantidote
 	name = "Baotha's Antidote"
 	description = "Even getting a whiff of this makes you feel dizzy enough to pass out. Make sure you know what you're doing."
 	reagent_state = LIQUID
