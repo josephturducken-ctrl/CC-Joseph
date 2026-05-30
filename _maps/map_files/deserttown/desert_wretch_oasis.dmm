@@ -1160,7 +1160,7 @@
 "hM" = (
 /obj/structure/bars/passage{
 	max_integrity = 2500;
-	redstone_id = vampirescenic
+	redstone_id = "vampirescenic"
 	},
 /obj/structure/curtain/red{
 	icon_state = "curtain-closed"
@@ -1585,7 +1585,7 @@
 "kf" = (
 /obj/structure/bars/passage{
 	max_integrity = 2500;
-	redstone_id = vampirescenic
+	redstone_id = "vampirescenic"
 	},
 /obj/structure/curtain/red{
 	icon_state = "curtain-closed"
@@ -3486,7 +3486,7 @@
 "vF" = (
 /obj/structure/bars/passage{
 	max_integrity = 2500;
-	redstone_id = vampirescenic
+	redstone_id = "vampirescenic"
 	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/vampire_manor/desert)
@@ -3983,7 +3983,7 @@
 /area/rogue/under/cave/inhumen)
 "yQ" = (
 /obj/structure/lever{
-	redstone_id = vampirescenic;
+	redstone_id = "vampirescenic";
 	pixel_y = 10
 	},
 /turf/open/floor/rogue/hexstone,
