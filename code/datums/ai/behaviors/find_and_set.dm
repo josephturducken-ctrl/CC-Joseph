@@ -82,6 +82,10 @@ GLOBAL_LIST_INIT(find_and_set_interested_atoms, typecacheof(list(/obj/item, /mob
 	return TRUE
 
 /datum/ai_behavior/find_and_set/in_list/search_tactic(datum/ai_controller/controller, locate_paths, search_range)
+	//Caustic Edit - Somehow this is being sent a null locate_paths? I'm not entirely sure _why_ that's happening, but this hopefully fixes the runtimes... The AI might recover quicker if it's able to properly cancel out of this action instead of runtiming.
+	if(!locate_paths)
+		return null
+	//Caustic Edit End
 	var/list/found = typecache_filter_list(oview(search_range, controller.pawn), locate_paths)
 	if(length(found))
 		return pick(found)
