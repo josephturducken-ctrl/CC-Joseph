@@ -6545,10 +6545,6 @@
 /obj/item/rogueweapon/thresher,
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/vampire_manor/desert)
-"Pz" = (
-/turf/open/floor/rogue/blocks/stonered/tiny,
-/turf/closed/wall/mineral/rogue/sandstone,
-/area/rogue/indoors/vampire_manor/desert)
 "PA" = (
 /obj/structure/vine,
 /turf/open/floor/rogue/grass,
@@ -53965,7 +53961,7 @@ YI
 hO
 hO
 hO
-Pz
+hO
 hO
 hO
 hO
