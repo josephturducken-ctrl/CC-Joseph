@@ -2231,15 +2231,6 @@
 	tools = list(/obj/item/needle)
 	craftdiff = 6
 
-/datum/crafting_recipe/roguetown/sewing/tailor/hgambeson/fencer
-	name = "fencing shirt"
-	category = "Gambesons"
-	display_category = ITEM_CAT_ARMOR_LIGHT
-	result = /obj/item/clothing/suit/roguetown/shirt/freifechter
-	reqs = list(/obj/item/natural/cloth = 5,
-				/obj/item/natural/fibers = 2)
-	craftdiff = 4
-
 /datum/crafting_recipe/roguetown/sewing/tailor/grenzelhat
 	name = "grenzelhoftian hat"
 	category = "Hats"
