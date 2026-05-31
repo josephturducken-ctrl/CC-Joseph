@@ -302,6 +302,7 @@
 				attempted_wounds += /datum/wound/integrity
 			else
 				attempted_wounds += /datum/wound/artery
+
 	if(bclass in GLOB.whipping_bclasses)
 		used = round(damage_dividend * 20 + (dam / 3))
 		if(user && istype(user.rmb_intent, /datum/rmb_intent/strong))

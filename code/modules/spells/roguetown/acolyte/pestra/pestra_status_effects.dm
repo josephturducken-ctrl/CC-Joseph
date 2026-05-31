@@ -129,13 +129,11 @@
 /datum/status_effect/buff/pestra_care/tick()
 	if(HAS_TRAIT(owner, TRAIT_IRONMAN))
 		return
-	
 	var/obj/effect/temp_visual/heal/H = new /obj/effect/temp_visual/heal_rogue(get_turf(owner))
 	H.color = effect_colour
 
 	if(owner.blood_volume < BLOOD_VOLUME_NORMAL)
 		owner.blood_volume = min(owner.blood_volume + healing_strength, BLOOD_VOLUME_NORMAL)
-
 	var/list/wounds = owner.get_wounds()
 	if(length(wounds) > 0)
 		owner.heal_wounds(healing_strength)

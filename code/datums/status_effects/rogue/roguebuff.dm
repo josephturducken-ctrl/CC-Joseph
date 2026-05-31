@@ -905,17 +905,14 @@
 	var/healing_on_tick = 4
 	alert_type = /atom/movable/screen/alert/status_effect/buff/oremuncher
 
-/datum/status_effect/buff/rockmuncher/on_creation(mob/living/new_owner, new_healing_on_tick)
 /datum/status_effect/buff/oremuncher/on_creation(mob/living/new_owner, new_healing_on_tick)
 	healing_on_tick = new_healing_on_tick
 	return ..()
 
-/datum/status_effect/buff/rockmuncher/tick()
 /datum/status_effect/buff/oremuncher/tick()
 	if(!HAS_TRAIT(owner, TRAIT_IRONMAN))
 		return
 	var/obj/effect/temp_visual/heal/H = new /obj/effect/temp_visual/heal_rogue(get_turf(owner))
-	H.color = "#FF0000"
 	H.color = "#ceb8a3"
 	var/list/wCount = owner.get_wounds()
 	if(wCount.len > 0)
@@ -947,16 +944,6 @@
 	var/obj/effect/temp_visual/heal/H = new /obj/effect/temp_visual/heal_rogue(get_turf(owner))
 	H.color = "#ffffff"
 	var/list/wCount = owner.get_wounds()
-	if(owner.construct)
-		if(wCount.len > 0)
-			owner.heal_wounds(healing_on_tick)
-			owner.update_damage_overlays()
-		owner.adjustBruteLoss(0.15*-healing_on_tick, 0)
-		owner.adjustFireLoss(0.15*-healing_on_tick, 0)
-		owner.adjustOxyLoss(0.15*-healing_on_tick, 0)
-		owner.adjustToxLoss(0.15*-healing_on_tick, 0)
-		owner.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.15*-healing_on_tick)
-		owner.adjustCloneLoss(0.15*-healing_on_tick, 0)
 	if(wCount.len > 0)
 		owner.heal_wounds(healing_on_tick)
 		owner.update_damage_overlays()

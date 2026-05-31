@@ -78,7 +78,6 @@
 		if(do_after(user, 1 MINUTES))
 			user.add_stress(/datum/stressevent/meditation)
 
-
 /datum/emote/living/bow
 	key = "bow"
 	key_third_person = "bows"

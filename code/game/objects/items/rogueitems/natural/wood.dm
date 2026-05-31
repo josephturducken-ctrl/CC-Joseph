@@ -87,6 +87,7 @@
 		return TRUE
 	..()
 
+//log munching
 /obj/item/grown/log/tree/attack(mob/living/M, mob/user)
 	if(!user.cmode)
 		if(try_construct_consume(src, M, user))
@@ -460,8 +461,6 @@
 			if(!do_after(user, 4 SECONDS, target = I))
 				return
 			to_chat(user, span_warning("The [user] breaks an [I] into small parts with the stake!"))
-			new /obj/item/scrap(get_turf(I))
-			new /obj/item/scrap(get_turf(I))
 			new /obj/item/scrap(get_turf(I))
 			qdel(I)
 		if(I.anvilrepair)

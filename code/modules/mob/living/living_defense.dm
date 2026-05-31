@@ -610,13 +610,16 @@
 		return FALSE
 	if(shock_damage < 1 && !(flags & SHOCK_VISUAL_ONLY))
 		return FALSE
+
 	if(HAS_TRAIT(src, TRAIT_IRONMAN) && !(flags & SHOCK_VISUAL_ONLY)) // this handles shock weakness, jakk here as you wish
 		adjustFireLoss(50)
+
 	if(!(flags & SHOCK_VISUAL_ONLY))
 		if(!(flags & SHOCK_ILLUSION))
 			adjustFireLoss(shock_damage)
 		else
 			adjustStaminaLoss(shock_damage)
+
 	if(HAS_TRAIT(src, TRAIT_IRONMAN)) // sovl
 		visible_message(
 			span_danger("[src] was violently shocked by \the [source]!"), \

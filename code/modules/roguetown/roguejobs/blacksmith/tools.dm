@@ -192,17 +192,17 @@
 /obj/item/rogueweapon/hammer/proc/hammerheal(mob/living/M, mob/living/user)
 	if(!user || !M)
 		return
-	
+
 	if(!M.can_inject(user, TRUE))
 		return
-	
+
 	if(!ishuman(M))
 		return
-	
+
 	if(!HAS_TRAIT(M, TRAIT_IRONMAN))
 		to_chat(user, span_warning("They are not made of metal, you can't tinker with that."))
 		return
-	
+
 	var/qualified = FALSE
 
 	if(user == M)
@@ -214,15 +214,6 @@
 			qualified = TRUE
 		if(user.get_skill_level(/datum/skill/craft/blacksmithing) >= SKILL_LEVEL_JOURNEYMAN)
 			qualified = TRUE
-
-	if(!qualified)
-		visible_message(span_warning("[user] hammers a mean dent into [M]! Do they even know what they're doing...?"), span_warning("You hammer a mean dent into [M]! Where do I even start...?"))
-		playsound(user.loc, 'sound/items/bsmith4.ogg', 100, FALSE)
-		shake_camera(M, 2, 1)
-		shake_camera(user, 2, 1)
-		if(prob(30))
-			M.emote("whimper")
-		return
 
 	var/mob/living/carbon/human/H = M
 
@@ -246,6 +237,7 @@
 
 	// sort descending (highest priority first)
 	priority_limbs = sortTim(priority_limbs, GLOBAL_PROC_REF(cmp_numeric_dsc), TRUE)
+
 	do
 		if(!user || !M || QDELETED(user) || QDELETED(M))
 			break
@@ -287,18 +279,21 @@
 				has_wrench = TRUE
 
 		if(has_complex_wounds && !(has_tongs || has_wrench))
-			to_chat(user, span_warning("These injuries are too severe to hammer safely! You need proper tools like tongs or a wrench."))
+			to_chat(user, span_warning("These injuries are too severe to repair with just a hammer! Either Tongs or a Wrench on your free hand are needed."))
 			return
 
 		var/used_time = 90 
+
 		if(user.mind)
-			used_time -= (user.get_skill_level(/datum/skill/craft/engineering) * 10)
-		
+			used_time -= (user.get_skill_level(/datum/skill/craft/engineering) * 7)
+			used_time -= (user.get_skill_level(/datum/skill/craft/armorsmithing) * 2)
+			used_time -= (user.get_skill_level(/datum/skill/craft/blacksmithing) * 2)
+
 		if(has_tongs)
 			used_time *= 0.75
 
 		if(has_wrench)
-			used_time *= 0.50
+			used_time *= 0.25
 
 		used_time = round(max(used_time, 5))
 
@@ -309,7 +304,7 @@
 
 		if(!do_after(user, used_time, TRUE, M))
 			return
-		
+
 		if(!user || !M || QDELETED(user) || QDELETED(M))
 			break
 
@@ -318,37 +313,57 @@
 
 		playsound(user.loc, 'sound/items/bsmith4.ogg', 100, FALSE)
 
-		var/brute_heal = (M == user) ? 10 : 25 
+		var/brute_heal = (M == user) ? 10 : 25
 		var/fire_heal = (M == user) ? 10 : 25
+
+		if(!qualified)
+			var/current_total = M.getBruteLoss() + M.getFireLoss()
+			var/minimum_allowed = 300
+
+			if(current_total <= minimum_allowed)
+				user.visible_message(span_warning("[user] hesitates while working on [M], no longer knowing how to proceed."), span_warning("I don't know how to proceed from here..."))
+				break
+
+			if(prob(50))
+				user.visible_message(span_notice("[user] manages to hammer [M]'s [affecting.name] into better shape."),span_notice("I think that worked."))
+			else
+				user.visible_message(span_warning("[user] awkwardly tinkers with [M]'s [affecting.name], uncertain what to do."), span_warning("I'm not sure what I'm doing..."))
+				playsound(user.loc, 'sound/items/bsmith4.ogg', 100, FALSE)
+				shake_camera(M, 2, 1)
+				shake_camera(user, 2, 1)
+
+				if(prob(30))
+					if(prob(50))
+						M.emote("whimper")
+					else
+						M.emote("cry")
+
+				continue
+
+			var/allowed_healing = current_total - minimum_allowed
+
+			brute_heal = min(brute_heal, allowed_healing)
+			fire_heal = min(fire_heal, allowed_healing)
 
 		affecting.heal_damage(brute_heal, fire_heal)
 
 		if(has_tongs || has_wrench)
 			H.heal_wounds(5)
-		
+
 		H.update_damage_overlays()
 		user.mind.add_sleep_experience(/datum/skill/craft/engineering, (user.STAINT*2.5))
 
 		if(M == user)
-			user.visible_message(
-				span_notice("[user] repairs [user.p_their()] [affecting.name]."),
-				span_notice("I repair my [affecting.name].")
-			)
+			user.visible_message(span_notice("[user] repairs [user.p_their()] [affecting.name]."), span_notice("I repair my [affecting.name]."))
 		else
-			user.visible_message(
-				span_notice("[user] repairs [M]'s [affecting.name]."),
-				span_notice("I repair [M]'s [affecting.name].")
-			)
+			user.visible_message(span_notice("[user] repairs [M]'s [affecting.name]."),	span_notice("I repair [M]'s [affecting.name]."))
 
 		// CHECK IF THIS LIMB IS DONE → MOVE TO NEXT
 		if((affecting.brute_dam + affecting.burn_dam) <= 0 && !length(affecting.wounds))
 			priority_limbs.Cut(1,2)
 
 		if((M.getBruteLoss() + M.getFireLoss()) <= 0 && !length(H.get_wounds()))
-			user.visible_message(
-				span_notice("[M] is good as new!"),
-				span_notice("I am good as new!")
-			)
+			user.visible_message(span_notice("[M] is good as new!"), span_notice("I am good as new!"))
 			break
 
 	while(do_after(user, CLICK_CD_MELEE, TRUE, M))

@@ -360,9 +360,9 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 		to_chat(user, span_warning("You most use both hands to chisel blocks."))
 	else
 		..()
+		
 //rock munching
 /obj/item/natural/stone/attack(mob/living/M, mob/user)
-
 	if(!user.cmode)
 		if(try_construct_consume(src, M, user))
 			return
@@ -402,13 +402,11 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 	. += span_info("Left-clicking a rock with a stone has a chance to spawn sparks. Sparks can be used to reignite extinguished torches, lampterns, hearths, and other igniteable structures.")
 	. += span_info("Left-clicking a rock with a chisel will turn it into a stone block, which can be used for masonry and construction.")
 
-/obj/item/natural/rock/Initialize(mapload, autodeconstruct, hp_override)
+/obj/item/natural/rock/Initialize(mapload, autodeconstruct)
 	icon_state = "stonebig[rand(1,2)]"
 	if(autodeconstruct)
 		deconstruct()
 		return
-	if(hp_override)
-		obj_integrity = hp_override
 	..()
 
 /obj/item/natural/rock/Crossed(mob/living/L)
@@ -420,6 +418,7 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 			L.consider_ambush(always = TRUE)
 	..()
 
+//le rocke CRUSHER
 /obj/item/natural/rock/attack(mob/living/M, mob/user)
 	if(!user.cmode)
 		if(try_construct_consume(src, M, user))
