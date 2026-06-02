@@ -6392,7 +6392,8 @@
 "cql" = (
 /obj/structure/mineral_door/wood{
 	lockid = "foodshoproom2";
-	name = "Room #2"
+	name = "Room #2";
+	locked = 1
 	},
 /turf/open/floor/rogue/darkpath,
 /area/rogue/indoors/town/desert)
@@ -13762,7 +13763,10 @@
 /turf/open/floor/rogue/tile/harem1,
 /area/rogue/indoors/town/church)
 "faJ" = (
-/obj/structure/stairs/ccwdown,
+/obj/structure/mineral_door/wood/deadbolt{
+	dir = 1;
+	locked = 1
+	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/desert)
 "faX" = (
@@ -33191,6 +33195,13 @@
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
 /area/rogue/under/town/basement/desert/town)
+"mJy" = (
+/obj/structure/mineral_door/wood/deadbolt{
+	dir = 8;
+	locked = 1
+	},
+/turf/open/floor/rogue/sandbrick,
+/area/rogue/indoors/town/desert)
 "mJH" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/rogue/deserttile,
@@ -35796,7 +35807,8 @@
 "nHo" = (
 /obj/structure/mineral_door/wood{
 	lockid = "foodshoproom1";
-	name = "Room #1"
+	name = "Room #1";
+	locked = 1
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/desert)
@@ -506000,7 +506012,7 @@ krC
 dnC
 bzb
 bzb
-lsZ
+faJ
 fls
 nHo
 gwG
@@ -507556,7 +507568,7 @@ kFh
 kFh
 kFh
 atX
-faJ
+bFi
 nUb
 xJs
 bzb
@@ -625494,7 +625506,7 @@ kFh
 aCL
 atX
 atX
-mez
+mJy
 atX
 hQE
 atX
