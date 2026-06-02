@@ -103,3 +103,27 @@
 
 /datum/mob_descriptor/body/absurd
 	name = "Absurd"
+
+/datum/mob_descriptor/body/concave
+	name = "Concave"
+
+/datum/mob_descriptor/body/dumpy
+	name = "Dumpy"
+
+/datum/mob_descriptor/body/meaty
+	name = "Meaty"
+
+/datum/mob_descriptor/body/widerthantall
+	name = "Wider-Than-Tall"
+
+/datum/mob_descriptor/body/brickhouse
+	name = "Brick House"
+
+/datum/mob_descriptor/body/brickshithouse
+	name = "Brick Shithouse"
+
+/datum/mob_descriptor/body/moatflooding
+	name = "Moat-Flooding"
+
+/datum/mob_descriptor/body/wellclogging
+	name = "Well-Clogging"

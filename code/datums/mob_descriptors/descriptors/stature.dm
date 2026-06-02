@@ -308,3 +308,48 @@
 
 /datum/mob_descriptor/stature/chud
 	name = "Chud"
+
+/datum/mob_descriptor/stature/subject
+	name = "Subject"
+
+/datum/mob_descriptor/stature/oni
+	name = "Oni"
+
+/datum/mob_descriptor/stature/snack
+	name = "Snack"
+
+/datum/mob_descriptor/stature/ambrose
+	name = "Ambrose"
+
+/datum/mob_descriptor/stature/dweller
+	name = "Dweller"
+
+/datum/mob_descriptor/stature/outlaw
+	name = "Outlaw"
+
+/datum/mob_descriptor/stature/fleshlight //might be pushing it
+	name = "Fleshlight"
+
+/datum/mob_descriptor/stature/mess
+	name = "Mess"
+
+/datum/mob_descriptor/stature/yowler
+	name = "Yowler"
+
+/datum/mob_descriptor/stature/whiner
+	name = "Whiner"
+
+/datum/mob_descriptor/stature/rag
+	name = "Rag"
+
+/datum/mob_descriptor/stature/mop
+	name = "Mop"
+
+/datum/mob_descriptor/stature/cuddlebug
+	name = "Cuddlebug"
+
+/datum/mob_descriptor/stature/victim
+	name = "Victim"
+
+/datum/mob_descriptor/stature/jackal
+	name = "Jackal"
