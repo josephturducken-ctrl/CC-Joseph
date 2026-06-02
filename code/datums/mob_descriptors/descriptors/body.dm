@@ -88,3 +88,18 @@
 
 /datum/mob_descriptor/body/burly
 	name = "Burly"
+
+/datum/mob_descriptor/body/massive
+	name = "Massive"
+
+/datum/mob_descriptor/body/hourglass_figured
+	name = "Hourglass-figured"
+
+/datum/mob_descriptor/body/barrelchested
+	name = "Barrel-chested"
+
+/datum/mob_descriptor/body/brutish
+	name = "Brutish"
+
+/datum/mob_descriptor/body/absurd
+	name = "Absurd"

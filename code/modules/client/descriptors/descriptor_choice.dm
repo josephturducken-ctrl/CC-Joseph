@@ -61,6 +61,21 @@
 		/datum/mob_descriptor/face_exp/suave,
 		/datum/mob_descriptor/face_exp/humble,
 		/datum/mob_descriptor/face_exp/smug,
+		/datum/mob_descriptor/face_exp/rabid,
+		/datum/mob_descriptor/face_exp/uncomfortable,
+		/datum/mob_descriptor/face_exp/confused,
+		/datum/mob_descriptor/face_exp/drooly,
+		/datum/mob_descriptor/face_exp/dopey,
+		/datum/mob_descriptor/face_exp/crosseyed,
+		/datum/mob_descriptor/face_exp/giggly,
+		/datum/mob_descriptor/face_exp/thirsty,
+		/datum/mob_descriptor/face_exp/dumb,
+		/datum/mob_descriptor/face_exp/stupid,
+		/datum/mob_descriptor/face_exp/nonchalant,
+		/datum/mob_descriptor/face_exp/unbothered,
+		/datum/mob_descriptor/face_exp/tired,
+		/datum/mob_descriptor/face_exp/exhausted,
+		/datum/mob_descriptor/face_exp/bored,
 	)
 
 /datum/descriptor_choice/body
@@ -96,6 +111,11 @@
 		/datum/mob_descriptor/body/broadshoulder,
 		/datum/mob_descriptor/body/waspwaist,
 		/datum/mob_descriptor/body/burly,
+		/datum/mob_descriptor/body/massive,
+		/datum/mob_descriptor/body/hourglass_figured,
+		/datum/mob_descriptor/body/barrelchested,
+		/datum/mob_descriptor/body/brutish,
+		/datum/mob_descriptor/body/absurd,
 	)
 
 /datum/descriptor_choice/stature
@@ -107,6 +127,7 @@
 		/datum/mob_descriptor/stature/hag,
 		/datum/mob_descriptor/stature/patriarch,
 		/datum/mob_descriptor/stature/villain,
+		/datum/mob_descriptor/stature/bimbo,
 		/datum/mob_descriptor/stature/thug,
 		/datum/mob_descriptor/stature/knave,
 		/datum/mob_descriptor/stature/wench,
@@ -171,6 +192,25 @@
 		/datum/mob_descriptor/stature/peon,
 		/datum/mob_descriptor/stature/scion,
 		/datum/mob_descriptor/stature/swashbuckler,
+		/datum/mob_descriptor/stature/fatass,
+		/datum/mob_descriptor/stature/grapplebait,
+		/datum/mob_descriptor/stature/buttplug,
+		/datum/mob_descriptor/stature/plug,
+		/datum/mob_descriptor/stature/snakeinthegrass,
+		/datum/mob_descriptor/stature/blob,
+		/datum/mob_descriptor/stature/thing,
+		/datum/mob_descriptor/stature/dummy,
+		/datum/mob_descriptor/stature/coatrack,
+		/datum/mob_descriptor/stature/plushie,
+		/datum/mob_descriptor/stature/doll,
+		/datum/mob_descriptor/stature/rat,
+		/datum/mob_descriptor/stature/doorbuster,
+		/datum/mob_descriptor/stature/fruit,
+		/datum/mob_descriptor/stature/calamity,
+		/datum/mob_descriptor/stature/dolt,
+		/datum/mob_descriptor/stature/sumac,
+		/datum/mob_descriptor/stature/himbo,
+		/datum/mob_descriptor/stature/chud,
 	)
 
 /datum/descriptor_choice/voice
@@ -209,6 +249,12 @@
 		/datum/mob_descriptor/voice/acerbic,
 		/datum/mob_descriptor/voice/caustic,
 		/datum/mob_descriptor/voice/laconic,
+		/datum/mob_descriptor/voice/rabid,
+		/datum/mob_descriptor/voice/rousley,
+		/datum/mob_descriptor/voice/angelic,
+		/datum/mob_descriptor/voice/brassy,
+		/datum/mob_descriptor/voice/ghostly,
+		/datum/mob_descriptor/voice/accented,
 	)
 
 /datum/descriptor_choice/skin
@@ -288,6 +334,10 @@
 		/datum/mob_descriptor/height/towering,
 		/datum/mob_descriptor/height/giant,
 		/datum/mob_descriptor/height/tiny,
+		/datum/mob_descriptor/height/massive,
+		/datum/mob_descriptor/height/enormous,
+		/datum/mob_descriptor/height/baothan,
+		/datum/mob_descriptor/height/skyscraping,
 	)
 /datum/descriptor_choice/trait
 	name = "Physical Descriptor"
@@ -352,6 +402,24 @@
 		/datum/mob_descriptor/trait/sullen,
 		/datum/mob_descriptor/trait/incessant,
 		/datum/mob_descriptor/trait/volfish,
+		/datum/mob_descriptor/trait/plump,
+		/datum/mob_descriptor/trait/fatassed,
+		/datum/mob_descriptor/trait/bemused,
+		/datum/mob_descriptor/trait/fat,
+		/datum/mob_descriptor/trait/round,
+		/datum/mob_descriptor/trait/massive,
+		/datum/mob_descriptor/trait/pearshaped,
+		/datum/mob_descriptor/trait/stomping,
+		/datum/mob_descriptor/trait/trotting,
+		/datum/mob_descriptor/trait/scampering,
+		/datum/mob_descriptor/trait/whiny,
+		/datum/mob_descriptor/trait/grippable,
+		/datum/mob_descriptor/trait/killable,
+		/datum/mob_descriptor/trait/shiny,
+		/datum/mob_descriptor/trait/metal,
+		/datum/mob_descriptor/trait/ravenous,
+		/datum/mob_descriptor/trait/rotund,
+		/datum/mob_descriptor/trait/twozennies,
 	)
 
 /datum/descriptor_choice/skin_all
@@ -443,6 +511,27 @@
 	/datum/mob_descriptor/prominent/chaste_mannerism,\
 	/datum/mob_descriptor/prominent/whimsy,\
 	/datum/mob_descriptor/prominent/dim_look,\
+	/datum/mob_descriptor/prominent/thicker_than_hardtack,\
+	/datum/mob_descriptor/prominent/long_eared,\
+	/datum/mob_descriptor/prominent/cushioned,\
+	/datum/mob_descriptor/prominent/gloopy,\
+	/datum/mob_descriptor/prominent/weak_willed,\
+	/datum/mob_descriptor/prominent/slimy,\
+	/datum/mob_descriptor/prominent/prominent_ballsack,\
+	/datum/mob_descriptor/prominent/prominent_shoulders,\
+	/datum/mob_descriptor/prominent/milky,\
+	/datum/mob_descriptor/prominent/prominent_ears,\
+	/datum/mob_descriptor/prominent/acidicslime,\
+	/datum/mob_descriptor/prominent/toxicslime,\
+	/datum/mob_descriptor/prominent/causticslime,\
+	/datum/mob_descriptor/prominent/tastyslime,\
+	/datum/mob_descriptor/prominent/smelly,\
+	/datum/mob_descriptor/prominent/musky,\
+	/datum/mob_descriptor/prominent/sweaty,\
+	/datum/mob_descriptor/prominent/leaky,\
+	/datum/mob_descriptor/prominent/loud_genitals,\
+	/datum/mob_descriptor/prominent/overly_productive_genitals,\
+	/datum/mob_descriptor/prominent/noisy_balls,\
 	/datum/mob_descriptor/prominent/custom/one,\
 	/datum/mob_descriptor/prominent/custom/two
 

@@ -449,6 +449,7 @@
 	var/obj/item/food = null
 	var/mob/living/carbon/human/lastuser
 	var/datum/looping_sound/boilloop/boilloop
+	var/give_pan_xp = FALSE //Caustic Edit - If this is true, the user gets XP for cooking something on a pan!
 
 /obj/machinery/light/rogue/hearth/get_mechanics_examine(mob/user)
 	. = ..()
@@ -542,6 +543,7 @@
 				if(!food)
 					S.forceMove(src)
 					food = S
+					give_pan_xp = FALSE //Caustic Edit - Add trigger for giving XP only if the pan has cooked something!
 					update_icon()
 					playsound(src.loc, 'sound/misc/frying.ogg', 80, FALSE, extrarange = 5)
 					return
@@ -635,6 +637,11 @@
 			if(food)
 				if(!user.put_in_active_hand(food))
 					food.forceMove(user.loc)
+				if(give_pan_xp)
+					if(isliving(user))
+						var/mob/living/liveuser = user
+						add_sleep_experience(user, /datum/skill/craft/cooking, liveuser.STAINT) //Caustic Edit - Readd exp from panfrying. Why was it removed :<
+					give_pan_xp = FALSE //Caustic Edit - reset this to false since we just added something!
 				food = null
 				update_icon()
 			else
@@ -691,6 +698,7 @@
 				if(C)
 					qdel(food)
 					food = C
+					give_pan_xp = TRUE //Caustic Edit - Add trigger for giving XP only if the pan has cooked something!
 		if(istype(attachment, /obj/item/reagent_containers/glass/bucket/pot))
 			if(attachment.reagents)
 				attachment.reagents.expose_temperature(400, 0.033)
@@ -844,28 +852,35 @@
 			if(distance > healing_range || HAS_TRAIT(human, TRAIT_IRONMAN))
 				continue
 			human.add_stress(/datum/stressevent/campfire)
-			// CC Edit - Campfires only heal and boost energy regen when you're sleeping and laying down. For towners, this does not affect them.
-			//If the campfire is a greater firepit (densefire), apply these effects anyways.
-			if(greater_fire || human.has_status_effect(/datum/status_effect/incapacitating/sleeping) || human.job == "Towner" || istype(human.mind?.assigned_role, /datum/job/roguetown/villager))
+			// CC Edit - Campfires only boost energy regen when you're sleeping and laying down. For towners, this does not affect them.
+			//If the campfire is a greater firepit (densefire), apply this effect anyways.
 
-				if(!human.has_status_effect(/datum/status_effect/buff/campfire_stamina))
-					to_chat(human, span_info("The warmth of the fire comforts me, affording me a short rest. I would need to lie down on a bed to get a better rest."))
-				human.apply_status_effect(/datum/status_effect/buff/campfire_stamina)
-
-				if(human.resting && !human.cmode)
-					var/valid_bed = FALSE
-					var/turf/T = get_turf(human)
-					for(var/obj/O in T.contents)
-						for(var/path in acceptable_beds)
-							if(ispath(O.type, path))
-								valid_bed = TRUE
-								break
-						if(valid_bed)
+			//Check for the bed first.
+			var/valid_bed = FALSE
+			if(human.resting && !human.cmode)
+				var/turf/T = get_turf(human)
+				for(var/obj/O in T.contents)
+					for(var/path in acceptable_beds)
+						if(ispath(O.type, path))
+							valid_bed = TRUE
 							break
 					if(valid_bed)
-						if(!human.has_status_effect(/datum/status_effect/buff/campfire))
-							to_chat(human, span_info("Settling in by the flames lifts the burdens of the week."))
-						human.apply_status_effect(/datum/status_effect/buff/campfire) //CC Edit - See above comment.
+						break
+
+			//Check if we're a towner role, and NOT in cmode.
+			var/static/list/towner_jobs
+			towner_jobs = GLOB.peasant_positions | GLOB.burgher_positions | GLOB.sidefolk_positions
+			if(((human.mind?.assigned_role in towner_jobs)) || !human.cmode) //Don't be in cmode
+
+				if(!human.has_status_effect(/datum/status_effect/buff/campfire_stamina))
+					to_chat(human, span_info("The warmth of the fire comforts me, affording me a short rest. I would need to lie down on a bed, or bundle up in bedsheets to get a better rest."))
+				
+				if(human.resting) //Can only heal and recover energy if resting... Second check for greater campfire.
+					human.apply_status_effect(/datum/status_effect/buff/campfire, valid_bed)
+
+				if(greater_fire || human.resting) //Check to grant stamina only if we're a greater fire, otherwise resting.
+					human.apply_status_effect(/datum/status_effect/buff/campfire_stamina, valid_bed)
+			//CC Edit End
 
 
 /obj/machinery/light/rogue/campfire/onkick(mob/user)

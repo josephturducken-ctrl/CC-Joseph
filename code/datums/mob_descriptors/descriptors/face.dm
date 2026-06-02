@@ -153,3 +153,48 @@
 
 /datum/mob_descriptor/face_exp/smug
 	name = "Smug"
+
+/datum/mob_descriptor/face_exp/rabid
+	name = "Rabid"
+
+/datum/mob_descriptor/face_exp/uncomfortable
+	name = "Uncomfortable"
+
+/datum/mob_descriptor/face_exp/confused
+	name = "Confused"
+
+/datum/mob_descriptor/face_exp/drooly
+	name = "Drooly"
+
+/datum/mob_descriptor/face_exp/dopey
+	name = "Dopey"
+
+/datum/mob_descriptor/face_exp/crosseyed
+	name = "Cross-eyed"
+
+/datum/mob_descriptor/face_exp/giggly
+	name = "Giggly"
+
+/datum/mob_descriptor/face_exp/thirsty
+	name = "Thirsty"
+
+/datum/mob_descriptor/face_exp/dumb
+	name = "Dumb"
+
+/datum/mob_descriptor/face_exp/stupid
+	name = "Stupid"
+
+/datum/mob_descriptor/face_exp/nonchalant
+	name = "Nonchalant"
+
+/datum/mob_descriptor/face_exp/unbothered
+	name = "Unbothered"
+
+/datum/mob_descriptor/face_exp/tired
+	name = "Tired"
+
+/datum/mob_descriptor/face_exp/exhausted
+	name = "Exhausted"
+
+/datum/mob_descriptor/face_exp/bored
+	name = "Bored"

@@ -299,7 +299,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/add_admin_verbs()
 	if(holder)
-		control_freak = CONTROL_FREAK_SKIN | CONTROL_FREAK_MACROS
+		//control_freak = CONTROL_FREAK_SKIN | CONTROL_FREAK_MACROS //Caustic Edit - Lets allow macros - Please don't abuse them!
 
 		var/rights = holder.rank.rights
 		verbs += GLOB.admin_verbs_default
@@ -959,5 +959,5 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		return
 
 	to_chat(src, "Browser tools are now enabled.")
-	winset(src, null, "browser-options=devtools,find,byondstorage")
+	winset(src, null, "browser-options=devtools,find,refresh") //Caustic Edit - Trying to move to the iframe storage for logging
 
