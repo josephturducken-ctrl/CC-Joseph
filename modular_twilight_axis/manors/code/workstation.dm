@@ -1,4 +1,4 @@
-datum/workstation
+/datum/workstation
 	var/workstation_name = "Holding"
 	var/list/produce = list()
 	var/workstation_size = 5

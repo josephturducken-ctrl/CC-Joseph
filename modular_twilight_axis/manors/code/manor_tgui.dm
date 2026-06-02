@@ -91,7 +91,7 @@
 /datum/manor_panel/proc/is_allowed_manor_role(mob/user)
 	var/datum/job/J = SSjob.GetJob(user.job)
 	var/is_noble = HAS_TRAIT(user,TRAIT_MANORHOLDERBIG) || HAS_TRAIT(user,TRAIT_MANORHOLDERMEDIUM) || HAS_TRAIT(user,TRAIT_MANORHOLDERSMALL) //For now, no nobility for virtue nobles
-	var/is_resident = !(HAS_TRAIT(user, TRAIT_OUTLANDER))
+	//var/is_resident = !(HAS_TRAIT(user, TRAIT_OUTLANDER))
 
 	if(J)
 		if(is_noble)
