@@ -128,6 +128,8 @@
 				var/datum/workstation/outpost/new_outpost = new /datum/workstation/outpost()
 				workstations += new_outpost
 				max_workers += new_outpost.workstation_size
+		if(/datum/patron/divine/eora)
+			max_workers += 10		
 	return max_workers
 
 /datum/manor/proc/update_workstation_types(type = "manor", manor_size = "big")

@@ -34,7 +34,7 @@ const GOD_TOOLTIPS: Record<string, string> = {
   'astrata': 'An outpost will be built in order to uphold Her order and to dispatch troops to fight banditry.',
   'baotha': 'Following teachings of Baotha your peasants embrace hedonistic lyfestyle. They will rest and celebrate during certain daes, which makes them more efficient overall.',
   'dendor': 'Dendor will bless your forests and attract wild animals. Your hunters do not forget the required rites and worship Him in return.',
-  'eora': '',
+  'eora': 'Eora will bless your peasants with her love and care, bringing more workers under your wise guidance.',
   'graggar': 'Your troops raid neighboring lands to capture new slaves for you regularly.',
   'malum': ' Malum will bless your hills and mountains. Mines surrounding your manor will be full of ore and gems.',
   'matthios': 'Residents of your estate are no servants. They are your comrades in fight for freedom! They do not pay taxes to you or crown. Instead they willingly support you with coin. A portion of profits and produce is kept in secret from treasure and is sold on open markets.',
