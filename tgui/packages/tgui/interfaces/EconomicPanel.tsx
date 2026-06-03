@@ -556,7 +556,6 @@ export const EconomicPanel = () => {
                               <span
                                 style={{
                                   color: '#c0392b',
-                                  fontVariant: 'small-caps',
                                   fontWeight: 'bold',
                                 }}
                               >

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
 import {
+  FONT_BODY,
   INK,
   INK_FAINT,
   pageStyle,
@@ -58,7 +59,7 @@ export const StewardTrade = () => {
             style={{
               ...subtitleStyle,
               color: INK_FAINT,
-              fontSize: '11px',
+              fontSize: FONT_BODY,
               marginTop: '2px',
             }}
           >
@@ -87,13 +88,12 @@ export const StewardTrade = () => {
                 border: `1px solid ${SEAL_AMBER}`,
                 padding: '6px 12px',
                 marginBottom: '10px',
-                fontSize: '12px',
+                fontSize: FONT_BODY,
                 color: INK,
               }}
             >
               <div
                 style={{
-                  fontVariant: 'small-caps',
                   color: SEAL_AMBER,
                   fontWeight: 'bold',
                   marginBottom: '2px',
@@ -108,7 +108,7 @@ export const StewardTrade = () => {
                 </span>{' '}
                 of {warrant.trade_cap}m remaining today
               </div>
-              <div style={{ color: INK_FAINT, fontSize: '12px' }}>
+              <div style={{ color: INK_FAINT, fontSize: FONT_BODY }}>
                 Trades beyond the warrant are refused. Crown&apos;s Purse still pays the coin.
               </div>
             </div>

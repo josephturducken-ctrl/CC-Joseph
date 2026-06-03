@@ -4,6 +4,7 @@ import { useBackend } from '../backend';
 import { Window } from '../layouts';
 import {
   cardStyle,
+  FONT_BODY,
   INK,
   INK_FAINT,
   INK_SOFT,
@@ -99,9 +100,8 @@ const GroupDivider = (props: { label: string }) => (
       style={{
         color: SEAL_AMBER,
         fontFamily: SERIF,
-        fontVariant: 'small-caps',
         fontWeight: 'bold',
-        fontSize: '12px',
+        fontSize: FONT_BODY,
         letterSpacing: '2px',
       }}
     >
@@ -131,7 +131,7 @@ const LineRow = (props: { line: DemandLine; cutPercent: number }) => {
         padding: '4px 8px',
         borderBottom: `1px dashed ${PARCHMENT_SHADOW}`,
         fontFamily: SERIF,
-        fontSize: '12px',
+        fontSize: FONT_BODY,
         opacity: done ? 0.55 : 1,
       }}
       title={
@@ -174,7 +174,6 @@ const LineRow = (props: { line: DemandLine; cutPercent: number }) => {
           flex: '0 0 130px',
           textAlign: 'right',
           color: done ? INK_FAINT : SEAL_GREEN,
-          fontStyle: 'italic',
         }}
       >
         you get {producerPayout}m
@@ -195,10 +194,8 @@ const Subsection = (props: {
       <div
         style={{
           fontFamily: SERIF,
-          fontVariant: 'small-caps',
           color: SEAL_AMBER,
-          fontStyle: 'italic',
-          fontSize: '11px',
+          fontSize: FONT_BODY,
           marginBottom: '2px',
         }}
       >
@@ -207,7 +204,7 @@ const Subsection = (props: {
       <div
         style={{
           fontFamily: SERIF,
-          fontSize: '10px',
+          fontSize: FONT_BODY,
           fontStyle: 'italic',
           color: INK_FAINT,
           marginBottom: '4px',
@@ -240,8 +237,7 @@ const ManifestSection = (props: {
         <span
           style={{
             color: SEAL_AMBER,
-            fontVariant: 'small-caps',
-            fontSize: '11px',
+            fontSize: FONT_BODY,
             marginLeft: '8px',
           }}
         >
@@ -256,7 +252,7 @@ const ManifestSection = (props: {
               border: `1px solid ${SEAL_GREEN}`,
               borderRadius: '8px',
               color: SEAL_GREEN,
-              fontSize: '10px',
+              fontSize: FONT_BODY,
               fontWeight: 'bold',
               letterSpacing: '0.5px',
               verticalAlign: 'middle',
@@ -270,8 +266,7 @@ const ManifestSection = (props: {
         <div
           style={{
             fontFamily: SERIF,
-            fontSize: '11px',
-            fontStyle: 'italic',
+            fontSize: FONT_BODY,
             color: INK_SOFT,
             marginTop: '2px',
             marginBottom: '6px',

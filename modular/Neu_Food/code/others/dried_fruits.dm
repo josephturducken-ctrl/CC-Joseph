@@ -8,7 +8,7 @@
 	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "raisins5"
 	bitesize = 5
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_QUARTER_MEAL)
 	w_class = WEIGHT_CLASS_TINY
 	tastes = list("dried jackberries" = 1, "shriveled bursts of sweetness" = 1)
 	faretype = FARE_POOR
@@ -53,7 +53,7 @@
 			faretype = FARE_FINE
 			color = null
 			tastes = list("overpoweringly honeyed" = 1, "a burst of sweetness" = 1)
-			list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
+			list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_THREE_QUARTER_MEAL)
 			bitesize = 1
 			process_step = 2
 			deep_fried_type = /obj/item/reagent_containers/food/snacks/rogue/raisins/sweetglass
@@ -67,7 +67,7 @@
 	name = "raspberried giblets"
 	desc = "Raspberried giblets that've been pruned of their juiciness, and turned into flavorful nuggets that'll last forever. When combined with honey and \
 	doused in a pot of boiling fat, it can birth 'sweetglass'; a shatteringly sweet candy, popular amongst the elders and children-of-nobility."
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_QUARTER_MEAL)
 	w_class = WEIGHT_CLASS_TINY
 	tastes = list("dried raspberries" = 1, "shriveled bursts of tartness" = 1)
 	color = "#FF2A00"
@@ -86,7 +86,7 @@
 			process_step = 2
 			faretype = FARE_FINE
 			tastes = list("overpoweringly honeyed" = 1, "a burst of sweetness" = 1)
-			list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
+			list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_THREE_QUARTER_MEAL)
 			deep_fried_type = /obj/item/reagent_containers/food/snacks/rogue/raisins/sweetglass/raspberry
 			update_icon()
 			qdel(I)
@@ -96,7 +96,7 @@
 	name = "strawberried giblets"
 	desc = "Strawberried giblets that've been pruned of their juiciness, and turned into flavorful nuggets that'll last forever. When combined with honey and \
 	doused in a pot of boiling fat, it can birth 'sweetglass'; a shatteringly sweet candy, popular amongst the elders and children-of-nobility."
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_QUARTER_MEAL)
 	w_class = WEIGHT_CLASS_TINY
 	tastes = list("dried strawberries" = 1, "shriveled bursts of sweetness" = 1)
 	color = "#FF2A00"
@@ -115,7 +115,7 @@
 			process_step = 2
 			faretype = FARE_FINE
 			tastes = list("overpoweringly honeyed" = 1, "a burst of sweetness" = 1)
-			list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
+			list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_THREE_QUARTER_MEAL)
 			deep_fried_type = /obj/item/reagent_containers/food/snacks/rogue/raisins/sweetglass/strawberry
 			update_icon()
 			qdel(I)
@@ -125,7 +125,7 @@
 	name = "blackberried giblets"
 	desc = "Blackberried giblets that've been pruned of their juiciness, and turned into flavorful nuggets that'll last forever. When combined with honey and \
 	doused in a pot of boiling fat, it can birth 'sweetglass'; a shatteringly sweet candy, popular amongst the elders and children-of-nobility."
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_QUARTER_MEAL)
 	w_class = WEIGHT_CLASS_TINY
 	tastes = list("dried blackberries" = 1, "shriveled bursts of sour-sweetness" = 1)
 	color = "#339AB7"
@@ -144,7 +144,7 @@
 			process_step = 2
 			faretype = FARE_FINE
 			tastes = list("overpoweringly honeyed" = 1, "a burst of sweetness" = 1)
-			list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
+			list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_THREE_QUARTER_MEAL)
 			deep_fried_type = /obj/item/reagent_containers/food/snacks/rogue/raisins/sweetglass/blackberry
 			update_icon()
 			qdel(I)
@@ -154,7 +154,7 @@
 	name = "plummic giblets"
 	desc = "Plummic giblets that've been pruned of their juiciness, and turned into flavorful nuggets that'll last forever. When combined with honey and \
 	doused in a pot of boiling fat, it can birth 'sweetglass'; a shatteringly sweet candy, popular amongst the elders and children-of-nobility."
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_QUARTER_MEAL)
 	w_class = WEIGHT_CLASS_TINY
 	tastes = list("dried plums" = 1, "shriveled bursts of honey-sweetness" = 1)
 	color = "#FF4F86"
@@ -173,7 +173,7 @@
 			process_step = 2
 			faretype = FARE_FINE
 			tastes = list("overpoweringly honeyed" = 1, "a burst of sweetness" = 1)
-			list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
+			list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_THREE_QUARTER_MEAL)
 			deep_fried_type = /obj/item/reagent_containers/food/snacks/rogue/raisins/sweetglass/plum
 			update_icon()
 			qdel(I)
@@ -183,7 +183,7 @@
 	name = "peared giblets"
 	desc = "Peared giblets that've been pruned of their juiciness, and turned into flavorful nuggets that'll last forever. When combined with honey and \
 	doused in a pot of boiling fat, it can birth 'sweetglass'; a shatteringly sweet candy, popular amongst the elders and children-of-nobility."
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_QUARTER_MEAL)
 	w_class = WEIGHT_CLASS_TINY
 	tastes = list("dried pears" = 1, "shriveled bursts of tarty-honeyiness" = 1)
 	color = "#EAB14F"
@@ -202,7 +202,7 @@
 			process_step = 2
 			faretype = FARE_FINE
 			tastes = list("overpoweringly honeyed" = 1, "a burst of sweetness" = 1)
-			list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
+			list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_THREE_QUARTER_MEAL)
 			deep_fried_type = /obj/item/reagent_containers/food/snacks/rogue/raisins/sweetglass/pear
 			update_icon()
 			qdel(I)
@@ -212,7 +212,7 @@
 	name = "tangerined giblets"
 	desc = "Tangerined giblets that've been pruned of their juiciness, and turned into flavorful nuggets that'll last forever. When combined with honey and \
 	doused in a pot of boiling fat, it can birth 'sweetglass'; a shatteringly sweet candy, popular amongst the elders and children-of-nobility."
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_QUARTER_MEAL)
 	w_class = WEIGHT_CLASS_TINY
 	tastes = list("dried tangerines" = 1, "shriveled bursts of tarty-sweetness" = 1)
 	color = "#FF9321"
@@ -231,7 +231,7 @@
 			process_step = 2
 			faretype = FARE_FINE
 			tastes = list("overpoweringly honeyed" = 1, "a burst of sweetness" = 1)
-			list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
+			list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_THREE_QUARTER_MEAL)
 			deep_fried_type = /obj/item/reagent_containers/food/snacks/rogue/raisins/sweetglass/tangerine
 			update_icon()
 			qdel(I)
@@ -241,7 +241,7 @@
 	name = "lemony giblets"
 	desc = "Lemony giblets that've been pruned of their juiciness, and turned into flavorful nuggets that'll last forever. When combined with honey and \
 	doused in a pot of boiling fat, it can birth 'sweetglass'; a shatteringly sweet candy, popular amongst the elders and children-of-nobility."
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_QUARTER_MEAL)
 	w_class = WEIGHT_CLASS_TINY
 	tastes = list("dried lemons" = 1, "shriveled bursts of tarty-sourness" = 1)
 	color = "#FFBD30"
@@ -260,7 +260,7 @@
 			process_step = 2
 			faretype = FARE_FINE
 			tastes = list("overpoweringly honeyed" = 1, "a burst of sweetness" = 1)
-			list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
+			list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_THREE_QUARTER_MEAL)
 			deep_fried_type = /obj/item/reagent_containers/food/snacks/rogue/raisins/sweetglass/lemon
 			update_icon()
 			qdel(I)
@@ -270,7 +270,7 @@
 	name = "limey giblets"
 	desc = "Limey giblets that've been pruned of their juiciness, and turned into flavorful nuggets that'll last forever. When combined with honey and \
 	doused in a pot of boiling fat, it can birth 'sweetglass'; a shatteringly sweet candy, popular amongst the elders and children-of-nobility."
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_QUARTER_MEAL)
 	w_class = WEIGHT_CLASS_TINY
 	tastes = list("dried limes" = 1, "shriveled bursts of sour-tartiness" = 1)
 	color = "#C3DB91"
@@ -289,7 +289,7 @@
 			process_step = 2
 			faretype = FARE_FINE
 			tastes = list("overpoweringly honeyed" = 1, "a burst of sweetness" = 1)
-			list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
+			list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_THREE_QUARTER_MEAL)
 			deep_fried_type = /obj/item/reagent_containers/food/snacks/rogue/raisins/sweetglass/lime
 			update_icon()
 			qdel(I)
@@ -303,7 +303,7 @@
 	spoil under very specific circumstances makes it a favored treat for those traveling afar; so long as they can afford it, of course."
 	icon_state = "sweetglass5"
 	bitesize = 5
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR * 2)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_QUARTER_MEAL * 2)
 	w_class = WEIGHT_CLASS_TINY
 	tastes = list("glassy jackberries" = 1, "sugary shards of sweetness" = 1)
 	faretype = FARE_LAVISH
@@ -391,7 +391,7 @@
 	bitesize = 7
 	slice_batch = FALSE
 	faretype = FARE_POOR
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS * 3)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_THREE_QUARTER_MEAL * 3)
 	tastes = list("raisin" = 1, "pumpkin" = 1, "dry paper" = 1)
 	rotprocess = null
 	//CC Edit Begin

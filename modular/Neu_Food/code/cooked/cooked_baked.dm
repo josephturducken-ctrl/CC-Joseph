@@ -72,7 +72,7 @@
 	desc = "Brittle and hard, like chewing on a rock. These salted biscuits will never expire, however: and for those who travel across Psydonia, that fact alone earns it a space in their packs."
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
 	icon_state = "tack6"
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_HALF_MEAL)
 	faretype = FARE_POOR
 	w_class = WEIGHT_CLASS_TINY
 	tastes = list("spelt" = 1)
@@ -267,7 +267,7 @@
 	icon_state = "toast_butter"
 	faretype = FARE_FINE
 	tastes = list("butter" = 1)
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_HALF_MEAL)
 	//CC Edit Begin
 	diet_types = list("Grains", "Dairy")
 	diet_change_amount = FOOD_DIETARY_VALUE_POOR
@@ -280,7 +280,7 @@
 	faretype = FARE_FINE
 	icon_state = "toast_jamtallow"
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_CHUNKY)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_FULL_MEAL)
 	eat_effect = /datum/status_effect/buff/greatsnackbuff
 	foodtype = GRAIN | FRUIT
 
@@ -290,7 +290,7 @@
 	desc = "A tangerine marmalade served on a bed of warm crustless bread topped with another piece of warm crustless bread. One bite, and it can satiate even a starving bear's stomach!"
 	faretype = FARE_FINE
 	icon_state = "toast_marmalade"
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_CHUNKY)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_FULL_MEAL)
 	eat_effect = /datum/status_effect/buff/greatsnackbuff
 	foodtype = GRAIN | FRUIT
 
@@ -316,7 +316,7 @@
 /obj/item/reagent_containers/food/snacks/rogue/sandwich
 	desc = "A delightful piece of heaven in every slice."
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_THREE_QUARTER_MEAL)
 	bitesize = 4
 	faretype = FARE_NEUTRAL
 	rotprocess = SHELFLIFE_DECENT
@@ -348,7 +348,7 @@
 	tastes = list("cheese" = 1,"egg" = 1)
 	name = "egg toast"
 	desc = "A piece of toast with a fried egg on top that jiggles gently when prodded."
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS * 2)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_THREE_QUARTER_MEAL * 2)
 	icon_state = "bread_egg"
 	foodtype = GRAIN | MEAT
 	//CC Edit Begin
@@ -360,7 +360,7 @@
 	tastes = list("salty fat" = 1)
 	name = "salo bread"
 	desc = "The salo's smooth consistency helps soften the rough grainy bread."
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS * 2)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_THREE_QUARTER_MEAL * 2)
 	faretype = FARE_POOR
 	icon_state = "bread_salo"
 	foodtype = GRAIN | MEAT
@@ -373,7 +373,7 @@
 	tastes = list("bacon" = 1)
 	name = "bacon bread"
 	desc = "A slice of bread with crispy bacon on top for the perfect breakfast."
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS * 2)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_THREE_QUARTER_MEAL * 2)
 	icon_state = "toast_bacon"
 	foodtype = GRAIN | MEAT
 	//CC Edit Begin
@@ -456,7 +456,7 @@
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
 	tastes = list("sweetly-sour jamminess" = 1, "a lavish break from the dae's woes" = 1)
 	icon_state = "bun_jamtallow"
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_CHUNKY)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_FULL_MEAL)
 	faretype = FARE_FINE
 	w_class = WEIGHT_CLASS_NORMAL
 	bitesize = 4
@@ -469,7 +469,7 @@
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
 	tastes = list("sweet-tarty jamminess" = 1, "a lavish break from the dae's woes" = 1)
 	icon_state = "bun_marmalade"
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_CHUNKY)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_FULL_MEAL)
 	faretype = FARE_FINE
 	w_class = WEIGHT_CLASS_NORMAL
 	bitesize = 4
@@ -687,7 +687,7 @@
 	bitesize = 8
 	slices_num = 6
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/raisinbreadslice
-	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_AVERAGE)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_MEAL_AND_HALF)
 	faretype = FARE_NEUTRAL
 	w_class = WEIGHT_CLASS_NORMAL
 	tastes = list("crisp-laden doughiness" = 1,"little bursts of caramelized fruitiness" = 1)
@@ -725,7 +725,7 @@
 	desc = "Soft and chewy. Nourishing and filling. Simple and decent."
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
 	icon_state = "raisinbread_slice"
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT-1)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_HALF_MEAL-1)
 	w_class = WEIGHT_CLASS_NORMAL
 	faretype = FARE_NEUTRAL
 	cooked_type = null
@@ -786,7 +786,7 @@
 	bitesize = 8
 	slices_num = 6
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/applebreadslice
-	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_AVERAGE)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_MEAL_AND_HALF)
 	faretype = FARE_FINE
 	w_class = WEIGHT_CLASS_NORMAL
 	tastes = list("crisp-laden doughiness" = 1,"deliciously soft apples" = 1)
@@ -820,7 +820,7 @@
 	desc = "Soft and chewy. Nourishing and filling. Simple yet decadant. Certainly a step up from raisins, that's for sure."
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
 	icon_state = "applebread_slice"
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_HALF_MEAL)
 	w_class = WEIGHT_CLASS_NORMAL
 	faretype = FARE_FINE
 	cooked_type = null
@@ -841,7 +841,7 @@
 	slices_num = 6
 	bitesize = 8
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/tomatoplate_slice
-	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_GOOD)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_TWO_MEALS)
 	faretype = FARE_NEUTRAL
 	w_class = WEIGHT_CLASS_NORMAL
 	tastes = list("richly smooth and salty tomatoes" = 1, "hot and gooey cheese" = 1, "a hint of herbiness" = 1)
@@ -858,7 +858,7 @@
 	icon_state = "pizza_slice"
 	faretype = FARE_NEUTRAL
 	w_class = WEIGHT_CLASS_NORMAL
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_HALF_MEAL)
 	tastes = list("richly smooth and salty tomatoes" = 1, "hot and gooey cheese" = 1, "a hint of herbiness" = 1)
 	bitesize = 3
 	rotprocess = SHELFLIFE_EXTREME
@@ -878,7 +878,7 @@
 	slices_num = 6
 	bitesize = 8
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meattomatoplate_slice
-	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_GOOD + SNACK_CHUNKY)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_TWO_MEALS + NUTRITION_FULL_MEAL)
 	faretype = FARE_NEUTRAL
 	w_class = WEIGHT_CLASS_NORMAL
 	tastes = list("richly smooth and salty tomatoes" = 1, "hot and gooey cheese" = 1, "crispy sausages" = 1)
@@ -895,7 +895,7 @@
 	icon_state = "meat_pizza_slice"
 	faretype = FARE_NEUTRAL
 	w_class = WEIGHT_CLASS_NORMAL
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_CHUNKY)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_FULL_MEAL)
 	tastes = list("richly smooth and salty tomatoes" = 1, "hot and gooey cheese" = 1, "crispy sausages" = 1)
 	bitesize = 3
 	rotprocess = SHELFLIFE_EXTREME
@@ -915,7 +915,7 @@
 	slices_num = 6
 	bitesize = 8
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/fishtomatoplate_slice
-	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_GOOD + SNACK_CHUNKY)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_TWO_MEALS + NUTRITION_FULL_MEAL)
 	faretype = FARE_NEUTRAL
 	w_class = WEIGHT_CLASS_NORMAL
 	tastes = list("richly smooth and salty tomatoes" = 1, "hot and gooey cheese" = 1, "oily fish" = 1)
@@ -932,7 +932,7 @@
 	icon_state = "fish_pizza_slice"
 	faretype = FARE_NEUTRAL
 	w_class = WEIGHT_CLASS_NORMAL
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_CHUNKY)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_FULL_MEAL)
 	tastes = list("richly smooth and salty tomatoes" = 1, "hot and gooey cheese" = 1, "oily fish" = 1)
 	bitesize = 3
 	rotprocess = SHELFLIFE_EXTREME
@@ -952,7 +952,7 @@
 	slices_num = 6
 	bitesize = 8
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/oniontomatoplate_slice
-	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_GOOD + SNACK_CHUNKY)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_TWO_MEALS + NUTRITION_FULL_MEAL)
 	faretype = FARE_NEUTRAL
 	w_class = WEIGHT_CLASS_NORMAL
 	tastes = list("richly smooth and salty tomatoes" = 1, "hot and gooey cheese" = 1, "snappy, crunchy onions" = 1)
@@ -969,7 +969,7 @@
 	icon_state = "onion_pizza_slice"
 	faretype = FARE_NEUTRAL
 	w_class = WEIGHT_CLASS_NORMAL
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_CHUNKY)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_FULL_MEAL)
 	tastes = list("richly smooth and salty tomatoes" = 1, "hot and gooey cheese" = 1, "snappy, crunchy onions" = 1)
 	bitesize = 3
 	rotprocess = SHELFLIFE_EXTREME
@@ -989,7 +989,7 @@
 	slices_num = 6
 	bitesize = 8
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/truffletomatoplate_slice
-	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_GOOD + SNACK_CHUNKY)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_TWO_MEALS + NUTRITION_FULL_MEAL)
 	faretype = FARE_FINE
 	w_class = WEIGHT_CLASS_NORMAL
 	tastes = list("richly smooth and salty tomatoes" = 1, "hot and gooey cheese" = 1, "savory and decadant truffles" = 1)
@@ -1006,7 +1006,7 @@
 	icon_state = "onion_pizza_slice"
 	faretype = FARE_FINE
 	w_class = WEIGHT_CLASS_NORMAL
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_CHUNKY)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_FULL_MEAL)
 	tastes = list("richly smooth and salty tomatoes" = 1, "hot and gooey cheese" = 1, "savory and decadant truffles" = 1)
 	bitesize = 3
 	rotprocess = SHELFLIFE_EXTREME
@@ -1026,7 +1026,7 @@
 	slices_num = 6
 	bitesize = 8
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/poisontruffletomatoplate_slice
-	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_GOOD + SNACK_CHUNKY, /datum/reagent/berrypoison = 5)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_TWO_MEALS + NUTRITION_FULL_MEAL, /datum/reagent/berrypoison = 5)
 	faretype = FARE_FINE
 	w_class = WEIGHT_CLASS_NORMAL
 	tastes = list("richly smooth and salty tomatoes" = 1, "hot and gooey cheese" = 1, "rubbery and bitter truffles" = 1)
@@ -1043,7 +1043,7 @@
 	icon_state = "onion_pizza_slice"
 	faretype = FARE_FINE
 	w_class = WEIGHT_CLASS_NORMAL
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_CHUNKY, /datum/reagent/berrypoison = 5)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_FULL_MEAL, /datum/reagent/berrypoison = 5)
 	tastes = list("richly smooth and salty tomatoes" = 1, "hot and gooey cheese" = 1, "rubbery and bitter truffles" = 1)
 	bitesize = 3
 	rotprocess = SHELFLIFE_EXTREME
@@ -1063,7 +1063,7 @@
 	slices_num = 6
 	bitesize = 8
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/peartomatoplate_slice
-	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_GOOD + SNACK_CHUNKY)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_TWO_MEALS + NUTRITION_FULL_MEAL)
 	faretype = FARE_FINE
 	w_class = WEIGHT_CLASS_NORMAL
 	tastes = list("richly smooth and salty tomatoes" = 1, "hot and gooey cheese" = 1, "sweet and tangy pears" = 1)
@@ -1080,7 +1080,7 @@
 	icon_state = "pear_pizza_slice"
 	faretype = FARE_FINE
 	w_class = WEIGHT_CLASS_NORMAL
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_CHUNKY)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_FULL_MEAL)
 	tastes = list("richly smooth and salty tomatoes" = 1, "hot and gooey cheese" = 1, "savory and tangy pears" = 1)
 	bitesize = 3
 	rotprocess = SHELFLIFE_EXTREME
@@ -1124,7 +1124,7 @@
 	//CC Edit End
 
 /obj/item/reagent_containers/food/snacks/rogue/bun_raston
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_THREE_QUARTER_MEAL)
 	tastes = list("cheese" = 1, "bread" = 1)
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
 	icon_state = "raston"

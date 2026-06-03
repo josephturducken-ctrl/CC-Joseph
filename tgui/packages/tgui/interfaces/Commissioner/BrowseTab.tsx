@@ -3,6 +3,7 @@ import { Input } from 'tgui-core/components';
 
 import {
   cardStyle,
+  FONT_BODY,
   INK,
   INK_FAINT,
   INK_SOFT,
@@ -41,10 +42,8 @@ const starsIf = (text: string, canRead: boolean) =>
 
 const railHeaderStyle = {
   fontFamily: SERIF,
-  fontSize: '11px',
-  fontVariant: 'small-caps' as const,
+  fontSize: FONT_BODY,
   color: SEAL_AMBER,
-  fontStyle: 'italic' as const,
   marginBottom: '4px',
   marginTop: '4px',
 };
@@ -54,8 +53,7 @@ const railRowStyle = (active: boolean, indent = false) => ({
   width: '100%',
   textAlign: 'left' as const,
   fontFamily: SERIF,
-  fontSize: '11px',
-  fontVariant: 'small-caps' as const,
+  fontSize: FONT_BODY,
   padding: indent ? '2px 8px 2px 20px' : '3px 8px',
   color: active ? INK : INK_FAINT,
   background: active ? 'rgba(200,170,100,0.25)' : 'transparent',
@@ -217,8 +215,7 @@ export const BrowseTab = (props: {
           <span
             style={{
               fontFamily: SERIF,
-              fontSize: '12px',
-              fontStyle: 'italic',
+              fontSize: FONT_BODY,
               color: INK_SOFT,
             }}
           >
@@ -279,7 +276,7 @@ export const BrowseTab = (props: {
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div
                         style={{
-                          fontSize: '12px',
+                          fontSize: FONT_BODY,
                           color: INK,
                           overflow: 'hidden',
                           textOverflow: 'ellipsis',
@@ -290,8 +287,7 @@ export const BrowseTab = (props: {
                       {category === ALL && (
                         <div
                           style={{
-                            fontSize: '10px',
-                            fontStyle: 'italic',
+                            fontSize: FONT_BODY,
                             color: INK_SOFT,
                           }}
                         >
@@ -303,7 +299,7 @@ export const BrowseTab = (props: {
                       style={{
                         flex: '0 0 auto',
                         textAlign: 'right',
-                        fontSize: '12px',
+                        fontSize: FONT_BODY,
                         color: SEAL_AMBER,
                         fontWeight: 'bold',
                       }}
@@ -314,8 +310,7 @@ export const BrowseTab = (props: {
                       <div
                         style={{
                           flex: '0 0 auto',
-                          fontSize: '10px',
-                          fontStyle: 'italic',
+                          fontSize: FONT_BODY,
                           color: INK_SOFT,
                         }}
                       >
@@ -344,9 +339,8 @@ export const BrowseTab = (props: {
                   gap: '8px',
                   marginTop: '8px',
                   fontFamily: SERIF,
-                  fontSize: '11px',
+                  fontSize: FONT_BODY,
                   color: INK_FAINT,
-                  fontStyle: 'italic',
                 }}
               >
                 <button
