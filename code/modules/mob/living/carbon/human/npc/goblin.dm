@@ -452,6 +452,13 @@ GLOBAL_LIST_INIT(goblin_pyromancer_aggro, list(
 			if(prob(20))
 				r_hand = /obj/item/rogueweapon/flail
 				l_hand = /obj/item/rogueweapon/shield/wood
+		if(6) // bottle bomber
+			r_hand = /obj/item/rogueweapon/huntingknife/stoneknife
+			neck = /obj/item/storage/belt/rogue/pouch/bombs
+			armor = /obj/item/clothing/suit/roguetown/armor/leather/hide/goblin
+			H.name = "goblin pyromancer"
+			H.real_name = "goblin pyromancer"
+			SEND_SIGNAL(H, COMSIG_MOB_MODIFY_AGGRO_LINES, GLOB.goblin_pyromancer_aggro, TRUE)
 	H.adjust_skillrank_up_to(/datum/skill/combat/polearms, 2, TRUE)
 	H.adjust_skillrank_up_to(/datum/skill/combat/maces, 2, TRUE)
 	H.adjust_skillrank_up_to(/datum/skill/combat/axes, 2, TRUE)
@@ -542,7 +549,7 @@ GLOBAL_LIST_INIT(goblin_pyromancer_aggro, list(
 		to_chat(user, "<span class='danger'>Too many player Goblins.</span>")
 		return
 	playergobs++
-	var/mob/living/carbon/human/species/goblin/N = new (get_turf(src))
+	var/mob/living/carbon/human/species/goblin/siege/N = new (get_turf(src))
 	N.key = user.key
 	N.base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, /datum/intent/simple/claw) //As intended from seige goblins, so it is here.
 	N.update_a_intents()
@@ -570,7 +577,7 @@ GLOBAL_LIST_INIT(goblin_pyromancer_aggro, list(
 	if(moon_goblins == 1)
 		new /mob/living/carbon/human/species/goblin/npc/moon(get_turf(src))
 	else
-		new /mob/living/carbon/human/species/goblin/npc/hell(get_turf(src))
+		new /mob/living/carbon/human/species/goblin/npc/siege(get_turf(src))
 	gobs++
 	update_icon()
 	if(living_player_count() < 30) //Lowpop Measures
