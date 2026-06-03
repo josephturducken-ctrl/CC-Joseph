@@ -2077,13 +2077,6 @@
 /obj/item/reagent_containers/glass/bottle/mercury,
 /obj/item/reagent_containers/glass/bottle/mercury,
 /obj/item/reagent_containers/glass/bottle/mercury,
-/obj/item/reagent_containers/glass/bottle/mercury,
-/obj/item/reagent_containers/glass/bottle/mercury,
-/obj/item/reagent_containers/glass/bottle/mercury,
-/obj/item/reagent_containers/glass/bottle/mercury,
-/obj/item/reagent_containers/glass/bottle/mercury,
-/obj/item/reagent_containers/glass/bottle/mercury,
-/obj/item/reagent_containers/glass/bottle/mercury,
 /turf/open/floor/rogue/deserttile{
 	icon_state = "tilegreeny"
 	},
@@ -7704,7 +7697,7 @@
 /area/rogue/indoors/town/desert/manor)
 "cQo" = (
 /obj/item/reagent_containers/powder/spice,
-/obj/effect/landmark/chest_or_mimic,
+/obj/structure/closet/crate/chest,
 /turf/open/floor/rogue/darkpath,
 /area/rogue/indoors/town/magician/desert)
 "cQq" = (
@@ -10630,6 +10623,12 @@
 /obj/machinery/light/rogue/candle/red,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/indoors/town/bath/desert)
+"dRo" = (
+/obj/effect/particle_effect/smoke{
+	lifetime = 14400
+	},
+/turf/open/transparent/openspace,
+/area/rogue/outdoors/town/manor/desert/roofs)
 "dRr" = (
 /obj/structure/curtain/drab,
 /turf/open/floor/rogue/herringbone{
@@ -13111,16 +13110,11 @@
 /turf/open/floor/rogue/sandbrick,
 /area/rogue/outdoors/town/roofs/desert)
 "eMk" = (
-/obj/structure/bars{
-	icon_state = "barsbent";
-	layer = 2.81;
-	name = "Desk and Deliveries"
+/obj/effect/particle_effect/smoke{
+	lifetime = 14400
 	},
-/obj/structure/table/wood,
-/turf/open/floor/rogue/concrete{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/indoors/town/desert/manor)
+/turf/open/water/pond,
+/area/rogue/outdoors/town/desert)
 "eMm" = (
 /obj/structure/table/wood{
 	dir = 5;
@@ -30863,6 +30857,17 @@
 /obj/machinery/light/rogue/firebowl/standing,
 /turf/open/floor/rogue/lightpath,
 /area/rogue/outdoors/desertdeep)
+"lMG" = (
+/obj/structure/table/wood,
+/obj/structure/bars{
+	icon_state = "barsbent";
+	layer = 2.81;
+	name = "Manor Desk and Deliveries"
+	},
+/turf/open/floor/rogue/concrete{
+	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
+	},
+/area/rogue/indoors/town/desert/manor)
 "lMP" = (
 /obj/structure/fluff/railing/border{
 	dir = 5
@@ -36775,7 +36780,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
-/obj/structure/flora/roguegrass,
+/obj/structure/flora/roguegrass/herb/manabloom,
 /turf/open/floor/rogue/dirt/desert,
 /area/rogue/indoors/town/magician/desert)
 "oas" = (
@@ -46761,12 +46766,12 @@
 /obj/structure/bars{
 	icon_state = "barsbent";
 	layer = 2.81;
-	name = "Desk and Deliveries"
+	name = "University Deliveries"
 	},
 /turf/open/floor/rogue/concrete{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
-/area/rogue/indoors/town/desert/manor)
+/area/rogue/indoors/town/magician/desert)
 "rNp" = (
 /obj/structure/fluff/walldeco/stone/bronze{
 	color = "#f5cc8e"
@@ -52049,9 +52054,11 @@
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/desert)
 "tLJ" = (
-/obj/effect/landmark/quest_spawner/easy,
-/turf/open/floor/rogue/desert_grass,
-/area/rogue/outdoors/town/desert)
+/obj/effect/particle_effect/smoke{
+	lifetime = 14400
+	},
+/turf/open/water/pond,
+/area/rogue/outdoors/town/manor/desert)
 "tLN" = (
 /turf/closed/wall/mineral/rogue/decostone/end{
 	dir = 8
@@ -64105,6 +64112,10 @@
 /obj/structure/fluff/walldeco/church/line,
 /turf/open/floor/rogue/dirt/desert,
 /area/rogue/outdoors/town/desert)
+"yhv" = (
+/obj/structure/flora/roguegrass/herb/manabloom,
+/turf/open/floor/rogue/dirt/desert,
+/area/rogue/outdoors/desert)
 "yhJ" = (
 /obj/machinery/light/roguestreet/orange/walllamp,
 /turf/open/floor/rogue/citybrick/citybrick1,
@@ -389833,8 +389844,8 @@ dEK
 mCU
 mCU
 mCU
-mCU
-mCU
+tLJ
+tLJ
 mCU
 mCU
 vTa
@@ -390147,7 +390158,7 @@ ekv
 aMs
 mCU
 mCU
-mCU
+tLJ
 mCU
 vTa
 vTa
@@ -400135,8 +400146,8 @@ vwp
 vfO
 uIK
 rNd
-eMk
-rNd
+uqu
+lMG
 uqu
 rgN
 hgm
@@ -466641,7 +466652,7 @@ eMy
 eMy
 iRm
 maV
-jrl
+yhv
 fEH
 fEH
 jrl
@@ -506538,7 +506549,7 @@ vTa
 vTa
 vTa
 vTa
-hCp
+eMk
 hCp
 hCp
 hCp
@@ -506850,7 +506861,7 @@ vTa
 vTa
 vTa
 vTa
-hCp
+eMk
 hCp
 hCp
 hCp
@@ -508394,8 +508405,8 @@ rlI
 rlI
 rlI
 rlI
-rlI
-rlI
+dRo
+dRo
 vTa
 vTa
 vTa
@@ -508708,7 +508719,7 @@ rlI
 rlI
 rlI
 rlI
-rlI
+dRo
 rlI
 vTa
 vTa
@@ -509974,7 +509985,7 @@ xRT
 uYq
 xRT
 xRT
-tLJ
+uYq
 xRT
 uYq
 xRT
