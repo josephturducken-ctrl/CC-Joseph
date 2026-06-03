@@ -1,6 +1,11 @@
 import type { CSSProperties } from 'react';
 
-import { INK, INK_FAINT, SERIF } from '../common/parchment';
+import {
+  FONT_BODY,
+  INK,
+  INK_FAINT,
+  SERIF,
+} from '../common/parchment';
 import {
   dashedHeaderStyle,
   detailPanelStyle,
