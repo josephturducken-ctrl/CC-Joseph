@@ -29252,7 +29252,10 @@
 /turf/open/floor/rogue/naturalstone/sandstone,
 /area/rogue/under/cavewet/bogcaves/desert)
 "lfk" = (
-/mob/living/simple_animal/pet/cat,
+/mob/living/simple_animal/pet/cat{
+	name = "Big Boobs";
+	desc = "The true innkeeper of this land. It's said a local lord pays him weekly due's in milk and fried mice. Just don't look up his name in the Stewards directory."
+	},
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/tavern/desert)
 "lfm" = (
@@ -33142,7 +33145,9 @@
 /turf/open/floor/rogue/sandbrick,
 /area/rogue/outdoors/desert/above)
 "mGR" = (
-/obj/structure/bars/grille,
+/obj/structure/bars/grille{
+	layer = 3.8
+	},
 /turf/open/water/river/flow,
 /area/rogue/indoors/town/dwarfin/desert)
 "mHf" = (
@@ -57873,6 +57878,12 @@
 	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/tavern/desert)
+"vQl" = (
+/obj/structure/bars/grille,
+/turf/open/water/river/flow{
+	layer = 3.8
+	},
+/area/rogue/indoors/town/dwarfin/desert)
 "vQt" = (
 /obj/structure/rack/rogue,
 /obj/item/clothing/head/roguetown/hatfur,
@@ -281676,7 +281687,7 @@ dyE
 dyE
 dyE
 dyE
-mGR
+vQl
 hKf
 tDA
 tDA
