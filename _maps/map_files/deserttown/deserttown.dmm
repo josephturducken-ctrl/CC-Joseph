@@ -32727,6 +32727,26 @@
 /obj/structure/rack/rogue/shelf/biggest,
 /obj/item/storage/keyring,
 /obj/item/storage/keyring,
+/obj/item/roguekey/bathworker{
+	name = "Room I";
+	lockid = "lux1"
+	},
+/obj/item/roguekey/bathworker{
+	lockid = "lux2";
+	name = "Room II"
+	},
+/obj/item/roguekey/bathworker{
+	name = "Room III";
+	lockid = "lux3"
+	},
+/obj/item/roguekey/bathworker{
+	name = "Deluxe Room";
+	lockid = "lux4"
+	},
+/obj/item/roguekey/bathworker{
+	name = "Punishment Room";
+	lockid = "punishroom"
+	},
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/bath/desert)
 "myq" = (
@@ -33532,6 +33552,9 @@
 	pixel_y = 31
 	},
 /obj/structure/rack/rogue/shelf,
+/obj/item/roguekey/bathworker,
+/obj/item/roguekey/bathworker,
+/obj/item/roguekey/bathworker,
 /turf/open/floor/rogue/blocks/stonered,
 /area/rogue/indoors/town/bath/desert)
 "mQq" = (
