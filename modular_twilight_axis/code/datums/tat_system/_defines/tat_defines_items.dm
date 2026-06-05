@@ -653,7 +653,7 @@ GLOBAL_LIST_INIT(tat_donation_access_all_ckeys, TAT_DONATION_ACCESS_ALL_CKEYS)
 	/obj/item/repair_kit = TAT_ITEM_ENTRY("Fabric Patch", 4, "misc", "weapon_supply", TAT_SUPPLY_IRON, "adventur' supply"), \
 	/obj/item/millstone = TAT_ITEM_ENTRY("Millstone", 2, "misc", "weapon_supply", TAT_SUPPLY_IRON, "lyfe"), \
 	/obj/item/kitchen/rollingpin = TAT_ITEM_ENTRY("Rolling Pin", 0.5, "misc", "weapon_supply", TAT_SUPPLY_IRON, "lyfe"), \
-	/obj/item/gun/ballistic/arquebus_pistol = TAT_ITEM_ENTRY("Arquebus Pistol", 7, "weapon", "weapon_supply", TAT_SUPPLY_FIREARMS, "blackpowder"), \
+	/obj/item/gun/ballistic/blackpowder/small/arquebus_pistol = TAT_ITEM_ENTRY("Arquebus Pistol", 7, "weapon", "weapon_supply", TAT_SUPPLY_FIREARMS, "blackpowder"), \
 	/obj/item/natural/feather = TAT_ITEM_ENTRY("Feather", 0, "misc", "weapon_supply", TAT_SUPPLY_IRON, "lyfe"), \
 	/obj/item/clothing/head/roguetown/helmet/heavy/bucket/gronn = TAT_ITEM_ENTRY("Gronn Norsii horned helmet", 1.5, "clothing", "armor_family", TAT_ARMOR_PLATE, "head"), \
 	/obj/item/clothing/head/roguetown/articap = TAT_ITEM_ENTRY("Tinker Hat", 0, "clothing", "weapon_supply", TAT_SUPPLY_BRONZE, "head"), \
@@ -662,7 +662,7 @@ GLOBAL_LIST_INIT(tat_donation_access_all_ckeys, TAT_DONATION_ACCESS_ALL_CKEYS)
 	/obj/item/clothing/gloves/roguetown/plate/iron/banded = TAT_ITEM_ENTRY("Branded Iron Gauntlets", 1.5, "clothing", "armor_family", TAT_ARMOR_PLATE, "gloves"), \
 	/obj/item/clothing/under/roguetown/platelegs/iron/gronn = TAT_ITEM_ENTRY("Gronn Norsii Plate Legs", 1.5, "clothing", "armor_family", TAT_ARMOR_PLATE, "pants"), \
 	/obj/item/clothing/shoes/roguetown/boots/armor/iron/gronn = TAT_ITEM_ENTRY("Gronn Norsii Iron Plated Boots", 1, "clothing", "armor_family", TAT_ARMOR_PLATE, "shoes"), \
-	/obj/item/gun/ballistic/handgonne = TAT_ITEM_ENTRY("Culverin", 7, "weapon", "weapon_supply", TAT_SUPPLY_FIREARMS, "blackpowder"), \
+	/obj/item/gun/ballistic/blackpowder/handgonne = TAT_ITEM_ENTRY("Culverin", 7, "weapon", "weapon_supply", TAT_SUPPLY_FIREARMS, "blackpowder"), \
 	/obj/item/grapplinghook = TAT_ITEM_ENTRY("Grappling Hook", 8, "misc", "weapon_supply", TAT_SUPPLY_BRONZE, "adventur' supply"), \
 	/obj/item/rogueweapon/chisel  = TAT_ITEM_ENTRY("Chisel", 0.5, "misc", "weapon_supply", TAT_SUPPLY_IRON, "wood work"), \
 	/obj/item/rogueweapon/hammer/wood = TAT_ITEM_ENTRY("Wooden Hammer", 0.5, "misc", "weapon_supply", TAT_SUPPLY_IRON, "wood work"), \
