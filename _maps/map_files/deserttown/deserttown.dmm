@@ -1608,11 +1608,7 @@
 /turf/open/floor/rogue/church,
 /area/rogue/indoors/town/magician/desert)
 "aEJ" = (
-/obj/structure/roguemachine/atm{
-	pixel_x = -32;
-	pixel_y = 0;
-	location_tag = "South Gate (exterior)"
-	},
+/obj/structure/roguemachine/scomm/l,
 /turf/open/floor/rogue/lightpath,
 /area/rogue/outdoors/desert)
 "aEO" = (
@@ -16604,6 +16600,13 @@
 /obj/item/bedsheet/rogue/double_pelt,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/inq/office)
+"ghB" = (
+/obj/structure/mirror{
+	pixel_y = 0;
+	pixel_x = -32
+	},
+/turf/open/floor/rogue/blocks/stonered/tiny,
+/area/rogue/indoors/town/manor/desert)
 "ghD" = (
 /obj/structure/closet/crate/chest{
 	lockid = "walls"
@@ -22154,6 +22157,7 @@
 "irM" = (
 /obj/machinery/light/rogue/oven/west,
 /obj/machinery/light/rogue/hearth,
+/obj/item/cooking/pan,
 /turf/open/floor/rogue/ruinedwood/spiral{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
@@ -24149,11 +24153,6 @@
 /area/rogue/outdoors/town/manor/desert)
 "jkG" = (
 /obj/structure/roguemachine/scomm,
-/obj/structure/roguemachine/atm{
-	pixel_x = 32;
-	pixel_y = 0;
-	location_tag = "South Gate (interior)"
-	},
 /turf/open/floor/rogue/tile/brownbrick{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
@@ -27150,13 +27149,6 @@
 /obj/machinery/light/rogue/campfire,
 /turf/open/floor/rogue/dirt/road/desert,
 /area/rogue/indoors/shelter/desertdeep)
-"knP" = (
-/obj/structure/mirror{
-	pixel_y = 0;
-	pixel_x = -32
-	},
-/turf/open/floor/rogue/blocks/stonered/tiny,
-/area/rogue/indoors/town/manor/desert)
 "knT" = (
 /obj/structure/fluff/walldeco/med6{
 	pixel_x = 0;
@@ -28355,6 +28347,10 @@
 	color = "#d4ffcf"
 	},
 /area/rogue/under/cave/skeletoncrypt)
+"kNE" = (
+/obj/structure/roguemachine/scomm/l,
+/turf/open/floor/rogue/darkpath,
+/area/rogue/outdoors/town/desert)
 "kNF" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/citybrick/citybrick1,
@@ -37334,6 +37330,10 @@
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
 /area/rogue/indoors/inq)
+"okM" = (
+/obj/structure/roguemachine/scomm,
+/turf/open/floor/rogue/darkpath,
+/area/rogue/outdoors/town/desert)
 "okN" = (
 /obj/structure/roguemachine/withdraw,
 /turf/open/floor/rogue/tile/brownbrick{
@@ -37540,6 +37540,18 @@
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
 /area/rogue/indoors/town/dwarfin/desert)
+"oof" = (
+/obj/structure/table/wood,
+/obj/structure/bars{
+	icon_state = "barsbent";
+	layer = 2.81
+	},
+/obj/structure/roguemachine/atm{
+	pixel_y = -32;
+	location_tag = "South Gate (exterior)"
+	},
+/turf/open/floor/rogue/darkpath,
+/area/rogue/indoors/town/desert)
 "ooq" = (
 /obj/item/natural/rock/desert,
 /turf/open/floor/rogue/lightpath,
@@ -59981,6 +59993,10 @@
 "wAH" = (
 /obj/structure/table/wood{
 	icon_state = "longtable"
+	},
+/obj/item/rogueweapon/huntingknife/chefknife,
+/obj/item/kitchen/rollingpin{
+	pixel_x = 15
 	},
 /turf/open/floor/rogue/ruinedwood/spiral{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
@@ -141212,7 +141228,7 @@ mwM
 mwM
 wel
 vgi
-exU
+xHE
 exU
 vgi
 wel
@@ -141838,7 +141854,7 @@ wel
 vgi
 aug
 exU
-vgi
+tYM
 mTy
 lTr
 rKn
@@ -245818,8 +245834,8 @@ qVX
 qVX
 qVX
 qVX
-wPj
-wPj
+qVX
+qVX
 qVX
 qbK
 qbK
@@ -246130,9 +246146,9 @@ qVX
 qVX
 qVX
 qVX
-wPj
-wPj
 qVX
+qVX
+qbK
 qbK
 qbK
 qbK
@@ -246441,11 +246457,11 @@ qbK
 qbK
 qbK
 qbK
-qVX
-wPj
-wPj
-qVX
-qVX
+qbK
+qbK
+qbK
+qbK
+qbK
 qbK
 qbK
 qbK
@@ -246754,10 +246770,10 @@ qbK
 qbK
 qbK
 qbK
-wPj
-wPj
-qVX
-qVX
+qbK
+qbK
+qbK
+qbK
 qbK
 qbK
 qbK
@@ -247066,13 +247082,13 @@ wPj
 qbK
 qbK
 qbK
-wPj
-wPj
-qVX
-qVX
-qVX
-qVX
-qVX
+qbK
+qbK
+qbK
+qbK
+qbK
+qbK
+qbK
 qVX
 qVX
 qVX
@@ -247378,12 +247394,12 @@ qbK
 qbK
 qbK
 qbK
-wPj
-wPj
-qVX
-qVX
-qVX
-qVX
+qbK
+qbK
+qbK
+qbK
+qbK
+qbK
 qVX
 qVX
 qVX
@@ -247690,11 +247706,11 @@ qbK
 qbK
 qbK
 qbK
-wPj
-wPj
-qVX
-qVX
-qVX
+qbK
+qbK
+qbK
+qbK
+qbK
 qVX
 qVX
 qVX
@@ -248002,10 +248018,10 @@ qbK
 qbK
 qbK
 qbK
-wPj
-wPj
-qVX
-qVX
+qbK
+qbK
+qbK
+qbK
 qVX
 qVX
 qVX
@@ -373647,7 +373663,7 @@ nwM
 joI
 nwM
 nwM
-bep
+okM
 icQ
 bep
 nwM
@@ -397397,7 +397413,7 @@ nwM
 nwM
 dgx
 dgx
-dgx
+oof
 nwM
 dtT
 nwM
@@ -397705,7 +397721,7 @@ icQ
 pxz
 iZc
 iZc
-bep
+kNE
 sTD
 bep
 bep
@@ -400824,7 +400840,7 @@ psY
 psY
 pTt
 ttU
-scW
+icQ
 icQ
 bep
 bep
@@ -526475,7 +526491,7 @@ alm
 sin
 hZy
 hHl
-knP
+ghB
 hHl
 hZy
 vTa
