@@ -12204,7 +12204,7 @@
 /area/rogue/under/underdarker/undercity)
 "euU" = (
 /turf/open/water/transparent/inner/pond,
-/area/rogue/under/cavewet/bogcaves/desert)
+/area/underwater)
 "euW" = (
 /obj/structure/closet/dirthole/grave,
 /turf/open/floor/rogue/dirt/road,
@@ -25763,6 +25763,15 @@
 /area/rogue/indoors/town/desert/manor)
 "jNg" = (
 /obj/structure/fermentation_keg/fancypot/water,
+/obj/structure/rack/rogue/shelf,
+/obj/item/reagent_containers/glass/cup/silver{
+	pixel_y = 43;
+	pixel_x = -5
+	},
+/obj/item/reagent_containers/glass/cup/silver{
+	pixel_x = 8;
+	pixel_y = 44
+	},
 /turf/open/floor/rogue/blocks/stonered,
 /area/rogue/indoors/town/manor/desert)
 "jNs" = (
@@ -27141,6 +27150,13 @@
 /obj/machinery/light/rogue/campfire,
 /turf/open/floor/rogue/dirt/road/desert,
 /area/rogue/indoors/shelter/desertdeep)
+"knP" = (
+/obj/structure/mirror{
+	pixel_y = 0;
+	pixel_x = -32
+	},
+/turf/open/floor/rogue/blocks/stonered/tiny,
+/area/rogue/indoors/town/manor/desert)
 "knT" = (
 /obj/structure/fluff/walldeco/med6{
 	pixel_x = 0;
@@ -34762,6 +34778,10 @@
 /area/rogue/under/cavewet/bogcaves/desert)
 "nmq" = (
 /obj/structure/table/wood,
+/obj/item/tablecloth/silk,
+/obj/item/tablecloth/silk{
+	pixel_y = 8
+	},
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/town/manor/desert)
 "nmr" = (
@@ -526455,7 +526475,7 @@ alm
 sin
 hZy
 hHl
-hHl
+knP
 hHl
 hZy
 vTa
