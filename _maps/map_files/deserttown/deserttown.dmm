@@ -8078,6 +8078,9 @@
 /obj/machinery/light/rogue/oven/east,
 /obj/machinery/light/rogue/hearth,
 /obj/item/reagent_containers/glass/bucket/pot,
+/obj/machinery/light/rogue/candle{
+	pixel_y = -32
+	},
 /turf/open/floor/rogue/tile/harem,
 /area/rogue/indoors/town/dwarfin/desert)
 "cVH" = (
@@ -14075,6 +14078,9 @@
 	icon_state = "tablewood1"
 	},
 /obj/item/millstone,
+/obj/machinery/light/rogue/candle{
+	pixel_y = -32
+	},
 /turf/open/floor/rogue/tile/harem,
 /area/rogue/indoors/town/dwarfin/desert)
 "fgw" = (
@@ -22050,8 +22056,8 @@
 /turf/open/water/swamp/deep,
 /area/rogue/under/cave/rhgoblinencampment)
 "ipD" = (
-/obj/structure/rack/rogue/shelf,
 /obj/structure/fluff/railing/border/east,
+/obj/structure/rack/rogue/shelf,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/dwarfin/desert)
 "ipP" = (
@@ -35033,7 +35039,7 @@
 	dir = 4;
 	locked = 1;
 	lockid = "warden";
-	name = "Azeb Fort"
+	name = "Warden Fort Azeb"
 	},
 /turf/open/floor/rogue/herringbone{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
@@ -44193,6 +44199,7 @@
 /area/rogue/indoors/town/manor/desert)
 "qLm" = (
 /obj/structure/fermentation_keg/sandpot/water,
+/obj/machinery/light/rogue/candle,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/dwarfin/desert)
 "qLs" = (
@@ -46399,7 +46406,10 @@
 /turf/open/water/swamp,
 /area/rogue/under/cave/dungeon1)
 "rBK" = (
-/obj/structure/mineral_door/wood/window,
+/obj/structure/mineral_door/wood/window{
+	lockid = "university";
+	locked = 1
+	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town/magician/desert)
 "rCd" = (
@@ -521811,7 +521821,7 @@ tyc
 tyc
 tyc
 uKs
-wyj
+aEO
 wyj
 iPG
 fgt
@@ -522123,7 +522133,7 @@ tyc
 tyc
 tyc
 uKs
-aEO
+wyj
 wyj
 wyj
 wyj
