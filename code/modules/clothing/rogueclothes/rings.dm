@@ -16,6 +16,8 @@
 	drop_sound = 'sound/foley/coinphy (1).ogg'
 	salvage_result = null
 	alternate_worn_layer = NECK_LAYER
+	no_loot_taint = TRUE
+	dropshrink = 0.4
 	var/overarmor
 	sellprice = 10 // CC Edit
 
