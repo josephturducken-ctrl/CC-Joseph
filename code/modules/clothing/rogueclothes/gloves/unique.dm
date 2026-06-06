@@ -90,64 +90,6 @@
 		added_def = 2,\
 	)
 
-/obj/item/clothing/gloves/roguetown/knuckles/psydon/preblessed/ComponentInitialize()
-	AddComponent(\
-		/datum/component/silverbless,\
-		pre_blessed = BLESSING_PSYDONIAN,\
-		silver_type = SILVER_PSYDONIAN,\
-		added_force = 0,\
-		added_blade_int = 0,\
-		added_int = 50,\
-		added_def = 2,\
-	)
-
-/obj/item/clothing/gloves/roguetown/knuckles/psydon/attack_self(mob/living/user)
-	. = ..()
-	user.visible_message(span_warning("[user] starts adjusting their grip on[src]."))
-	if(do_after(user, 3 SECONDS))
-		var/obj/item/clothing/gloves/roguetown/knuckles/psydon/P = new /obj/item/rogueweapon/knuckledusters/psy(get_turf(src.loc))
-		if(user.is_holding(src))
-			user.dropItemToGround(src)
-			user.put_in_hands(P)
-		P.obj_integrity = src.obj_integrity
-		qdel(src)
-	else
-		user.visible_message(span_warning("[user] stops adjusting their grip on [src]."))
-		return
-
-/obj/item/clothing/gloves/roguetown/knuckles/psydon/preblessed/attack_self(mob/living/user)
-	. = ..()
-	user.visible_message(span_warning("[user] starts adjusting their grip on[src]."))
-	if(do_after(user, 3 SECONDS))
-		var/obj/item/clothing/gloves/roguetown/knuckles/psydon/preblessed/P = new /obj/item/rogueweapon/knuckledusters/psy/preblessed(get_turf(src.loc))
-		if(user.is_holding(src))
-			user.dropItemToGround(src)
-			user.put_in_hands(P)
-		P.obj_integrity = src.obj_integrity
-		qdel(src)
-	else
-		user.visible_message(span_warning("[user] stops adjusting their grip on [src]."))
-		return
-	
-/obj/item/clothing/gloves/roguetown/knuckles/silver
-	name = "silver knuckles"
-	desc = "A simple piece of harm that has been molded from pure silver, and further studded to stop errant strikes dead in their tracks. Though ostensibly holy, these heftsome knuckleweights are \
-	more strongly associated with underground pugilistic tournaments; a solid right hook could drive more-than-enough force to blow a yeoman's jaw clean off."
-	icon_state = "silverknuckle"
-	is_silver = TRUE
-	smeltresult = /obj/item/ingot/silver
-
-/obj/item/clothing/gloves/roguetown/knuckles/silver/ComponentInitialize()
-	AddComponent(\
-		/datum/component/silverbless,\
-		pre_blessed = BLESSING_NONE,\
-		silver_type = SILVER_TENNITE,\
-		added_force = 0,\
-		added_blade_int = 0,\
-		added_int = 50,\
-		added_def = 2,\
-	)
-
 /obj/item/clothing/gloves/roguetown/knuckles/psydon/attack_self(mob/living/user)
 	. = ..()
 	user.visible_message(span_warning("[user] starts adjusting their grip on[src]."))

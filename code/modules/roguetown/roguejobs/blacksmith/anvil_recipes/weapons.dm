@@ -1057,6 +1057,12 @@
 	created_item = /obj/item/rogueweapon/huntingknife/combat/silver
 	display_category = ITEM_CAT_WEAPONS_DAGGERS
 
+/datum/anvil_recipe/weapons/silver/dagger
+	name = "Hunting Knife, Silver"
+	req_bar = /obj/item/ingot/silver
+	created_item = /obj/item/rogueweapon/huntingknife/combat/silver
+	display_category = ITEM_CAT_WEAPONS_DAGGERS
+
 /datum/anvil_recipe/weapons/silver/shortsword
 	name = "Shortsword, Silver"
 	req_bar = /obj/item/ingot/silver
