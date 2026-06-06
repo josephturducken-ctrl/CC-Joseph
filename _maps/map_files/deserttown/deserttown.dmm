@@ -294,7 +294,9 @@
 /obj/machinery/light/roguestreet/orange/walllamp{
 	dir = 8
 	},
-/obj/structure/roguemachine/scomm/r,
+/obj/structure/roguemachine/scomm/r{
+	scom_tag = "Guild Smithy"
+	},
 /turf/open/floor/rogue/concrete{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
@@ -660,7 +662,9 @@
 /turf/closed/wall/mineral/rogue/wooddark,
 /area/rogue/outdoors/town/desert)
 "ang" = (
-/obj/structure/roguemachine/scomm/l,
+/obj/structure/roguemachine/scomm/l{
+	scom_tag = "Grand Arena, West"
+	},
 /turf/open/floor/rogue/citybrick/citybrick2,
 /area/rogue/indoors/town/desert/arenaview)
 "anm" = (
@@ -997,7 +1001,9 @@
 /area/rogue/indoors/town/bath/desert)
 "atF" = (
 /obj/structure/chair/wood/zybantine,
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Janissary Garrison Lobby"
+	},
 /obj/effect/decal/duneedge,
 /turf/open/floor/rogue/tile/brownbrick{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
@@ -1603,7 +1609,9 @@
 /turf/open/floor/rogue/church,
 /area/rogue/indoors/town/magician/desert)
 "aEJ" = (
-/obj/structure/roguemachine/scomm/l,
+/obj/structure/roguemachine/scomm/l{
+	scom_tag = "Front Gate Exterior"
+	},
 /turf/open/floor/rogue/lightpath,
 /area/rogue/outdoors/desert)
 "aEO" = (
@@ -1878,7 +1886,8 @@
 /area/rogue/under/underdarker/undercity)
 "aJz" = (
 /obj/structure/roguemachine/scomm{
-	pixel_y = -32
+	pixel_y = -32;
+	scom_tag = "Pestra's Sanctum"
 	},
 /turf/open/floor/rogue/blocks/stonered,
 /area/rogue/indoors/town/church/basement)
@@ -2242,7 +2251,8 @@
 /area/rogue/indoors/town/desert/warden)
 "aRB" = (
 /obj/structure/roguemachine/scomm{
-	pixel_y = -32
+	pixel_y = -32;
+	scom_tag = "Church Back Garden"
 	},
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town/desert)
@@ -4261,7 +4271,9 @@
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/shop/desert)
 "bCi" = (
-/obj/structure/roguemachine/scomm/l,
+/obj/structure/roguemachine/scomm/l{
+	scom_tag = "Wizards Tower 1st Floor"
+	},
 /obj/machinery/light/rogue/torchholder/l,
 /turf/open/floor/rogue/deserttile{
 	icon_state = "tilegreeny"
@@ -4565,7 +4577,9 @@
 /turf/open/floor/rogue/lightpath,
 /area/rogue/outdoors/desert/above)
 "bHR" = (
-/obj/structure/roguemachine/scomm/l,
+/obj/structure/roguemachine/scomm/l{
+	scom_tag = "Church Kitchen"
+	},
 /turf/open/floor/rogue/blocks/stonered,
 /area/rogue/indoors/town/church)
 "bHY" = (
@@ -5128,7 +5142,9 @@
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/desert)
 "bRu" = (
-/obj/structure/roguemachine/scomm/l,
+/obj/structure/roguemachine/scomm/l{
+	scom_tag = "Town Crier, 3rd Floor"
+	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/desert)
 "bRv" = (
@@ -5453,7 +5469,9 @@
 	dir = 1;
 	pixel_y = 8
 	},
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Grand Arena Roof Booth"
+	},
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/indoors/town/desert/arenaview)
 "bWf" = (
@@ -5576,7 +5594,9 @@
 /turf/open/floor/rogue/darkpath,
 /area/rogue/outdoors/town/desert)
 "bYJ" = (
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Manor Kitchen"
+	},
 /obj/effect/decal/cobbleedge{
 	icon_state = "borderfall";
 	dir = 1;
@@ -6943,7 +6963,9 @@
 	},
 /area/rogue/under/cave/skeletoncrypt)
 "cAs" = (
-/obj/structure/roguemachine/scomm/l,
+/obj/structure/roguemachine/scomm/l{
+	scom_tag = "Janissary Garrison Bunkroom"
+	},
 /obj/machinery/light/rogue/candle{
 	pixel_y = -32
 	},
@@ -7162,7 +7184,9 @@
 /turf/open/floor/rogue/dirt/road/desert,
 /area/rogue/outdoors/desert)
 "cEe" = (
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Manor, Throne Room Gate"
+	},
 /turf/open/floor/rogue/deserttile{
 	icon_state = "tilewhitebluespecial"
 	},
@@ -7713,7 +7737,8 @@
 /area/rogue/indoors/town/church/basement)
 "cPs" = (
 /obj/structure/roguemachine/scomm{
-	pixel_y = -32
+	pixel_y = -32;
+	scom_tag = "Lords Apartment"
 	},
 /turf/open/floor/rogue/carpet/lord/center,
 /area/rogue/indoors/town/manor/desert)
@@ -7825,7 +7850,9 @@
 	dir = 1;
 	pixel_y = 8
 	},
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Grand Arena East Viewbooth"
+	},
 /turf/open/floor/rogue/hexstone{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
@@ -7882,7 +7909,9 @@
 /turf/open/floor/rogue/citybrick/citybrick1,
 /area/rogue/outdoors/town/desert)
 "cSH" = (
-/obj/structure/roguemachine/scomm/l,
+/obj/structure/roguemachine/scomm/l{
+	scom_tag = "Archivist's Quarters"
+	},
 /turf/open/floor/rogue/ruinedwood/spiral{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
@@ -12107,6 +12136,10 @@
 /obj/structure/flora/roguetree/palm,
 /turf/open/floor/rogue/desert_grass,
 /area/rogue/outdoors/desertdeep)
+"esc" = (
+/obj/machinery/light/rogue/candle/l,
+/turf/open/floor/rogue/carpet/lord/right,
+/area/rogue/indoors/town/manor/desert)
 "ese" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -13929,7 +13962,7 @@
 /area/rogue/under/cave/rhgoblinencampment)
 "fcT" = (
 /obj/structure/bars/passage/shutter{
-	name = "apothecary";
+	name = "Clinic Shutters";
 	redstone_id = "apothecary"
 	},
 /obj/structure/fluff/walldeco/church/line,
@@ -14806,8 +14839,8 @@
 /turf/open/floor/rogue/lightpath,
 /area/rogue/outdoors/desert)
 "fvX" = (
-/obj/machinery/light/rogue/candle/l,
-/turf/closed/wall/mineral/rogue/sandbrick,
+/obj/machinery/light/rogue/candle/r,
+/turf/open/floor/rogue/blocks/stonered,
 /area/rogue/indoors/town/manor/desert)
 "fwE" = (
 /obj/structure/table/wood/poor,
@@ -15672,7 +15705,7 @@
 /obj/structure/mineral_door/wood{
 	locked = 1;
 	lockid = "apothecary";
-	name = "apothecary";
+	name = "Clinic";
 	icon_state = "wcv"
 	},
 /turf/open/floor/rogue/concrete{
@@ -15700,7 +15733,9 @@
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/inq)
 "fMV" = (
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Warden's Office, Fort Azeb"
+	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/desert/warden)
 "fNb" = (
@@ -16582,7 +16617,9 @@
 /area/rogue/indoors/town/bath/desert)
 "ggv" = (
 /obj/machinery/light/rogue/candle/l,
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Sergeant's Office"
+	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/garrison/desert)
 "ggy" = (
@@ -16930,7 +16967,9 @@
 /turf/open/floor/rogue/sandbrick,
 /area/rogue/under/town/basement/desert/keep)
 "goi" = (
-/obj/structure/roguemachine/scomm/l,
+/obj/structure/roguemachine/scomm/l{
+	scom_tag = "Church Dining Room"
+	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/church)
 "goj" = (
@@ -16956,7 +16995,8 @@
 /obj/structure/fluff/railing/corner/south_west,
 /obj/structure/fluff/railing/corner/south_east,
 /obj/structure/roguemachine/scomm{
-	pixel_y = -32
+	pixel_y = -32;
+	scom_tag = "Town Crier, 2nd Floor"
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/desert)
@@ -17721,7 +17761,9 @@
 /turf/open/floor/rogue/dirt/desert,
 /area/rogue/outdoors/town/desert)
 "gDC" = (
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Church Holding Cells"
+	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/church/basement)
 "gDE" = (
@@ -19412,7 +19454,7 @@
 "hlQ" = (
 /obj/structure/mineral_door/wood{
 	lockid = "physician";
-	name = "apothecary waiting room"
+	name = "Clinic waiting room"
 	},
 /turf/open/floor/rogue/concrete{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
@@ -22085,7 +22127,9 @@
 /turf/open/floor/rogue/blocks/stonered,
 /area/rogue/under/underdarker/undercity)
 "iqa" = (
-/obj/structure/roguemachine/scomm/r,
+/obj/structure/roguemachine/scomm/r{
+	scom_tag = "Chapel Basement Holding Cell"
+	},
 /turf/open/floor/rogue/blocks/stonered,
 /area/rogue/indoors/town/church/basement)
 "iqm" = (
@@ -22378,7 +22422,9 @@
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/desert/above)
 "iwL" = (
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Heir Room 1"
+	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor/desert)
 "iwP" = (
@@ -23180,6 +23226,10 @@
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/outdoors/town/manor/desert/roofs)
+"iOk" = (
+/obj/machinery/light/rogue/candle,
+/turf/open/floor/rogue/blocks/stonered/tiny,
+/area/rogue/indoors/town/manor/desert)
 "iOJ" = (
 /obj/structure/fluff/railing/border/west,
 /turf/open/water/transparent/surface/pond,
@@ -23782,7 +23832,9 @@
 /obj/structure/fluff/railing/border{
 	dir = 5
 	},
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Town Square Fountain"
+	},
 /turf/open/floor/rogue/concrete{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
@@ -24145,7 +24197,9 @@
 /turf/open/water/bath,
 /area/rogue/outdoors/town/manor/desert)
 "jkG" = (
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Front Gatehouse"
+	},
 /turf/open/floor/rogue/tile/brownbrick{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
@@ -24708,7 +24762,9 @@
 /turf/open/floor/rogue/citybrick/citybrick1,
 /area/rogue/under/underdarker/pyramid)
 "juq" = (
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Inquisitor's Manor, Interrogation Room"
+	},
 /turf/open/floor/rogue/sandbrick,
 /area/rogue/indoors/inq/basement)
 "jux" = (
@@ -24718,7 +24774,9 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/garrison/desert)
 "juz" = (
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Wizards Tower 2nd Floor"
+	},
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/indoors/town/magician/desert)
 "juP" = (
@@ -25167,6 +25225,7 @@
 /obj/item/natural/feather,
 /obj/item/natural/feather,
 /obj/structure/closet/crate/roguecloset,
+/obj/machinery/light/rogue/candle/r,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/desert/warden)
 "jCm" = (
@@ -26176,6 +26235,7 @@
 /obj/machinery/light/rogue/oven{
 	pixel_y = 33
 	},
+/obj/machinery/light/rogue/candle/l,
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/desert/warden)
 "jUG" = (
@@ -26646,7 +26706,9 @@
 	},
 /area/rogue/outdoors/desertdeep)
 "kes" = (
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Marshall's Office"
+	},
 /obj/effect/decal/cobbleedge{
 	icon_state = "borderfall";
 	dir = 1;
@@ -27129,7 +27191,9 @@
 	icon_state = "borderfall";
 	dir = 1
 	},
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Manor, Training Courtyard"
+	},
 /turf/open/floor/rogue/citybrick/citybrick1,
 /area/rogue/indoors/town/desert/manor)
 "knE" = (
@@ -27981,7 +28045,9 @@
 	icon_state = "borderfall";
 	pixel_x = 8
 	},
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Archive Main Room"
+	},
 /turf/open/floor/rogue/deserttile{
 	icon_state = "tilegreyblu"
 	},
@@ -28005,7 +28071,8 @@
 /area/rogue/indoors/town/manor/desert)
 "kFZ" = (
 /obj/structure/roguemachine/scomm{
-	pixel_y = -32
+	pixel_y = -32;
+	scom_tag = "Manor Feast Hall"
 	},
 /turf/open/floor/rogue/tile/harem,
 /area/rogue/indoors/town/desert/manor)
@@ -28095,7 +28162,9 @@
 	dir = 1;
 	pixel_y = 1
 	},
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Clinic Herb Garden"
+	},
 /turf/open/floor/rogue/dirt/road/desert,
 /area/rogue/indoors/town/physician/desert)
 "kHN" = (
@@ -28346,7 +28415,9 @@
 	},
 /area/rogue/under/cave/skeletoncrypt)
 "kNE" = (
-/obj/structure/roguemachine/scomm/l,
+/obj/structure/roguemachine/scomm/l{
+	scom_tag = "Front Gate Interior"
+	},
 /turf/open/floor/rogue/darkpath,
 /area/rogue/outdoors/town/desert)
 "kNF" = (
@@ -28982,7 +29053,9 @@
 	icon_state = "borderfall";
 	pixel_y = 6
 	},
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Janissary Garrison 2nd Floor"
+	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/garrison/desert)
 "lbe" = (
@@ -30382,7 +30455,9 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors/town/church/basement)
 "lDt" = (
-/obj/structure/roguemachine/scomm/r,
+/obj/structure/roguemachine/scomm/r{
+	scom_tag = "Tavern Counter"
+	},
 /turf/open/floor/rogue/tile/harem1,
 /area/rogue/indoors/town/tavern/desert)
 "lDu" = (
@@ -30584,7 +30659,8 @@
 	},
 /obj/structure/roguemachine/scomm{
 	pixel_x = 0;
-	pixel_y = -32
+	pixel_y = -32;
+	scom_tag = "Tailor's Shop"
 	},
 /turf/open/floor/rogue/tile/harem,
 /area/rogue/indoors/town/desert)
@@ -31277,7 +31353,8 @@
 /area/rogue/indoors/town/tavern/desert)
 "lUU" = (
 /obj/structure/roguemachine/scomm{
-	pixel_y = -32
+	pixel_y = -32;
+	scom_tag = "Bazaar West"
 	},
 /turf/open/floor/rogue/concrete{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
@@ -31508,7 +31585,9 @@
 /area/rogue/under/cave/licharena/bossroom)
 "lZg" = (
 /obj/machinery/light/rogue/candle,
-/obj/structure/roguemachine/scomm/r,
+/obj/structure/roguemachine/scomm/r{
+	scom_tag = "Clinic Kitchen"
+	},
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/indoors/town/physician/desert)
 "lZL" = (
@@ -31576,7 +31655,8 @@
 /area/rogue/outdoors/desert)
 "mbd" = (
 /obj/structure/roguemachine/scomm{
-	pixel_y = -32
+	pixel_y = -32;
+	scom_tag = "Grand Arena South"
 	},
 /turf/open/floor/rogue/citybrick/citybrick1,
 /area/rogue/indoors/town/desert/arenaview)
@@ -32085,6 +32165,7 @@
 /obj/item/clothing/suit/roguetown/armor/plate/cataphract/sultan,
 /obj/item/clothing/head/roguetown/helmet/heavy/cataphract/sultan,
 /obj/structure/mannequin/male,
+/obj/machinery/light/rogue/candle/l,
 /turf/open/floor/rogue/carpet/lord/right,
 /area/rogue/indoors/town/manor/desert)
 "mlS" = (
@@ -32717,6 +32798,13 @@
 	},
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/bath/desert)
+"myn" = (
+/obj/structure/roguemachine/scomm{
+	pixel_y = -32;
+	scom_tag = "Guild Living Quarters"
+	},
+/turf/open/floor/rogue/wood,
+/area/rogue/indoors/town/dwarfin/desert)
 "myq" = (
 /obj/effect/decal/cobbleedge{
 	dir = 1;
@@ -34759,7 +34847,9 @@
 	},
 /area/rogue/indoors/town/garrison/desert/cell)
 "nlX" = (
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Manor, Front Courtyard"
+	},
 /turf/open/floor/rogue/citybrick/citybrick1,
 /area/rogue/outdoors/town/manor/desert)
 "nlZ" = (
@@ -35403,7 +35493,9 @@
 /turf/open/floor/rogue/darkpath,
 /area/rogue/under/underdarker/undercity)
 "nxL" = (
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Steward's Office"
+	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/steward)
 "nxM" = (
@@ -35494,7 +35586,9 @@
 /turf/open/floor/rogue/tile/harem1,
 /area/rogue/indoors/town/desert/manor)
 "nyY" = (
-/obj/structure/roguemachine/scomm/r,
+/obj/structure/roguemachine/scomm/r{
+	scom_tag = "Servant Quarters"
+	},
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/town/desert/manor)
 "nyZ" = (
@@ -35878,7 +35972,9 @@
 /obj/structure/fluff/railing/border{
 	dir = 6
 	},
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Church Infirm"
+	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/church)
 "nHQ" = (
@@ -36801,7 +36897,9 @@
 /turf/open/floor/rogue/darkpath,
 /area/rogue/under/underdarker/pyramid)
 "oaj" = (
-/obj/structure/roguemachine/scomm/l,
+/obj/structure/roguemachine/scomm/l{
+	scom_tag = "Inquisitor's Manor, Dining Room"
+	},
 /obj/machinery/light/rogue/torchholder/l,
 /turf/open/floor/rogue/tile/harem2{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
@@ -36880,7 +36978,8 @@
 	dir = 4
 	},
 /obj/structure/roguemachine/scomm{
-	pixel_y = -32
+	pixel_y = -32;
+	scom_tag = "Clinic Second Floor"
 	},
 /turf/open/floor/rogue/church,
 /area/rogue/indoors/town/physician/desert)
@@ -37326,7 +37425,9 @@
 	},
 /area/rogue/indoors/inq)
 "okM" = (
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "West Chapel Gate"
+	},
 /turf/open/floor/rogue/darkpath,
 /area/rogue/outdoors/town/desert)
 "okN" = (
@@ -37817,6 +37918,15 @@
 	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/inq)
+"oth" = (
+/obj/structure/roguemachine/scomm{
+	pixel_y = -32;
+	scom_tag = "Bazaar East"
+	},
+/turf/open/floor/rogue/concrete{
+	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
+	},
+/area/rogue/outdoors/town/desert)
 "otl" = (
 /mob/living/carbon/human/species/skeleton/npc/cultist,
 /turf/open/floor/carpet/royalblack,
@@ -37980,7 +38090,9 @@
 	dir = 1;
 	pixel_y = 8
 	},
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Church Main Hall Back"
+	},
 /turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church/chapel)
 "ovy" = (
@@ -39133,6 +39245,17 @@
 /obj/structure/fluff/walldeco/vinez/red,
 /turf/closed/wall/mineral/rogue/sandstone,
 /area/rogue/under/cave/dungeon1)
+"oOO" = (
+/obj/structure/roguemachine/scomm/l{
+	scom_tag = "Inquisitor's Manor, Inquisitor's Quarters"
+	},
+/obj/effect/decal/cobbleedge{
+	dir = 8;
+	icon_state = "borderfall";
+	pixel_x = -8
+	},
+/turf/open/floor/rogue/herringbone,
+/area/rogue/indoors/inq/office)
 "oOR" = (
 /obj/structure/fluff/canopy/side/end{
 	dir = 1
@@ -39319,7 +39442,8 @@
 /area/rogue/indoors/inq)
 "oSf" = (
 /obj/structure/roguemachine/scomm{
-	pixel_y = -32
+	pixel_y = -32;
+	scom_tag = "Guild Artificer"
 	},
 /turf/open/floor/rogue/hexstone{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
@@ -39596,7 +39720,9 @@
 	dir = 1;
 	pixel_y = 8
 	},
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "North Tavern"
+	},
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/tavern/desert)
 "oWW" = (
@@ -39664,7 +39790,9 @@
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/town/manor/desert/roofs)
 "oYS" = (
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Archivist's Desk"
+	},
 /obj/effect/decal/cobbleedge{
 	icon_state = "borderfall";
 	dir = 1;
@@ -39683,7 +39811,9 @@
 /turf/open/floor/rogue/tile/harem1,
 /area/rogue/indoors/town/tavern/desert)
 "oZc" = (
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Bazaar Merchant"
+	},
 /obj/effect/decal/cobbleedge{
 	icon_state = "borderfall";
 	dir = 1;
@@ -40474,7 +40604,9 @@
 /turf/open/floor/rogue/darkpath,
 /area/rogue/under/underdarker/pyramid)
 "ppN" = (
-/obj/structure/roguemachine/scomm/r,
+/obj/structure/roguemachine/scomm/r{
+	scom_tag = "Church Main Hall Front"
+	},
 /turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church/chapel)
 "ppQ" = (
@@ -40816,7 +40948,9 @@
 	},
 /area/rogue/under/cave/skeletoncrypt)
 "pvE" = (
-/obj/structure/roguemachine/scomm/l,
+/obj/structure/roguemachine/scomm/l{
+	scom_tag = "Inquisitor's Manor, Inquisitor's Office"
+	},
 /obj/effect/decal/cobbleedge{
 	dir = 8;
 	icon_state = "borderfall";
@@ -41030,6 +41164,15 @@
 /obj/structure/stairs/desert,
 /turf/open/floor/rogue/lightpath,
 /area/rogue/outdoors/desert/above)
+"pAh" = (
+/obj/structure/floordoor/gatehatch/inner{
+	redstone_id = "gatelava"
+	},
+/obj/structure/roguemachine/scomm/l{
+	scom_tag = "Manor, Drawbridge Gate"
+	},
+/turf/open/transparent/openspace,
+/area/rogue/indoors/town/garrison/desert)
 "pAl" = (
 /turf/closed/wall/mineral/rogue/decostone/end,
 /area/rogue/indoors/town/church)
@@ -42803,7 +42946,9 @@
 /turf/open/floor/rogue/citybrick/citybrick1,
 /area/rogue/under/underdarker/pyramid)
 "qjR" = (
-/obj/structure/roguemachine/scomm/r,
+/obj/structure/roguemachine/scomm/r{
+	scom_tag = "Veteran's House"
+	},
 /turf/open/floor/rogue/tile/brownbrick{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
@@ -44566,7 +44711,9 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/under/town/basement/desert/town)
 "qSz" = (
-/obj/structure/roguemachine/scomm/r,
+/obj/structure/roguemachine/scomm/r{
+	scom_tag = "Bathhouse Entry Staircase"
+	},
 /turf/open/floor/rogue/tile/harem2{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
@@ -45039,7 +45186,9 @@
 	},
 /area/rogue/indoors/town/desert/arenaview)
 "rbG" = (
-/obj/structure/roguemachine/scomm/l,
+/obj/structure/roguemachine/scomm/l{
+	scom_tag = "Drawbridge Pit Access"
+	},
 /turf/open/floor/rogue/darkpath,
 /area/rogue/indoors/town/garrison/desert/cell)
 "rbR" = (
@@ -46394,7 +46543,9 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/shop/desert)
 "rBp" = (
-/obj/structure/roguemachine/scomm/r,
+/obj/structure/roguemachine/scomm/r{
+	scom_tag = "Warden's Bedroom, Fort Azeb"
+	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/desert/warden)
 "rBD" = (
@@ -46481,7 +46632,8 @@
 /area/rogue/indoors/town/academy/desert)
 "rDe" = (
 /obj/structure/roguemachine/scomm{
-	pixel_y = -32
+	pixel_y = -32;
+	scom_tag = "Archive Library"
 	},
 /turf/open/floor/rogue/darkpath,
 /area/rogue/indoors/town/academy/desert)
@@ -46868,7 +47020,8 @@
 /area/rogue/indoors/town/manor/desert)
 "rMF" = (
 /obj/structure/roguemachine/scomm{
-	pixel_y = -32
+	pixel_y = -32;
+	scom_tag = "Town Crier 1st Floor"
 	},
 /turf/open/floor/rogue/tile/brownbrick{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
@@ -47537,7 +47690,9 @@
 	},
 /area/rogue/indoors/town/dwarfin/desert)
 "rYz" = (
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Manor, Front Gatehouse"
+	},
 /turf/open/floor/rogue/deserttile,
 /area/rogue/indoors/town/garrison/desert)
 "rYM" = (
@@ -47733,7 +47888,9 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/desert)
 "scW" = (
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Inquisitors Manor, Front Gate"
+	},
 /turf/open/floor/rogue/citybrick/citybrick1,
 /area/rogue/outdoors/town/desert)
 "scX" = (
@@ -50933,7 +51090,9 @@
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/under/cave/licharena)
 "tlZ" = (
-/obj/structure/roguemachine/scomm/l,
+/obj/structure/roguemachine/scomm/l{
+	scom_tag = "Squires Barracks"
+	},
 /turf/open/floor/rogue/tile/harem,
 /area/rogue/indoors/town/desert/manor)
 "tmc" = (
@@ -53605,7 +53764,9 @@
 	},
 /area/rogue/indoors/town/dwarfin/desert)
 "ujf" = (
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Bishop's Quarters"
+	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/church)
 "ujm" = (
@@ -54962,7 +55123,9 @@
 	},
 /area/rogue/indoors/town/desert)
 "uIx" = (
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Throne Room"
+	},
 /obj/machinery/light/roguestreet/orange/walllamp{
 	dir = 8
 	},
@@ -55632,7 +55795,7 @@
 /area/rogue/indoors/town/physician/desert)
 "uUl" = (
 /obj/structure/bars/passage/shutter{
-	name = "apothecary";
+	name = "Clinic Shutters";
 	redstone_id = "apothecary"
 	},
 /obj/structure/fluff/walldeco/church/line{
@@ -55698,7 +55861,9 @@
 	},
 /area/rogue/under/underdarker/undercity)
 "uVe" = (
-/obj/structure/roguemachine/scomm/r,
+/obj/structure/roguemachine/scomm/r{
+	scom_tag = "Manor West Hallway"
+	},
 /turf/open/floor/rogue/deserttile{
 	icon_state = "tilewhitebluespecial"
 	},
@@ -56289,6 +56454,9 @@
 	name = "servantry service bell";
 	specific_location = "Council Office"
 	},
+/obj/structure/roguemachine/scomm/l{
+	scom_tag = "Councillors Suite"
+	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/manor/desert)
 "vgd" = (
@@ -56558,7 +56726,9 @@
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town/bath/desert)
 "vlW" = (
-/obj/structure/roguemachine/scomm/r,
+/obj/structure/roguemachine/scomm/r{
+	scom_tag = "Heir Room 2"
+	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor/desert)
 "vmz" = (
@@ -60843,7 +61013,9 @@
 	},
 /area/rogue/under/underdarker/undercity)
 "wQX" = (
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Hand's Quarters"
+	},
 /obj/effect/decal/cobbleedge{
 	icon_state = "borderfall";
 	dir = 1;
@@ -60891,7 +61063,9 @@
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/desert/warden)
 "wRC" = (
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Inquisitor's Manor, 2nd Floor"
+	},
 /turf/open/floor/rogue/ruinedwood/herringbone_clear,
 /area/rogue/indoors/inq)
 "wSe" = (
@@ -61459,7 +61633,9 @@
 /turf/closed/wall/mineral/rogue/sandstone,
 /area/rogue/under/cave/rhgoblinencampment)
 "xdn" = (
-/obj/structure/roguemachine/scomm/r,
+/obj/structure/roguemachine/scomm/r{
+	scom_tag = "Wizards Tower 3rd Floor"
+	},
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/magician/desert)
 "xdp" = (
@@ -61474,7 +61650,9 @@
 	icon_state = "borderfall";
 	dir = 1
 	},
-/obj/structure/roguemachine/scomm/l,
+/obj/structure/roguemachine/scomm/l{
+	scom_tag = "Warden's Kitchen, Fort Azeb"
+	},
 /turf/open/floor/rogue/darkpath,
 /area/rogue/indoors/town/desert/warden)
 "xdD" = (
@@ -62374,7 +62552,9 @@
 /obj/machinery/light/roguestreet/walllamp{
 	dir = 4
 	},
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Clinic Infirm"
+	},
 /turf/open/floor/rogue/church,
 /area/rogue/indoors/town/physician/desert)
 "xsD" = (
@@ -62453,7 +62633,9 @@
 	},
 /area/rogue/indoors/town/dwarfin/desert)
 "xuq" = (
-/obj/structure/roguemachine/scomm,
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Knights Quarters"
+	},
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/manor/desert)
 "xuA" = (
@@ -391446,7 +391628,7 @@ fWI
 atu
 hjE
 eok
-lUU
+oth
 rJC
 uYq
 uYq
@@ -399518,7 +399700,7 @@ whi
 whi
 vfO
 kkB
-dhp
+pAh
 dhp
 nQo
 xnI
@@ -521229,7 +521411,7 @@ mDF
 iML
 asH
 uXl
-wyj
+myn
 uKs
 uKs
 uKs
@@ -523990,10 +524172,10 @@ cGw
 cPs
 hZy
 hZy
-fvX
 hZy
 hZy
-fvX
+hZy
+hZy
 hZy
 ujZ
 tAH
@@ -524305,7 +524487,7 @@ xqQ
 mlE
 syq
 wku
-lEH
+esc
 pND
 ifX
 eUX
@@ -525232,7 +525414,7 @@ izS
 jqb
 btS
 hZy
-hHl
+iOk
 aDt
 aDt
 aGo
@@ -525546,7 +525728,7 @@ hHl
 anZ
 hHl
 aDt
-aDt
+fvX
 rdk
 hZy
 omJ
@@ -647560,7 +647742,7 @@ jKb
 kHE
 sil
 pVa
-pvE
+oOO
 mLh
 kHE
 tyc
