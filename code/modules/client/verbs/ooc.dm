@@ -334,7 +334,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 #ifdef TESTSERVER
 /client/verb/smiteselfverily()
 	set name = "KillSelf"
-	set category = "DEBUGTEST"
+	set category = "Debug.Test"
 /*
 	set hidden = 1
 	if(!check_rights(0))

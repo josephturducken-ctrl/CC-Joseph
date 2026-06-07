@@ -107,6 +107,34 @@
 			return TRUE
 	return ..()
 
+/obj/item/clothing/suit/roguetown/armor/AltRightClick(mob/user)
+	. = ..()
+	if(!istype(loc, /mob/living/carbon))
+		return
+	if(attachment_component)
+		var/datum/component/storage/concrete/roguetown/storage_component = GetComponent(attachment_component)
+		if(storage_component && length(storage_component.item_to_grid_coordinates))
+			var/list/options = list()
+			for(var/obj/item/clothing/C in storage_component.item_to_grid_coordinates)
+				if(!C || !isclothing(C))
+					continue
+				if(C.item_flags & NOT_SHOW_IN_STORAGE)
+					options["[C.name] (Hidden)"] = C
+				else
+					options["[C.name] (Shown)"] = C
+			var/choice = input(user, "Choose clothing to layer:","Layering") as null|anything in options
+			if(choice)
+				var/clothes_to_change = options[choice]
+				if(isclothing(clothes_to_change))
+					var/obj/item/clothing/C = clothes_to_change
+					if(C.item_flags & NOT_SHOW_IN_STORAGE)
+						C.item_flags &= ~NOT_SHOW_IN_STORAGE
+					else
+						C.item_flags |= NOT_SHOW_IN_STORAGE
+					to_chat(user, span_info("[C] will be [(C.item_flags & NOT_SHOW_IN_STORAGE) ? "hidden" : "visible"] \the [src]"))
+				user.update_inv_head()
+
+
 /obj/item/clothing/suit/roguetown/armor/build_worn_icon(default_layer = 0, default_icon_file = null, isinhands = FALSE, femaleuniform = NO_FEMALE_UNIFORM, override_state = null, female = FALSE, customi = null, sleeveindex, boobed_overlay = FALSE, var/icon/clip_mask = null)
 	var/mutable_appearance/standing = ..()
 	// get attachment component and check if there's anything inside

@@ -51,7 +51,8 @@
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/aalloy
 	beltr = /obj/item/roguekey/hag
 	if(H.mind)
-		H.verbs |= /mob/living/carbon/human/proc/commune_with_roots
+		add_verb(H, /mob/living/carbon/human/proc/commune_with_roots)
+		add_verb(H, /mob/living/carbon/human/proc/toggle_guarded)
 		H.ambushable = FALSE
 		H.faction |= list("hag", "spiders")
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/wildshape/hag_true_form)

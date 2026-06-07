@@ -89,9 +89,9 @@
 	H.mind?.AddSpell(new /datum/action/cooldown/spell/miracle/intervention)
 	if (istype (H.patron, /datum/patron/inhumen/zizo))
 		if(H.mind)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/minion_order)
-			H.verbs |= /mob/living/carbon/human/proc/revelations
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/gravemark)
+			H.mind.AddSpell(new /datum/action/cooldown/spell/minion_order)
+			add_verb(H, /mob/living/carbon/human/proc/revelations)
+			H.mind.AddSpell(new /datum/action/cooldown/spell/gravemark)
 			H.mind?.current.faction += "[H.name]_faction"
 		ADD_TRAIT(H, TRAIT_GRAVEROBBER, TRAIT_GENERIC)
 	mask = /obj/item/clothing/mask/rogue/facemask/steel

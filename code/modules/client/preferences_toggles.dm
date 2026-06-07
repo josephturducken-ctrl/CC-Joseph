@@ -49,7 +49,7 @@
 		else
 			to_chat(src, "Screen shake disabled.")
 
-/client/verb/masked_examine() //Caustic Edit - Just... fixing this up everywhere it's used to be consistent. And not stupidly inversed? If this is true, it's ALLOWING the info.
+/client/verb/masked_examine()
 	set category = "OPTIONS"
 	set name = "Toggle Masked Examine"
 	if(prefs)
