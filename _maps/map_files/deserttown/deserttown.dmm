@@ -757,7 +757,7 @@
 	aportalid = "archivisthome"
 	},
 /turf/open/floor/rogue/greenstone/runed,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "aoS" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8;
@@ -901,7 +901,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "arT" = (
 /obj/structure/stairs{
 	dir = 2
@@ -1075,7 +1075,7 @@
 /area/rogue/under/underdarker)
 "avo" = (
 /turf/open/floor/rogue/woodturned,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "avr" = (
 /obj/effect/spawner/trap,
 /turf/open/floor/rogue/church{
@@ -1190,7 +1190,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "ayk" = (
 /obj/machinery/light/rogue/candle/blue/l,
 /turf/open/floor/rogue/darkpath,
@@ -1253,7 +1253,7 @@
 /obj/item/cushion/desert2,
 /obj/machinery/light/rogue/candle/blue/l,
 /turf/open/floor/rogue/darkpath,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "azz" = (
 /obj/effect/landmark/start/seneschal,
 /turf/open/floor/carpet/royalblack,
@@ -1408,7 +1408,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "aBm" = (
 /turf/open/floor/rogue/deserttile{
 	icon_state = "tiledrab2"
@@ -1597,7 +1597,7 @@
 	lockid = "university"
 	},
 /turf/open/floor/rogue/darkpath,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "aEI" = (
 /obj/structure/table/wood/fancy,
 /obj/structure/shisha/hookah{
@@ -2215,7 +2215,7 @@
 /obj/machinery/light/rogue/candle/blue,
 /obj/machinery/light/rogue/candle/blue/r,
 /turf/open/floor/rogue/darkpath,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "aRq" = (
 /obj/item/natural/stone,
 /turf/open/floor/rogue/lightpath,
@@ -2743,7 +2743,7 @@
 /turf/open/floor/rogue/deserttile{
 	icon_state = "tilegreyblu"
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "aZH" = (
 /obj/structure/rack/rogue,
 /obj/item/clothing/head/roguetown/helmet/sallet/zyb,
@@ -2955,7 +2955,7 @@
 /obj/structure/bookcase/random/archive,
 /obj/item/book/rogue/tales3,
 /turf/open/floor/rogue/sandbrick,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "bdH" = (
 /obj/structure/stairs/desert,
 /turf/open/floor/rogue/naturalstone/sandstone,
@@ -3267,7 +3267,7 @@
 /obj/structure/bookcase/random/archive,
 /obj/item/book/rogue/beardling,
 /turf/open/floor/rogue/sandbrick,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "bjI" = (
 /obj/item/roguegear{
 	pixel_x = -2;
@@ -3553,7 +3553,7 @@
 	},
 /obj/machinery/light/rogue/torchholder/r,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "bot" = (
 /obj/item/clothing/suit/roguetown/shirt/dress/thawb/beige,
 /obj/item/clothing/under/roguetown/sirwal/brown,
@@ -3634,7 +3634,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "bpE" = (
 /obj/structure/composter,
 /turf/open/floor/rogue/dirt/desert,
@@ -4959,7 +4959,7 @@
 /obj/structure/bookcase/random/archive,
 /obj/item/book/rogue/noc,
 /turf/open/floor/rogue/darkpath,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "bPk" = (
 /obj/structure/table/wood{
 	dir = 6;
@@ -7750,7 +7750,7 @@
 	name = "Academy"
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "cQe" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -7886,7 +7886,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "cSJ" = (
 /obj/machinery/light/rogue/hearth,
 /obj/item/reagent_containers/glass/bucket/pot,
@@ -8984,7 +8984,7 @@
 	pixel_y = 5
 	},
 /turf/open/floor/rogue/woodturned,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "dmo" = (
 /obj/effect/landmark/events/haunts,
 /turf/open/floor/rogue/carpet/lord/center,
@@ -9744,7 +9744,7 @@
 /turf/open/floor/rogue/deserttile{
 	icon_state = "tilegreyblu"
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "dAA" = (
 /obj/structure/rack/rogue,
 /obj/item/clothing/suit/roguetown/armor/leather/goblin,
@@ -10105,7 +10105,7 @@
 	pixel_y = -32
 	},
 /turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "dHa" = (
 /obj/structure/mineral_door/wood{
 	icon_state = "wcv";
@@ -10622,10 +10622,10 @@
 /obj/item/skillbook/unfinished,
 /obj/item/skillbook/unfinished,
 /turf/open/floor/rogue/woodturned,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "dQm" = (
 /turf/open/floor/rogue/sandbrick,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "dQw" = (
 /obj/structure/mineral_door/wood/donjon{
 	dir = 8;
@@ -10880,7 +10880,7 @@
 /area/rogue/under/cavewet/bogcaves/desert)
 "dVi" = (
 /turf/open/transparent/openspace,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "dVl" = (
 /obj/structure/closet/dirthole/grave,
 /turf/open/floor/rogue/dirt/road,
@@ -11064,7 +11064,7 @@
 	pixel_y = -8
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "dYn" = (
 /obj/structure/closet/crate/roguecloset,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/armor,
@@ -11467,7 +11467,7 @@
 	dir = 1
 	},
 /turf/open/floor/rogue/sandbrick,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "egl" = (
 /obj/machinery/light/rogue/candle/blue,
 /turf/open/floor/carpet/purple,
@@ -11897,7 +11897,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "eoZ" = (
 /obj/structure/flora/roguegrass/herb/random,
 /turf/open/floor/rogue/desert_grass,
@@ -11911,7 +11911,7 @@
 /obj/structure/chair/bench/coucha,
 /obj/structure/fluff/wallclock,
 /turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "epA" = (
 /obj/machinery/light/rogue/candle/l,
 /turf/open/floor/rogue/wood,
@@ -12374,7 +12374,7 @@
 /area/rogue/under/cave)
 "exC" = (
 /turf/closed/wall/mineral/rogue/sandbrick,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "exG" = (
 /obj/item/roguebin/water/gross,
 /turf/open/floor/rogue/herringbone{
@@ -12503,7 +12503,7 @@
 /turf/open/floor/rogue/deserttile{
 	icon_state = "tilegreyblu"
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "ezY" = (
 /obj/structure/roguemachine/chimeric_heart_beast,
 /turf/open/floor/rogue/churchmarble,
@@ -12695,7 +12695,7 @@
 /turf/open/floor/rogue/deserttile{
 	icon_state = "tilegreyblu"
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "eEj" = (
 /obj/structure/table/wood,
 /obj/item/candle/candlestick/gold/lit{
@@ -14020,7 +14020,7 @@
 "feF" = (
 /obj/structure/bookcase/random/archive,
 /turf/open/floor/rogue/darkpath,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "feL" = (
 /obj/structure/fermentation_keg/sandpot/water,
 /turf/open/floor/rogue/tile/brownbrick,
@@ -14215,7 +14215,7 @@
 /area/rogue/indoors/town/bath/desert)
 "fir" = (
 /turf/closed/wall/mineral/rogue/sandstone,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "fiu" = (
 /obj/effect/decal/cleanable/blood{
 	icon_state = "floor5-old"
@@ -14720,7 +14720,7 @@
 	dir = 4
 	},
 /turf/open/floor/rogue/woodturned,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "fuS" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -15908,7 +15908,7 @@
 "fRV" = (
 /obj/item/cushion/desert1,
 /turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "fSk" = (
 /obj/structure/fluff/railing/corner,
 /turf/open/floor/rogue/wood/nosmooth,
@@ -16576,7 +16576,7 @@
 	pixel_x = 8
 	},
 /turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "ghk" = (
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/town/church)
@@ -17879,7 +17879,7 @@
 	icon_state = "longtable_mid"
 	},
 /turf/open/floor/carpet/stellar,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "gHP" = (
 /obj/structure/drape/desert,
 /turf/closed/wall/mineral/rogue/wooddark/window,
@@ -18010,7 +18010,7 @@
 /obj/structure/bookcase/random/archive,
 /obj/item/book/rogue/festus,
 /turf/open/floor/rogue/darkpath,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "gKS" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 8
@@ -18022,7 +18022,7 @@
 	pixel_y = -8
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "gLm" = (
 /obj/machinery/light/rogue/candle/weak/l,
 /turf/open/floor/carpet/red,
@@ -18747,7 +18747,7 @@
 	pixel_y = -8
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "gZY" = (
 /obj/item/natural/stone,
 /obj/effect/decal/cleanable/debris/stony,
@@ -18939,7 +18939,7 @@
 /obj/item/roguekey/archive,
 /obj/item/roguekey/archive,
 /turf/open/floor/carpet/purple,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "hds" = (
 /obj/structure/roguewindow/harem3,
 /obj/structure/curtain/purple,
@@ -19171,7 +19171,7 @@
 /area/rogue/under/underdarker/undercity)
 "hie" = (
 /turf/open/floor/carpet/stellar,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "hif" = (
 /obj/effect/spawner/lootdrop/general_loot_low,
 /turf/open/floor/rogue/dunes,
@@ -19333,7 +19333,7 @@
 /turf/open/floor/rogue/deserttile{
 	icon_state = "tilegreyblu"
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "hls" = (
 /obj/structure/stairs/desert{
 	dir = 1
@@ -19852,7 +19852,7 @@
 /obj/structure/bookcase/random/archive,
 /obj/item/book/rogue/sword,
 /turf/open/floor/rogue/darkpath,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "hwC" = (
 /obj/item/cushion/zybantine{
 	pixel_y = 15;
@@ -19967,7 +19967,7 @@
 	pixel_x = -7
 	},
 /turf/closed/wall/mineral/rogue/sandbrick,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "hzf" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/clothing,
@@ -20476,7 +20476,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "hKf" = (
 /obj/structure/bars,
 /turf/open/water/river/flow,
@@ -20512,7 +20512,7 @@
 "hKx" = (
 /obj/structure/fluff/clock,
 /turf/open/floor/rogue/woodturned,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "hKz" = (
 /obj/structure/fluff/nest{
 	pixel_x = 3;
@@ -21838,7 +21838,7 @@
 /obj/item/cushion/desert1,
 /obj/machinery/light/rogue/candle/blue/l,
 /turf/open/floor/rogue/darkpath,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "imE" = (
 /obj/structure/mineral_door/wood/fancywood{
 	lockid = "knight";
@@ -22097,7 +22097,7 @@
 	pixel_y = 36
 	},
 /turf/open/floor/rogue/woodturned,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "irp" = (
 /obj/effect/decal/mossy{
 	dir = 8
@@ -22126,7 +22126,7 @@
 "irB" = (
 /obj/structure/roguemachine/vendor/tower,
 /turf/closed/wall/mineral/rogue/sandbrick,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "irM" = (
 /obj/machinery/light/rogue/oven/west,
 /obj/machinery/light/rogue/hearth,
@@ -22602,7 +22602,7 @@
 	dir = 4
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "iBI" = (
 /obj/item/cushion/zybantine{
 	pixel_y = 3;
@@ -22803,7 +22803,7 @@
 	name = "Academy Entrance"
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "iGq" = (
 /obj/structure/fluff/grindwheel,
 /turf/open/floor/rogue/sandbrick,
@@ -24255,7 +24255,7 @@
 "jnn" = (
 /obj/structure/roguewindow/openclose/reinforced,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "jnq" = (
 /obj/structure/bars/pipe{
 	dir = 4;
@@ -24389,7 +24389,7 @@
 	name = "Academy"
 	},
 /turf/open/floor/rogue/woodturned,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "joU" = (
 /obj/machinery/light/rogue/torchholder/l,
 /turf/open/floor/rogue/deserttile{
@@ -25528,7 +25528,7 @@
 "jJA" = (
 /obj/machinery/light/rogue/candle,
 /turf/open/floor/rogue/woodturned,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "jJJ" = (
 /obj/structure/table/church/m{
 	icon_state = "churchtable_end"
@@ -25635,7 +25635,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "jMc" = (
 /obj/effect/landmark/quest_spawner/defense,
 /turf/open/water/cleanshallow,
@@ -25690,7 +25690,7 @@
 /obj/item/paper/scroll,
 /obj/item/natural/feather,
 /turf/open/floor/carpet/stellar,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "jMV" = (
 /obj/structure/mineral_door/wood{
 	locked = 1;
@@ -25947,6 +25947,12 @@
 /obj/structure/flora/roguegrass/bush/jungle,
 /turf/open/floor/rogue/dunes,
 /area/rogue/outdoors/desert)
+"jRm" = (
+/obj/structure/arcyne_wall{
+	max_integrity = 2000
+	},
+/turf/open/floor/rogue/darkpath,
+/area/rogue/indoors/town/magician/desert)
 "jRv" = (
 /obj/effect/decal/cobbleedge{
 	dir = 1;
@@ -26986,7 +26992,7 @@
 "klK" = (
 /obj/item/cushion/desert2,
 /turf/open/floor/carpet/stellar,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "klX" = (
 /obj/structure/bed/rogue/shit,
 /turf/open/floor/rogue/citybrick/citybrick1,
@@ -27549,7 +27555,7 @@
 "kwr" = (
 /obj/structure/chair/bench/couchablack/r,
 /turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "kwF" = (
 /obj/machinery/light/rogue/firebowl/standing,
 /obj/effect/decal/cobbleedge{
@@ -27631,7 +27637,7 @@
 "kyr" = (
 /obj/item/cushion/desert1,
 /turf/open/floor/carpet/stellar,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "kyz" = (
 /obj/structure/table/wood/map/four,
 /turf/open/floor/rogue/cobble/mossy{
@@ -27868,6 +27874,12 @@
 	max_integrity = 90000
 	},
 /area/rogue/indoors/town/dwarfin/desert)
+"kEc" = (
+/obj/structure/fluff/walldeco/mageguild{
+	pixel_y = 0
+	},
+/turf/closed/wall/mineral/rogue/sandstone,
+/area/rogue/indoors/town/magician/desertacademy)
 "kEo" = (
 /obj/structure/flora/roguegrass/bush/jungle,
 /turf/open/floor/rogue/dirt/desert,
@@ -27936,7 +27948,7 @@
 /turf/open/floor/rogue/deserttile{
 	icon_state = "tilegreyblu"
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "kFS" = (
 /obj/structure/bookcase/random/archive,
 /turf/open/floor/rogue/sandbrick,
@@ -28453,7 +28465,7 @@
 	},
 /obj/machinery/light/rogue/torchholder/l,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "kQN" = (
 /obj/structure/mineral_door/wood/donjon/stone{
 	locked = 1;
@@ -28974,7 +28986,7 @@
 /area/rogue/indoors/town/bath/desert)
 "lbs" = (
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "lbE" = (
 /obj/structure/roguetent,
 /turf/open/floor/rogue/twig,
@@ -29619,7 +29631,7 @@
 	pixel_x = 8
 	},
 /turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "lok" = (
 /obj/effect/landmark/quest_spawner/defense,
 /turf/open/floor/rogue/dunes,
@@ -29702,7 +29714,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "lql" = (
 /obj/structure/closet/crate/drawer{
 	pixel_y = 9
@@ -30229,7 +30241,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "lBJ" = (
 /obj/effect/decal/cleanable/debris/stony,
 /turf/open/floor/rogue/citybrick/citybrick1,
@@ -30674,7 +30686,7 @@
 	dir = 1
 	},
 /turf/open/floor/rogue/woodturned,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "lKu" = (
 /obj/structure/roguemachine/atm{
 	location_tag = "Stewardry interior";
@@ -30785,7 +30797,7 @@
 "lNm" = (
 /obj/structure/roguewindow/harem3,
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "lNq" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 1
@@ -30874,7 +30886,7 @@
 "lOI" = (
 /obj/machinery/light/rogue/candle/r,
 /turf/open/floor/carpet/purple,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "lOW" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -31883,7 +31895,7 @@
 /obj/item/clothing/mask/cigarette/pipe/westman,
 /obj/machinery/light/rogue/candle/blue,
 /turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "mjc" = (
 /obj/structure/fluff/walldeco/church/line,
 /obj/effect/decal/cobbleedge{
@@ -31894,7 +31906,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "mje" = (
 /obj/structure/mineral_door/wood{
 	name = "Tailor";
@@ -32105,7 +32117,7 @@
 /obj/structure/bookcase/random/archive,
 /obj/item/book/rogue/knowledge1,
 /turf/open/floor/rogue/sandbrick,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "mmy" = (
 /obj/structure/drape/desert,
 /turf/open/floor/rogue/naturalstone/sandstone,
@@ -32349,7 +32361,7 @@
 "mqH" = (
 /obj/item/cushion/zybantine,
 /turf/open/floor/carpet/stellar,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "mqS" = (
 /obj/structure/mineral_door/wood/donjon{
 	dir = 3;
@@ -32542,7 +32554,7 @@
 	pixel_x = 8
 	},
 /turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "mvo" = (
 /obj/structure/mineral_door/wood,
 /turf/open/floor/rogue/tile/harem1,
@@ -32819,7 +32831,7 @@
 "mBO" = (
 /obj/item/cushion/desert2,
 /turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "mBQ" = (
 /obj/structure/rack/rogue,
 /obj/item/rogueweapon/thresher/aalloy,
@@ -33929,7 +33941,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "mYZ" = (
 /obj/item/roguecoin/copper,
 /obj/item/roguecoin/gold,
@@ -34797,7 +34809,7 @@
 /obj/structure/bookcase/random/archive,
 /obj/item/book/rogue/cardgame,
 /turf/open/floor/rogue/sandbrick,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "nnF" = (
 /turf/closed/wall/mineral/rogue/decostone/mossy/blue/long,
 /area/rogue/indoors/town/church)
@@ -35285,7 +35297,7 @@
 	dir = 5
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "nwz" = (
 /obj/structure/fluff/walldeco/vinez/red,
 /turf/closed/wall/mineral/rogue/sandstone,
@@ -35694,7 +35706,7 @@
 "nEd" = (
 /obj/structure/chair/wood/rogue,
 /turf/open/floor/rogue/woodturned,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "nED" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/natural/stone,
@@ -36475,7 +36487,7 @@
 /obj/structure/bookcase/random/archive,
 /obj/item/book/rogue/necra,
 /turf/open/floor/rogue/darkpath,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "nUN" = (
 /turf/open/floor/rogue/desert_grass,
 /area/rogue/outdoors/town/manor/desert/roofs)
@@ -37049,7 +37061,7 @@
 /obj/item/millstone,
 /obj/structure/roguemachine/withdraw,
 /turf/open/floor/rogue/woodturned,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "ogG" = (
 /obj/structure/shisha/hookah,
 /turf/open/floor/rogue/wood/herringbone,
@@ -37082,7 +37094,7 @@
 	max_integrity = 2000
 	},
 /turf/open/floor/rogue/darkpath,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "ohF" = (
 /obj/effect/decal/cobbleedge{
 	icon_state = "borderfall";
@@ -38641,7 +38653,7 @@
 	pixel_y = 31
 	},
 /turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "oIS" = (
 /obj/structure/chair/wood/zybantine{
 	dir = 8
@@ -38833,7 +38845,7 @@
 	pixel_y = 32
 	},
 /turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "oLE" = (
 /obj/machinery/light/rogue/candle/r,
 /obj/item/cushion/zybantine,
@@ -39197,7 +39209,7 @@
 /turf/open/floor/rogue/concrete{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "oRm" = (
 /obj/structure/table/wood,
 /obj/structure/roguemachine/atm{
@@ -39607,7 +39619,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "oYU" = (
 /obj/machinery/light/roguestreet,
 /turf/open/floor/rogue/dirt,
@@ -40607,7 +40619,7 @@
 /area/rogue/outdoors/town/desert)
 "psP" = (
 /turf/closed/wall/mineral/rogue/wooddark,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "psU" = (
 /obj/structure/fluff/railing/wood{
 	dir = 1;
@@ -42133,7 +42145,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "pWQ" = (
 /turf/open/floor/rogue/darkpath{
 	color = "#c4abff"
@@ -42288,7 +42300,7 @@
 /area/rogue/under/underdarker/pyramid)
 "qaF" = (
 /turf/open/floor/rogue/greenstone/runed,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "qaL" = (
 /obj/structure/fluff/psycross/zizocross,
 /turf/open/floor/rogue/sandbrick,
@@ -42305,7 +42317,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "qaW" = (
 /obj/structure/table/church{
 	icon_state = "churchtable_mid"
@@ -42548,7 +42560,7 @@
 /turf/open/floor/rogue/deserttile{
 	icon_state = "tilegreyblu"
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "qfD" = (
 /obj/structure/mineral_door/wood/donjon{
 	dir = 4;
@@ -43011,7 +43023,7 @@
 "qoP" = (
 /obj/structure/roguewindow/harem3,
 /turf/open/floor/rogue/woodturned,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "qoX" = (
 /obj/structure/table/wood/long_table/right,
 /obj/item/reagent_containers/glass/mortar{
@@ -43642,7 +43654,7 @@
 	dir = 4
 	},
 /turf/open/floor/rogue/woodturned,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "qBr" = (
 /turf/open/floor/rogue/dirt/desert,
 /area/rogue/under/underdark)
@@ -43731,7 +43743,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "qBW" = (
 /obj/structure/bookcase/random,
 /obj/item/book/rogue/blackmountain,
@@ -44006,7 +44018,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "qHB" = (
 /obj/machinery/light/rogue/candle{
 	pixel_y = -32
@@ -44028,7 +44040,7 @@
 	},
 /obj/item/candle/skull/lit,
 /turf/open/floor/carpet/stellar,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "qHT" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
 /turf/open/transparent/openspace,
@@ -44226,7 +44238,7 @@
 	pixel_x = 8
 	},
 /turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "qMl" = (
 /obj/structure/table/wood/long_table,
 /obj/item/paper/scroll,
@@ -45651,7 +45663,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "rpi" = (
 /obj/effect/spawner/roguemap/hauntpile,
 /turf/open/floor/rogue/deserttile,
@@ -45949,7 +45961,7 @@
 	dir = 8
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "rur" = (
 /obj/structure/table/wood{
 	dir = 10;
@@ -46416,14 +46428,14 @@
 /obj/structure/bookcase/random/archive,
 /obj/item/book/rogue/abyssor,
 /turf/open/floor/rogue/sandbrick,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "rDe" = (
 /obj/structure/roguemachine/scomm{
 	pixel_y = -32;
 	scom_tag = "Archive Library"
 	},
 /turf/open/floor/rogue/darkpath,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "rDi" = (
 /obj/structure/fluff/railing/fence{
 	dir = 1
@@ -46757,7 +46769,7 @@
 	icon_state = "stairs"
 	},
 /turf/open/floor/rogue/woodturned,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "rLK" = (
 /turf/closed/mineral/rogue/sandstone,
 /area/rogue/outdoors/town/desert)
@@ -47444,7 +47456,7 @@
 	icon_state = "barsbent"
 	},
 /turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "rYb" = (
 /obj/structure/handcart,
 /turf/open/floor/rogue/tile/brownbrick{
@@ -47550,7 +47562,7 @@
 	dir = 1
 	},
 /turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "sae" = (
 /obj/machinery/light/rogue/candle/l,
 /turf/open/floor/carpet/royalblack,
@@ -48093,7 +48105,7 @@
 "skQ" = (
 /obj/machinery/light/rogue/cauldron,
 /turf/open/floor/rogue/concrete,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "slc" = (
 /obj/effect/decal/remains/bear,
 /turf/open/water/swamp,
@@ -48273,7 +48285,7 @@
 "soH" = (
 /obj/structure/bookcase/random/archive,
 /turf/open/floor/rogue/woodturned,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "soI" = (
 /obj/structure/mineral_door/wood/violet,
 /turf/open/floor/rogue/concrete,
@@ -49776,7 +49788,7 @@
 /obj/structure/bookcase/random/archive,
 /obj/item/book/rogue/nitebeast,
 /turf/open/floor/rogue/sandbrick,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "sSK" = (
 /obj/effect/decal/duneedge{
 	dir = 1
@@ -49825,7 +49837,7 @@
 /obj/structure/bookcase/random/archive,
 /obj/item/book/rogue/tales1,
 /turf/open/floor/rogue/sandbrick,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "sUm" = (
 /obj/structure/chair/bench/couch{
 	pixel_y = 12
@@ -49982,7 +49994,7 @@
 /obj/structure/bookcase/random/archive,
 /obj/item/book/rogue/cooking,
 /turf/open/floor/rogue/sandbrick,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "sWz" = (
 /obj/structure/spider/stickyweb,
 /turf/open/floor/rogue/sandbrick,
@@ -50954,7 +50966,7 @@
 /obj/item/cushion/zybantine,
 /obj/machinery/light/rogue/candle/blue/r,
 /turf/open/floor/rogue/sandbrick,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "tnq" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -51116,7 +51128,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "tqj" = (
 /obj/structure/bars/pipe{
 	dir = 4;
@@ -51535,7 +51547,7 @@
 /area/rogue/indoors/town/steward)
 "tyu" = (
 /turf/open/floor/carpet/purple,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "tyF" = (
 /obj/structure/fluff/statue/tdummy,
 /turf/open/floor/rogue/sandbrick,
@@ -52171,7 +52183,7 @@
 /area/rogue/outdoors/town/roofs/desert)
 "tLS" = (
 /turf/open/floor/rogue/darkpath,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "tLW" = (
 /obj/structure/fluff/railing/border/east,
 /obj/structure/stairs/desert{
@@ -52337,7 +52349,7 @@
 /obj/structure/bed/rogue/inn,
 /obj/item/bedsheet/rogue/fabric,
 /turf/open/floor/carpet/purple,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "tNZ" = (
 /obj/item/roguecoin/copper,
 /turf/open/floor/rogue/citybrick,
@@ -52617,7 +52629,7 @@
 /turf/open/floor/rogue/deserttile{
 	icon_state = "tilegreyblu"
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "tTk" = (
 /obj/structure/bearpelt,
 /turf/open/floor/rogue/woodturned,
@@ -53767,7 +53779,7 @@
 	},
 /obj/effect/spawner/lootdrop/valuable_candle_spawner,
 /turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "uot" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/darkpath,
@@ -54208,7 +54220,7 @@
 /area/rogue/indoors/town/desert)
 "uwe" = (
 /turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "uwg" = (
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/indoors/town/tavern/desert)
@@ -54745,7 +54757,7 @@
 	},
 /obj/machinery/light/rogue/candle/blue/l,
 /turf/open/floor/rogue/sandbrick,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "uGN" = (
 /obj/machinery/light/rogue/firebowl/standing,
 /obj/effect/decal/cobbleedge{
@@ -54843,7 +54855,7 @@
 /obj/structure/bookcase/random/archive,
 /obj/item/book/rogue/robber,
 /turf/open/floor/rogue/darkpath,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "uHM" = (
 /obj/item/reagent_containers/powder/salt,
 /turf/open/floor/rogue/darkpath,
@@ -54880,7 +54892,7 @@
 	dir = 1
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "uIp" = (
 /obj/effect/landmark/quest_spawner/easy,
 /turf/open/floor/rogue/sandbrick,
@@ -55372,7 +55384,7 @@
 "uRC" = (
 /obj/item/cushion/zybantine,
 /turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "uRO" = (
 /obj/structure/fluff/railing/corner/south_west,
 /turf/open/floor/rogue/tile/harem1,
@@ -55516,7 +55528,7 @@
 /obj/structure/bookcase/random/archive,
 /obj/item/book/rogue/bibble,
 /turf/open/floor/rogue/sandbrick,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "uTn" = (
 /obj/structure/rack/rogue,
 /obj/item/rogueweapon/sword/sabre/stalker,
@@ -56100,6 +56112,12 @@
 	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/dwarfin/desert)
+"vda" = (
+/obj/structure/fluff/walldeco/mageguild{
+	pixel_y = 0
+	},
+/turf/closed/wall/mineral/rogue/sandbrick,
+/area/rogue/indoors/town/magician/desertacademy)
 "vdH" = (
 /obj/structure/roguemachine/mail{
 	ournum = 12;
@@ -56387,7 +56405,7 @@
 /obj/structure/bookcase/random/archive,
 /obj/item/book/rogue/xylix,
 /turf/open/floor/rogue/sandbrick,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "vjj" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
@@ -56548,7 +56566,7 @@
 /obj/structure/bookcase/random/archive,
 /obj/item/book/rogue/blackmountain,
 /turf/open/floor/rogue/darkpath,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "vnO" = (
 /turf/open/water/swamp,
 /area/rogue/under/underdark)
@@ -56929,7 +56947,7 @@
 	pixel_x = -8
 	},
 /turf/open/floor/rogue/woodturned,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "vwB" = (
 /obj/effect/wisp/prestidigitation{
 	desc = "A small, fiery ball of light made up of mystical energy.";
@@ -57119,7 +57137,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "vAi" = (
 /obj/structure/stairs/stone{
 	dir = 1;
@@ -57422,7 +57440,7 @@
 /obj/structure/bookcase/random/archive,
 /obj/item/book/rogue/arcyne,
 /turf/open/floor/rogue/sandbrick,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "vGI" = (
 /obj/structure/rack/rogue/shelf/biggest,
 /obj/effect/spawner/lootdrop/ancient_equipment_spawner,
@@ -57633,7 +57651,7 @@
 	pixel_y = -32
 	},
 /turf/open/floor/rogue/darkpath,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "vJK" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/roguegrass,
@@ -58170,7 +58188,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "vUA" = (
 /obj/item/book/rogue/law,
 /obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
@@ -58250,7 +58268,7 @@
 "vVS" = (
 /obj/machinery/light/rogue/candle/blue,
 /turf/open/floor/rogue/darkpath,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "vVU" = (
 /obj/structure/closet/crate/roguecloset,
 /turf/open/floor/rogue/tile/harem,
@@ -58292,7 +58310,7 @@
 	keycontrol = "archive"
 	},
 /turf/closed/wall/mineral/rogue/sandbrick,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "vWK" = (
 /obj/structure/bookcase/random,
 /turf/open/floor/rogue/wood,
@@ -59129,7 +59147,7 @@
 /obj/structure/rack/rogue/shelf/biggest,
 /obj/structure/rack/rogue/shelf,
 /turf/open/floor/rogue/concrete,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "wku" = (
 /obj/item/storage/backpack/rogue/satchel,
 /obj/item/clothing/suit/roguetown/shirt/dress/royal,
@@ -59265,7 +59283,7 @@
 "wob" = (
 /obj/structure/roguemachine/potionseller/university,
 /turf/closed/wall/mineral/rogue/sandbrick,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "wol" = (
 /obj/machinery/light/rogue/candle/blue/r,
 /turf/open/floor/rogue/tile/harem2,
@@ -60126,7 +60144,7 @@
 /turf/open/floor/rogue/deserttile{
 	icon_state = "tilegreyblu"
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "wFI" = (
 /obj/item/natural/rock,
 /turf/open/floor/rogue/tile/brownbrick{
@@ -60551,7 +60569,7 @@
 	dir = 1
 	},
 /turf/open/floor/rogue/darkpath,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "wNb" = (
 /obj/structure/chair/zybantine_sofa/right,
 /obj/machinery/light/rogue/candle/blue,
@@ -60692,7 +60710,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "wPj" = (
 /turf/closed/mineral/random/rogue/sandstone,
 /area/rogue/under/cave)
@@ -61136,7 +61154,7 @@
 	dir = 9
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "wYP" = (
 /obj/machinery/light/rogue/candle/r,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -61337,7 +61355,7 @@
 /obj/item/cushion/desert2,
 /obj/machinery/light/rogue/candle/blue/r,
 /turf/open/floor/rogue/darkpath,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "xcj" = (
 /obj/structure/fluff/railing/border{
 	dir = 10
@@ -61658,7 +61676,7 @@
 /obj/structure/bookcase/random/archive,
 /obj/item/book/rogue/fishing,
 /turf/open/floor/rogue/darkpath,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "xgH" = (
 /obj/structure/fluff/railing/border/north,
 /obj/structure/stairs/desert{
@@ -61938,7 +61956,7 @@
 	},
 /obj/machinery/light/rogue/candle/blue/r,
 /turf/open/floor/rogue/darkpath,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "xlW" = (
 /obj/structure/roguewindow/harem3,
 /obj/structure/curtain/red{
@@ -62085,7 +62103,7 @@
 /obj/machinery/light/rogue/candle/blue,
 /obj/machinery/light/rogue/candle/blue/l,
 /turf/open/floor/rogue/sandbrick,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "xpq" = (
 /obj/structure/closet/crate/roguecloset,
 /obj/item/rope/chain,
@@ -62103,7 +62121,7 @@
 /turf/open/floor/rogue/deserttile{
 	icon_state = "tilegreyblu"
 	},
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "xpv" = (
 /obj/structure/rack/rogue,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/armor,
@@ -62401,7 +62419,7 @@
 	icon_state = "tablewood1"
 	},
 /turf/open/floor/rogue/woodturned,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "xuK" = (
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/town/basement/desert/town)
@@ -62621,7 +62639,7 @@
 /obj/item/paper/scroll,
 /obj/item/natural/feather,
 /turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/academy/desert)
+/area/rogue/indoors/town/magician/desertacademy)
 "xzP" = (
 /obj/machinery/light/rogue/candle/red,
 /turf/open/floor/rogue/metal/barograte{
@@ -261264,11 +261282,11 @@ kvr
 kvr
 fir
 fir
-fir
+kEc
 tLS
 tLS
 tLS
-fir
+kEc
 fir
 fir
 kvr
@@ -286484,7 +286502,7 @@ kSq
 dph
 kSq
 kSq
-vmz
+jRm
 dGO
 nXE
 dGO
@@ -287108,7 +287126,7 @@ kSq
 qkm
 kSq
 kSq
-vmz
+jRm
 kSq
 nXE
 kSq
@@ -376074,7 +376092,7 @@ iZc
 rrW
 icQ
 bep
-exC
+vda
 exC
 exC
 exC
@@ -377322,13 +377340,13 @@ bep
 icQ
 icQ
 bep
-exC
+vda
 rXX
 mvj
 cPZ
 vWA
 exC
-exC
+vda
 wFB
 ezS
 dVi
@@ -379506,16 +379524,16 @@ wMn
 icQ
 icQ
 bep
-exC
-exC
-lNm
+vda
 exC
 lNm
 exC
 lNm
 exC
+lNm
 exC
 exC
+vda
 icQ
 kJB
 mEY
@@ -402859,11 +402877,11 @@ sRe
 hZy
 hZy
 jvb
-jvb
 pKw
+jvb
 hTu
 jvb
-jvb
+pKw
 jvb
 bJY
 whi
@@ -403488,7 +403506,7 @@ rZJ
 uyW
 bQQ
 aNG
-jvb
+pKw
 vfO
 whi
 whi
@@ -403794,7 +403812,7 @@ amo
 amo
 jgz
 bST
-pKw
+jvb
 nLr
 oeA
 bQQ
@@ -404424,7 +404442,7 @@ bQQ
 bQQ
 dDH
 rOK
-jvb
+pKw
 vfO
 whi
 vfO

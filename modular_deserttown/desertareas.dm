@@ -327,13 +327,20 @@
 	keep_area = TRUE
 
 /area/rogue/indoors/town/magician/desert
-	name = "Wizard's Tower"
+	name = "University Wizard's Tower"
 	// spookysounds = SPOOKY_MYSTICAL
 	// spookynight = SPOOKY_MYSTICAL
 	// droning_sound = 'sound/music/area/magiciantower.ogg'
 	// droning_sound_dusk = null
 	// droning_sound_night = null
 	// keep_area = TRUE
+
+// Caustic Edit - To Make the Academy Part of the University properly
+/area/rogue/indoors/town/magician/desertacademy
+	name = "University Academy"
+	droning_sound = 'sound/music/area/academy.ogg'
+	droning_sound_dusk = null
+	droning_sound_night = null
 
 /area/rogue/indoors/town/shop/desert
 	name = "Bazaar"
