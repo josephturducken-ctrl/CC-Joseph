@@ -1168,6 +1168,11 @@
 /obj/effect/landmark/events/haunts,
 /turf/open/floor/rogue/citybrick/citybrick1,
 /area/rogue/outdoors/town/desert)
+"axC" = (
+/obj/machinery/light/rogue/candle/blue/r,
+/obj/machinery/light/rogue/candle/blue/l,
+/turf/open/floor/rogue/blocks/stonered/tiny,
+/area/rogue/indoors/town/bath/desert)
 "axF" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/roguegrass,
@@ -4213,6 +4218,9 @@
 /obj/item/clothing/head/roguetown/turban/fancypurple,
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/indoors/town/steward)
+"bBC" = (
+/turf/closed/mineral/random/rogue/sandstone/high,
+/area/rogue/outdoors/desertdeep/above)
 "bBI" = (
 /turf/open/floor/rogue/sandbrick,
 /area/rogue/indoors/shelter/mountains)
@@ -12557,6 +12565,13 @@
 /mob/living/carbon/human/species/orc/npc/footsoldier,
 /turf/open/floor/rogue/dunes,
 /area/rogue/outdoors/desertdeep)
+"eBO" = (
+/obj/structure/fluff/traveltile/bathhouse_passage{
+	aportalgoesto = "smuggler_bathhouse";
+	aportalid = "smuggler_cove"
+	},
+/turf/open/floor/rogue/naturalstone/sandstone,
+/area/rogue/outdoors/desertdeep/above)
 "eBP" = (
 /obj/structure/mineral_door/wood/donjon{
 	dir = 8;
@@ -16825,6 +16840,10 @@
 /obj/item/roguestatue/gold/loot,
 /turf/open/floor/rogue/grasspurple,
 /area/rogue/under/underdarker)
+"gmT" = (
+/obj/structure/roguemachine/mail/paired_hermes/cove,
+/turf/open/floor/rogue/naturalstone/sandstone,
+/area/rogue/outdoors/desertdeep/above)
 "gnb" = (
 /obj/structure/fluff/railing/border{
 	dir = 10;
@@ -18401,14 +18420,10 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/church)
 "gUs" = (
-/obj/item/legwears/fishnet/black,
-/obj/item/legwears/fishnet/black,
-/obj/item/legwears/fishnet/white,
-/obj/item/legwears/fishnet/white,
-/obj/item/legwears/silk/black,
-/obj/item/legwears/silk/white,
-/obj/machinery/light/rogue/candle,
-/obj/structure/closet/crate/roguecloset/inn,
+/obj/structure/closet/crate/roguecloset/inn{
+	pixel_y = 27
+	},
+/obj/machinery/light/rogue/candle/l,
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath/desert)
 "gUu" = (
@@ -19718,6 +19733,16 @@
 /obj/effect/spawner/lootdrop/iron_copper_weapon_spawner,
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/shelter/desertdeep)
+"hsg" = (
+/obj/structure/closet/crate/roguecloset,
+/obj/item/legwears/silk/white,
+/obj/item/legwears/silk/black,
+/obj/item/legwears/fishnet/white,
+/obj/item/legwears/fishnet/white,
+/obj/item/legwears/fishnet/black,
+/obj/item/legwears/fishnet/black,
+/turf/open/floor/rogue/blocks/stonered/tiny,
+/area/rogue/indoors/town/bath/desert)
 "hsD" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/spider/rock,
 /turf/open/floor/rogue/citybrick/citybrick1,
@@ -31147,6 +31172,18 @@
 	},
 /turf/open/floor/rogue/lightpath,
 /area/rogue/under/underdarker/undercity)
+"lTg" = (
+/obj/item/storage/roguebag{
+	pixel_x = 9;
+	pixel_y = 0
+	},
+/obj/item/storage/roguebag,
+/obj/item/storage/roguebag{
+	pixel_x = 4;
+	pixel_y = 11
+	},
+/turf/open/floor/rogue/naturalstone/sandstone,
+/area/rogue/outdoors/desertdeep/above)
 "lTp" = (
 /obj/structure/bed/rogue/shit,
 /turf/open/floor/rogue/dirt/road/desert,
@@ -31968,6 +32005,10 @@
 /obj/structure/rack/rogue/shelf/biggest,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/magician/desert)
+"mjy" = (
+/obj/structure/roguemachine/mail/paired_hermes/bathhouse,
+/turf/open/floor/rogue/blocks/stonered/tiny,
+/area/rogue/indoors/town/bath/desert)
 "mjE" = (
 /turf/open/floor/rogue/dirt/road/desert,
 /area/rogue/under/cavewet/bogcaves/desert)
@@ -34768,6 +34809,7 @@
 	pixel_x = -15;
 	pixel_y = 0
 	},
+/obj/machinery/light/rogue/candle/l,
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath/desert)
 "nmL" = (
@@ -57201,6 +57243,12 @@
 /obj/structure/flora/roguetree/palm,
 /turf/open/floor/rogue/desert_grass,
 /area/rogue/outdoors/town/desert)
+"vBh" = (
+/turf/closed/wall/mineral/rogue/sandstone{
+	color = "#ca9cff";
+	density = 0
+	},
+/area/rogue/indoors/town/bath/desert)
 "vBz" = (
 /obj/structure/mineral_door/wood{
 	locked = 1;
@@ -63979,6 +64027,10 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/rogue/dirt/road/desert,
 /area/rogue/under/cave/rhgoblinencampment)
+"xZH" = (
+/obj/structure/fluff/traveltile/bathhouse_passage,
+/turf/open/floor/rogue/blocks/stonered/tiny,
+/area/rogue/indoors/town/bath/desert)
 "xZL" = (
 /obj/structure/rack/rogue,
 /turf/open/floor/rogue/twig,
@@ -166743,8 +166795,8 @@ eBY
 eBY
 eBY
 eBY
-eBY
-eBY
+iVN
+iVN
 iVN
 iVN
 sEx
@@ -167055,9 +167107,9 @@ eBY
 eBY
 eBY
 eBY
-eBY
-eBY
 iVN
+lvA
+vBh
 gUs
 dKv
 dKv
@@ -167367,13 +167419,13 @@ eBY
 eBY
 eBY
 eBY
-eBY
-eBY
+iVN
+dKv
 iVN
 vhr
 lSN
 sbD
-dKv
+hsg
 iVN
 eBY
 eBY
@@ -167678,9 +167730,9 @@ eBY
 eBY
 eBY
 eBY
-eBY
-eBY
-eBY
+iVN
+iVN
+dKv
 iVN
 uRd
 lSN
@@ -167990,9 +168042,9 @@ eBY
 eBY
 eBY
 eBY
-eBY
-eBY
-eBY
+iVN
+mjy
+uXf
 iVN
 mzZ
 dKv
@@ -168300,10 +168352,10 @@ eBY
 eBY
 eBY
 eBY
-eBY
-eBY
-eBY
-eBY
+iVN
+iVN
+iVN
+dKv
 iVN
 iVN
 iVN
@@ -168612,10 +168664,10 @@ eBY
 eBY
 eBY
 eBY
-eBY
-eBY
-eBY
-eBY
+iVN
+xZH
+axC
+dKv
 iVN
 xio
 xXY
@@ -168924,9 +168976,9 @@ eBY
 eBY
 eBY
 eBY
-eBY
-eBY
-eBY
+iVN
+iVN
+iVN
 iVN
 iVN
 grY
@@ -420928,15 +420980,15 @@ pPs
 pPs
 pPs
 pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
+kSl
+kSl
+kSl
+kSl
+kSl
+kSl
+kSl
+kSl
+kSl
 kSl
 "}
 (3,1,4) = {"
@@ -421240,15 +421292,15 @@ pPs
 pPs
 pPs
 pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
+kSl
+kSl
+kSl
+kSl
+kSl
+kSl
+kSl
+kSl
+kSl
 kSl
 "}
 (4,1,4) = {"
@@ -421552,15 +421604,15 @@ pPs
 pPs
 pPs
 pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
+kSl
+kSl
+kSl
+kSl
+kSl
+kSl
+bBC
+bBC
+bBC
 kSl
 "}
 (5,1,4) = {"
@@ -421865,14 +421917,14 @@ pPs
 pPs
 pPs
 pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
+kSl
+kSl
+kSl
+bBC
+bBC
+bBC
+bBC
+bBC
 kSl
 "}
 (6,1,4) = {"
@@ -422177,14 +422229,14 @@ pPs
 pPs
 pPs
 pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
+kSl
+eBO
+kSl
+bBC
+bBC
+bBC
+bBC
+bBC
 kSl
 "}
 (7,1,4) = {"
@@ -422487,16 +422539,16 @@ pPs
 pPs
 pPs
 pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
+kSl
+kSl
+kSl
+liM
+kSl
+bBC
+bBC
+bBC
+bBC
+bBC
 kSl
 "}
 (8,1,4) = {"
@@ -422797,18 +422849,18 @@ xRy
 pPs
 pPs
 pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
+kSl
+kSl
+kSl
+gmT
+liM
+liM
+bBC
+bBC
+bBC
+bBC
+bBC
+bBC
 kSl
 "}
 (9,1,4) = {"
@@ -423107,20 +423159,20 @@ xRy
 xRy
 xRy
 xRy
-pPs
-pPs
-pPs
+kSl
+kSl
+kSl
 lEt
 liM
 liM
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
+liM
+liM
+lTg
+bBC
+bBC
+bBC
+bBC
+bBC
 kSl
 "}
 (10,1,4) = {"
@@ -423426,13 +423478,13 @@ liM
 liM
 liM
 liM
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
+liM
+liM
+bBC
+bBC
+bBC
+bBC
+bBC
 kSl
 "}
 (11,1,4) = {"
@@ -423738,13 +423790,13 @@ liM
 liM
 aKP
 liM
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
+liM
+liM
+bBC
+bBC
+bBC
+bBC
+bBC
 kSl
 "}
 (12,1,4) = {"
@@ -424046,17 +424098,17 @@ xRy
 xRy
 liM
 liM
-pPs
 liM
 liM
 liM
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
+liM
+liM
+bBC
+bBC
+bBC
+bBC
+bBC
+bBC
 kSl
 "}
 (13,1,4) = {"
@@ -424356,19 +424408,19 @@ pPs
 pPs
 xRy
 xRy
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
+kSl
+kSl
+kSl
+liM
+liM
+liM
+lEt
+kSl
+bBC
+bBC
+bBC
+bBC
+bBC
 kSl
 "}
 (14,1,4) = {"
@@ -424670,17 +424722,17 @@ xRy
 xRy
 xRy
 pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
+kSl
+kSl
+kSl
+kSl
+kSl
+kSl
+bBC
+bBC
+bBC
+bBC
+bBC
 kSl
 "}
 (15,1,4) = {"
@@ -424986,13 +425038,13 @@ pPs
 pPs
 pPs
 pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
+kSl
+kSl
+bBC
+bBC
+bBC
+bBC
+bBC
 kSl
 "}
 (16,1,4) = {"
@@ -425298,13 +425350,13 @@ pPs
 pPs
 pPs
 pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
-pPs
+kSl
+kSl
+kSl
+bBC
+bBC
+bBC
+bBC
 kSl
 "}
 (17,1,4) = {"
@@ -425612,11 +425664,11 @@ pPs
 pPs
 pPs
 pPs
-pPs
-pPs
-pPs
-pPs
-pPs
+kSl
+bBC
+bBC
+bBC
+bBC
 kSl
 "}
 (18,1,4) = {"
@@ -425924,11 +425976,11 @@ xRy
 xRy
 pPs
 pPs
-pPs
-pPs
-pPs
-pPs
-pPs
+kSl
+kSl
+kSl
+kSl
+kSl
 kSl
 "}
 (19,1,4) = {"
