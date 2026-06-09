@@ -385,7 +385,7 @@
 	skillcraft = /datum/skill/craft/engineering
 	craftdiff = 4
 
-/datum/crafting_recipe/roguetown/engineering/twentybolts
+/datum/crafting_recipe/roguetown/engineering/bolts_sixteen
 	name = "crossbow bolt (x16)"
 	category = "Ammo"
 	display_category = ITEM_CAT_ENG_COMBAT
@@ -415,7 +415,7 @@
 	skillcraft = /datum/skill/craft/engineering
 	craftdiff = 3
 
-/datum/crafting_recipe/roguetown/engineering/twentyboltsbronze
+/datum/crafting_recipe/roguetown/engineering/boltsbronze_sixteen
 	name = "hastequilled crossbow bolt, bronze (x16)"
 	category = "Ammo"
 	display_category = ITEM_CAT_ENG_COMBAT
