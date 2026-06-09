@@ -12131,6 +12131,16 @@
 	},
 /turf/closed/wall/mineral/rogue/sandbrick,
 /area/rogue/indoors/town/manor/desert)
+"erS" = (
+/obj/structure/bars/pipe{
+	dir = 8
+	},
+/obj/structure/bars/pipe{
+	dir = 4;
+	pixel_x = -4
+	},
+/turf/open/transparent/openspace,
+/area/rogue/outdoors/town/roofs/desert)
 "erU" = (
 /obj/item/reagent_containers/glass/bucket/pot,
 /turf/open/floor/rogue/tile{
@@ -24272,6 +24282,13 @@
 "jkD" = (
 /turf/open/water/bath,
 /area/rogue/outdoors/town/manor/desert)
+"jkF" = (
+/obj/structure/bars/pipe,
+/obj/structure/bars/pipe{
+	dir = 1
+	},
+/turf/open/transparent/openspace,
+/area/rogue/outdoors/town/roofs/desert)
 "jkG" = (
 /obj/structure/roguemachine/scomm{
 	scom_tag = "Front Gatehouse"
@@ -617288,7 +617305,7 @@ tyc
 tyc
 tyc
 tyc
-tyc
+jkF
 tyc
 tyc
 tyc
@@ -617600,7 +617617,7 @@ tyc
 tyc
 tyc
 tyc
-tyc
+jkF
 tyc
 tyc
 tyc
@@ -623218,7 +623235,7 @@ tyc
 tyc
 tyc
 tyc
-tyc
+jkF
 tyc
 tyc
 tyc
@@ -623530,7 +623547,7 @@ tyc
 tyc
 tyc
 tyc
-tyc
+jkF
 tyc
 tyc
 tyc
@@ -623842,7 +623859,7 @@ kHd
 kHd
 ofR
 tyc
-tyc
+jkF
 tyc
 tyc
 tyc
@@ -624154,7 +624171,7 @@ ijZ
 ijZ
 diH
 ofR
-tyc
+jkF
 tyc
 tyc
 tyc
@@ -642541,9 +642558,9 @@ ijZ
 ijZ
 ijZ
 ijZ
-tyc
-tyc
-tyc
+erS
+erS
+erS
 ijZ
 vBS
 uKs
