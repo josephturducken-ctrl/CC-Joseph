@@ -60792,10 +60792,6 @@
 /obj/machinery/light/rogue/candle/blue,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/desert)
-"wNc" = (
-/turf/open/water/ocean,
-/turf/open/water/ocean/deep,
-/area/rogue/outdoors/desertdeep/coastal)
 "wNj" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 4
@@ -255463,7 +255459,7 @@ kvr
 kvr
 kvr
 kvr
-wNc
+udb
 udb
 udb
 udb
@@ -255775,7 +255771,7 @@ kvr
 kvr
 kvr
 kvr
-wNc
+udb
 udb
 udb
 udb
