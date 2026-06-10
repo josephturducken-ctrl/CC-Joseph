@@ -5776,6 +5776,10 @@
 /obj/effect/landmark/start/sexton,
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/church/chapel)
+"ccs" = (
+/obj/structure/apiary/starter,
+/turf/open/floor/rogue/dirt/desert,
+/area/rogue/outdoors/desert)
 "ccy" = (
 /turf/open/floor/rogue/greenstone{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
@@ -5901,6 +5905,10 @@
 /obj/effect/spawner/lootdrop/roguegem/random,
 /turf/open/floor/rogue/carpet/lord/center,
 /area/rogue/under/cave/licharena/bossroom)
+"ceF" = (
+/obj/machinery/light/rogue/firebowl,
+/turf/open/floor/rogue/dirt/road/desert,
+/area/rogue/outdoors/desert)
 "ceN" = (
 /obj/machinery/light/rogue/firebowl,
 /turf/open/floor/rogue/naturalstone/sandstone,
@@ -12629,6 +12637,14 @@
 	},
 /turf/open/water/pond,
 /area/rogue/outdoors/town/desert)
+"eBb" = (
+/obj/structure/fluff/railing/wood{
+	dir = 8;
+	pixel_x = -8
+	},
+/obj/machinery/light/rogue/firebowl,
+/turf/open/floor/rogue/dirt/road/desert,
+/area/rogue/outdoors/desert)
 "eBg" = (
 /obj/machinery/light/rogue/hearth,
 /turf/open/floor/rogue/sandbrick,
@@ -12946,7 +12962,7 @@
 	},
 /area/rogue/under/town/basement/desert/town)
 "eGB" = (
-/obj/structure/fermentation_keg/sandpot,
+/obj/structure/fermentation_keg,
 /turf/open/floor/rogue/deserttile{
 	icon_state = "tilegreywhite"
 	},
@@ -17725,6 +17741,10 @@
 	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/church/basement)
+"gBX" = (
+/obj/structure/fermentation_keg,
+/turf/open/water/cleanshallow,
+/area/rogue/outdoors/desert/river)
 "gCb" = (
 /obj/structure/roguemachine/atm{
 	location_tag = "Palace Gate";
@@ -18061,9 +18081,8 @@
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/under/cave)
 "gIV" = (
-/obj/structure/roguemachine/drugmachine{
-	density = 0;
-	pixel_y = 32
+/obj/structure/roguemachine/scomm{
+	scom_tag = "Bathhouse Front Desk"
 	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/bath/desert)
@@ -34808,7 +34827,7 @@
 /turf/open/floor/rogue/tile/harem1,
 /area/rogue/under/underdarker/undercity)
 "njr" = (
-/obj/structure/fermentation_keg/sandpot/beer,
+/obj/structure/fermentation_keg,
 /turf/open/floor/rogue/darkpath,
 /area/rogue/under/town/basement/desert/keep)
 "njC" = (
@@ -37060,7 +37079,7 @@
 /area/rogue/under/cave/skeletoncrypt)
 "oav" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
-/obj/structure/fermentation_keg/sandpot,
+/obj/structure/fermentation_keg,
 /turf/open/floor/rogue/darkpath,
 /area/rogue/under/town/basement/desert/keep)
 "oaC" = (
@@ -49822,6 +49841,10 @@
 "sNM" = (
 /turf/closed/wall/mineral/rogue/sandbrick,
 /area/rogue/indoors/town/desert/warden)
+"sOg" = (
+/obj/structure/roguewindow/stained/silver,
+/turf/closed/wall/mineral/rogue/decostone/long,
+/area/rogue/indoors/town/church)
 "sOh" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -50019,9 +50042,11 @@
 	},
 /area/rogue/indoors/inq/basement)
 "sQE" = (
-/obj/structure/fermentation_keg/sandpot,
-/turf/open/floor/rogue/darkpath,
-/area/rogue/under/town/basement/desert/keep)
+/obj/structure/fermentation_keg,
+/turf/open/floor/rogue/tile{
+	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
+	},
+/area/rogue/indoors/town/desert)
 "sQF" = (
 /obj/structure/stairs/desert,
 /obj/structure/fluff/railing/border{
@@ -53322,6 +53347,13 @@
 /obj/item/rogueweapon/pick,
 /turf/open/floor/rogue/lightpath,
 /area/rogue/under/underdarker/undercity)
+"tYO" = (
+/obj/structure/roguemachine/drugmachine{
+	density = 0;
+	pixel_y = 32
+	},
+/turf/open/floor/rogue/blocks/stonered,
+/area/rogue/indoors/town/bath/desert)
 "tYR" = (
 /obj/machinery/light/rogue/candle,
 /obj/item/reagent_containers/glass/bucket{
@@ -54727,7 +54759,7 @@
 	},
 /area/rogue/outdoors/desert)
 "uzD" = (
-/obj/structure/fermentation_keg/sandpot,
+/obj/structure/fermentation_keg,
 /turf/open/floor/rogue/tile/brownbrick{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
@@ -276940,7 +276972,7 @@ smX
 smX
 smX
 smX
-aaR
+njr
 jYq
 vQT
 aaR
@@ -277250,9 +277282,9 @@ cZu
 smX
 oav
 njr
-sQE
-aaR
-aaR
+njr
+njr
+njr
 nLG
 lXQ
 aaR
@@ -284810,7 +284842,7 @@ jYh
 ebt
 kOp
 kUs
-jYh
+uzD
 gTm
 hDq
 igG
@@ -285800,7 +285832,7 @@ rqC
 ogy
 ogy
 ogy
-kGt
+sQE
 atX
 und
 und
@@ -286112,7 +286144,7 @@ lpn
 ogy
 ogy
 ogy
-kGt
+sQE
 atX
 und
 und
@@ -290733,8 +290765,8 @@ myi
 sbD
 ikg
 vTm
-mZC
-aup
+iVN
+gIV
 sbD
 nsI
 kgI
@@ -291669,8 +291701,8 @@ wKz
 sbD
 aup
 aup
-iVN
-gIV
+mZC
+aup
 sbD
 nas
 ogB
@@ -291982,7 +292014,7 @@ qmD
 lLV
 wWw
 iVN
-kDw
+tYO
 sbD
 lbo
 ogB
@@ -292294,7 +292326,7 @@ iVN
 iVN
 iVN
 iVN
-sbD
+kDw
 sbD
 woE
 ogB
@@ -383979,7 +384011,7 @@ tQV
 tDJ
 tDJ
 tDJ
-tDJ
+sOg
 isJ
 xPK
 tQV
@@ -405606,7 +405638,7 @@ fhR
 sDa
 kCh
 sDa
-sDa
+eBb
 kCh
 kCh
 atX
@@ -407478,7 +407510,7 @@ vNc
 jrl
 jrl
 jrl
-jrl
+ccs
 tfj
 cEd
 atX
@@ -409038,7 +409070,7 @@ bRL
 kCh
 kCh
 kCh
-kCh
+ceF
 kCh
 kCh
 jrl
@@ -409362,7 +409394,7 @@ rSz
 rSz
 fCW
 fCW
-jOM
+gBX
 kLV
 kLV
 kLV
