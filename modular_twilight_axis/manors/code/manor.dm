@@ -460,7 +460,7 @@
 				if(patron != /datum/patron/inhumen/matthios) //FREEDOM OF TRANSACTION
 					estate_levy = SStreasury.apply_tax(owner_account, total_profit_money, TAX_CATEGORY_ESTATE_LEVY, "Estate levy income")
 					total_profit_money -= estate_levy
-				SStreasury.generate_money_account(total_profit_money, owner)
+				SStreasury.generate_money_account(ceil(total_profit_money), owner)
 
 	var/message = "During this dae your manor delivered this much to Crown: "
 	for(var/good in produced_summary)
