@@ -3205,6 +3205,10 @@
 	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/underdarker/undercity)
+"bgE" = (
+/obj/effect/landmark/quest_spawner/easy,
+/turf/open/floor/rogue/sandbrick,
+/area/rogue/under/underdarker/undermire)
 "bgK" = (
 /obj/structure/mannequin/male,
 /obj/item/clothing/head/roguetown/helmet/heavy/guard,
@@ -4802,10 +4806,6 @@
 /obj/effect/spawner/roguemap/hauntpile,
 /turf/open/floor/rogue/sandbrick,
 /area/rogue/under/cave/dungeon1)
-"bIo" = (
-/obj/effect/landmark/quest_spawner/hard,
-/turf/open/floor/rogue/twig,
-/area/rogue/under/underdarker/undermire)
 "bIF" = (
 /obj/structure/mineral_door/bars{
 	locked = 1;
@@ -11437,10 +11437,6 @@
 "dWd" = (
 /turf/open/floor/rogue/metal/barograte,
 /area/rogue/indoors/town/physician/desert)
-"dWe" = (
-/obj/effect/landmark/quest_spawner/hard,
-/turf/open/floor/rogue/sandbrick,
-/area/rogue/under/underdarker/undermire)
 "dWl" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -11453,6 +11449,12 @@
 	},
 /turf/open/floor/rogue/woodturned/nosmooth,
 /area/rogue/outdoors/town/manor/desert/roofs)
+"dWp" = (
+/obj/effect/particle_effect/smoke/transparent{
+	lifetime = 14400
+	},
+/turf/open/water/river/flow,
+/area/rogue/under/underdarker/undermire)
 "dWv" = (
 /obj/item/reagent_containers/glass/bucket{
 	anchored = 1
@@ -17899,6 +17901,13 @@
 /obj/item/cushion/desert2,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town/bath/desert)
+"gso" = (
+/obj/structure/table/wood/poor,
+/obj/effect/spawner/lootdrop/helmet_spawner,
+/turf/open/floor/rogue/tile/brownbrick{
+	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
+	},
+/area/rogue/under/underdarker/undercity)
 "gsq" = (
 /obj/structure/table/wood,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/materials,
@@ -27570,6 +27579,10 @@
 	},
 /turf/open/floor/rogue/dirt/road/desert,
 /area/rogue/indoors/shelter/desertdeep)
+"jZX" = (
+/turf/open/water/cleanshallow,
+/turf/open/water/river/flow,
+/area/rogue/under/underdarker/undermire)
 "jZZ" = (
 /obj/item/book/rogue/playerbook,
 /turf/open/floor/carpet/purple,
@@ -36897,6 +36910,13 @@
 "nyZ" = (
 /turf/open/floor/rogue/tile/harem1,
 /area/rogue/indoors/town/desert)
+"nzv" = (
+/obj/effect/particle_effect/smoke/transparent{
+	lifetime = 14400
+	},
+/turf/open/water/cleanshallow,
+/turf/open/water/river/flow,
+/area/rogue/under/underdarker/undermire)
 "nzz" = (
 /obj/structure/fluff/railing/border/east,
 /obj/item/reagent_containers/glass/bucket,
@@ -41163,13 +41183,6 @@
 	},
 /turf/open/floor/rogue/citybrick/citybrick3,
 /area/rogue/outdoors/town/desert)
-"oXH" = (
-/obj/structure/table/wood/poor,
-/obj/effect/spawner/lootdrop/armored_boots_spawner,
-/turf/open/floor/rogue/tile/brownbrick{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/under/underdarker/undercity)
 "oXT" = (
 /turf/closed/wall/mineral/rogue/sandstone{
 	color = "#919191"
@@ -45886,6 +45899,12 @@
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
 /area/rogue/indoors/town/desert)
+"qJM" = (
+/obj/effect/particle_effect/smoke/transparent{
+	lifetime = 14400
+	},
+/turf/open/water/cleanshallow,
+/area/rogue/under/underdarker/undermire)
 "qKd" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/rogue/desert_grass,
@@ -47846,6 +47865,10 @@
 /turf/open/floor/rogue/tile/brownbrick{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
+/area/rogue/under/underdarker/undermire)
+"ruO" = (
+/obj/effect/landmark/quest_spawner/hard,
+/turf/open/floor/rogue/twig,
 /area/rogue/under/underdarker/undermire)
 "ruT" = (
 /turf/closed/wall/mineral/rogue/sandbrick,
@@ -53173,6 +53196,10 @@
 /obj/structure/roguewindow/openclose/reinforced,
 /turf/open/floor/rogue/darkpath,
 /area/rogue/outdoors/town/roofs/desert)
+"tpZ" = (
+/obj/effect/landmark/quest_spawner/hard,
+/turf/open/floor/rogue/sandbrick,
+/area/rogue/under/underdarker/undermire)
 "tqc" = (
 /obj/effect/decal/remains/human,
 /turf/open/floor/rogue/tile/brownbrick{
@@ -57791,13 +57818,6 @@
 /obj/machinery/light/rogue/firebowl,
 /turf/open/floor/rogue/sandbrick,
 /area/rogue/outdoors/town/roofs/desert)
-"uTd" = (
-/obj/structure/table/wood/poor,
-/obj/effect/spawner/lootdrop/helmet_spawner,
-/turf/open/floor/rogue/tile/brownbrick{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/under/underdarker/undercity)
 "uTf" = (
 /obj/machinery/light/rogue/candle/r,
 /turf/open/floor/rogue/tile/brownbrick{
@@ -59457,6 +59477,13 @@
 "vzt" = (
 /turf/open/water/cleanshallow,
 /area/rogue/under/cavewet/bogcaves/desert)
+"vzy" = (
+/obj/structure/table/wood/poor,
+/obj/effect/spawner/lootdrop/armored_boots_spawner,
+/turf/open/floor/rogue/tile/brownbrick{
+	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
+	},
+/area/rogue/under/underdarker/undercity)
 "vzB" = (
 /obj/structure/fermentation_keg/fancypot/wine,
 /turf/open/floor/rogue/citybrick/citybrick1,
@@ -65234,10 +65261,6 @@
 "xAU" = (
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/town/church/basement)
-"xAX" = (
-/obj/effect/landmark/quest_spawner/easy,
-/turf/open/floor/rogue/sandbrick,
-/area/rogue/under/underdarker/undermire)
 "xBf" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
@@ -159468,8 +159491,8 @@ vUu
 vUu
 vUu
 wel
-oXH
-uTd
+vzy
+gso
 wsz
 wsz
 wsz
@@ -161709,7 +161732,7 @@ fIN
 fIN
 fIN
 fIN
-bIo
+ruO
 dIh
 dIh
 dIh
@@ -162012,7 +162035,7 @@ amV
 amV
 avC
 hrC
-oyU
+dWp
 fIN
 fIN
 dIh
@@ -162637,8 +162660,8 @@ oyU
 oyU
 hrC
 hrC
-hrC
-oyU
+dWp
+fIN
 fIN
 fIN
 dIh
@@ -162949,9 +162972,9 @@ oyU
 oyU
 hrC
 hrC
-hrC
-hrC
-oyU
+dWp
+fIN
+fIN
 fIN
 fIN
 fIN
@@ -163261,8 +163284,8 @@ oyU
 oyU
 hrC
 hrC
-hrC
 oyU
+fIN
 fIN
 fIN
 mGu
@@ -163573,7 +163596,7 @@ amV
 hrC
 hrC
 hrC
-oyU
+dWp
 fIN
 fIN
 fIN
@@ -163883,7 +163906,7 @@ avC
 amV
 amV
 avC
-hrC
+qJM
 oyU
 fIN
 fIN
@@ -165443,7 +165466,7 @@ avC
 amV
 amV
 hrC
-oyU
+dWp
 fIN
 mGu
 fIN
@@ -165756,7 +165779,7 @@ amV
 oyU
 hrC
 hrC
-oyU
+dWp
 fIN
 fIN
 mGu
@@ -166068,8 +166091,8 @@ oyU
 oyU
 oyU
 hrC
-hrC
-oyU
+nzv
+fIN
 fIN
 fIN
 fIN
@@ -166380,8 +166403,8 @@ oyU
 oyU
 oyU
 hrC
-hrC
-oyU
+jZX
+fIN
 fIN
 fIN
 fIN
@@ -166692,7 +166715,7 @@ amV
 oyU
 hrC
 hrC
-oyU
+dWp
 fIN
 fIN
 mGu
@@ -167003,7 +167026,7 @@ avC
 amV
 amV
 hrC
-oyU
+dWp
 iyP
 iyP
 iyP
@@ -167672,7 +167695,7 @@ amV
 amV
 amV
 amV
-xAX
+bgE
 amV
 amV
 amV
@@ -167690,7 +167713,7 @@ iyP
 meh
 amV
 amV
-dWe
+tpZ
 amV
 amV
 amV
