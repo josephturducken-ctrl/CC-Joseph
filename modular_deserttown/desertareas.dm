@@ -502,6 +502,7 @@
 // CC - Dungeon Additions
 /area/rogue/under/cave/desertminomaze
 	name = "Labyrinth of Penance"
+	loot_budget = LOOT_BUDGET_DESERTMINOMAZE
 	droning_sound = 'sound/music/area/prospector.ogg'
 	droning_sound_dusk = null 
 	droning_sound_night = null 
