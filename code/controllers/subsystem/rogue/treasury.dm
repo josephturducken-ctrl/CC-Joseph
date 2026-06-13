@@ -80,7 +80,7 @@ SUBSYSTEM_DEF(treasury)
 	var/initial_payment_done = FALSE
 	var/list/loans = list()
 	var/loan_interest_rate = 0.25
-	var/loan_max_issuance_day = 5
+	var/loan_max_issuance_day = 8 //Caustic Edit - Increase this from 5 to 8
 	var/list/poll_tax_rates = list(
 		POLL_TAX_CAT_NOBLE = 0,
 		POLL_TAX_CAT_CLERGY = 0,
