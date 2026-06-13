@@ -74,6 +74,9 @@
 		skin_haver.adjust_nutrition(-repair_amount * regen_cost)
 
 /obj/item/clothing/suit/roguetown/armor/regenerating/skin/natural_armor/proc/restart_regen()
+	if(obj_integrity >= max_integrity)
+		return
+
 	if(!reptimer)
 		// If relative repair mode is on, use the interval instead of repairing 20% every repair_time seconds
 		var/wait_time = relative_repair_mode ? relative_repair_interval : repair_time

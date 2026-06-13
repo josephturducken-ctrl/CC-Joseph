@@ -3501,6 +3501,7 @@
 #include "modular_causticcove\code\modules\classes\mage.dm"
 #include "modular_causticcove\code\modules\classes\shophand.dm"
 #include "modular_causticcove\code\modules\classes\wildsoul.dm"
+#include "modular_causticcove\code\modules\classes\shrine_priest\extra_shrine_weapons.dm"
 #include "modular_causticcove\code\modules\classes\shrine_priest\shrine_guardian.dm"
 #include "modular_causticcove\code\modules\classes\shrine_priest\shrine_priest.dm"
 #include "modular_causticcove\code\modules\client\customizers\organ\genitals.dm"
