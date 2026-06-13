@@ -987,6 +987,21 @@
 	if(user.get_active_held_item())
 		..()
 		return
+	/*if(door_opened || isSwitchingStates) //Caustic Edit - Lets try moving this to the Middle Click option and see if that allows for rightclick-locking the door like others?
+		return
+	if(brokenstate)
+		to_chat(user, span_warning("There isn't much left of this door."))
+		return
+	if(get_dir(src,user) == viewportdir)
+		view_toggle(user)
+	else
+		to_chat(user, span_warning("The viewport doesn't toggle from this side."))
+		return*/
+
+/obj/structure/mineral_door/wood/donjon/MiddleClick(mob/user, params)
+	if(user.get_active_held_item())
+		..()
+		return
 	if(door_opened || isSwitchingStates)
 		return
 	if(brokenstate)
@@ -997,6 +1012,7 @@
 	else
 		to_chat(user, span_warning("The viewport doesn't toggle from this side."))
 		return
+//Caustic Edit End
 
 /obj/structure/mineral_door/wood/donjon/proc/view_toggle(mob/user)
 	if(door_opened)
