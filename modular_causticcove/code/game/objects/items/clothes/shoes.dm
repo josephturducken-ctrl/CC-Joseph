@@ -18,4 +18,4 @@
 	item_state = "bastshoes"
 	color = CLOTHING_CREAM
 	salvage_amount = 1
-	salvage_result = /obj/item/natural/fibers
+	salvage_result = /obj/item/natural/cloth
