@@ -3476,6 +3476,8 @@
 #include "modular_causticcove\code\game\area\generic_peaceful.dm"
 #include "modular_causticcove\code\datums\wounds\types\mangled_jaw.dm"
 #include "modular_causticcove\code\game\objects\effects\landmarks.dm"
+#include "modular_causticcove\code\game\objects\items\clothes\pants.dm"
+#include "modular_causticcove\code\game\objects\items\clothes\shoes.dm"
 #include "modular_causticcove\code\game\objects\items\clothes\stockings.dm"
 #include "modular_causticcove\code\game\objects\items\rogueitems\leash.dm"
 #include "modular_causticcove\code\game\objects\items\rogueitems\util.dm"
