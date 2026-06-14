@@ -4,36 +4,36 @@
 	allowed_sexes = list(MALE, FEMALE)
 	
 	outfit = /datum/outfit/job/roguetown/adventurer/levy
-	traits_applied = list(TRAIT_LEVY, TRAIT_DECEIVING_MEEKNESS, TRAIT_LEECHRESIST, TRAIT_SELF_RELIANCE)
+	traits_applied = list(TRAIT_LEVY, TRAIT_DECEIVING_MEEKNESS, TRAIT_BOGWALKER, TRAIT_SELF_RELIANCE)
 	cmode_music = 'sound/music/cmode/towner/combat_towner2.ogg'
 	category_tags = list(CTAG_TOWNER)
 	townie_contract_gate_exempt = TRUE
-	maximum_possible_slots = 5 // They're still Towners who contribute to the econ, even when not fighting or bog-larping.
+	maximum_possible_slots = 4 // a squad of 4, because that's what squad means
 	subclass_stats = list(
-		STATKEY_CON = 1,
 		STATKEY_STR = 1,
-		STATKEY_WIL = 1,
-		STATKEY_INT = -1,
+		STATKEY_CON = 1,
+		STATKEY_SPD = 1,
+		STATKEY_LCK = -1,
 	)
 	subclass_skills = list(
 		/datum/skill/combat/axes = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/combat/wrestling = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/combat/unarmed = SKILL_LEVEL_NOVICE,
-		/datum/skill/misc/athletics = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/misc/athletics = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/misc/swimming = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/misc/climbing = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/misc/reading = SKILL_LEVEL_NOVICE,
-		/datum/skill/misc/hunting = SKILL_LEVEL_NOVICE,
 		/datum/skill/craft/crafting = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/craft/cooking = SKILL_LEVEL_NOVICE,
 		/datum/skill/craft/sewing = SKILL_LEVEL_NOVICE,
 		/datum/skill/craft/carpentry = SKILL_LEVEL_JOURNEYMAN,
-		/datum/skill/craft/masonry = SKILL_LEVEL_APPRENTICE,
+		/datum/skill/craft/masonry = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/craft/blacksmithing = SKILL_LEVEL_NOVICE,
 		/datum/skill/craft/armorsmithing = SKILL_LEVEL_NOVICE,
 		/datum/skill/craft/weaponsmithing = SKILL_LEVEL_NOVICE,
-		/datum/skill/labor/lumberjacking = SKILL_LEVEL_APPRENTICE,
+		/datum/skill/labor/lumberjacking = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/labor/farming = SKILL_LEVEL_NOVICE,
+		/datum/skill/misc/hunting = SKILL_LEVEL_NOVICE,
 		/datum/skill/labor/butchering = SKILL_LEVEL_APPRENTICE,
 	)
 
@@ -43,12 +43,15 @@
 	neck = /obj/item/clothing/neck/roguetown/coif
 	mask = /obj/item/clothing/head/roguetown/armingcap
 	cloak = /obj/item/clothing/cloak/tabard/stabard/bog/levy
+	armor = /obj/item/clothing/suit/roguetown/armor/leather/cuirass
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
-	pants = /obj/item/clothing/under/roguetown/trou/leather
-	shoes = /obj/item/clothing/shoes/roguetown/boots
-	beltl = /obj/item/flashlight/flare/torch/lantern
-	
+	belt = /obj/item/storage/belt/rogue/leather
+	pants = /obj/item/clothing/under/roguetown/splintlegs
+	shoes = /obj/item/clothing/shoes/roguetown/boots/armor/iron
+	beltl = /obj/item/flashlight/flare/torch/lantern/bog
+	id = /obj/item/scomstone/bad/garrison/ward
+
 	to_chat(H, span_notice("<b>THE WEAPON I COULD SCROUNGE UP:</b>"))
 	to_chat(H, span_info("<b>THE FAMILY SWORD</b> - Journeyman Swords. Comes with a militia falchion."))
 	to_chat(H, span_info("<b>THE LEGENDARY BOG-STICK</b> - Journeyman Maces. Comes with a militia club."))
@@ -64,16 +67,13 @@
 	if(H.mind)
 		var/list/weapons = list(
 			"THE FAMILY SWORD (Sword)",
-			"A BIG KNIFE (Dagger)",
 			"THE LEGENDARY BOG-STICK (Club)",
-			"THE BOGMAN'S BOW (Sling)",
 			"AN OLDE CATTLE LASH (Whip)",
 			"THE FINEST PITCHFORK (Polearm)",
 			"MINE THRESHER (Flail)",
 			"A GOOD SHOVEL (Axe)",
 			"THE MINER'S PICKAXE (Pickaxe)",
 			"MINE SCYTHE (Scythe)",
-			"THE RELIABLE VOLFKILLER (Staff)",
 			"THE WHOLE KITCHEN (Mess Kit + Cleaver)",
 			"THESE GODS-GIVEN FISTS (Unarmed)",
 		)
@@ -85,161 +85,133 @@
 			if ("THE FAMILY SWORD (Sword)")
 				H.adjust_skillrank_up_to(/datum/skill/combat/swords, SKILL_LEVEL_JOURNEYMAN, TRUE)
 				r_hand = /obj/item/rogueweapon/sword/falchion/militia
-				gloves = /obj/item/clothing/gloves/roguetown/leather
+				gloves = /obj/item/clothing/gloves/roguetown/chain/iron
 				backr = /obj/item/rogueweapon/scabbard/sword
-				beltr = /obj/item/rogueweapon/pick/bronze
+				beltr = /obj/item/rogueweapon/stoneaxe/woodcut/wardenpick/bog
 
 			if ("THE LEGENDARY BOG-STICK (Club)")
 				H.adjust_skillrank_up_to(/datum/skill/combat/maces, SKILL_LEVEL_JOURNEYMAN, TRUE)
 				r_hand = /obj/item/rogueweapon/mace/woodclub/militia
-				gloves = /obj/item/clothing/gloves/roguetown/leather
-				beltr = /obj/item/rogueweapon/pick/bronze
+				gloves = /obj/item/clothing/gloves/roguetown/chain/iron
+				beltr = /obj/item/rogueweapon/stoneaxe/woodcut/wardenpick/bog
 
 			if ("AN OLDE CATTLE LASH (Whip)")
 				H.adjust_skillrank_up_to(/datum/skill/combat/whipsflails, SKILL_LEVEL_JOURNEYMAN, TRUE)
 				r_hand = /obj/item/rogueweapon/whip
-				gloves = /obj/item/clothing/gloves/roguetown/leather
-				beltr = /obj/item/rogueweapon/pick/bronze
+				gloves = /obj/item/clothing/gloves/roguetown/chain/iron
+				backr = /obj/item/rogueweapon/stoneaxe/woodcut/wardenpick/bog
 
 			if("THE FINEST PITCHFORK (Polearm)")
 				H.adjust_skillrank_up_to(/datum/skill/combat/polearms, SKILL_LEVEL_JOURNEYMAN, TRUE)
 				r_hand = /obj/item/rogueweapon/spear/militia
-				gloves = /obj/item/clothing/gloves/roguetown/leather
+				gloves = /obj/item/clothing/gloves/roguetown/chain/iron
 				backr = /obj/item/rogueweapon/scabbard/gwstrap
-				beltr = /obj/item/rogueweapon/pick/bronze
+				beltr = /obj/item/rogueweapon/stoneaxe/woodcut/wardenpick/bog
 
 			if("MINE THRESHER (Flail)")
 				H.adjust_skillrank_up_to(/datum/skill/combat/whipsflails, SKILL_LEVEL_JOURNEYMAN, TRUE)
 				r_hand = /obj/item/rogueweapon/flail/militia
-				gloves = /obj/item/clothing/gloves/roguetown/leather
-				beltr = /obj/item/rogueweapon/pick/bronze
+				gloves = /obj/item/clothing/gloves/roguetown/chain/iron
+				beltr = /obj/item/rogueweapon/stoneaxe/woodcut/wardenpick/bog
 
 			if ("A GOOD SHOVEL (Axe)")
 				H.adjust_skillrank_up_to(/datum/skill/combat/axes, SKILL_LEVEL_JOURNEYMAN, TRUE)
 				r_hand = /obj/item/rogueweapon/greataxe/militia
-				gloves = /obj/item/clothing/gloves/roguetown/leather
+				gloves = /obj/item/clothing/gloves/roguetown/chain/iron
 				backr = /obj/item/rogueweapon/scabbard/gwstrap
-				beltr = /obj/item/rogueweapon/pick/bronze
+				beltr = /obj/item/rogueweapon/stoneaxe/woodcut/wardenpick/bog
 
 			if ("THE MINER'S PICKAXE (Pickaxe)")
 				H.adjust_skillrank_up_to(/datum/skill/labor/mining, SKILL_LEVEL_JOURNEYMAN, TRUE)
 				r_hand = /obj/item/rogueweapon/pick/militia
-				gloves = /obj/item/clothing/gloves/roguetown/leather
-				beltr = /obj/item/rogueweapon/pick/bronze
+				gloves = /obj/item/clothing/gloves/roguetown/chain/iron
+				backr = /obj/item/rogueweapon/stoneaxe/woodcut/wardenpick/bog
 
 			if ("MINE SCYTHE (Scythe)")
 				H.adjust_skillrank_up_to(/datum/skill/labor/farming, SKILL_LEVEL_JOURNEYMAN, TRUE)
 				r_hand = /obj/item/rogueweapon/scythe/militia
-				gloves = /obj/item/clothing/gloves/roguetown/leather
+				gloves = /obj/item/clothing/gloves/roguetown/chain/iron
 				backr = /obj/item/rogueweapon/scabbard/gwstrap
-				beltr = /obj/item/rogueweapon/pick/bronze
-
-			if ("A BIG KNIFE (Dagger)")
-				H.adjust_skillrank_up_to(/datum/skill/combat/knives, SKILL_LEVEL_JOURNEYMAN, TRUE)
-				l_hand = /obj/item/rogueweapon/huntingknife/combat/iron
-				backr = /obj/item/rogueweapon/scabbard/sheath
-				gloves = /obj/item/clothing/gloves/roguetown/leather
-				beltr = /obj/item/rogueweapon/pick/bronze
+				beltr = /obj/item/rogueweapon/stoneaxe/woodcut/wardenpick/bog
 
 			if ("THE WHOLE KITCHEN (Mess Kit + Cleaver)")
 				H.adjust_skillrank_up_to(/datum/skill/craft/cooking, SKILL_LEVEL_JOURNEYMAN, TRUE)
 				H.adjust_skillrank_up_to(/datum/skill/combat/knives, SKILL_LEVEL_JOURNEYMAN, TRUE)
 				r_hand = /obj/item/storage/gadget/messkit
 				l_hand = /obj/item/rogueweapon/huntingknife/chefknife/cleaver
-				gloves = /obj/item/clothing/gloves/roguetown/leather
-				beltr = /obj/item/rogueweapon/pick/bronze
-
-			if ("THE BOGMAN'S BOW (Sling)")
-				H.adjust_skillrank_up_to(/datum/skill/combat/slings, SKILL_LEVEL_JOURNEYMAN, TRUE)
-				gloves = /obj/item/clothing/gloves/roguetown/leather
-				r_hand = /obj/item/quiver/sling/iron
-				l_hand = /obj/item/quiver/sling/iron
-				backr = /obj/item/gun/ballistic/revolver/grenadelauncher/sling/wood/bog
-				beltr = /obj/item/rogueweapon/pick/bronze
-
-			if ("THE RELIABLE VOLFKILLER (Staff)")
-				H.adjust_skillrank_up_to(/datum/skill/combat/staves, SKILL_LEVEL_JOURNEYMAN, TRUE)
-				gloves = /obj/item/clothing/gloves/roguetown/leather
-				backr = /obj/item/rogueweapon/woodstaff/quarterstaff/virtue
-				beltr = /obj/item/rogueweapon/pick/bronze
+				gloves = /obj/item/clothing/gloves/roguetown/chain/iron
+				beltr = /obj/item/rogueweapon/stoneaxe/woodcut/wardenpick/bog
 
 			if ("THESE GODS-GIVEN FISTS (Unarmed)")
-				ADD_TRAIT(H, TRAIT_CIVILIZEDBARBARIAN, TRAIT_GENERIC)
 				H.adjust_skillrank_up_to(/datum/skill/combat/unarmed, SKILL_LEVEL_JOURNEYMAN, TRUE)
 				gloves = /obj/item/clothing/gloves/roguetown/bandages/pugilist
-				beltr = /obj/item/rogueweapon/pick/bronze
+				beltr = /obj/item/rogueweapon/stoneaxe/woodcut/wardenpick/bog
 
 	if(H.mind)
 		SStreasury.grant_savings(ECONOMIC_DESTITUTE, H)
 
 	to_chat(H, span_notice("<b>JOB BEFORE THE LEVY?</b>"))
 
-	to_chat(H, span_info("<b>UNEMPLOYED, SER!!</b><br>\
+	to_chat(H, span_info("<b>A BUM, SER!!</b><br>\
 	Traits: None.<br>\
-	Final Stats: +1 CON, +1 STR, +1 WIL, -1 INT, +1 LCK.<br>\
+	Stats: +3 LUC, -1 INT.<br>\
 	Skills: No extras.<br>\
-	Equipment: Satchel, Rope, Signal Horn, 4x Triumph Beer.<br><br>"))
+	Equipment: Satchel, Rope, Signal Horn, 4x Beer.<br>"))
 
 	to_chat(H, span_info("<b>A HOMESTEADER, SER!!</b><br>\
-	Traits: Jack of All Trades, Homestead Expert, Smithing Expert, Survival Expert.<br>\
-	Final Stats: +1 CON, +1 STR, +1 WIL, +3 INT, +1 SPD, -1 LCK.<br>\
+	Traits: Jack of All Trades, Homestead Expert, Survival Expert.<br>\
+	Stats: +2 INT, +1 SPD, -3 CON.<br>\
 	Skills: No extras.<br>\
-	Equipment: Backpack, Small Shovel, Stone Hammer, Chisel, Handsaw, Hoe, Hunting Knife, Rope, Poor Coin Pouch, Signal Horn, Triumph Beer, Broom, Coal.<br><br>"))
+	Equipment: Backpack, Small Shovel, Stone Hammer, Chisel, Handsaw, Hoe, Hunting Knife, Rope, Poor Coin Pouch, Signal Horn, Beer, Broom.<br><br>"))
 
 	to_chat(H, span_info("<b>A COOKER-DOC, SER!!</b><br>\
 	Traits: Medicine Expert, Cicerone.<br>\
-	Final Stats: +3 INT, +2 SPD, -1 STR, -1 CON, -1 LCK.<br>\
-	Skills: Medicine (Expert), Cooking (Journeyman), Alchemy (Apprentice). Knows Secular Diagnose.<br>\
-	Equipment: Backpack, Bedroll, Signal Horn, Hunting Knife, Rope, Triumph Beer, Bottle Kit, Calendula Seeds, Healing Juice Recipe, Surgery Bag, Folding Alchemy Cauldron, Coal.<br><br>"))
+	Stats: +1 INT, +2 SPD, -3 CON.<br>\
+	Skills: Medicine (Expert), Cooking (Expert), Alchemy (Apprentice). Gains Secular Diagnose.<br>\
+	Equipment: Backpack, Bedroll, 4x Fish Vinegar Potions, Signal Horn, Hunting Knife, Rope, Beer, Bottle Kit, Calendula Seeds, Sugarcane Seeds, Healing Juice Recipe, Surgery Bag.<br><br>"))
 
 	to_chat(H, span_info("<b>A THUG, SER!!</b><br>\
-	Traits: No Pain Stun, Steelhearted. Knows Thieves' Cant.<br>\
-	Final Stats: +2 STR, +2 CON, +1 WIL, -1 SPD, -2 INT, -1 LCK.<br>\
-	Skills: Athletics (Journeyman), Maces (Apprentice).<br>\
-	Equipment: Satchel, Cudgel, Signal Horn, Hunting Knife, 2x Triumph Beer.<br><br>"))
+	Traits: Enduring. Learns Thieves' Cant.<br>\
+	Stats: +1 CON, -1 INT.<br>\
+	Skills: Athletics (Journeyman), Maces (Journeyman).<br>\
+	Equipment: Satchel, Cudgel, Signal Horn, Hunting Knife, 2x Beer.<br><br>"))
 
 	to_chat(H, span_info("<b>A SCAVENGER, SER!!</b><br>\
-	Traits: Dodge Expert, Graverobber.<br>\
-	Final Stats: -3 CON, +1 STR, +1 WIL, -1 INT, +3 SPD, -1 LCK.<br>\
-	Skills: Sneaking (Journeyman), Knives (Journeyman), Sewing (Journeyman), Smelting (Journeyman).<br>\
-	Equipment: Backpack, Combat Knife, Small Shovel, Scissors, Signal Horn, Triumph Beer, Rope, 2x Coal, Iron Ore, Tongs.<br><br>"))
-
-	to_chat(H, span_info("<b>A BATHMAID, SER!!</b><br>\
-	Traits: Empath, Good Lover, Nutcracker. Knows Thieves' Cant.<br>\
-	Final Stats: +2 SPD, -2 INT, +1 LCK.<br>\
-	Skills: Medicine (Novice), Lockpicking (Journeyman), Sneaking (Journeyman), Riding (Master).<br>\
-	Equipment: Satchel, Bath Soap, Gold Hairpin, Signal Horn, Triumph Beer, Rope.<br><br>"))
+	Traits: Dodge Expert.<br>\
+	Stats: +2 SPD, +1 INT, +1 LCK, -1 STR, -3 CON.<br>\
+	Skills: Knives (Journeyman), Sewing (Journeyman).<br>\
+	Equipment: Backpack, Combat Knife, Scissors, Signal Horn, Triumph Beer, Rope.<br><br>"))
 
 	to_chat(H, span_info("<b>ALMOST A SQUIRE, SER!!</b><br>\
-	Traits: Squire Repair, Expert Hunter.<br>\
-	Final Stats: +1 CON, +1 STR, +1 WIL, -1 INT, +1 SPD, -1 PER, -1 LCK.<br>\
+	Traits: Squire Repair, Medium Armor Training.<br>\
+	Stats: +1 WIL.<br>\
 	Skills: No extras.<br>\
 	Equipment: Satchel, Rich Coin Pouch, Stone Hammer, Polishing Cream, Armor Brush, Signal Horn, Needle.<br><br>"))
 
 	to_chat(H, span_info("<b>ALMOST AN ARMSMAN, SER!!</b><br>\
-	Traits: Guardsman, Steelhearted.<br>\
-	Final Stats: +2 CON, +1 STR, +2 WIL, -1 INT, -2 PER, -1 LCK.<br>\
+	Traits: Medium Armor Training.<br>\
+	Stats: +1 WIL.<br>\
 	Skills: Shields (Journeyman).<br>\
-	Equipment: Heater Shield, Beltpack, Chain, Signal Horn, Hunting Knife, Health Potion, Triumph Beer.<br><br>"))
-
+	Equipment: Satchel, Chain, Rope, Signal Horn, Poor Coin Pouch, Hunting Knife, Beer.<br><br>"))
+	
 	if(H.mind)
 		var/list/specialties = list(
-			"UNEMPLOYED, SER!!",
+			"A BUM, SER!!",
 			"A HOMESTEADER, SER!!",
 			"A COOKER-DOC, SER!!",
 			"A THUG, SER!!",
 			"A SCAVENGER, SER!!",
-			"A BATHMAID, SER!!",
 			"ALMOST A SQUIRE, SER!!",
 			"ALMOST AN ARMSMAN, SER!!"
 		)
+
 		var/specialty_choice = tgui_input_list(H, "Choose your background. (The Levy is not legally obligated to provide tools, equipment, compensation, legal representation, funeral expenses, or refunds. Good luck, and we love you.)", "JOB BEFORE THE LEVY?", specialties)
 		switch(specialty_choice)
 
-			if("UNEMPLOYED, SER!!") // the real hero. 4 beer packs, no gear, full balls.
-				H.change_stat(STATKEY_LCK, 1)
-				belt = /obj/item/storage/belt/rogue/leather
-				backl = /obj/item/storage/backpack/rogue/satchel
+			if("A BUM, SER!!") // the real hero, gain LUC instead of losing it, -1 INT for the vanilla feel. no gear, full balls.
+				H.change_stat(STATKEY_LCK, 3)
+				H.change_stat(STATKEY_INT, -1)
+				backl = /obj/item/storage/backpack/rogue/backpack
 				backpack_contents = list(
 					/obj/item/rope = 1,
 					/obj/item/reagent_containers/glass/bottle/rogue/triumphbeer = 4, // this one is for good luck, you'll need it, OHH YOU'LL NEED IT.
@@ -249,12 +221,10 @@
 			if("A HOMESTEADER, SER!!") // basic bitch siege engineer guy, may be mogged by default but ig JoAT lets them be omni-journeyman on all, shrug.
 				ADD_TRAIT(H, TRAIT_JACKOFALLTRADES, TRAIT_GENERIC)
 				ADD_TRAIT(H, TRAIT_HOMESTEAD_EXPERT, TRAIT_GENERIC)
-				ADD_TRAIT(H, TRAIT_SMITHING_EXPERT, TRAIT_GENERIC)
 				ADD_TRAIT(H, TRAIT_SURVIVAL_EXPERT, TRAIT_GENERIC)
-				H.change_stat(STATKEY_INT, 4)
+				H.change_stat(STATKEY_INT, 2)
+				H.change_stat(STATKEY_CON, -3)
 				H.change_stat(STATKEY_SPD, 1)
-				H.change_stat(STATKEY_LCK, -1)
-				belt = /obj/item/storage/backpack/rogue/satchel/beltpack
 				backl = /obj/item/storage/backpack/rogue/backpack
 				backpack_contents = list(
 					/obj/item/rogueweapon/shovel/small = 1,
@@ -268,50 +238,40 @@
 					/obj/item/signal_horn = 1,
 					/obj/item/rogueweapon/hoe = 1,
 					/obj/item/broom = 1,
-					/obj/item/rogueore/coal = 1,
 					)
 
-			if("A COOKER-DOC, SER!!") // JESSIE, WE GOTTA COOK!!! -- This is intended to be the Barber-Surgeon's cousin. Low combat potential.
+			if("A COOKER-DOC, SER!!") // JESSIE, WE GOTTA COOK!!! -- This is intended to be the Barber-Surgeon's cousin.
 				ADD_TRAIT(H, TRAIT_MEDICINE_EXPERT, TRAIT_GENERIC)
 				ADD_TRAIT(H, TRAIT_CICERONE, TRAIT_GENERIC)
 				H.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
-				H.adjust_skillrank_up_to(/datum/skill/misc/medicine, SKILL_LEVEL_EXPERT, TRUE) // so secular diagnose gives better info after (if) they hit master
-				H.adjust_skillrank_up_to(/datum/skill/craft/cooking, SKILL_LEVEL_JOURNEYMAN, TRUE) // brew fish potions for field-healing, ser!!!
+				H.adjust_skillrank_up_to(/datum/skill/misc/medicine, SKILL_LEVEL_EXPERT, TRUE) // so secular diagnose gives better info
+				H.adjust_skillrank_up_to(/datum/skill/craft/cooking, SKILL_LEVEL_EXPERT, TRUE) // brew fish potions for field-healing, ser!!!
 				H.adjust_skillrank_up_to(/datum/skill/craft/alchemy, SKILL_LEVEL_APPRENTICE, TRUE) // this is for drug-crafting
-				H.change_stat(STATKEY_INT, 4)
+				H.change_stat(STATKEY_INT, 1)
+				H.change_stat(STATKEY_CON, -3)
 				H.change_stat(STATKEY_SPD, 2)
-				H.change_stat(STATKEY_LCK, -1)
-				H.change_stat(STATKEY_STR, -1)
-				H.change_stat(STATKEY_WIL, -1)
-				H.change_stat(STATKEY_CON, -1)
-				belt = /obj/item/storage/backpack/rogue/satchel/beltpack
 				backl = /obj/item/storage/backpack/rogue/backpack
 				backpack_contents = list(
 					/obj/item/bedroll = 1,
+					/obj/item/reagent_containers/glass/bottle/rogue/healthpot/zarum/bog = 4, // bringing the fighting juice for the squad!
 					/obj/item/signal_horn = 1,
 					/obj/item/rogueweapon/huntingknife = 1,
 					/obj/item/rope = 1,
 					/obj/item/reagent_containers/glass/bottle/rogue/triumphbeer = 1, // this one is for good luck, you'll need it
 					/obj/item/bottle_kit = 1,
 					/obj/item/herbseed/calendula = 1,
-					/obj/item/paper/vinegar_healpot_recipe = 1, // give man a fish and he eats for 1 dae, give them the recipeh and they'll eat for lyfe
+					/obj/item/seeds/sugarcane = 1,
+					/obj/item/paper/vinegar_healpot_recipe = 1,
 					/obj/item/storage/belt/rogue/surgery_bag = 1,
-					/obj/item/rogueore/coal = 1,
-					/obj/item/folding_alchcauldron_stored = 1,
 					)
 
 			if("A THUG, SER!!") // meatball that's dumb and meaty and does nothing but do that, comes with a cudgel to sell that idea better
 				H.grant_language(/datum/language/thievescant)
 				ADD_TRAIT(H, TRAIT_NOPAINSTUN, TRAIT_GENERIC)
-				ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 				H.adjust_skillrank_up_to(/datum/skill/misc/athletics, SKILL_LEVEL_JOURNEYMAN, TRUE)
-				H.adjust_skillrank_up_to(/datum/skill/combat/maces, SKILL_LEVEL_APPRENTICE, TRUE)
-				H.change_stat(STATKEY_STR, 1)
+				H.adjust_skillrank_up_to(/datum/skill/combat/maces, SKILL_LEVEL_JOURNEYMAN, TRUE)
 				H.change_stat(STATKEY_CON, 1)
-				H.change_stat(STATKEY_SPD, -1)
 				H.change_stat(STATKEY_INT, -1)
-				H.change_stat(STATKEY_LCK, -1)
-				belt = /obj/item/storage/belt/rogue/leather
 				backl = /obj/item/storage/backpack/rogue/satchel
 				backpack_contents = list(
 					/obj/item/rogueweapon/mace/cudgel = 1,
@@ -320,62 +280,28 @@
 					/obj/item/reagent_containers/glass/bottle/rogue/triumphbeer = 2, // this one is for good luck, you'll need it. And an extra one because you're going to suffer a lot.
 					)
 
-			if("A SCAVENGER, SER!!") // squishier glass cannon, fast on your feet, mr. back-and-forth man whose specialty is dragging stuff around and being dodgy. also free combat knife!
+			if("A SCAVENGER, SER!!") // squishier fast on your feet, mr. back-and-forth man whose specialty is dragging stuff around and being dodgy. also free combat knife!
 				ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
-				ADD_TRAIT(H, TRAIT_GRAVEROBBER, TRAIT_GENERIC)
-				H.adjust_skillrank_up_to(/datum/skill/misc/sneaking, SKILL_LEVEL_JOURNEYMAN, TRUE)
 				H.adjust_skillrank_up_to(/datum/skill/combat/knives, SKILL_LEVEL_JOURNEYMAN, TRUE)
-				H.adjust_skillrank_up_to(/datum/skill/craft/sewing, SKILL_LEVEL_JOURNEYMAN, TRUE)
-				H.adjust_skillrank_up_to(/datum/skill/craft/smelting, SKILL_LEVEL_JOURNEYMAN, TRUE)
-				H.change_stat(STATKEY_CON, -4)
-				H.change_stat(STATKEY_SPD, 3)
-				H.change_stat(STATKEY_LCK, -1)
-				belt = /obj/item/storage/backpack/rogue/satchel/beltpack
+				H.adjust_skillrank_up_to(/datum/skill/craft/sewing, SKILL_LEVEL_JOURNEYMAN, TRUE) // for reliable dismantling of clothing
+				H.change_stat(STATKEY_SPD, 2)
+				H.change_stat(STATKEY_INT, 1)
+				H.change_stat(STATKEY_STR, -1)
+				H.change_stat(STATKEY_CON, -3)
+				H.change_stat(STATKEY_LCK, 1)
 				backl = /obj/item/storage/backpack/rogue/backpack
 				backpack_contents = list(
 					/obj/item/rogueweapon/huntingknife/combat = 1,
 					/obj/item/rogueweapon/huntingknife/scissors = 1,
-					/obj/item/rogueweapon/shovel/small = 1,
-					/obj/item/signal_horn = 1,
-					/obj/item/reagent_containers/glass/bottle/rogue/triumphbeer = 1, // this one is for good luck, you'll need it
-					/obj/item/rope = 1,
-					/obj/item/rogueore/coal = 2,
-					/obj/item/rogueore/iron = 1,
-					/obj/item/rogueweapon/tongs = 1,
-					)
-
-			if("A BATHMAID, SER!!") // requested, basically copying 'some' qualities from the bathmaid, but not all, idk what riding will do for them but it's funny to imagine a bathmaiden on a hog with a whip, as people commented
-				H.grant_language(/datum/language/thievescant)
-				ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
-				ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC)
-				ADD_TRAIT(H, TRAIT_NUTCRACKER, TRAIT_GENERIC)
-				H.adjust_skillrank_up_to(/datum/skill/misc/medicine, SKILL_LEVEL_NOVICE, TRUE)
-				H.adjust_skillrank_up_to(/datum/skill/misc/lockpicking, SKILL_LEVEL_JOURNEYMAN, TRUE)
-				H.adjust_skillrank_up_to(/datum/skill/misc/sneaking, SKILL_LEVEL_JOURNEYMAN, TRUE)
-				H.adjust_skillrank_up_to(/datum/skill/misc/riding, SKILL_LEVEL_MASTER, TRUE) // sigh
-				H.change_stat(STATKEY_SPD, 2)
-				H.change_stat(STATKEY_INT, -1)
-				H.change_stat(STATKEY_CON, -1)
-				H.change_stat(STATKEY_STR, -1)
-				H.change_stat(STATKEY_WIL, -1)
-				H.change_stat(STATKEY_LCK, 1)
-				belt = /obj/item/storage/belt/rogue/leather
-				backl = /obj/item/storage/backpack/rogue/satchel
-				backpack_contents = list(
-					/obj/item/soap/bath = 1,
-					/obj/item/lockpick/goldpin = 1,
 					/obj/item/signal_horn = 1,
 					/obj/item/reagent_containers/glass/bottle/rogue/triumphbeer = 1, // this one is for good luck, you'll need it
 					/obj/item/rope = 1,
 					)
 
-			if("ALMOST A SQUIRE, SER!!") // probably should start richer to show that this is prolly the most prestigious among the group
+			if("ALMOST A SQUIRE, SER!!") // probably should start richer to show that this is prolly the most prestigious
 				ADD_TRAIT(H, TRAIT_SQUIRE_REPAIR, TRAIT_GENERIC)
-				ADD_TRAIT(H, TRAIT_EXPERT_HUNTER, TRAIT_GENERIC)
-				H.change_stat(STATKEY_SPD, 1)
-				H.change_stat(STATKEY_PER, -1)
-				H.change_stat(STATKEY_LCK, -1)
-				belt = /obj/item/storage/belt/rogue/leather
+				ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+				H.change_stat(STATKEY_WIL, 1)
 				backl = /obj/item/storage/backpack/rogue/satchel
 				backpack_contents = list(
 					/obj/item/rogueweapon/hammer/stone = 1,
@@ -387,20 +313,16 @@
 					)
 
 			if("ALMOST AN ARMSMAN, SER!!") // this is probably going to be the poster boy, but what can we do
-				ADD_TRAIT(H, TRAIT_GUARDSMAN, TRAIT_GENERIC)
-				ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+				ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 				H.adjust_skillrank_up_to(/datum/skill/combat/shields, SKILL_LEVEL_JOURNEYMAN, TRUE)
-				H.change_stat(STATKEY_CON, 1)
 				H.change_stat(STATKEY_WIL, 1)
-				H.change_stat(STATKEY_PER, -2)
-				H.change_stat(STATKEY_LCK, -1)
-				belt = /obj/item/storage/backpack/rogue/satchel/beltpack
-				backl = /obj/item/rogueweapon/shield/heater
+				backl = /obj/item/storage/backpack/rogue/satchel
 				backpack_contents = list(
 					/obj/item/rope/chain = 1,
 					/obj/item/signal_horn = 1,
+					/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
 					/obj/item/rogueweapon/huntingknife = 1,
-					/obj/item/reagent_containers/glass/bottle/rogue/healthpotnew = 1, // armsmen get a little extra from their folks in the garrison
+					/obj/item/rope = 1,
 					/obj/item/reagent_containers/glass/bottle/rogue/triumphbeer = 1, // this one is for good luck, you'll need it
 					)
 
@@ -421,3 +343,86 @@
 		- Voila!~ This brew is guaranteed to put some hair on your chest; and remember: 'Real Bogdwellers don't whine! They drink wine!'
 		</font>
 	"}
+/// Point at a target and shout a context-sensitive contact report. Only works if there is more than one TRAIT_LEVY around.
+/mob/proc/callout_point(atom/A)
+	if(!client || !mind)
+		return
+
+	if(istype(A, /obj/effect/temp_visual/point))
+		return
+
+	if(!linepoint(A))
+		return
+
+	if(world.time < mob_timers["contact_callout"] + 10 SECONDS)
+		return
+
+	var/nearby_levies = 0
+	for(var/mob/living/carbon/human/H in view(8, src))
+		if(H == src)
+			continue
+
+		if(HAS_TRAIT(H, TRAIT_LEVY))
+			nearby_levies++
+
+	if(!nearby_levies)
+		return
+
+	mob_timers["contact_callout"] = world.time
+
+	var/contact_name = A.name
+
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+
+		var/masked = (H.wear_mask && (H.wear_mask.flags_inv & HIDEFACE)) || (H.head && (H.head.flags_inv & HIDEFACE))
+
+		if(masked)
+			var/list/d_list = H.get_mob_descriptors()
+			var/list/name_parts = list()
+
+			for(var/desc_type in d_list)
+				var/datum/mob_descriptor/descriptor = MOB_DESCRIPTOR(desc_type)
+
+				if(descriptor.slot in list(MOB_DESCRIPTOR_SLOT_TRAIT, MOB_DESCRIPTOR_SLOT_STATURE))
+					name_parts += descriptor.name
+
+			contact_name = length(name_parts) ? jointext(name_parts, " ") : "masked figure"
+
+		else if(H.job)
+			contact_name = H.job
+
+	var/held_item = get_active_held_item()
+	var/action
+
+	if(istype(A, /obj/item/rogueore/gold) || istype(A, /obj/item/rogueore/silver) || istype(A, /obj/item/roguegem))
+		action = "We're rich!"
+
+	else if(ismob(A))
+		if(istype(held_item, /obj/item/gun/ballistic))
+			action = "Shoot them!"
+		else if(istype(held_item, /obj/item/rogueweapon))
+			action = "Cut them down!"
+		else
+			action = "Get them!"
+
+	else if(isturf(A))
+		action = "Over there!"
+
+	else
+		action = "Break it!"
+
+	var/target_callout
+	if(ismob(A))
+		target_callout = capitalize(parse_zone(zone_selected))
+
+	var/dist = get_dist(src, A)
+	var/dir_text = dir2text(get_dir(src, A))
+
+	if(dir_text)
+		var/msg = "[capitalize(contact_name)], [dist] [dist == 1 ? "pace" : "paces"], [dir_text]! [action]"
+
+		if(target_callout)
+			msg += " Strike the [target_callout]!"
+
+		say_verb(msg)
