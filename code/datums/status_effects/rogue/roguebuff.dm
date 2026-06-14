@@ -605,7 +605,7 @@
 /datum/status_effect/buff/campfire_stamina/tick()
 	//Caustic Edit - Move the temp increasing up here, since it would warm regardless of Combat Modo, but don't continue if we have not been toggled to actually give Stamina.
 	owner.adjust_bodytemperature(8)
-	if(HAS_TRAIT(owner, TRAIT_IRONMAN) || should_stamina)
+	if(HAS_TRAIT(owner, TRAIT_IRONMAN) || !should_stamina)
 		return
 	//Caustic Edit End
 	var/stamheal = healing_on_tick
