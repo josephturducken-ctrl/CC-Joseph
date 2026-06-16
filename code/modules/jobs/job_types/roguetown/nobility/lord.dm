@@ -176,9 +176,9 @@ GLOBAL_LIST_EMPTY(lord_titles)
 		"Ducal Caparison (Saiga)" = /obj/item/caparison/azure,
 		"Fogbeast Caparison" = /obj/item/caparison/fogbeast)
 
-/*/datum/outfit/job/roguetown/lord/warrior/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/roguetown/lord/warrior/pre_equip(mob/living/carbon/human/H)
 	..()
-	l_hand = /obj/item/rogueweapon/lordscepter*/ //Caustic Edit - commenting this out because moving it into the base Duke kit.
+	//l_hand = /obj/item/rogueweapon/lordscepter //Caustic Edit - commenting this out because moving it into the base Duke kit.
 
 /**
 	Merchant Lord subclass. Consider this an evolution from Sheltered Aristocrat.
