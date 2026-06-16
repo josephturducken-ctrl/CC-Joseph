@@ -84,6 +84,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	beltr = /obj/item/rogueweapon/scabbard/sword/royal
 	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/blueprint/mace_mushroom = 1, /obj/item/hunting_map/white_stag = 1)
 	id = /obj/item/scomstone/garrison
+	l_hand = /obj/item/rogueweapon/lordscepter //Caustic Edit - Give back the Lord's Scepter
 
 /datum/outfit/job/roguetown/lord/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -175,9 +176,9 @@ GLOBAL_LIST_EMPTY(lord_titles)
 		"Ducal Caparison (Saiga)" = /obj/item/caparison/azure,
 		"Fogbeast Caparison" = /obj/item/caparison/fogbeast)
 
-/datum/outfit/job/roguetown/lord/warrior/pre_equip(mob/living/carbon/human/H)
+/*/datum/outfit/job/roguetown/lord/warrior/pre_equip(mob/living/carbon/human/H)
 	..()
-	l_hand = /obj/item/rogueweapon/lordscepter
+	l_hand = /obj/item/rogueweapon/lordscepter*/ //Caustic Edit - commenting this out because moving it into the base Duke kit.
 
 /**
 	Merchant Lord subclass. Consider this an evolution from Sheltered Aristocrat.
