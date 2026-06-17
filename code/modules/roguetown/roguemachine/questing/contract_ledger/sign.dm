@@ -83,6 +83,17 @@
 		return QUEST_TURNIN_OFFICIAL
 	return null
 
+/obj/structure/roguemachine/contractledger/proc/resolve_turnin_mode(mob/user, obj/item/quest_writ/scroll, mob/living/holder)
+	if(user in scroll.get_quest_assignees(user, TRUE))
+		return QUEST_TURNIN_SELF
+	if(istype(holder))
+		var/datum/fellowship/F = holder.current_fellowship
+		if(F && F.has_member(user))
+			return QUEST_TURNIN_FELLOWSHIP
+	if(user.job in GLOB.contract_proxy_officials)
+		return QUEST_TURNIN_OFFICIAL
+	return null
+
 /obj/structure/roguemachine/contractledger/proc/turn_in_contract(mob/user, obj/item/quest_writ/scroll_in_hand)
 	var/datum/quest/Q = scroll_in_hand.assigned_quest
 	if(!Q)
