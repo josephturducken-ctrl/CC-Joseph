@@ -86,7 +86,7 @@ GLOBAL_LIST_INIT(defense_quest_tier_costs, list(
 
 #define QUEST_REWARD_GLOBAL_MULT 0.8
 
-#define QUEST_REWARD_GLOBAL_MULT 0.8
+#define QUEST_REWARD_GLOBAL_MULT 0.75
 
 // Flat reward base
 #define QUEST_REWARD_BASE_FLAT 10
