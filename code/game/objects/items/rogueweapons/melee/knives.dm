@@ -615,9 +615,11 @@
 	smelt_bar_num = 1
 	sellprice = 100
 
+//
+
 /obj/item/rogueweapon/huntingknife/idagger/steel/zizo
 	name = "avantyne dagger"
-	desc = "The very moment of sacrifice; that imperceptable difference between a dagger's edge and a heart's chamber, crystallized into \
+	desc = "<font color='ff0000'>It is tyme that you finally met your Lord.</font> </br> The very moment of sacrifice; that imperceptable difference between a dagger's edge and a heart's chamber, crystallized into \
 	a scalpel of bleeding darksteel. In the hands of Her trusted disciples, it serves as an unholy countermandate against order and sanity."
 	icon_state = "zizodagger"
 	sheathe_icon = "zizodagger"
@@ -630,6 +632,53 @@
 /obj/item/rogueweapon/huntingknife/idagger/steel/zizo/Initialize()
 	. = ..()
 	AddComponent(/datum/component/cursed_item, TRAIT_CABAL, "DAGGER")
+
+/obj/item/rogueweapon/huntingknife/combat/graggar
+	name = "vicious seax"
+	desc = "<font color='969d7f'>Strike true, for the blade is thy God.</font>"
+	icon_state = "graggarseax"
+	sheathe_icon = "graggarseax"
+	force = 25
+	max_integrity = 250
+	max_blade_int = 300
+	embedding = list("embedded_pain_multiplier" = 1.2, "embed_chance" = 20, "embedded_fall_chance" = 0) 
+	smeltresult = /obj/item/ingot/component/graggar
+
+/obj/item/rogueweapon/huntingknife/combat/graggar/Initialize()
+	. = ..()
+	AddComponent(/datum/component/cursed_item, TRAIT_HORDE, "DAGGER")
+
+/obj/item/rogueweapon/huntingknife/idagger/steel/matthios
+	name = "gilded knife"
+	desc = "<font color='ffd700'>Well, well, well; hello there, old sport!</font>"
+	icon_state = "matthiosknife"
+	sheathe_icon = "matthiosknife"
+	force = 25
+	max_integrity = 250
+	max_blade_int = 300
+	embedding = list("embedded_pain_multiplier" = 1.2, "embed_chance" = 20, "embedded_fall_chance" = 0) 
+	smeltresult = /obj/item/ingot/component/matthios
+
+/obj/item/rogueweapon/huntingknife/idagger/steel/matthios/Initialize()
+	. = ..()
+	AddComponent(/datum/component/cursed_item, TRAIT_FREEMAN, "DAGGER")
+
+/obj/item/rogueweapon/huntingknife/idagger/steel/baotha
+	name = "saccharine misericorde"
+	desc = "<font color='bf64d0'>Does thou not wish to live deliciously?</font>"
+	icon_state = "baothamisericorde"
+	sheathe_icon = "baothamisericorde"
+	force = 25
+	max_integrity = 250
+	max_blade_int = 300
+	embedding = list("embedded_pain_multiplier" = 1.2, "embed_chance" = 20, "embedded_fall_chance" = 0) 
+	smeltresult = /obj/item/ingot/component/baotha
+
+/obj/item/rogueweapon/huntingknife/idagger/steel/baotha/Initialize()
+	. = ..()
+	AddComponent(/datum/component/cursed_item, TRAIT_DEPRAVED, "DAGGER")
+
+//
 
 /obj/item/rogueweapon/huntingknife/idagger/avantyne
 	name = "avantyne-threaded dagger"
