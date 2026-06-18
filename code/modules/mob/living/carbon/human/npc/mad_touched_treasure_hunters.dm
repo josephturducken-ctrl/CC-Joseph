@@ -40,6 +40,7 @@
 	ADD_TRAIT(src, TRAIT_NPC_EXAMINE, TRAIT_GENERIC)
 	equipOutfit(new mad_outfit)
 	gender = pick(MALE, FEMALE)
+	gender = pick(MALE, FEMALE)
 	var/obj/item/organ/eyes/organ_eyes = getorgan(/obj/item/organ/eyes)
 	var/obj/item/bodypart/head/head = get_bodypart(BODY_ZONE_HEAD)
 	head.sellprice = HEAD_BOUNTY_MAD_TOUCHED
