@@ -176,6 +176,8 @@
 	var/weapon_penalty_active = FALSE
 	/// If TRUE, this spell ignores armor cooldown penalties (for armored casters like Tithebound).
 	var/ignore_armor_penalty = FALSE
+	/// If TRUE, casting will -not- apply the combat tag (skips stealth reveal and rest interruption).
+	var/ignore_combat_tag = FALSE
 	/// If TRUE, spell charges on button press, then waits for a separate middle-click to cast.
 	/// If FALSE (default), spell uses hold-and-release: hold middle-click to charge, release to cast.
 	var/charge_then_click = FALSE
@@ -901,6 +903,11 @@
 		var/mob/living/carbon/human/H = owner
 		if(H.has_status_effect(/datum/status_effect/buff/clash))
 			H.bad_guard(span_warning("I can't focus while casting spells!"), cheesy = TRUE)
+
+		if(!ignore_combat_tag)
+			H.apply_status_effect(/datum/status_effect/combat_tag)
+			if(H.get_skill_level(/datum/skill/misc/sneaking) >= SKILL_LEVEL_JOURNEYMAN || HAS_TRAIT(H, TRAIT_LIGHT_STEP))
+				H.apply_status_effect(/datum/status_effect/stealth_revealed)
 
 	// Sparks and smoke can only occur if there's an owner to source them from.
 	if(sparks_amt)

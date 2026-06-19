@@ -674,6 +674,8 @@
 	owner.adjust_bodytemperature(8)
 	if(HAS_TRAIT(owner, TRAIT_IRONMAN) || !should_stamina)
 		return
+	if(owner.has_status_effect(/datum/status_effect/combat_tag))
+		return
 	//Caustic Edit End
 	var/stamheal = healing_on_tick
 	if(!owner.cmode)
@@ -691,7 +693,7 @@
 	duration = 3 SECONDS //CC Edit , 6 -> 3 SECONDS. Stay near the fire if you wanna keep being healed.
 
 /datum/status_effect/buff/campfire/tick()
-	if(owner.cmode)
+	if(owner.has_status_effect(/datum/status_effect/combat_tag))
 		return
 	if(HAS_TRAIT(owner, TRAIT_IRONMAN))
 		return

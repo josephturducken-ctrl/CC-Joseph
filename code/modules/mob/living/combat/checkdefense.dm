@@ -8,6 +8,17 @@
 			swing_state = FALSE
 			return FALSE
 
+	if(mid_climb)
+		interrupt_climb()
+
+	apply_status_effect(/datum/status_effect/combat_tag)
+	user.apply_status_effect(/datum/status_effect/combat_tag)
+	if(!has_status_effect(/datum/status_effect/stealth_revealed) || !user.has_status_effect(/datum/status_effect/stealth_revealed))
+		if(get_skill_level(/datum/skill/misc/sneaking) >= SKILL_LEVEL_JOURNEYMAN || HAS_TRAIT(src, TRAIT_LIGHT_STEP))
+			apply_status_effect(/datum/status_effect/stealth_revealed)
+		if(user.get_skill_level(/datum/skill/misc/sneaking) >= SKILL_LEVEL_JOURNEYMAN || HAS_TRAIT(user, TRAIT_LIGHT_STEP))
+			user.apply_status_effect(/datum/status_effect/stealth_revealed)
+
 	if(!cmode)
 		return FALSE
 	if(stat)
