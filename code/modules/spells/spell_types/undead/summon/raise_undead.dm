@@ -36,7 +36,7 @@
 		var/message = "The depths are hollow."
 		if(user.cmode)
 			message += " A decrepit skeleton rises instead."
-			backup_summon(T)
+			backup_summon(T, user)
 		to_chat(user, span_warning(message))
 		return TRUE
 
