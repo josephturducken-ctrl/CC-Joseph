@@ -3654,6 +3654,7 @@
 #include "modular_causticcove\code\modules\events\adventure\random_patrols\random_patrols.dm"
 #include "modular_causticcove\code\modules\events\adventure\random_bosses\random_boss.dm"
 #include "modular_causticcove\code\game\objects\items\clothes\causthats.dm"
+#include "modular_causticcove\code\game\objects\items\clothes\storage.dm"
 
 //Modular TA files
 #include "modular_twilight_axis\code\datums\tat_system\tat_defines.dm"

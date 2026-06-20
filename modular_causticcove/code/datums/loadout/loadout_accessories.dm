@@ -7,3 +7,8 @@
 	name = "Sanguine sleeves"
 	path = /obj/item/clothing/gloves/roguetown/courtphysician/female
 	sort_category = "Accessories"
+
+/datum/loadout_item/beltshawl
+	name = "belt shawl"
+	path = /obj/item/storage/belt/rogue/leather/sash/shawl
+	sort_category = "Accessories"
