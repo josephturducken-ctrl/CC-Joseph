@@ -9,6 +9,6 @@
 	sort_category = "Accessories"
 
 /datum/loadout_item/beltshawl
-	name = "belt shawl"
+	name = "Belt Shawl"
 	path = /obj/item/storage/belt/rogue/leather/sash/shawl
 	sort_category = "Accessories"
