@@ -65,7 +65,8 @@ GLOBAL_LIST_EMPTY(loot_pools_deferred_finalized)
 					funded_turfs += T
 					funded_types += S.type
 			else
-				S.spawn_junk()
+				//S.spawn_junk()
+				S.spawn_loot() //Caustic Edit - Lets... just try turning off the Junk by replacing it with more regular loot.
 				junk_count++
 			qdel(S)
 		else if(istype(spawner, /obj/structure/closet/crate/chest/loot_chest))
@@ -75,7 +76,8 @@ GLOBAL_LIST_EMPTY(loot_pools_deferred_finalized)
 				available_mammons -= C.loot_value
 				funded_count++
 			else
-				C.spawn_junk()
+				//C.spawn_junk()
+				C.generate_loot() //Caustic Edit - Lets... just try turning off the Junk by replacing it with more regular loot.
 				junk_count++
 		CHECK_TICK
 

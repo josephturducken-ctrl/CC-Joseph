@@ -236,9 +236,9 @@
 
 /obj/machinery/light/take_damage(damage_amount, damage_type = BRUTE, damage_flag = 0, sound_effect = 1)
 	. = ..()
-	if(. && !QDELETED(src))
+	/*if(. && !QDELETED(src)) //Caustic Edit - Lol. This was causing all "lights" to spark randomly if you hit them and they rolled the chance to "break the light tube". This includes Hearts, Cauldrons... anything like a Campfire.
 		if(prob(damage_amount * 5))
-			break_light_tube()
+			break_light_tube()*/
 
 
 
