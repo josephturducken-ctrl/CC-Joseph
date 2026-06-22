@@ -26,6 +26,12 @@
 	storyteller = /datum/storyteller/ravox
 	COOLDOWN_DECLARE(lesser_heal_buff_cooldown)
 
+	titles = list(
+		"Justiciar",
+		"Justicar", // it is misspelled ingame enough that we should probably accept this too 
+		"Ratake"
+	)
+
 // Near a knight statue, cross, or within the church
 /datum/patron/divine/ravox/can_pray(mob/living/follower)
 	. = ..()
