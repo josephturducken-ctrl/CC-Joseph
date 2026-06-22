@@ -134,24 +134,24 @@ SUBSYSTEM_DEF(nightshift)
 		triumphs_to_add++
 	//CC Edit End
 	adjust_triumphs(triumphs_to_add)
-	to_chat(src, span_notice("An another dae passes in Azuria...\nNights Survived: \Roman[allmig_reward]. \n"))
+	to_chat(src, span_notice("An another dae passes in Azuria...\nNights Survived: \Roman[allmig_reward]. \n"), MESSAGE_TYPE_INFO)
 	
 	var/int = mind.current.STAINT
 	
 	if(int < 10)
-		to_chat(src, span_boldwarning("I'm trying my best to learn, even if it is a little difficult..."))
+		to_chat(src, span_boldwarning("I'm trying my best to learn, even if it is a little difficult..."), MESSAGE_TYPE_INFO)
 	else
-		to_chat(src, span_notice("I reflect on my journey, my experiences, and the lessons others, and lyfe has taught me..."))
+		to_chat(src, span_notice("I reflect on my journey, my experiences, and the lessons others, and lyfe has taught me..."), MESSAGE_TYPE_INFO)
 	if(mind.sleep_adv)
 		mind.sleep_adv.retained_dust += mind.current.STAINT * DREAM_DUST_PER_INT //25% dream points for each int
 		switch(mind.sleep_adv.retained_dust)
 			if(0 to 500)
-				to_chat(src, span_notice("I managed to focus on learning a thing or two lately, but to really solidify the lessons, I think I'll need to meditate and dream on it..."))
+				to_chat(src, span_notice("I managed to focus on learning a thing or two lately, but to really solidify the lessons, I think I'll need to meditate and dream on it..."), MESSAGE_TYPE_INFO)
 			else
-				to_chat(src, span_notice("My mind has been absorbing knoweledge like a sponge... whatever that is. Curiosity drives me forwards, but reality holds me back... I really should reflect on my lessons now, if I want to realize my potential"))
+				to_chat(src, span_notice("My mind has been absorbing knoweledge like a sponge... whatever that is. Curiosity drives me forwards, but reality holds me back... I really should reflect on my lessons now, if I want to realize my potential"), MESSAGE_TYPE_INFO)
 
 		if(!stat)
-			to_chat(src, span_warning("Staying alive in these uncertain times is it's own achievement. With the spark of my mind intact, and the embers of my heart and soul burning bright, at least at the moment, I feel slightly better about todae."))
+			to_chat(src, span_warning("Staying alive in these uncertain times is it's own achievement. With the spark of my mind intact, and the embers of my heart and soul burning bright, at least at the moment, I feel slightly better about todae."), MESSAGE_TYPE_INFO)
 			mind.sleep_adv.retained_dust += 100	//Free skillpoint for you <3
 	
 

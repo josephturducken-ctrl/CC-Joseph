@@ -38,7 +38,7 @@
 		inspec += "<br>[desc]"
 
 	inspec += "<br>----------------------"
-	to_chat(user, "[inspec.Join()]")
+	to_chat(user, "[inspec.Join()]", MESSAGE_TYPE_INFO)
 
 
 /atom/movable/screen/orbit()
@@ -82,7 +82,7 @@
 	if(modifiers["right"])
 		var/ht
 		var/mob/living/L = usr
-		to_chat(L, "*----*")
+		to_chat(L, "*----*", MESSAGE_TYPE_INFO)
 		if(ishuman(usr))
 			var/mob/living/carbon/human/M = usr
 			if(M.charflaws.len)
@@ -90,9 +90,9 @@
 					var/datum/charflaw/addiction/ad_cf = null
 					if(istype(cf, /datum/charflaw/addiction))
 						ad_cf = cf
-					to_chat(M, span_danger("[cf.name] [ad_cf ? ad_cf.sated ? span_purple("SATED") : "" : ""]"))
-					to_chat(M, span_info("[cf.desc]"))
-				to_chat(M, "*----*")
+					to_chat(M, span_danger("[cf.name] [ad_cf ? ad_cf.sated ? span_purple("SATED") : "" : ""]"), MESSAGE_TYPE_INFO)
+					to_chat(M, span_info("[cf.desc]"), MESSAGE_TYPE_INFO)
+				to_chat(M, "*----*", MESSAGE_TYPE_INFO)
 			if(M.mind)
 				if(M.mind.language_holder)
 					var/finn
@@ -101,17 +101,17 @@
 							continue
 						var/datum/language/LA = new X()
 						finn = TRUE
-						to_chat(M, "<span class='info'>[LA.name] - ,[LA.key]</span>")
+						to_chat(M, "<span class='info'>[LA.name] - ,[LA.key]</span>", MESSAGE_TYPE_INFO)
 					if(!finn)
-						to_chat(M, "<span class='warning'>I don't know any languages.</span>")
-					to_chat(M, "*----*")
+						to_chat(M, "<span class='warning'>I don't know any languages.</span>", MESSAGE_TYPE_INFO)
+					to_chat(M, "*----*", MESSAGE_TYPE_INFO)
 		for(var/X in GLOB.roguetraits)
 			if(HAS_TRAIT(L, X))
-				to_chat(L, "[X] - <span class='info'>[GLOB.roguetraits[X]]</span>")
+				to_chat(L, "[X] - <span class='info'>[GLOB.roguetraits[X]]</span>", MESSAGE_TYPE_INFO)
 				ht = TRUE
 		if(!ht)
-			to_chat(L, "<span class='warning'>I have no special traits.</span>")
-		to_chat(L, "*----*")
+			to_chat(L, "<span class='warning'>I have no special traits.</span>", MESSAGE_TYPE_INFO)
+		to_chat(L, "*----*", MESSAGE_TYPE_INFO)
 		return
 
 	if(ishuman(usr))
@@ -138,12 +138,12 @@
 		if(modifiers["right"])
 			var/area/A = get_area(H)
 			if(!A.can_craft_here())
-				to_chat(H, span_warning("You cannot craft here."))
+				to_chat(H, span_warning("You cannot craft here."), MESSAGE_TYPE_INFO)
 				return
 			if(H.craftingthing && (H.mind?.lastrecipe != null))
 				last_craft = world.time
 				var/datum/component/personal_crafting/C = H.craftingthing
-				to_chat(H, span_warning("I am crafting \a [H.mind?.lastrecipe] again."))
+				to_chat(H, span_warning("I am crafting \a [H.mind?.lastrecipe] again."), MESSAGE_TYPE_INFO)
 				C.construct_item(H, H.mind?.lastrecipe)
 		else
 			H.playsound_local(H, 'sound/misc/click.ogg', 100)
@@ -167,7 +167,7 @@
 		return TRUE
 	var/area/A = get_area(usr)
 	if(!A.outdoors)
-		to_chat(usr, "<span class='warning'>There is already a defined structure here.</span>")
+		to_chat(usr, "<span class='warning'>There is already a defined structure here.</span>", MESSAGE_TYPE_INFO)
 		return TRUE
 	create_area(usr)
 
@@ -742,7 +742,7 @@
 			<b>Left click:</b> toggles combat mode at-will, allowing you to parry or dodge attacks. Usually costs energy (blue stamina) to keep active. Also allows some more destructive interactions with objects.\n\
 			<b>Right click:</b> makes you visibly surrender, showing a white flag above your head and rendering you temporarily unable to move or fight.\n\
 			<b>Middle click:</b> toggles compliance mode at-will, removing your defense against grapples and tackles. Also makes it faster to restrain and strip you.\n\
-			All of these have configurable keybinds; see the Keybinds settings in your preferences window."))
+			All of these have configurable keybinds; see the Keybinds settings in your preferences window."), MESSAGE_TYPE_INFO)
 		else
 			L.playsound_local(L, 'sound/misc/click.ogg', 100)
 			L.toggle_cmode()
@@ -1693,7 +1693,7 @@
 			if(length(H.mind.known_people))
 				H.mind.display_known_people(H)
 			else
-				to_chat(H, "<span class='warning'>I don't know anyone.</span>")
+				to_chat(H, "<span class='warning'>I don't know anyone.</span>", MESSAGE_TYPE_INFO)
 		//CC Edit Begin
 		if(modifiers["middle"])
 			H.mind.display_dietary_information(H)
@@ -1930,10 +1930,10 @@
 		var/mob/living/carbon/human/M = usr
 		if(modifiers["left"])
 			if(M.charflaws.len)
-				to_chat(M, "*----*")
+				to_chat(M, "*----*", MESSAGE_TYPE_INFO)
 				for(var/datum/charflaw/cf in M.charflaws)
-					to_chat(M, span_info("[cf.desc]"))
-			to_chat(M, "*--------*")
+					to_chat(M, span_info("[cf.desc]"), MESSAGE_TYPE_INFO)
+			to_chat(M, "*--------*", MESSAGE_TYPE_INFO)
 			var/list/already_printed = list()
 			var/list/pos_stressors = M.get_positive_stressors()
 			for(var/datum/stressevent/S in pos_stressors)
@@ -1950,9 +1950,9 @@
 				if(islist(S.desc))
 					ddesc = pick(S.desc)
 				if(cnt > 1)
-					to_chat(M, "[ddesc] (x[cnt])")
+					to_chat(M, "[ddesc] (x[cnt])", MESSAGE_TYPE_INFO)
 				else
-					to_chat(M, "[ddesc]")
+					to_chat(M, "[ddesc]", MESSAGE_TYPE_INFO)
 			var/list/neg_stressors = M.get_negative_stressors()
 			for(var/datum/stressevent/S in neg_stressors)
 				if(S in already_printed)
@@ -1968,14 +1968,14 @@
 				if(islist(S.desc))
 					ddesc = pick(S.desc)
 				if(cnt > 1)
-					to_chat(M, "[ddesc] (x[cnt])")
+					to_chat(M, "[ddesc] (x[cnt])", MESSAGE_TYPE_INFO)
 				else
-					to_chat(M, "[ddesc]")
+					to_chat(M, "[ddesc]", MESSAGE_TYPE_INFO)
 			already_printed = list()
-			to_chat(M, "*--------*")
+			to_chat(M, "*--------*", MESSAGE_TYPE_INFO)
 		if(modifiers["right"])
 			if(M.get_triumphs() <= 0)
-				to_chat(M, span_warning("I haven't TRIUMPHED."))
+				to_chat(M, span_warning("I haven't TRIUMPHED."), MESSAGE_TYPE_INFO)
 				return
 			if(alert("Do you want to remember a TRIUMPH?", "", "Yes (-3 TRI)", "No") == "Yes (-3 TRI)")
 				if(!M.has_stress_event(/datum/stressevent/triumph))
@@ -2030,9 +2030,9 @@
 				show_intents(M)
 		if(modifiers["right"])
 			if(M.rmb_intent)
-				to_chat(M, "<span class='info'>* --- *</span>")
-				to_chat(M, "<span class='info'>[name]: [desc]</span>")
-				to_chat(M, "<span class='info'>* --- *</span>")
+				to_chat(M, "<span class='info'>* --- *</span>", MESSAGE_TYPE_INFO)
+				to_chat(M, "<span class='info'>[name]: [desc]</span>", MESSAGE_TYPE_INFO)
+				to_chat(M, "<span class='info'>* --- *</span>", MESSAGE_TYPE_INFO)
 
 /atom/movable/screen/rmbintent/proc/collapse_intents()
 	if(!showing)
@@ -2102,9 +2102,9 @@
 			if(stored_intent)
 				M.swap_rmb_intent(type = stored_intent)
 		if(modifiers["right"])
-			to_chat(M, "<span class='info'>* --- *</span>")
-			to_chat(M, "<span class='info'>[name]: [desc]</span>")
-			to_chat(M, "<span class='info'>* --- *</span>")
+			to_chat(M, "<span class='info'>* --- *</span>", MESSAGE_TYPE_INFO)
+			to_chat(M, "<span class='info'>[name]: [desc]</span>", MESSAGE_TYPE_INFO)
+			to_chat(M, "<span class='info'>* --- *</span>", MESSAGE_TYPE_INFO)
 
 /mob/living/proc/swap_rmb_intent(type, num)
 	if(QDELETED(src))
@@ -2174,7 +2174,7 @@
 	if(isliving(user))
 		var/mob/living/L = user
 		var/remaining = max(L.max_stamina - L.stamina, 0)
-		to_chat(user, span_info("<b>Stamina:</b> [round(remaining, 0.1)] / [round(L.max_stamina, 0.1)]"))
+		to_chat(user, span_info("<b>Stamina:</b> [round(remaining, 0.1)] / [round(L.max_stamina, 0.1)]"), MESSAGE_TYPE_INFO)
 	else
 		..()
 
@@ -2187,7 +2187,7 @@
 /atom/movable/screen/energy/examine_ui(mob/user)
 	if(isliving(user))
 		var/mob/living/L = user
-		to_chat(user, span_info("<b>Energy:</b> [round(L.energy, 0.1)] / [round(L.max_energy, 0.1)]"))
+		to_chat(user, span_info("<b>Energy:</b> [round(L.energy, 0.1)] / [round(L.max_energy, 0.1)]"), MESSAGE_TYPE_INFO)
 	else
 		..()
 

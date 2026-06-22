@@ -62,7 +62,7 @@ SUBSYSTEM_DEF(job)
 	occupations = list()
 	var/list/all_jobs = subtypesof(/datum/job/roguetown)
 	if(!all_jobs.len)
-		to_chat(world, span_boldannounce("Error setting up jobs, no job datums found"))
+		to_chat(world, span_boldannounce("Error setting up jobs, no job datums found"), MESSAGE_TYPE_INFO)
 		return 0
 
 	for(var/J in all_jobs)
@@ -767,7 +767,7 @@ SUBSYSTEM_DEF(job)
 //			to_chat(M, job.tutorial)
 	var/related_policy = get_policy(rank)
 	if(related_policy)
-		to_chat(M,related_policy)
+		to_chat(M,related_policy, MESSAGE_TYPE_INFO)
 	if(job && H)
 		job.after_spawn(H, M, joined_late) // note: this happens before the mob has a key! M will always have a client, H might not.
 
@@ -848,7 +848,7 @@ SUBSYSTEM_DEF(job)
 	if(PopcapReached())
 		JobDebug("Popcap overflow Check observer located, Player: [player]")
 	JobDebug("Player rejected :[player]")
-	to_chat(player, "<b>I couldn't find a job to be..</b>")
+	to_chat(player, "<b>I couldn't find a job to be..</b>", MESSAGE_TYPE_INFO)
 	unassigned -= player
 	player.ready = PLAYER_NOT_READY
 

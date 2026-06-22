@@ -12,10 +12,10 @@ GLOBAL_LIST_INIT(special_traits, build_special_traits())
 
 /proc/print_special_text(mob/user, trait_type)
 	var/datum/special_trait/special = SPECIAL_TRAIT(trait_type)
-	to_chat(user, span_notice("<b>[special.name]</b>"))
-	to_chat(user, special.greet_text)
+	to_chat(user, span_notice("<b>[special.name]</b>"), MESSAGE_TYPE_INFO)
+	to_chat(user, special.greet_text, MESSAGE_TYPE_INFO)
 	if(special.req_text)
-		to_chat(user, span_boldwarning("Requirements: [special.req_text]"))
+		to_chat(user, span_boldwarning("Requirements: [special.req_text]"), MESSAGE_TYPE_INFO)
 
 /proc/try_apply_character_post_equipment(mob/living/carbon/human/character, client/player)
 	apply_prefs_sizecat(character,player) //CC Edit
@@ -71,7 +71,7 @@ GLOBAL_LIST_INIT(special_traits, build_special_traits())
 	if(HAS_TRAIT(H, TRAIT_EASYDISMEMBER) && HAS_TRAIT(H, TRAIT_CRITICAL_RESISTANCE))
 		REMOVE_TRAIT(H, TRAIT_EASYDISMEMBER, null) // Doesn't care for source, they ARE getting canceled
 		REMOVE_TRAIT(H, TRAIT_CRITICAL_RESISTANCE, null)
-		to_chat(H, span_warning("My limbs are too frail and my body too tough... the contradiction leaves me unable to resist critical wounds."))
+		to_chat(H, span_warning("My limbs are too frail and my body too tough... the contradiction leaves me unable to resist critical wounds."), MESSAGE_TYPE_INFO)
 		
 	if((H.advjob != "Knight Banneret" && H.mind.assigned_role != "Court Agent" && H.mind.assigned_role != "Adventurer" && H.mind.assigned_role != "Prince" && H.mind.assigned_role != "Court Magician" && H.mind.assigned_role != "Inquisitor"))
 		if(!H.mind.has_antag_datum(/datum/antagonist/skeleton) && !H.mind.has_antag_datum(/datum/antagonist/lich) && !H.mind.has_antag_datum(/datum/antagonist/vampire) && !H.mind.has_antag_datum(/datum/antagonist/vampire/lord))
@@ -113,17 +113,17 @@ GLOBAL_LIST_INIT(special_traits, build_special_traits())
 		if(virtue_check(virtue_type, heretic, species))
 			apply_virtue(character, virtue_type)
 		else
-			to_chat(character, "Incorrect Virtue parameters! It will not be applied.")
+			to_chat(character, "Incorrect Virtue parameters! It will not be applied.", MESSAGE_TYPE_INFO)
 	if(virtuetwo_type && virtuous)
 		if(virtue_check(virtuetwo_type, heretic, species))
 			apply_virtue(character, virtuetwo_type)
 		else
-			to_chat(character, "Incorrect Second Virtue parameters! It will not be applied.")
+			to_chat(character, "Incorrect Second Virtue parameters! It will not be applied.", MESSAGE_TYPE_INFO)
 	if(extravirtue_type)
 		if(virtue_check(extravirtue_type, heretic, species))
 			apply_virtue(character, extravirtue_type)
 		else
-			to_chat(character, "Incorrect Extra Virtue parameters! It will not be applied.")
+			to_chat(character, "Incorrect Extra Virtue parameters! It will not be applied.", MESSAGE_TYPE_INFO)
 	//Caustic Edit End
 			
 	if(origin_type)
@@ -136,7 +136,7 @@ GLOBAL_LIST_INIT(special_traits, build_special_traits())
 			if(origin_check(origin_type, species))
 				apply_virtue(character, origin_type)
 			else
-				to_chat(character, "Incorrect Origin parameters! Resetting to default.")
+				to_chat(character, "Incorrect Origin parameters! Resetting to default.", MESSAGE_TYPE_INFO)
 				origin_type = new character.dna.species.origin_default
 				apply_virtue(character, origin_type)
 
@@ -306,4 +306,4 @@ GLOBAL_LIST_INIT(special_traits, build_special_traits())
 	var/datum/special_trait/special = SPECIAL_TRAIT(trait_type)
 	special.on_apply(character, silent)
 	if(!silent && special.greet_text)
-		to_chat(character, special.greet_text)
+		to_chat(character, special.greet_text, MESSAGE_TYPE_INFO)

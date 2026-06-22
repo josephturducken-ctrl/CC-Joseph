@@ -64,7 +64,7 @@
 
 			// Check if anything actually changed
 			if(lists_equal(clean_laws, GLOB.laws_of_the_land))
-				to_chat(usr, span_notice("The laws remain unchanged."))
+				to_chat(usr, span_notice("The laws remain unchanged."), MESSAGE_TYPE_INFO)
 				return FALSE
 
 			GLOB.laws_of_the_land = clean_laws

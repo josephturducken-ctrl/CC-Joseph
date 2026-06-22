@@ -126,7 +126,7 @@
 	
 	var/mob/living/L = src
 	if(L?.wallpressed && L.m_intent == MOVE_INTENT_SNEAK && !istype(L.loc, /turf/open/transparent/openspace))
-		to_chat(src, span_warning("You need to step away from the wall first."))
+		to_chat(src, span_warning("You need to step away from the wall first."), MESSAGE_TYPE_INFO)
 		return
 
 	if(modifiers["right"] && !modifiers["shift"] && !modifiers["alt"] && !modifiers["ctrl"])
@@ -437,7 +437,7 @@
 						L.dualwieldpitystacks = 0
 						if(L.stamina_add(3))
 							L.last_used_double_attack = world.time + 2.5 SECONDS
-							to_chat(L, span_warning("An opening! I strike with my off-hand."))
+							to_chat(L, span_warning("An opening! I strike with my off-hand."), MESSAGE_TYPE_COMBAT)
 							offh.melee_attack_chain(src, A, params)
 					else
 						L.dualwieldpitystacks++
@@ -709,7 +709,7 @@ GLOBAL_LIST_EMPTY(reach_dummy_pool)
 		return
 //	A.AltClick(src)
 //	else
-//		to_chat(src, span_warning("I need an empty hand to sort through the items here."))
+//		to_chat(src, span_warning("I need an empty hand to sort through the items here."), MESSAGE_TYPE_INFO)
 
 
 /*

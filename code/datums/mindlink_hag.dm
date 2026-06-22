@@ -18,7 +18,7 @@
 
 	// Break logic
 	if(findtext(message, ",mst", 1, 5))
-		to_chat(members, span_notice("The coven web is severed by [speaker]."))
+		to_chat(members, span_notice("The coven web is severed by [speaker]."), MESSAGE_TYPE_INFO)
 		speech_args[SPEECH_MESSAGE] = null
 		qdel(src)
 		return

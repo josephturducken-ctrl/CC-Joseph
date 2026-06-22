@@ -135,7 +135,7 @@
 		return
 	if(isnull(window_id))	//null check because this can potentially nuke goonchat
 		WARNING("Browser [title] tried to open with a null ID")
-		to_chat(user, span_danger("The [title] browser you tried to open failed a sanity check! Please report this on github!"))
+		to_chat(user, span_danger("The [title] browser you tried to open failed a sanity check! Please report this on github!"), MESSAGE_TYPE_OOC)
 		return
 	var/window_size = ""
 	if (width && height)

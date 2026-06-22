@@ -37,21 +37,21 @@
 
 /obj/item/lantern/fog_repelling/attack_self(mob/living/user)
 	if(fuel <= 0)
-		to_chat(user, span_warning("[src] refuses to light, it needs more sanctified oil."))
+		to_chat(user, span_warning("[src] refuses to light, it needs more sanctified oil."), MESSAGE_TYPE_INFO)
 		return
 
 	if(!isliving(user))
-		to_chat(user, span_warning("[src] refuses to light, you have no soul."))
+		to_chat(user, span_warning("[src] refuses to light, you have no soul."), MESSAGE_TYPE_INFO)
 		return
 	active = !active
 	if(active)
-		to_chat(user, span_notice("You light the [src]. A soft, protective glow surrounds you."))
+		to_chat(user, span_notice("You light the [src]. A soft, protective glow surrounds you."), MESSAGE_TYPE_INFO)
 		set_light(l_outer_range = range, l_power = 2, l_color = "#fff2aa")
 		icon_state = "[initial(icon_state)]-on" // Ensure you have this state
 		user.apply_status_effect(/datum/status_effect/buff/fog_ward_caster, range, -1, FALSE)
 		start_tracking(user)
 	else
-		to_chat(user, span_notice("You extinguish the [src]."))
+		to_chat(user, span_notice("You extinguish the [src]."), MESSAGE_TYPE_INFO)
 		set_light(0)
 		icon_state = initial(icon_state)
 		user.remove_status_effect(/datum/status_effect/buff/fog_ward_caster)
@@ -76,7 +76,7 @@
 	set_light(0)
 	icon_state = initial(icon_state)
 	if(isliving(user))
-		to_chat(user, span_warning("The [src] flickers once and goes cold as the fuel runs out."))
+		to_chat(user, span_warning("The [src] flickers once and goes cold as the fuel runs out."), MESSAGE_TYPE_INFO)
 		user.remove_status_effect(/datum/status_effect/buff/fog_ward_caster)
 	stop_tracking()
 	update_icon()
@@ -112,7 +112,7 @@
 
 	if(holder)
 		if(loc != holder  || istype(loc, /obj/item/storage/backpack) || istype(loc, /obj/structure/closet))
-			to_chat(holder, span_warning("The protective light of [src] fades as it leaves your person!"))
+			to_chat(holder, span_warning("The protective light of [src] fades as it leaves your person!"), MESSAGE_TYPE_INFO)
 			holder.remove_status_effect(/datum/status_effect/buff/fog_ward_caster)
 			extinguish()
 			stop_tracking()
@@ -133,10 +133,10 @@
 	if(istype(I, /obj/item/reagent_containers))
 		var/obj/item/reagent_containers/container = I
 		if(!container.reagents.has_reagent(/datum/reagent/sanctified_oil))
-			to_chat(user, span_warning("[container] doesn't contain sanctified oil!"))
+			to_chat(user, span_warning("[container] doesn't contain sanctified oil!"), MESSAGE_TYPE_INFO)
 			return
 		if(fuel >= max_fuel)
-			to_chat(user, span_warning("[src] is already full!"))
+			to_chat(user, span_warning("[src] is already full!"), MESSAGE_TYPE_INFO)
 			return
 
 		// 1 unit of reagent = 25 units of fuel

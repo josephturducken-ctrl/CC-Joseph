@@ -62,7 +62,7 @@
 	if(ranged_mousepointer)
 		on_who.client?.mouse_pointer_icon = ranged_mousepointer
 	if(text_to_show)
-		to_chat(on_who, text_to_show)
+		to_chat(on_who, text_to_show, MESSAGE_TYPE_INFO)
 	on_who.click_intercept = src
 
 /// Removes this action as the active ability of the passed mob
@@ -71,7 +71,7 @@
 		on_who.client?.mouse_pointer_icon = initial(on_who.client?.mouse_pointer_icon)
 		on_who.update_mouse_pointer()
 	if(text_to_show)
-		to_chat(on_who, text_to_show)
+		to_chat(on_who, text_to_show, MESSAGE_TYPE_INFO)
 	on_who.click_intercept = null
 
 /// Handles whenever a mob clicks on something

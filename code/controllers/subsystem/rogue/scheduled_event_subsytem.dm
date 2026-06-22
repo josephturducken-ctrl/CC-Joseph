@@ -50,7 +50,7 @@ SUBSYSTEM_DEF(event_scheduler)
 	var/min = text2num(time2text(world.timeofday, "mm"))
 	var/weekday = time2text(world.timeofday, "Day") // Full day name
 
-	to_chat(world, span_userdanger("Today is [weekday], [mm]/[dd]/20[yy] at [hh]:[min]"))
+	to_chat(world, span_userdanger("Today is [weekday], [mm]/[dd]/20[yy] at [hh]:[min]"), MESSAGE_TYPE_OOC)
 
 /datum/controller/subsystem/event_scheduler/proc/update_mob_fog_status(atom/movable/AM, area_is_safe)
 	if(!ishuman(AM))
@@ -173,7 +173,7 @@ SUBSYSTEM_DEF(event_scheduler)
 		var/new_time = input(usr, "Enter new time for [uppertext(day)] (HH:MM format):", "Fog Schedule", fog_schedule[day]) as text|null
 		if(!isnull(new_time))
 			if(new_time != "" && !findtext(new_time, ":"))
-				to_chat(usr, span_warning("Invalid format! Use HH:MM."))
+				to_chat(usr, span_warning("Invalid format! Use HH:MM."), MESSAGE_TYPE_OOC)
 			else
 				fog_schedule[day] = new_time
 				save_fog_schedule()
