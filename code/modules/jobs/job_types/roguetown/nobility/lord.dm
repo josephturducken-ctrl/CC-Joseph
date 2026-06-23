@@ -84,7 +84,6 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	beltr = /obj/item/rogueweapon/scabbard/sword/royal
 	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/blueprint/mace_mushroom = 1, /obj/item/hunting_map/white_stag = 1)
 	id = /obj/item/scomstone/garrison
-	l_hand = /obj/item/rogueweapon/lordscepter //Caustic Edit - Give back the Lord's Scepter
 
 /datum/outfit/job/roguetown/lord/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -100,11 +99,13 @@ GLOBAL_LIST_EMPTY(lord_titles)
 		cloak = /obj/item/clothing/cloak/lordcloak/ladycloak
 		wrists = /obj/item/clothing/wrists/roguetown/royalsleeves
 		shoes = /obj/item/clothing/shoes/roguetown/shortboots
+		l_hand = /obj/item/rogueweapon/lordscepter //Caustic Edit - Give back the Lord's Scepter
 	else if(should_wear_masc_clothes(H))
 		pants = /obj/item/clothing/under/roguetown/tights/black
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
 		armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/black
 		shoes = /obj/item/clothing/shoes/roguetown/boots
+		l_hand = /obj/item/rogueweapon/lordscepter //Caustic Edit - Give back the Lord's Scepter
 	saiga_shoes = /obj/item/clothing/shoes/roguetown/horseshoes/gold
 	if(H.wear_mask)
 		if(istype(H.wear_mask, /obj/item/clothing/mask/rogue/eyepatch))
