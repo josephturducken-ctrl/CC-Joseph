@@ -38,27 +38,27 @@
 
 	if(!holder)
 		if(findtext(msg, "byond://"))
-			to_chat(src, "<B>Advertising other servers is not allowed.</B>")
+			to_chat(src, "<B>Advertising other servers is not allowed.</B>", MESSAGE_TYPE_INFO)
 			log_admin("[key_name(src)] has attempted to advertise in DSAY: [msg]")
 			return
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
-		to_chat(src, span_danger("Speech is currently admin-disabled."))
+		to_chat(src, span_danger("Speech is currently admin-disabled."), MESSAGE_TYPE_INFO)
 		return
 
 	if(prefs.muted & MUTE_DEADCHAT)
-		to_chat(src, span_danger("I cannot use DSAY (temp muted)."))
+		to_chat(src, span_danger("I cannot use DSAY (temp muted)."), MESSAGE_TYPE_INFO)
 		return
 
 	if(is_banned_from(ckey, "Deadchat"))
-		to_chat(src, span_danger("I cannot use DSAY (perma muted)."))
+		to_chat(src, span_danger("I cannot use DSAY (perma muted)."), MESSAGE_TYPE_INFO)
 		return
 
 	if(handle_spam_prevention(msg, MUTE_DEADCHAT))
 		return
 
 	if(!(prefs.chat_toggles & CHAT_DSAY))
-		to_chat(src, span_danger("You have DSAY muted."))
+		to_chat(src, span_danger("You have DSAY muted."), MESSAGE_TYPE_INFO)
 		return
 
 	msg = copytext(sanitize(msg), 1, MAX_MESSAGE_LEN)
@@ -90,4 +90,4 @@
 
 		var/rendered = span_gamedeadsay("<span class='prefix'>[prefix]</span> <span class='name'>[rank_name ? "([rank_name])" : ""][player_name]</span> [deadbarks], <span class='dsayspeech'>\"[emoji_parse(msg)]\"</span>")
 		if(isobserver(M) || (M.client in GLOB.admins))
-			to_chat(M, rendered)
+			to_chat(M, rendered, MESSAGE_TYPE_OOC)

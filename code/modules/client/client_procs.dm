@@ -351,7 +351,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 			var/client/C = I
 			if(holder && C.holder)
 				if(check_rights_for(C, R_ADMIN))
-					to_chat(C, "Admin Login: [key]")
+					to_chat(C, "Admin Login: [key]", MESSAGE_TYPE_ADMINLOG)
 			if(C.key && (C.key != key) )
 				var/matches
 				if( (C.address == address) )
@@ -589,7 +589,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 			var/client/C = I
 			if(C.holder)
 				if(check_rights_for(C, R_ADMIN))
-					to_chat(C, "Admin Logout: [ckey]")
+					to_chat(C, "Admin Logout: [ckey]", MESSAGE_TYPE_ADMINLOG)
 		adminGreet(1)
 		holder.owner = null
 		GLOB.admins -= src
