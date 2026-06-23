@@ -175,6 +175,7 @@
 		/obj/item/reagent_containers/food/snacks/rogue/meat/mince/fish,
 		/obj/item/reagent_containers/food/snacks/rogue/meat/mince/rabbit,
 		/obj/item/reagent_containers/food/snacks/rogue/meat/mince/poultry,
+		/obj/item/reagent_containers/food/snacks/rogue/meat/mince/humanoid,
 	)
 	ingredients = list(
 		list(

@@ -216,16 +216,11 @@
 				used_time -= (user.get_skill_level(/datum/skill/labor/butchering) * 30)
 			visible_message("[user] begins to butcher \the [src].")
 			playsound(src, 'sound/foley/gross.ogg', 100, FALSE)
-			var/steaks = 1
-			switch(user.get_skill_level(/datum/skill/labor/butchering))
-				if(3)
-					steaks = 2
-				if(4 to 5)
-					steaks = 3
-				if(6)
-					steaks = 4 // the steaks have never been higher
+
+			var/butcher_skill = user.get_skill_level(/datum/skill/labor/butchering)
 			var/amt2raise = user.STAINT/3
 			var/produced_steaks = list()
+
 			if(do_after(user, used_time, target = src))
 				var/obj/item/reagent_containers/food/snacks/rogue/meat/humanoid/new_steak = new(get_turf(src))
 				produced_steaks += new_steak
