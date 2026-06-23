@@ -274,6 +274,12 @@
 	new_body.faction = list(FACTION_UNDEAD)
 	new_body.set_patron(/datum/patron/inhumen/zizo)
 	new_body.mind.grab_ghost(force = TRUE)
+	new_body.ambushable = FALSE
+	new_body.dna.species.soundpack_m = GLOB.voice_packs[/datum/voicepack/other/lich] //evil ass voice stays
+	// Grant a spellbook so the lich can pick aspects
+	new_body.equip_to_slot_or_del(new /obj/item/book/spellbook,SLOT_IN_BACKPACK, TRUE)
+	// Grant a chalk so the lich can do rituals
+	new_body.equip_to_slot_or_del(new /obj/item/ritechalk,SLOT_IN_BACKPACK, TRUE)
 
 	for (var/obj/item/bodypart/body_part in new_body.bodyparts)
 		body_part.skeletonize(FALSE)
