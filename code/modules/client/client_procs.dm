@@ -99,7 +99,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 	//byond bug ID:2256651
 	if (asset_cache_job && (asset_cache_job in completed_asset_jobs))
-		to_chat(src, span_danger("An error has been detected in how your client is receiving resources. Attempting to correct.... (If you keep seeing these messages you might want to close byond and reconnect)"))
+		to_chat(src, span_danger("An error has been detected in how your client is receiving resources. Attempting to correct.... (If you keep seeing these messages you might want to close byond and reconnect)"), MESSAGE_TYPE_OOC)
 		src << browse("...", "window=asset_cache_browser")
 		return
 	if (href_list["asset_cache_preload_data"])
@@ -201,7 +201,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 /client/proc/is_content_unlocked()
 	if(!prefs.unlock_content)
-		to_chat(src, "Become a BYOND member to access member-perks and features, as well as support the engine that makes this game possible. Only 10 bucks for 3 months! <a href=\"https://secure.byond.com/membership\">Click Here to find out more</a>.")
+		to_chat(src, "Become a BYOND member to access member-perks and features, as well as support the engine that makes this game possible. Only 10 bucks for 3 months! <a href=\"https://secure.byond.com/membership\">Click Here to find out more</a>.", MESSAGE_TYPE_OOC)
 		return 0
 	return 1
 /*
@@ -244,11 +244,11 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	if(CONFIG_GET(flag/automute_on) && !holder && last_message == message)
 		src.last_message_count++
 		if(src.last_message_count >= SPAM_TRIGGER_AUTOMUTE)
-			to_chat(src, span_danger("I have exceeded the spam filter limit for identical messages. An auto-mute was applied."))
+			to_chat(src, span_danger("I have exceeded the spam filter limit for identical messages. An auto-mute was applied."), MESSAGE_TYPE_INFO)
 			cmd_admin_mute(src, mute_type, 1)
 			return 1
 		if(src.last_message_count >= SPAM_TRIGGER_WARNING)
-			to_chat(src, span_danger("I are nearing the spam filter limit for identical messages."))
+			to_chat(src, span_danger("I are nearing the spam filter limit for identical messages."), MESSAGE_TYPE_INFO)
 			return 0
 	else
 		last_message = message
@@ -304,7 +304,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 					autorank = R
 					break
 			if(!autorank)
-				to_chat(world, "Autoadmin rank not found")
+				to_chat(world, "Autoadmin rank not found", MESSAGE_TYPE_OOC)
 			else
 				new /datum/admins(autorank, ckey)
 	if(CONFIG_GET(flag/enable_localhost_rank) && !connecting_admin)
@@ -410,11 +410,11 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 
 		if (num2text(byond_build) in GLOB.blacklisted_builds)
 			log_access("Failed login: [key] - blacklisted byond version")
-			to_chat(src, span_danger("My version of byond is blacklisted."))
-			to_chat(src, span_danger("Byond build [byond_build] ([byond_version].[byond_build]) has been blacklisted for the following reason: [GLOB.blacklisted_builds[num2text(byond_build)]]."))
-			to_chat(src, span_danger("Please download a new version of byond. If [byond_build] is the latest, you can go to <a href=\"https://secure.byond.com/download/build\">BYOND's website</a> to download other versions."))
+			to_chat(src, span_danger("My version of byond is blacklisted."), MESSAGE_TYPE_OOC)
+			to_chat(src, span_danger("Byond build [byond_build] ([byond_version].[byond_build]) has been blacklisted for the following reason: [GLOB.blacklisted_builds[num2text(byond_build)]]."), MESSAGE_TYPE_OOC)
+			to_chat(src, span_danger("Please download a new version of byond. If [byond_build] is the latest, you can go to <a href=\"https://secure.byond.com/download/build\">BYOND's website</a> to download other versions."), MESSAGE_TYPE_OOC)
 			if(connecting_admin)
-				to_chat(src, "As an admin, you are being allowed to continue using this version, but please consider changing byond versions")
+				to_chat(src, "As an admin, you are being allowed to continue using this version, but please consider changing byond versions", MESSAGE_TYPE_OOC)
 			else
 				qdel(src)
 				return
@@ -437,13 +437,13 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 	var/ceb = CONFIG_GET(number/client_error_build)
 	var/cwv = CONFIG_GET(number/client_warn_version)
 	if (byond_version < cev || byond_build < ceb)		//Out of date client.
-		to_chat(src, span_danger("<b>My version of BYOND is too old:</b>"))
-		to_chat(src, CONFIG_GET(string/client_error_message))
-		to_chat(src, "Your version: [byond_version].[byond_build]")
-		to_chat(src, "Required version: [cev].[ceb] or later")
-		to_chat(src, "Visit <a href=\"https://secure.byond.com/download\">BYOND's website</a> to get the latest version of BYOND.")
+		to_chat(src, span_danger("<b>My version of BYOND is too old:</b>"), MESSAGE_TYPE_OOC)
+		to_chat(src, CONFIG_GET(string/client_error_message), MESSAGE_TYPE_OOC)
+		to_chat(src, "Your version: [byond_version].[byond_build]", MESSAGE_TYPE_OOC)
+		to_chat(src, "Required version: [cev].[ceb] or later", MESSAGE_TYPE_OOC)
+		to_chat(src, "Visit <a href=\"https://secure.byond.com/download\">BYOND's website</a> to get the latest version of BYOND.", MESSAGE_TYPE_OOC)
 		if (connecting_admin)
-			to_chat(src, "Because you are an admin, you are being allowed to walk past this limitation, But it is still STRONGLY suggested you upgrade")
+			to_chat(src, "Because you are an admin, you are being allowed to walk past this limitation, But it is still STRONGLY suggested you upgrade", MESSAGE_TYPE_OOC)
 		else
 			qdel(src)
 			return 0
@@ -456,19 +456,19 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 			msg += "Visit <a href=\"https://secure.byond.com/download\">BYOND's website</a> to get the latest version of BYOND.<br>"
 			src << browse(msg, "window=warning_popup")
 		else
-			to_chat(src, span_danger("<b>My version of byond may be getting out of date:</b>"))
-			to_chat(src, CONFIG_GET(string/client_warn_message))
-			to_chat(src, "Your version: [byond_version]")
-			to_chat(src, "Required version to remove this message: [cwv] or later")
-			to_chat(src, "Visit <a href=\"https://secure.byond.com/download\">BYOND's website</a> to get the latest version of BYOND.")
+			to_chat(src, span_danger("<b>My version of byond may be getting out of date:</b>"), MESSAGE_TYPE_OOC)
+			to_chat(src, CONFIG_GET(string/client_warn_message), MESSAGE_TYPE_OOC)
+			to_chat(src, "Your version: [byond_version]", MESSAGE_TYPE_OOC)
+			to_chat(src, "Required version to remove this message: [cwv] or later", MESSAGE_TYPE_OOC)
+			to_chat(src, "Visit <a href=\"https://secure.byond.com/download\">BYOND's website</a> to get the latest version of BYOND.", MESSAGE_TYPE_OOC)
 
 	if (connection == "web" && !connecting_admin)
 		if (!CONFIG_GET(flag/allow_webclient))
-			to_chat(src, "Web client is disabled")
+			to_chat(src, "Web client is disabled", MESSAGE_TYPE_OOC)
 			qdel(src)
 			return 0
 		if (CONFIG_GET(flag/webclient_only_byond_members) && !IsByondMember())
-			to_chat(src, "Sorry, but the web client is restricted to byond members only.")
+			to_chat(src, "Sorry, but the web client is restricted to byond members only.", MESSAGE_TYPE_OOC)
 			qdel(src)
 			return 0
 
@@ -478,7 +478,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 
 	if(holder)
 		add_admin_verbs()
-		to_chat(src, get_message_output("memo"))
+		to_chat(src, get_message_output("memo"), MESSAGE_TYPE_OOC)
 		adminGreet()
 	if(!BC_IsKeyAllowedToConnect(ckey))
 		src << "Sorry, but the server is currently only accepting whitelisted players.  Please see the discord to be whitelisted."
@@ -519,7 +519,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 	apply_clickcatcher()
 
 	if(prefs.lastchangelog != GLOB.changelog_hash) //bolds the changelog button on the interface so we know there are updates.
-		to_chat(src, span_info("You have unread updates in the changelog."))
+		to_chat(src, span_info("You have unread updates in the changelog."), MESSAGE_TYPE_OOC)
 		if(CONFIG_GET(flag/aggressive_changelog))
 			changelog()
 		else
@@ -535,7 +535,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 
 	if(ckey in GLOB.clientmessages)
 		for(var/message in GLOB.clientmessages[ckey])
-			to_chat(src, message)
+			to_chat(src, message, MESSAGE_TYPE_OOC)
 		GLOB.clientmessages.Remove(ckey)
 
 	if(CONFIG_GET(flag/autoconvert_notes))
@@ -543,10 +543,10 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 
 	add_patreon_verbs()
 	is_donator = is_donator(ckey)
-	to_chat(src, get_message_output("message", ckey))
+	to_chat(src, get_message_output("message", ckey), MESSAGE_TYPE_OOC)
 
 	if(!winexists(src, "asset_cache_browser")) // The client is using a custom skin, tell them.
-		to_chat(src, span_warning("Unable to access asset cache browser, if you are using a custom skin file, please allow DS to download the updated version, if you are not, then make a bug report. This is not a critical issue but can cause issues with resource downloading, as it is impossible to know when extra resources arrived to you."))
+		to_chat(src, span_warning("Unable to access asset cache browser, if you are using a custom skin file, please allow DS to download the updated version, if you are not, then make a bug report. This is not a critical issue but can cause issues with resource downloading, as it is impossible to know when extra resources arrived to you."), MESSAGE_TYPE_OOC)
 
 	update_ambience_pref()
 
@@ -680,12 +680,12 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 		if (CONFIG_GET(flag/panic_bunker) && !holder && !GLOB.deadmins[ckey] && !bunker_bypass_check())
 			log_access("Failed Login: [key] - New account attempting to connect during panic bunker")
 			message_admins(span_adminnotice("Failed Login: [key] - New account attempting to connect during panic bunker"))
-			to_chat(src, CONFIG_GET(string/panic_bunker_message))
+			to_chat(src, CONFIG_GET(string/panic_bunker_message), MESSAGE_TYPE_OOC)
 			var/list/connectiontopic_a = params2list(connectiontopic)
 			var/list/panic_addr = CONFIG_GET(string/panic_server_address)
 			if(panic_addr && !connectiontopic_a["redirect"])
 				var/panic_name = CONFIG_GET(string/panic_server_name)
-				to_chat(src, span_notice("Sending you to [panic_name ? panic_name : panic_addr]."))
+				to_chat(src, span_notice("Sending you to [panic_name ? panic_name : panic_addr]."), MESSAGE_TYPE_OOC)
 				winset(src, null, "command=.options")
 				src << link("[panic_addr]?redirect=1")
 			qdel(query_client_in_db)
@@ -859,8 +859,8 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 		if (oldcid != computer_id && computer_id != lastcid) //IT CHANGED!!!
 			cidcheck -= ckey //so they can try again after removing the cid randomizer.
 
-			to_chat(src, span_danger("Connection Error:"))
-			to_chat(src, span_danger("Invalid ComputerID(spoofed). Please remove the ComputerID spoofer from my byond installation and try again."))
+			to_chat(src, span_danger("Connection Error:"), MESSAGE_TYPE_OOC)
+			to_chat(src, span_danger("Invalid ComputerID(spoofed). Please remove the ComputerID spoofer from my byond installation and try again."), MESSAGE_TYPE_OOC)
 
 			if (!cidcheck_failedckeys[ckey])
 				message_admins(span_adminnotice("[key_name(src)] has been detected as using a cid randomizer. Connection rejected."))
@@ -900,7 +900,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 	var/url = winget(src, null, "url")
 	//special javascript to make them reconnect under a new window.
 	src << browse({"<a id='link' href="byond://[url]?token=[token]">byond://[url]?token=[token]</a><script type="text/javascript">document.getElementById("link").click();window.location="byond://winset?command=.quit"</script>"}, "border=0;titlebar=0;size=1x1;window=redirect")
-	to_chat(src, {"<a href="byond://[url]?token=[token]">I will be automatically taken to the game, if not, click here to be taken manually</a>"})
+	to_chat(src, {"<a href="byond://[url]?token=[token]">I will be automatically taken to the game, if not, click here to be taken manually</a>"}, MESSAGE_TYPE_OOC)
 
 /client/proc/note_randomizer_user()
 	add_system_note("CID-Error", "Detected as using a cid randomizer.")
@@ -1116,7 +1116,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 
 /client/proc/AnnouncePR(announcement)
 	if(prefs && prefs.chat_toggles & CHAT_PULLR)
-		to_chat(src, announcement)
+		to_chat(src, announcement, MESSAGE_TYPE_OOC)
 
 /client/proc/show_character_previews(mutable_appearance/MA)
 	var/pos = 0
@@ -1211,7 +1211,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 		return FALSE
 	if(prefs.commendedsomeone)
 		if(!silent)
-			to_chat(src, span_danger("You already commended someone this round."))
+			to_chat(src, span_danger("You already commended someone this round."), MESSAGE_TYPE_INFO)
 		return FALSE
 	return TRUE
 
@@ -1228,14 +1228,14 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 		return
 	var/theykey = selections[selection]
 	if(theykey == ckey)
-		to_chat(src,"You can't commend yourself.")
+		to_chat(src,"You can't commend yourself.", MESSAGE_TYPE_INFO)
 		return
 	if(!can_commend(forced))
 		return
 	if(theykey)
 		prefs.commendedsomeone = TRUE
 		add_commend(theykey, ckey)
-		to_chat(src,"[selection] commended.")
+		to_chat(src,"[selection] commended.", MESSAGE_TYPE_INFO)
 		log_game("COMMEND: [ckey] commends [theykey].")
 		log_admin("COMMEND: [ckey] commends [theykey].")
 	return
