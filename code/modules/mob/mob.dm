@@ -485,7 +485,6 @@ GLOBAL_VAR_INIT(mobids, 1)
   */
 /mob/verb/examinate(atom/A as mob|obj|turf in view()) //It used to be oview(12), but I can't really say why
 	set name = "Examine"
-	set category = "IC"
 	set hidden = 1
 
 	if(isturf(A) && !(sight & SEE_TURFS) && !(A in view(client ? client.view : world.view, src)))
@@ -619,7 +618,6 @@ GLOBAL_VAR_INIT(mobids, 1)
  */
 /mob/verb/abandon_mob()
 	set name = "{ABANDON MOB}"
-	set category = "OPTIONS"
 	set hidden = 1
 	if(!check_rights(0))
 		return

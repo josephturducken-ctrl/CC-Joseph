@@ -776,7 +776,6 @@
 
 
 /mob/living/carbon/human/verb/toggle_hotkey_verbs()
-	set category = "OPTIONS"
 	set name = "Toggle hotkey buttons"
 	set desc = ""
 	set hidden = 1
