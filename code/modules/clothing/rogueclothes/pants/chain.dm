@@ -132,6 +132,9 @@
 	cloth hoses has been secured to cover the maille."
 	detail_tag = "_detail"
 	altdetail_tag = "_detailalt"
+	color = null
+	detail_color = CLOTHING_WHITE
+	altdetail_color = CLOTHING_WHITE
 
 /obj/item/clothing/under/roguetown/chainlegs/iron/hose/dyeable/Initialize()
 	. = ..()
@@ -161,6 +164,9 @@
 	cloth hoses has been secured to cover the maille."
 	detail_tag = "_detail"
 	altdetail_tag = "_detailalt"
+	color = null
+	detail_color = CLOTHING_WHITE
+	altdetail_color = CLOTHING_WHITE
 
 /obj/item/clothing/under/roguetown/chainlegs/hose/dyeable/Initialize()
 	. = ..()

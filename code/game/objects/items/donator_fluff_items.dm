@@ -661,6 +661,7 @@ mas//Lazily shoving all donator fluff items in here for now. Feel free to make t
 	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
 	sleeved = 'icons/clothing/onmob/donor_sleeves_armor.dmi'
 	color = null
+	custom_design = TRUE
 
 /obj/item/clothing/cloak/tabard/stabard/surcoat/donator_oathkeeper
 	name = "oathkeeper's noble jupon"
@@ -672,6 +673,7 @@ mas//Lazily shoving all donator fluff items in here for now. Feel free to make t
 	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
 	sleeved = 'icons/clothing/onmob/donor_sleeves_armor.dmi'
 	color = null
+	custom_design = TRUE
 
 /obj/item/clothing/shoes/roguetown/simpleshoes/heels
 	name = "high-heeled shoes"
