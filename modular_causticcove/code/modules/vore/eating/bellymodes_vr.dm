@@ -188,14 +188,14 @@
 				L.Stun(5)
 
 			//Thickbelly flag
-			if((mode_flags & DM_FLAG_THICKBELLY) && !L.muffled) //Caustic - This likely should function like a gag?
+			if((mode_flags & DM_FLAG_THICKBELLY) && !L.muffled) //Caustic - Now forces whispers on say!
 				L.muffled = TRUE
 			//Fix muffled sometimes being sticky.
 			else if(!(mode_flags & DM_FLAG_THICKBELLY) && L.muffled)
 				L.muffled = FALSE
 
 			//Force psay
-			if((mode_flags & DM_FLAG_FORCEPSAY) && !L.forced_psay && L.absorbed) //Caustic - This might be 'private say' in any case of PSAY, so subtle 'says'
+			if((mode_flags & DM_FLAG_FORCEPSAY) && !L.forced_psay && L.absorbed) //Caustic - Now has it's own private "thinking" chat between all prey and the pred who absorbed them!
 				L.forced_psay = TRUE
 			//Fix forcepsay sometimes being sticky.
 			else if(!(mode_flags & DM_FLAG_FORCEPSAY) && L.forced_psay)
