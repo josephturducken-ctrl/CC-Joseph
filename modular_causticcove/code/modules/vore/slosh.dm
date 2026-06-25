@@ -45,7 +45,7 @@
 			var/total_volume = B.reagents.total_volume
 			vore_organs_reagents += total_volume
 
-			if(B.show_liquids && B.vorefootsteps_sounds && highest_vol < total_volume)
+			if(B.vorefootsteps_sounds && highest_vol < total_volume) //Whyyyy did this have B.show_liquids && at the start???
 				highest_vol = total_volume
 
 		if(highest_vol < 20)
