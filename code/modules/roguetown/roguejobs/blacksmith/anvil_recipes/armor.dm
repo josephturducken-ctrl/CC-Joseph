@@ -610,6 +610,13 @@
 	display_category = ITEM_CAT_ARMOR_NECK
 	createditem_num = 1
 
+/datum/anvil_recipe/armor/iron/fullchaincoif
+	name = "Full Chain Coif, Iron"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/clothing/neck/roguetown/chaincoif/full/iron
+	display_category = ITEM_CAT_ARMOR_NECK
+	createditem_num = 1
+
 /datum/anvil_recipe/armor/iron/gorget
 	name = "Gorget, Iron"
 	req_bar = /obj/item/ingot/iron
@@ -624,6 +631,14 @@
 	req_blade = /obj/item/blade/iron_plate
 	created_item = /obj/item/clothing/neck/roguetown/bevor/iron
 	display_category = ITEM_CAT_ARMOR_NECK
+
+/datum/anvil_recipe/armor/iron/aventail
+	name = "Aventail, Iron (+1 Iron)"
+	req_bar = /obj/item/ingot/iron
+	additional_items = list(/obj/item/ingot/iron)
+	created_item = /obj/item/clothing/neck/roguetown/chaincoif/iron/aventail
+	display_category = ITEM_CAT_ARMOR_NECK
+	createditem_num = 1
 
 /datum/anvil_recipe/armor/iron/breastplate
 	name = "Breastplate, Iron (+1 Iron)"
@@ -1234,6 +1249,13 @@
 	req_bar = /obj/item/ingot/steel
 	req_blade = /obj/item/blade/steel_plate
 	created_item = /obj/item/clothing/neck/roguetown/gorget/steel
+	display_category = ITEM_CAT_ARMOR_NECK
+
+/datum/anvil_recipe/armor/steel/saventail
+	name = "Aventail, Steel (+1 Steel)"
+	req_bar = /obj/item/ingot/steel
+	additional_items = list(/obj/item/ingot/steel)
+	created_item = /obj/item/clothing/neck/roguetown/chaincoif/aventail
 	display_category = ITEM_CAT_ARMOR_NECK
 
 /datum/anvil_recipe/armor/iron/cursed_collar
