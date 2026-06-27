@@ -532,16 +532,19 @@
 	craftdiff = 3
 	category = "Floors"
 
-/*
 /datum/crafting_recipe/roguetown/turfs/wood/roofg/corner
-	name = "wooden shingles (outer corner)"
-	result = /turf/open/floor/rogue/rooftop/green/corner1 // The sprites for these are weirdly oriented, so pre-emptive sorries for anyone using them to build. I didn't want to touch the sprites themselves since I don't want to break anything mapped in.
+	name = "wooden shingles (corner)"
+	result = /turf/open/floor/rogue/rooftop/green
 	diagonal = TRUE
 
+/datum/crafting_recipe/roguetown/turfs/wood/roofg/alt
+	name = "wooden shingles (alt)"
+	result = /turf/open/floor/rogue/rooftop/green/alt
+
 /datum/crafting_recipe/roguetown/turfs/wood/roofg/corner_alt
-	name = "wooden shingles (inner corner)"
-	result = /turf/open/floor/rogue/rooftop/green/corner1
-*/ // I'm leaving these commented out for when the absolutely atrocious directions for the corner sprites is fixed.
+	name = "wooden shingles (alt corner)"
+	result = /turf/open/floor/rogue/rooftop/green/alt
+	diagonal = TRUE
 
 /datum/crafting_recipe/roguetown/turfs/wood/roof
 	name = "wooden shingles (brown)" // No corner sprites for these ones, sadly
