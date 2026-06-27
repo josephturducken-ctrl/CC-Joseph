@@ -591,7 +591,6 @@
 	triumph_cost = 3
 	sort_category = "Triumphs"
 
-
 //////////////////
 //  PERFUMES !  //
 //////////////////

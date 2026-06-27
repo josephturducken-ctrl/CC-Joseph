@@ -834,3 +834,33 @@
 	desc = "A complete set of iron plate armor, fitted with tassets and bracers for additional coverage. Ask yourself one last question, before \
 	you twist the blade; is humenity still worth saving?"
 	icon_state = "ilegacyplate"
+
+/obj/item/clothing/head/roguetown/helmet/kettle/legacy
+	name = "valorian kettle helmet"
+	desc = "A steel helmet which protects the top and sides of the head. Will you stand fast when the time to fight for your God and your Kingdom arise?"
+	icon_state = "kettleclassic"
+
+/obj/item/clothing/head/roguetown/helmet/sallet/legacy
+	name = "valorian sallet"
+	icon_state = "salletclassic"
+	desc = "A steel helmet which covers most of the head, offering superior coverage to the kettle helmet. Will you ever know what meal will be your last, before your heart falls still?"
+
+/obj/item/clothing/head/roguetown/helmet/sallet/visored/legacy
+	name = "valorian visored sallet"
+	desc = "A steel 'sallet'-styled helmet with an adjustable visor. Where do your loyalties lie; with thine Kingdom, or with thine God?"
+	icon_state = "salletclassic_visor"
+
+/obj/item/clothing/head/roguetown/helmet/kettle/iron/legacy
+	name = "valorian iron kettle helmet"
+	desc = "An iron helmet which protects the top and sides of the head. What can you do, when all you have are bows and arrows against the lightning?"
+	icon_state = "ikettleclassic"
+
+/obj/item/clothing/head/roguetown/helmet/sallet/iron/legacy
+	name = "valorian iron sallet"
+	icon_state = "isalletclassic"
+	desc = "An iron helmet which covers most of the head, offering superior coverage to the kettle helmet. March to the cadence, follow your betters into death; but why?"
+
+/obj/item/clothing/head/roguetown/helmet/sallet/visored/iron/legacy
+	name = "valorian iron visored sallet"
+	desc = "An iron 'sallet'-styled helmet with an adjustable visor. What will they remember of you, once the dust has settled?"
+	icon_state = "isalletclassic_visor"
