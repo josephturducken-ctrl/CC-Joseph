@@ -176,7 +176,7 @@
 	//CC Edit End
 
 /* ............. Volf Meat ................*/
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak/wolf
+/obj/item/reagent_containers/food/snacks/rogue/meat/wolf
 	name = "raw volf meat"
 	icon_state = "volfstrip"
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef		//Honestly, we don't need our own minced type on this one.
@@ -188,7 +188,7 @@
 	//CC Edit End
 
 /* ............. Bear Meat ................*/
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak/bear
+/obj/item/reagent_containers/food/snacks/rogue/meat/bear
 	name = "raw bear meat"
 	desc = "Grow some hair on yer chest lad!"
 	icon_state = "bear"
@@ -467,3 +467,48 @@
 	name = "raw boar ham"
 	desc = "A bramblesnout that is no longer trying to end you. Raw and ready to be steamed."
 	icon_state = "ham_boar"
+
+// Raw mushroom from weird underdarky places
+/obj/item/reagent_containers/food/snacks/rogue/mushroom
+	eat_effect = null
+	//Not really filling uncooked.
+	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
+	bitesize = 3
+	name = "mushroom flesh"
+	desc = "A common piece of mushroom flesh. Often called Vesse-de-Vouivre by the drow of the underdark. It has a strong, earthy odor to it. Definitely better to cook this..."
+	icon = 'modular/Neu_Food/icons/raw/raw_meat.dmi'
+	icon_state = "mushroom"
+	slice_batch = TRUE
+	rotprocess = SHELFLIFE_DECENT
+	chopping_sound = TRUE
+	//can't believe it's not a vegetable.
+	foodtype = MEAT
+	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
+	cooked_smell = /datum/pollutant/food/fried_mushroom
+	tastes = list("wyvern and natural gas" = 1)
+	fried_type = /obj/item/reagent_containers/food/snacks/rogue/mushroom/cooked/fried
+	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/mushroom/cooked
+
+/* ............. Humanoid Meat ................*/
+/obj/item/reagent_containers/food/snacks/rogue/meat/humanoid
+	name = "raw long pig"
+	desc = "Perfect cut of swine flesh, raw and ready to be steamed. It seems oddly longer than a swine limb's length, however."
+	icon_state = "longpig"
+	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/humanoid
+	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/humanoid/fried
+	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/humanoid/fried
+	cooked_smell = /datum/pollutant/food/humanoid
+	tastes = list("bitter pork(?)" = 1)
+
+/obj/item/reagent_containers/food/snacks/rogue/meat/mince/humanoid
+	name = "minced long pig"
+	desc = "Meat sliced many times both with and against the grain, producing a fine mince. Oh wait a minute..."
+	icon_state = "longpigmince"
+	tastes = list("minced pork(?)" = 1)
+
+/obj/item/reagent_containers/food/snacks/rogue/meat/mince/humanoid_salted
+	name = "salted minced long pig"
+	desc = "Meat sliced many times both with and against the grain, producing a fine mince. Blend with a suitable amount of salt. Oh wait a minute..."
+	icon_state = "pigsalt"
+	rotprocess = SHELFLIFE_LONG
+	tastes = list("salted pork(?)" = 1)
