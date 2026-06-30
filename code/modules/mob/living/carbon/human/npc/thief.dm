@@ -41,12 +41,19 @@
 
 	set_species(pick(species))
 	var/obj/item/bodypart/head/head = get_bodypart(BODY_ZONE_HEAD)
-	var/hairf = pick(list(/datum/sprite_accessory/hair/head/bedhead, 
-						/datum/sprite_accessory/hair/head/bob))
-	var/hairm = pick(list(/datum/sprite_accessory/hair/head/ponytail1, 
-						/datum/sprite_accessory/hair/head/shaved))
-	var/beard = pick(list(/datum/sprite_accessory/hair/facial/vandyke,
-						/datum/sprite_accessory/hair/facial/croppedfullbeard))
+	var/hairf = pick(list(
+						/datum/sprite_accessory/hair/head/lowbraid,
+						/datum/sprite_accessory/hair/head/countryponytailalt,
+						/datum/sprite_accessory/hair/head/gloomy,
+						/datum/sprite_accessory/hair/head/zone,
+						/datum/sprite_accessory/hair/head/hime,
+						/datum/sprite_accessory/hair/head/fluffy,
+						/datum/sprite_accessory/hair/head/fluffylong))
+	var/hairm = pick(list(
+						/datum/sprite_accessory/hair/head/ponytailwitcher,
+						/datum/sprite_accessory/hair/head/bowlcut, 
+						/datum/sprite_accessory/hair/head/bowlcut2, 
+						/datum/sprite_accessory/hair/head/rogue))
 
 	//Random voices, this can probably be more random-ish but it'll do for now
 	var/voice_choice = rand(1, 30)
