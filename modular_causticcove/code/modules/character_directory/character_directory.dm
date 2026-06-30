@@ -128,7 +128,7 @@ GLOBAL_LIST_EMPTY(chardirectory_photos)
 		var/ooc_notes_style = null*/
 		var/gendertag = null
 		var/sexualitytag = null
-		var/rpguidance = null
+		var/rpguidance = "Unset"
 		switch(C.prefs.rp_guidance)
 			if(0) //Discourages Conflict
 				rpguidance = "Alternatives Preferred"
@@ -137,7 +137,7 @@ GLOBAL_LIST_EMPTY(chardirectory_photos)
 			if(2) //Same as normal. This can be changed in the future however if people wish. Encourages Conflict + Hunted.
 				rpguidance = "Mechanics Willing"
 			if(3)
-				rpguidance = "Unset"
+				rpguidance = "Neutral"
 		//var/eventtag = GLOB.vantag_choices_list[VANTAG_NONE]
 		var/flavor_text = null
 		var/custom_link = null

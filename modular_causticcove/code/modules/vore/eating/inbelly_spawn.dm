@@ -2,6 +2,10 @@
 	if(!potential_prey || !istype(potential_prey))		// Did our prey cease to exist?
 		return
 
+	if(!potential_prey.started_as_observer) //Lets check this, just to be sure no one spawns over and over this way... You gotta at least go to the main menu and observe to in-belly spawn.
+		to_chat(potential_prey, span_notice("In order to In-Belly Spawn, you need to join the round as an observer. Please don't attempt to use this as a free respawn!"))
+		return
+
 	// Are we cool with this prey spawning in at all?
 	var/answer = tgui_alert(src, "[potential_prey.client.prefs.real_name] wants to spawn in one of your bellies. Do you accept?", "Inbelly Spawning", list("Yes", "No"))
 	if(answer != "Yes")
@@ -86,7 +90,15 @@
 		joined_area.on_joining_game(new_character)
 	new_character.update_fov_angles()
 
+	if(new_character.dna?.species)
+		new_character.dna.species.after_creation(new_character)
+	new_character.roll_stats() //This hopefully does not runtime, as it appears it properly checks for if the new player is null first.
+
 	GLOB.chosen_names += new_character.real_name
+	new_character.islatejoin = TRUE
+	SSticker.minds += new_character.mind //Is this what is needed to handle skill gain?
+	GLOB.joined_player_list += new_character.ckey
+	update_wretch_slots()
 
 	new_character.regenerate_icons()
 	new_character.update_transform()
