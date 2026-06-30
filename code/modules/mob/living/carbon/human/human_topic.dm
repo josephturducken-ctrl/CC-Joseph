@@ -18,9 +18,9 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 		return
 	
 	if(href_list["task"] == "open_directory")
-		if(!ismob(usr) || !client)
+		if(!ismob(usr) || !usr.client)
 			return
-		client.show_character_directory()
+		usr.client.show_character_directory()
 		return
 
 	if(href_list["inspect_limb"] && (observer_privilege || usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY)))
