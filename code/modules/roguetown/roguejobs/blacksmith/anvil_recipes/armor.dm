@@ -458,6 +458,21 @@
 	display_category = ITEM_CAT_ARMOR_MASKS
 	createditem_num = 2
 
+/datum/anvil_recipe/armor/bronze/duelist
+	name = "Duelist's goggles"
+	req_bar = /obj/item/ingot/bronze
+	created_item = /obj/item/clothing/mask/rogue/spectacles/duelist/bronze
+	display_category = ITEM_CAT_ARMOR_MASKS
+	createditem_num = 2
+
+/datum/anvil_recipe/armor/bronze/goggles
+	name = "bronze goggles (+1 glass)"
+	req_bar = /obj/item/ingot/bronze
+	additional_items = list(/obj/item/natural/glass)
+	created_item = /obj/item/clothing/mask/rogue/spectacles/bronze
+	display_category = ITEM_CAT_ARMOR_MASKS
+	createditem_num = 2
+
 /datum/anvil_recipe/armor/bronze/maskclassic
 	name = "Mask, Ornate, Bronze (+1 Cured Leather)"
 	req_bar = /obj/item/ingot/bronze
@@ -607,6 +622,20 @@
 	req_bar = /obj/item/ingot/iron
 	req_blade = /obj/item/blade/iron_plate
 	created_item = /obj/item/clothing/mask/rogue/facemask
+	display_category = ITEM_CAT_ARMOR_MASKS
+	createditem_num = 1
+
+/datum/anvil_recipe/armor/iron/maskmaille
+	name = "maille mask, iron"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/clothing/mask/rogue/mailleiron
+	display_category = ITEM_CAT_ARMOR_MASKS
+	createditem_num = 1
+
+/datum/anvil_recipe/armor/iron/maskmaillefluted
+	name = "maille mask, iron"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/clothing/mask/rogue/flutedmailleiron
 	display_category = ITEM_CAT_ARMOR_MASKS
 	createditem_num = 1
 
