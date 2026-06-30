@@ -83,4 +83,4 @@
 
 
 	for (var/C in GLOB.admins)
-		to_chat(C, msg.Join())
+		to_chat(C, msg.Join(), MESSAGE_TYPE_ADMINLOG)

@@ -107,12 +107,12 @@ with edits to work for roguecode */
 
 	var/atom/final_result = initial(actual_recipe.result)
 
-	to_chat(user, span_notice("You start crafting \a [initial(final_result.name)]..."))
+	to_chat(user, span_notice("You start crafting \a [initial(final_result.name)]..."), MESSAGE_TYPE_INFO)
 
 	var/error_string = craft_sheet.construct_item_repeatable(user, actual_recipe)
 
 	if(istext(error_string))
-		to_chat(user, span_warning("Crafting failed[error_string]"))
+		to_chat(user, span_warning("Crafting failed[error_string]"), MESSAGE_TYPE_INFO)
 
 /// Alerts any examiners to the recipe, if they wish to know more.
 /datum/element/slapcrafting/proc/get_examine_info(atom/source, mob/user, list/examine_list)
@@ -152,7 +152,7 @@ with edits to work for roguecode */
 
 	var/atom/result = initial(cur_recipe.result)
 
-	to_chat(user, span_notice("You could craft \a [initial(result.name)] by applying one of these items to it!"))
+	to_chat(user, span_notice("You could craft \a [initial(result.name)] by applying one of these items to it!"), MESSAGE_TYPE_INFO)
 
 	// Gotta instance it to copy the lists over.
 	cur_recipe = new cur_recipe()
@@ -182,8 +182,8 @@ with edits to work for roguecode */
 
 	// If we did find ingredients then add them onto the list.
 	if(length(string_ingredient_list))
-		to_chat(user, span_boldnotice("Extra Ingredients:"))
-		to_chat(user, span_danger(span_notice(string_ingredient_list)))
+		to_chat(user, span_boldnotice("Extra Ingredients:"), MESSAGE_TYPE_INFO)
+		to_chat(user, span_danger(span_notice(string_ingredient_list)), MESSAGE_TYPE_INFO)
 
 	var/list/tool_list = ""
 
@@ -196,7 +196,7 @@ with edits to work for roguecode */
 		tool_list += "\a [string]\n"
 
 	if(length(tool_list))
-		to_chat(user, span_boldnotice("Required Tools:"))
-		to_chat(user, span_danger(span_notice(tool_list)))
+		to_chat(user, span_boldnotice("Required Tools:"), MESSAGE_TYPE_INFO)
+		to_chat(user, span_danger(span_notice(tool_list)), MESSAGE_TYPE_INFO)
 
 	qdel(cur_recipe)

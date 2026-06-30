@@ -285,9 +285,9 @@ SUBSYSTEM_DEF(migrants)
 	if(spawn_on_location)
 		character.forceMove(assignment.spawn_location)
 
-	to_chat(character, span_alertsyndie("I am a [role.name]!"))
-	to_chat(character, span_notice(wave.greet_text))
-	to_chat(character, span_notice(role.greet_text))
+	to_chat(character, span_alertsyndie("I am a [role.name]!"), MESSAGE_TYPE_INFO)
+	to_chat(character, span_notice(wave.greet_text), MESSAGE_TYPE_INFO)
+	to_chat(character, span_notice(role.greet_text), MESSAGE_TYPE_INFO)
 
 	if(role.outfit)
 		var/datum/outfit/outfit = new role.outfit()
@@ -490,7 +490,7 @@ SUBSYSTEM_DEF(migrants)
 	// Check if player has enough triumph
 	var/current_triumph = SStriumphs.get_triumphs(player.ckey)
 	if(current_triumph < amount)
-		to_chat(player, span_warning("You don't have enough triumph! You have [current_triumph], need [amount]."))
+		to_chat(player, span_warning("You don't have enough triumph! You have [current_triumph], need [amount]."), MESSAGE_TYPE_OOC)
 		return FALSE
 
 	// Deduct triumph from player
@@ -509,7 +509,7 @@ SUBSYSTEM_DEF(migrants)
 		global_triumph_contributions[player.ckey][wave_type] = 0
 	global_triumph_contributions[player.ckey][wave_type] += amount
 
-	to_chat(player, span_notice("You've contributed [amount] triumph to '[wave.name]'. Total: [wave.triumph_total]/[wave.triumph_threshold]"))
+	to_chat(player, span_notice("You've contributed [amount] triumph to '[wave.name]'. Total: [wave.triumph_total]/[wave.triumph_threshold]"), MESSAGE_TYPE_OOC)
 
 	// Announce if threshold reached
 	if(wave.triumph_total >= wave.triumph_threshold)

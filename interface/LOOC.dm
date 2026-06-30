@@ -32,15 +32,15 @@
 /client/proc/do_looc(msg as text, wp)
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, span_danger("Speech is currently admin-disabled."))
+		to_chat(usr, span_danger("Speech is currently admin-disabled."), MESSAGE_TYPE_INFO)
 		return
 
 	if(prefs.muted & MUTE_LOOC)
-		to_chat(src, span_danger("I cannot use LOOC (temp muted)."))
+		to_chat(src, span_danger("I cannot use LOOC (temp muted)."), MESSAGE_TYPE_INFO)
 		return
 
 	if(is_banned_from(ckey, "LOOC"))
-		to_chat(src, span_danger("I cannot use LOOC (perma muted)."))
+		to_chat(src, span_danger("I cannot use LOOC (perma muted)."), MESSAGE_TYPE_INFO)
 		return
 	//Caustic edit
 	/*
@@ -52,7 +52,7 @@
 
 	// Lobby restriction: disable LOOC for normal players still in the lobby (new_player)
 	if(!holder && istype(mob, /mob/dead/new_player))
-		to_chat(src, span_danger("I cannot use LOOC while in the lobby. Join the round or observe first."))
+		to_chat(src, span_danger("I cannot use LOOC while in the lobby. Join the round or observe first."), MESSAGE_TYPE_INFO)
 		return
 
 	if(!mob)
@@ -63,12 +63,12 @@
 		return
 
 	if(!(prefs.chat_toggles & CHAT_OOC))
-		to_chat(src, span_danger("You have OOC muted."))
+		to_chat(src, span_danger("You have OOC muted."), MESSAGE_TYPE_INFO)
 		return
 
 	if(!holder)
 		if(findtext(msg, "byond://"))
-			to_chat(src, "<B>Advertising other servers is not allowed.</B>")
+			to_chat(src, "<B>Advertising other servers is not allowed.</B>", MESSAGE_TYPE_INFO)
 			log_admin("[key_name(src)] has attempted to advertise in LOOC: [msg]")
 			return
 
@@ -101,8 +101,8 @@
 			var/turf/speakturf = get_turf(M)
 			var/turf/sourceturf = get_turf(usr)
 			if(wp == 1 && (M in range (7, src)))
-				to_chat(C, "<font color='["#6699CC"]'><b><span class='prefix'>[prefix]:</span> <EM>[src.mob.name][added_text]:</EM> <span class='message'>[msg]</span></b></font>")
+				to_chat(C, "<font color='["#6699CC"]'><b><span class='prefix'>[prefix]:</span> <EM>[src.mob.name][added_text]:</EM> <span class='message'>[msg]</span></b></font>", MESSAGE_TYPE_OOC)
 			else if(speakturf in get_hear(7, sourceturf))
-				to_chat(C, "<font color='["#6699CC"]'><b><span class='prefix'>[prefix]:</span> <EM>[src.mob.name][added_text]:</EM> <span class='message'>[msg]</span></b></font>")
+				to_chat(C, "<font color='["#6699CC"]'><b><span class='prefix'>[prefix]:</span> <EM>[src.mob.name][added_text]:</EM> <span class='message'>[msg]</span></b></font>", MESSAGE_TYPE_OOC)
 			else if(is_admin == 1)
-				to_chat(C, "<font color='["#6699CC"]'><b>(R) <span class='prefix'>[prefix]:</span> <EM>[src.mob.name][added_text]:</EM> <span class='message'>[msg]</span></b></font>")
+				to_chat(C, "<font color='["#6699CC"]'><b>(R) <span class='prefix'>[prefix]:</span> <EM>[src.mob.name][added_text]:</EM> <span class='message'>[msg]</span></b></font>", MESSAGE_TYPE_OOC)

@@ -115,7 +115,7 @@
 
 	for(var/mob/living/V in valid_victims)
 		V.mob_timers["ambush_cooldown"] = world.time + final_cooldown
-		to_chat(V, span_userdanger("The fog churns violently... something has found you!"))
+		to_chat(V, span_userdanger("The fog churns violently... something has found you!"), MESSAGE_TYPE_INFO)
 		shake_camera(V, 2, 2)
 	
 	ambush_in_progress = FALSE

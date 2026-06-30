@@ -480,7 +480,7 @@ SUBSYSTEM_DEF(economy)
 	var/datum/economic_region/ER = GLOB.economic_regions[order.region_id]
 	if(ER?.is_region_blockaded)
 		if(user)
-			to_chat(user, span_warning("[ER.name] is blockaded — the order cannot be delivered until the road is cleared."))
+			to_chat(user, span_warning("[ER.name] is blockaded — the order cannot be delivered until the road is cleared."), MESSAGE_TYPE_INFO)
 		return FALSE
 
 	var/list/equip_goods = list()
@@ -497,7 +497,7 @@ SUBSYSTEM_DEF(economy)
 
 	if((length(equip_goods) || length(potion_goods)) && !length(GLOB.steward_export_machines))
 		if(user)
-			to_chat(user, span_warning("No warehouse dock manifest is registered. Cannot fulfill warehouse orders."))
+			to_chat(user, span_warning("No warehouse dock manifest is registered. Cannot fulfill warehouse orders."), MESSAGE_TYPE_INFO)
 		return FALSE
 
 	var/list/equip_avail = length(equip_goods) ? scan_equipment_availability(order, equip_goods) : list()
@@ -527,7 +527,7 @@ SUBSYSTEM_DEF(economy)
 		order.is_fulfilled = TRUE
 		GLOB.standing_order_pool -= order
 		if(user)
-			to_chat(user, span_notice("Order Fulfilled: [full_payout]m paid to the Crown's Purse."))
+			to_chat(user, span_notice("Order Fulfilled: [full_payout]m paid to the Crown's Purse."), MESSAGE_TYPE_INFO)
 			log_game("STANDING ORDER FULFILLED by [user.ckey]: [order.name] (+[full_payout]m)")
 		return list("status" = "full", "payout" = full_payout)
 
@@ -537,7 +537,7 @@ SUBSYSTEM_DEF(economy)
 
 	if(coverage < STANDING_ORDER_PARTIAL_THRESHOLD)
 		if(user)
-			to_chat(user, span_warning("Coverage [round(coverage * 100)]% - below the [round(STANDING_ORDER_PARTIAL_THRESHOLD * 100)]% partial threshold. Short on: [english_list(missing_labels)]."))
+			to_chat(user, span_warning("Coverage [round(coverage * 100)]% - below the [round(STANDING_ORDER_PARTIAL_THRESHOLD * 100)]% partial threshold. Short on: [english_list(missing_labels)]."), MESSAGE_TYPE_INFO)
 		return FALSE
 
 	if(!partial)
@@ -553,7 +553,7 @@ SUBSYSTEM_DEF(economy)
 	order.is_fulfilled = TRUE
 	GLOB.standing_order_pool -= order
 	if(user)
-		to_chat(user, span_notice("Order Settled (Partial): [round(coverage * 100)]% coverage, [payout]m paid to the Crown's Purse ([round(STANDING_ORDER_PARTIAL_PAYOUT_MULT * 100)]% of the delivered share)."))
+		to_chat(user, span_notice("Order Settled (Partial): [round(coverage * 100)]% coverage, [payout]m paid to the Crown's Purse ([round(STANDING_ORDER_PARTIAL_PAYOUT_MULT * 100)]% of the delivered share)."), MESSAGE_TYPE_INFO)
 		log_game("STANDING ORDER PARTIAL FULFILLED by [user.ckey]: [order.name] (+[payout]m, [round(coverage * 100)]% coverage)")
 	return list("status" = "partial", "payout" = payout, "coverage_pct" = round(coverage * 100))
 
@@ -735,7 +735,7 @@ SUBSYSTEM_DEF(economy)
 	var/datum/trade_good/tg = GLOB.trade_goods[good_id]
 	if(!tg || !tg.importable)
 		if(user)
-			to_chat(user, span_warning("[good_id] is not importable."))
+			to_chat(user, span_warning("[good_id] is not importable."), MESSAGE_TYPE_INFO)
 		return 0
 	if(quantity <= 0)
 		return 0
@@ -743,7 +743,7 @@ SUBSYSTEM_DEF(economy)
 	var/daily_pace = region.produces[good_id] || 0
 	if(daily_pace <= 0)
 		if(user)
-			to_chat(user, span_warning("[region.name] does not produce [tg.name]."))
+			to_chat(user, span_warning("[region.name] does not produce [tg.name]."), MESSAGE_TYPE_INFO)
 		return 0
 
 	var/produces_today = region.produces_today[good_id] || 0
@@ -755,7 +755,7 @@ SUBSYSTEM_DEF(economy)
 
 	if(SStreasury.discretionary_fund.balance < total_cost)
 		if(user)
-			to_chat(user, span_warning("Crown's Purse insufficient: [SStreasury.discretionary_fund.balance]m < [total_cost]m."))
+			to_chat(user, span_warning("Crown's Purse insufficient: [SStreasury.discretionary_fund.balance]m < [total_cost]m."), MESSAGE_TYPE_INFO)
 		return 0
 
 	SStreasury.burn(SStreasury.discretionary_fund, total_cost, "Manual Import: [quantity] [tg.name] from [region.name]")
@@ -777,7 +777,7 @@ SUBSYSTEM_DEF(economy)
 	var/datum/trade_good/tg = GLOB.trade_goods[good_id]
 	if(!tg)
 		if(user)
-			to_chat(user, span_warning("[good_id] is not a known trade good."))
+			to_chat(user, span_warning("[good_id] is not a known trade good."), MESSAGE_TYPE_INFO)
 		return 0
 	if(quantity <= 0)
 		return 0
@@ -785,13 +785,13 @@ SUBSYSTEM_DEF(economy)
 	var/daily_pace = region.demands[good_id] || 0
 	if(daily_pace <= 0)
 		if(user)
-			to_chat(user, span_warning("[region.name] does not demand [tg.name]."))
+			to_chat(user, span_warning("[region.name] does not demand [tg.name]."), MESSAGE_TYPE_INFO)
 		return 0
 
 	var/datum/roguestock/stockpile_entry = find_stockpile_by_trade_good(good_id)
 	if(!stockpile_entry || stockpile_entry.stockpile_amount < quantity)
 		if(user)
-			to_chat(user, span_warning("Insufficient [tg.name] in stockpile: have [stockpile_entry?.stockpile_amount || 0], need [quantity]."))
+			to_chat(user, span_warning("Insufficient [tg.name] in stockpile: have [stockpile_entry?.stockpile_amount || 0], need [quantity]."), MESSAGE_TYPE_INFO)
 		return 0
 
 	var/demands_today = region.demands_today[good_id] || 0

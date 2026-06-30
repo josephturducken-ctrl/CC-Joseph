@@ -11,25 +11,25 @@
   */
 /obj/item/proc/melee_attack_chain(mob/user, atom/target, params)
 	if(user.check_arm_grabbed(user.active_hand_index))
-		to_chat(user, span_notice("I can't move my arm!"))
+		to_chat(user, span_notice("I can't move my arm!"), MESSAGE_TYPE_INFO)
 		return
 	if(!user.has_hand_for_held_index(user.active_hand_index, TRUE)) //we obviously have a hadn, but we need to check for fingers/prosthetics
-		to_chat(user, span_warning("I can't move the fingers."))
+		to_chat(user, span_warning("I can't move the fingers."), MESSAGE_TYPE_INFO)
 		return
 	if(!istype(src, /obj/item/grabbing) && !istype(src, /obj/item/rogueweapon/werewolf_claw))
 		if(HAS_TRAIT(user, TRAIT_CHUNKYFINGERS))
-			to_chat(user, span_warning("...What?"))
+			to_chat(user, span_warning("...What?"), MESSAGE_TYPE_INFO)
 			return
 		// FAR less aggressive version of chunkyfingers, designed to be used with nudist. Shrimply lets the user still use neat stuff like orison without letting them weaponize.
 		if(HAS_TRAIT(user, TRAIT_GNARLYDIGITS))
 			if(istype(src, /obj/item/rogueweapon) && !istype(src, /obj/item/rogueweapon/werewolf_claw))
-				to_chat(user, span_warning("My fingers are too misshapen to use this puny implement."))
+				to_chat(user, span_warning("My fingers are too misshapen to use this puny implement."), MESSAGE_TYPE_INFO)
 				return
 		// even less aggressive; allows use of tools but not weapons
 		if(HAS_TRAIT(user, TRAIT_TINYPAWS))
 			var/obj/item/rogueweapon/weapon = src
 			if(istype(weapon) && !weapon.is_tool)
-				to_chat(user, span_warning("I am too small to properly wield a weapon."))
+				to_chat(user, span_warning("I am too small to properly wield a weapon."), MESSAGE_TYPE_INFO)
 				return
 	if(tool_behaviour && target.tool_act(user, src, tool_behaviour))
 		return
@@ -130,7 +130,7 @@
 		return FALSE	
 
 	if(force && HAS_TRAIT(user, TRAIT_PACIFISM))
-		to_chat(user, span_warning("I don't want to harm other living beings!"))
+		to_chat(user, span_warning("I don't want to harm other living beings!"), MESSAGE_TYPE_INFO)
 		return
 
 	if(force && user.rogue_sneaking)
@@ -203,7 +203,7 @@
 				user.ignite_mob()
 			else
 				if(prob(30))
-					to_chat(M, span_warning("The foul blessing of the Undermaiden hurts us!"))
+					to_chat(M, span_warning("The foul blessing of the Undermaiden hurts us!"), MESSAGE_TYPE_COMBAT)
 			user.adjust_blurriness(3)
 			user.adjustBruteLoss(5)
 			user.apply_status_effect(/datum/status_effect/churned, M)
@@ -389,9 +389,9 @@
 			newforce = max(newforce*0.3, 1)
 			if(prob(33))
 				if(I.wielded)
-					to_chat(user, span_info("I am too weak to wield this weapon properly with both hands."))
+					to_chat(user, span_info("I am too weak to wield this weapon properly with both hands."), MESSAGE_TYPE_INFO)
 				else
-					to_chat(user, span_info("I am too weak to wield this weapon properly with one hand."))
+					to_chat(user, span_info("I am too weak to wield this weapon properly with one hand."), MESSAGE_TYPE_INFO)
 
 	switch(blade_dulling)
 		if(DULLING_CUT) //wooden that can't be attacked by clubs (trees, bushes, grass)
@@ -470,7 +470,7 @@
 				return 0
 		if(DULLING_PICK) //cannot deal damage if not a pick item. aka rock walls
 			if(!(user.mobility_flags & MOBILITY_STAND))
-				to_chat(user, span_warning("I need to stand up to get a proper swing."))
+				to_chat(user, span_warning("I need to stand up to get a proper swing."), MESSAGE_TYPE_INFO)
 				return 0
 			if(user.used_intent.blade_class != BCLASS_PICK && user.used_intent.blade_class != BCLASS_DRILL)
 				return 0
@@ -504,7 +504,7 @@
 		if(dullness_ratio < SHARPNESS_TIER2_THRESHOLD)
 			var/lerpratio = LERP(0, SHARPNESS_TIER2_THRESHOLD, (dullness_ratio / SHARPNESS_TIER2_THRESHOLD))	//Yes, it's meant to LERP between 0 and 0.x using ratio / tier2. The damage falls off a cliff. Intended!
 			if(prob(33))
-				to_chat(user, span_info("The blade is dull..."))
+				to_chat(user, span_info("The blade is dull..."), MESSAGE_TYPE_INFO)
 			newforce *= (lerpratio * 2)
 
 	if(istype(user.rmb_intent, /datum/rmb_intent/strong))
@@ -687,11 +687,11 @@
 			var/datum/component/silverbless/blesscomp = GetComponent(/datum/component/silverbless)
 			if(blesscomp?.is_blessed)
 				if(!victim.has_status_effect(/datum/status_effect/fire_handler/fire_stacks/sunder))
-					to_chat(victim, span_danger("Silver rebukes my presence! My vitae smolders, and my powers wane!"))
+					to_chat(victim, span_danger("Silver rebukes my presence! My vitae smolders, and my powers wane!"), MESSAGE_TYPE_COMBAT)
 				victim.adjust_fire_stacks(thrown ? 1 : 3, /datum/status_effect/fire_handler/fire_stacks/sunder/blessed)
 			else
 				if(!victim.has_status_effect(/datum/status_effect/fire_handler/fire_stacks/sunder/blessed))
-					to_chat(victim, span_danger("Blessed silver rebukes my presence! These fires are lashing at my very soul!"))
+					to_chat(victim, span_danger("Blessed silver rebukes my presence! These fires are lashing at my very soul!"), MESSAGE_TYPE_COMBAT)
 				victim.adjust_fire_stacks(thrown ? 1 : 3, /datum/status_effect/fire_handler/fire_stacks/sunder)
 			victim.ignite_mob()
 
@@ -808,7 +808,7 @@
 	//Janky, but you'll see BIG TEXT for both the hits you make and take.
 	if(src != user)
 		var/attack_message_self = span_combatprimary("[user] [message_verb] [src] in the [span_combatsecondarybp(message_hit_area)] with [I]!")
-		to_chat(user, "[attack_message_self][next_attack_msg.Join()]")
+		to_chat(user, "[attack_message_self][next_attack_msg.Join()]", MESSAGE_TYPE_COMBAT)
 	visible_message("[attack_message][span_combatsecondarysmall(next_attack_msg.Join())]",\
 		"[attack_message_local][next_attack_msg.Join()]", null, COMBAT_MESSAGE_RANGE, user)	//We try not to show this to the user (attacker)
 	next_attack_msg.Cut()

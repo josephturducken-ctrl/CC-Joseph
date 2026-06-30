@@ -110,7 +110,7 @@
 	//TODO add some bar hud or something, i think i seen a request like that somewhere
 	if(known_skills[S] >= old_level)
 		if(known_skills[S] > old_level)
-			to_chat(current, span_nicegreen("My [S.name] grows to [SSskills.level_names[known_skills[S]]]!"))
+			to_chat(current, span_nicegreen("My [S.name] grows to [SSskills.level_names[known_skills[S]]]!"), MESSAGE_TYPE_INFO)
 			if(!COOLDOWN_FINISHED(src, level_up))
 				if(current.client?.prefs.combat_toggles & XP_TEXT)
 					current.balloon_alert(current, "<font color = '#9BCCD0'>Level up...</font>")
@@ -124,7 +124,7 @@
 			if(istype(known_skills, /datum/skill/craft))
 				record_round_statistic(STATS_CRAFT_SKILLS)
 	else
-		to_chat(current, span_warning("My [S.name] has weakened to [SSskills.level_names[known_skills[S]]]!"))
+		to_chat(current, span_warning("My [S.name] has weakened to [SSskills.level_names[known_skills[S]]]!"), MESSAGE_TYPE_INFO)
 
 /datum/skill_holder/proc/adjust_skillrank_up_to(skill, amt, silent = FALSE)
 	var/proper_amt = amt - get_skill_level(skill)
@@ -212,7 +212,7 @@
 		return
 	if(known_skills[skill_ref] >= old_level)
 		SEND_SIGNAL(current, COMSIG_SKILL_RANK_INCREASED, skill_ref, known_skills[skill_ref], old_level)
-		to_chat(current, span_nicegreen("I feel like I've become more proficient at [skill_ref.name]!"))
+		to_chat(current, span_nicegreen("I feel like I've become more proficient at [skill_ref.name]!"), MESSAGE_TYPE_INFO)
 		record_round_statistic(STATS_SKILLS_LEARNED)
 		if(istype(skill_ref, /datum/skill/combat))
 			record_round_statistic(STATS_COMBAT_SKILLS)
@@ -221,7 +221,7 @@
 		if(skill == /datum/skill/misc/reading && old_level == SKILL_LEVEL_NONE && current.is_literate())
 			record_round_statistic(STATS_LITERACY_TAUGHT)
 	else
-		to_chat(current, span_warning("I feel like I've become worse at [skill_ref.name]!"))
+		to_chat(current, span_warning("I feel like I've become worse at [skill_ref.name]!"), MESSAGE_TYPE_INFO)
 
 	if(ishuman(current))
 		var/mob/living/carbon/human/H = current
@@ -306,7 +306,7 @@
 		if(known_skills[i]) //Do we actually have a level in this?
 			shown_skills += i
 	if(!length(shown_skills))
-		to_chat(user, span_warning("I don't have any skills."))
+		to_chat(user, span_warning("I don't have any skills."), MESSAGE_TYPE_INFO)
 		return
 
 	var/list/sorted_skills = sortList(shown_skills, GLOBAL_PROC_REF(cmp_skills_for_display))
@@ -364,7 +364,7 @@
 		msg += "</tr>"
 
 	msg += "</table>"
-	to_chat(user, msg)
+	to_chat(user, msg, MESSAGE_TYPE_INFO)
 
 /mob/proc/get_inspirational_bonus()
 	return 0

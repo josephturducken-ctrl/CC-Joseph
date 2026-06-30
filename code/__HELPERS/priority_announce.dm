@@ -22,7 +22,7 @@
 		if (receiver && !(istype(M, receiver) || (sender && M == sender)))
 			return
 
-		to_chat(M, announcement)
+		to_chat(M, announcement, MESSAGE_TYPE_LOCALCHAT)
 		if (M.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
 			if (!sound)
 				return
@@ -34,7 +34,7 @@
 
 	for(var/mob/M in GLOB.player_list)
 		if(M.can_hear())
-			to_chat(M, "<span class='big bold'><font color = purple>[html_encode(title)]</font color><BR>[html_encode(message)]</span><BR>")
+			to_chat(M, "<span class='big bold'><font color = purple>[html_encode(title)]</font color><BR>[html_encode(message)]</span><BR>", MESSAGE_TYPE_LOCALCHAT)
 			if(M.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
 				if(alert)
 					M.playsound_local(M, 'sound/misc/alert.ogg', 100)

@@ -9,13 +9,13 @@
 	for(var/turf/T in range(4, user))
 		var/area/A = get_area(T)
 		if(A.fog_protected)
-			to_chat(user, span_warning("The holy energies here are already saturated. You must find a place further from existing sanctuaries to plant this cross."))
+			to_chat(user, span_warning("The holy energies here are already saturated. You must find a place further from existing sanctuaries to plant this cross."), MESSAGE_TYPE_INFO)
 			return
 
-	to_chat(user, span_notice("You begin assembling the cross..."))
+	to_chat(user, span_notice("You begin assembling the cross..."), MESSAGE_TYPE_INFO)
 	if(do_after(user, 5 SECONDS, target = user))
 		new /obj/structure/fluff/psycross/fog(get_turf(user))
-		to_chat(user, span_notice("You finish the cross. It stands tall, ready to receive a light."))
+		to_chat(user, span_notice("You finish the cross. It stands tall, ready to receive a light."), MESSAGE_TYPE_INFO)
 		qdel(src)
 
 /obj/structure/fluff/psycross/fog
@@ -34,12 +34,12 @@
 /obj/structure/fluff/psycross/fog/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/flashlight/flare/torch/lantern))
 		if(inserted_lantern)
-			to_chat(user, span_warning("There is already a lantern on [src]."))
+			to_chat(user, span_warning("There is already a lantern on [src]."), MESSAGE_TYPE_INFO)
 			return
 		if(!I.forceMove(src))
 			return
 		inserted_lantern = I
-		to_chat(user, span_notice("You hang the lantern on the cross."))
+		to_chat(user, span_notice("You hang the lantern on the cross."), MESSAGE_TYPE_INFO)
 		icon_state = "cross_fog0"
 		update_icon()
 		return
@@ -47,19 +47,19 @@
 
 /obj/structure/fluff/psycross/fog/attack_hand(mob/user)
 	if(!inserted_lantern)
-		to_chat(user, span_warning("[src] needs a lantern to be activated!"))
+		to_chat(user, span_warning("[src] needs a lantern to be activated!"), MESSAGE_TYPE_INFO)
 		return
 
 	if(do_after(user, 5 SECONDS, target = src))
 		active = !active
 	if(active)
 		activate_sanctuary()
-		to_chat(user, span_notice("You light the lantern. The cross begins to hum with a protective aura."))
+		to_chat(user, span_notice("You light the lantern. The cross begins to hum with a protective aura."), MESSAGE_TYPE_INFO)
 		icon_state = "cross_fog1"
 		set_light(5, 2, "#fff2aa")
 	else
 		deactivate_sanctuary()
-		to_chat(user, span_warning("You extinguish the lantern. The aura fades."))
+		to_chat(user, span_warning("You extinguish the lantern. The aura fades."), MESSAGE_TYPE_INFO)
 		icon_state = "cross_fog0"
 		set_light(0)
 	update_icon()

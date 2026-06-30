@@ -289,9 +289,9 @@ GLOBAL_LIST_INIT(available_ui_styles, sortList(list(
 
 	if(hud_used && client)
 		hud_used.show_hud() //Shows the next hud preset
-		to_chat(usr, span_info("Switched HUD mode. Press F12 to toggle."))
+		to_chat(usr, span_info("Switched HUD mode. Press F12 to toggle."), MESSAGE_TYPE_INFO)
 	else
-		to_chat(usr, span_warning("This mob type does not use a HUD."))
+		to_chat(usr, span_warning("This mob type does not use a HUD."), MESSAGE_TYPE_INFO)
 
 
 //(re)builds the hand ui slots, throwing away old ones

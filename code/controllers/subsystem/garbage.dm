@@ -194,7 +194,7 @@ SUBSYSTEM_DEF(garbage)
 					var/client/admin = c
 					if(!check_rights_for(admin, R_ADMIN))
 						continue
-					to_chat(admin, "## TESTING: GC: -- [ADMIN_VV(D)] | [type] was unable to be GC'd --")
+					to_chat(admin, "## TESTING: GC: -- [ADMIN_VV(D)] | [type] was unable to be GC'd --", MESSAGE_TYPE_ADMINLOG)
 				#endif
 				#ifdef REFERENCE_TRACKING
 				GLOB.deletion_failures += D //It should no longer be bothered by the GC, manual deletion only.
