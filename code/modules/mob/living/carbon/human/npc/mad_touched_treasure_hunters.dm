@@ -32,14 +32,96 @@
 	ADD_TRAIT(src, TRAIT_DISFIGURED, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOPAINSTUN, TRAIT_GENERIC)
-	equipOutfit(new /datum/outfit/job/roguetown/human/species/human/northern/mad_touched_treasure_hunter)
+	ADD_TRAIT(src, TRAIT_NOPAIN, TRAIT_GENERIC)
+	ADD_TRAIT(src, TRAIT_NPC_EXAMINE, TRAIT_GENERIC)
+	equipOutfit(new mad_outfit)
+	gender = pick(MALE, FEMALE)
+
+		var/species = list(
+		/datum/species/human/northern,
+		/datum/species/human/northern, //Extra bias towards humens and wood/half elves
+		/datum/species/human/northern,
+		/datum/species/elf/wood,
+		/datum/species/elf/wood,
+		/datum/species/human/halfelf,
+		/datum/species/human/halfelf,
+		/datum/species/dwarf/mountain,
+	)
+	
 	var/obj/item/organ/eyes/organ_eyes = getorgan(/obj/item/organ/eyes)
-	if(organ_eyes)
-		organ_eyes.eye_color = pick("27becc", "35cc27", "000000")
-	update_hair()
-	update_body()
 	var/obj/item/bodypart/head/head = get_bodypart(BODY_ZONE_HEAD)
 	head.sellprice = HEAD_BOUNTY_MAD_TOUCHED
+
+
+	if(gender == FEMALE)
+		new_hair.set_accessory_type(hairf, null, src)
+	else
+		new_hair.set_accessory_type(hairm, null, src)
+	//pick a hair color
+	var/haircolor_choice = rand(1, 4)
+	switch(haircolor_choice)
+		if(1)
+			new_hair.accessory_colors = "#C1A287"
+			new_hair.hair_color = "#C1A287"
+			hair_color = "#C1A287"
+		if(2)
+			new_hair.accessory_colors = "#A56B3D"
+			new_hair.hair_color = "#A56B3D"
+			hair_color = "#A56B3D"
+		if(3) //Black
+			new_hair.accessory_colors = "#030107"
+			new_hair.hair_color = "#030107"
+			hair_color = "#030107"
+		if(4) //Red
+			new_hair.accessory_colors = "#a53d3d"
+			new_hair.hair_color = "#a53d3d"
+			hair_color = "#a53d3d"
+	//Pick a skin tone
+	var/skintone_choice = rand(1, 7) //Heavily simplified
+	switch(skintone_choice)
+		if(1)
+			skin_tone = "SKIN_COLOR_GRENZELHOFT"
+			if(organ_ears)
+				organ_ears.accessory_colors = "SKIN_COLOR_GRENZELHOFT"
+		if(2)
+			skin_tone = "SKIN_COLOR_AVAR"
+			if(organ_ears)
+				organ_ears.accessory_colors = "SKIN_COLOR_AVAR"
+		if(3)
+			skin_tone = "SKIN_COLOR_OTAVA"
+			if(organ_ears)
+				organ_ears.accessory_colors = "SKIN_COLOR_OTAVA"
+		if(4)
+			skin_tone = "SKIN_COLOR_SHALVISTINE"
+			if(organ_ears)
+				organ_ears.accessory_colors = "SKIN_COLOR_SHALVISTINE"
+		if(5)
+			skin_tone = "SKIN_COLOR_LALVESTINE"
+			if(organ_ears)
+				organ_ears.accessory_colors = "SKIN_COLOR_LALVESTINE"
+		if(6)
+			skin_tone = "SKIN_COLOR_NALEDI"
+			if(organ_ears)
+				organ_ears.accessory_colors = "SKIN_COLOR_NALEDI"
+		if(7)
+			skin_tone = "SKIN_COLOR_KAZENGUN"
+			if(organ_ears)
+				organ_ears.accessory_colors = "SKIN_COLOR_KAZENGUN"
+	//add our hair features
+	head.add_bodypart_feature(new_hair)
+
+	dna.update_ui_block(DNA_HAIR_COLOR_BLOCK)
+	dna.species.handle_body(src)
+	//no random pick, cause FACE it, you have to decapitate them to see /this/
+	if(organ_eyes) //Evil mad, unnaturally bloodshot look
+		organ_eyes.eye_color = "#ff0000"
+		organ_eyes.accessory_colors = "#ff0000#ff0000"
+	
+	real_name = pick(world.file2list("strings/rt/names/human/mad_touched_names.txt"))
+
+	update_hair()
+	update_body()
+	src.regenerate_icons() //Fixes the weird body
 
 
 /datum/outfit/job/roguetown/human/species/human/northern/mad_touched_treasure_hunter/pre_equip(mob/living/carbon/human/H)

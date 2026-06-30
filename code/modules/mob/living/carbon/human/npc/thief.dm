@@ -28,6 +28,17 @@
 	gender = pick(MALE, FEMALE)
 	regenerate_icons()
 
+		var/species = list(
+		/datum/species/human/northern,
+		/datum/species/human/northern, //Extra bias towards humens and wood/half elves
+		/datum/species/human/northern,
+		/datum/species/elf/wood,
+		/datum/species/elf/wood,
+		/datum/species/human/halfelf,
+		/datum/species/human/halfelf,
+		/datum/species/dwarf/mountain,
+	)
+
 	var/obj/item/organ/eyes/organ_eyes = getorgan(/obj/item/organ/eyes)
 	var/obj/item/bodypart/head/head = get_bodypart(BODY_ZONE_HEAD)
 	var/hairf = pick(list(/datum/sprite_accessory/hair/head/bedhead, 
@@ -66,8 +77,51 @@
 	dna.species.handle_body(src)
 
 	if(organ_eyes)
-		organ_eyes.eye_color = "#336699"
-		organ_eyes.accessory_colors = "#336699#336699"
+		var/eye_choice = rand(1, 4)
+		switch(eye_choice)
+			if(1)
+				organ_eyes.eye_color = "#336699"
+				organ_eyes.accessory_colors = "#336699#336699"
+			if(2)
+				organ_eyes.eye_color = "#339933"
+				organ_eyes.accessory_colors = "#339933#339933"
+			if(3)
+				organ_eyes.eye_color = "#995333"
+				organ_eyes.accessory_colors = "#995333#995333"
+			if(3)
+				organ_eyes.eye_color = "#131313" //Souless greytider look
+				organ_eyes.accessory_colors = "#131313#131313"
+
+	var/skintone_choice = rand(1, 7) //Heavily simplified
+	switch(skintone_choice)
+		if(1)
+			skin_tone = "SKIN_COLOR_GRENZELHOFT"
+			if(organ_ears)
+				organ_ears.accessory_colors = "SKIN_COLOR_GRENZELHOFT"
+		if(2)
+			skin_tone = "SKIN_COLOR_AVAR"
+			if(organ_ears)
+				organ_ears.accessory_colors = "SKIN_COLOR_AVAR"
+		if(3)
+			skin_tone = "SKIN_COLOR_OTAVA"
+			if(organ_ears)
+				organ_ears.accessory_colors = "SKIN_COLOR_OTAVA"
+		if(4)
+			skin_tone = "SKIN_COLOR_SHALVISTINE"
+			if(organ_ears)
+				organ_ears.accessory_colors = "SKIN_COLOR_SHALVISTINE"
+		if(5)
+			skin_tone = "SKIN_COLOR_LALVESTINE"
+			if(organ_ears)
+				organ_ears.accessory_colors = "SKIN_COLOR_LALVESTINE"
+		if(6)
+			skin_tone = "SKIN_COLOR_NALEDI"
+			if(organ_ears)
+				organ_ears.accessory_colors = "SKIN_COLOR_NALEDI"
+		if(7)
+			skin_tone = "SKIN_COLOR_KAZENGUN"
+			if(organ_ears)
+				organ_ears.accessory_colors = "SKIN_COLOR_KAZENGUN"
 
 	if(gender == FEMALE)
 		real_name = pick(world.file2list("strings/names/first_female.txt"))
