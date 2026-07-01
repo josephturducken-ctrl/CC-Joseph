@@ -51,15 +51,6 @@ export const CharacterDirectoryList = (props: {
             Species
           </SortButton>
           <SortButton
-            ourId="tag"
-            sortId={sortId}
-            sortOrder={sortOrder}
-            onSortId={setSortId}
-            onSortOrder={setSortOrder}
-          >
-            Vore Tag
-          </SortButton>
-          <SortButton
             ourId="gendertag"
             sortId={sortId}
             sortOrder={sortOrder}
@@ -85,6 +76,15 @@ export const CharacterDirectoryList = (props: {
             onSortOrder={setSortOrder}
           >
             ERP Tag
+          </SortButton>
+          <SortButton
+            ourId="tag"
+            sortId={sortId}
+            sortOrder={sortOrder}
+            onSortId={setSortId}
+            onSortOrder={setSortOrder}
+          >
+            Vore Tag
           </SortButton>
           <SortButton
             ourId="rpguidance"
@@ -113,7 +113,7 @@ export const CharacterDirectoryList = (props: {
             const viewActionId = `${character.ckey}-view`;
 
             return (
-              <Table.Row key={i} backgroundColor={getTagColor(character.tag)}>
+              <Table.Row key={i}>
                 <Table.Cell verticalAlign="middle">
                   {character.photo ? (
                     <Stack
@@ -162,7 +162,7 @@ export const CharacterDirectoryList = (props: {
                     onMouseEnter={() => setHoveredAction(adActionId)} //Why do you error? This works fine it seems?
                     onMouseLeave={() => setHoveredAction((current) => current === adActionId ? null : current)}
                     color="transparent"
-                    textColor="black"
+                    //textColor="black"
                     icon="scroll"
                     tooltip={hasCharacterAd ? 'View advertisement' : 'No advertisement set'}
                     disabled={!hasCharacterAd}
@@ -184,7 +184,7 @@ export const CharacterDirectoryList = (props: {
                     onMouseEnter={() => setHoveredAction(viewActionId)} //Why do you error? This works fine it seems?
                     onMouseLeave={() => setHoveredAction((current) => current === viewActionId ? null : current)}
                     color="transparent"
-                    textColor="black"
+                    //textColor="black"
                     icon="eye"
                     tooltip="View character profile"
                     style={{
