@@ -83,7 +83,7 @@
 		if(!destination_belly)
 			return
 		if(source.stat != DEAD && source.trash_catching)
-			if(length(vore_selected.contents) < 6) //Lets add a limiter to how many items can be in one belly, sure someone can abuse it by making many... but that's a player issue we can deal with.
+			if(length(destination_belly.contents) < 6) //Lets add a limiter to how many items can be in one belly, sure someone can abuse it by making many... but that's a player issue we can deal with.
 				if(source.adminbus_trash || destination_belly.validate_item_size(O) ||/*is_type_in_list(O, GLOB.edible_trash) &&*/ O.trash_eatable && !is_type_in_list(O, GLOB.item_vore_blacklist)) //Caustic - Trash Eatable was unused really, we'd otherwise have to go through and add it in to all items.
 					source.visible_message(span_warning("[O] is thrown directly into [source]'s [lowertext(destination_belly.name)]!"))
 					destination_belly.nom_atom(O)
