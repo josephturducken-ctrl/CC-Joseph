@@ -142,9 +142,6 @@ export const CharacterDirectoryList = (props: {
                   {character.species}
                 </Table.Cell>
                 <Table.Cell verticalAlign="middle">
-                  {character.tag}
-                </Table.Cell>
-                <Table.Cell verticalAlign="middle">
                   {character.gendertag}
                 </Table.Cell>
                 <Table.Cell verticalAlign="middle">
@@ -152,6 +149,9 @@ export const CharacterDirectoryList = (props: {
                 </Table.Cell>
                 <Table.Cell verticalAlign="middle">
                   {character.erptag}
+                </Table.Cell>
+                <Table.Cell verticalAlign="middle">
+                  {character.tag}
                 </Table.Cell>
                 <Table.Cell verticalAlign="middle">
                   {character.rpguidance}
