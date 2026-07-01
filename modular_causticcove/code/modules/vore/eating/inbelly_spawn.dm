@@ -90,9 +90,7 @@
 		joined_area.on_joining_game(new_character)
 	new_character.update_fov_angles()
 
-	if(new_character.dna?.species)
-		new_character.dna.species.after_creation(new_character)
-	new_character.roll_stats() //This hopefully does not runtime, as it appears it properly checks for if the new player is null first.
+	new_character.after_creation()
 
 	GLOB.chosen_names += new_character.real_name
 	new_character.islatejoin = TRUE
@@ -121,7 +119,7 @@
 	set category = "VORE"
 
 	enable_inbelly_spawn_attempts = !enable_inbelly_spawn_attempts
-	to_chat(src, span_notice("In-Belly spawn attempts [enable_inbelly_spawn_attempts ? "enabled! Middle-Mouse click on your pred to request a spawn (if they have it set up!)" : "disabled! Middle-Mouse clicks will revert to their usual actions."]"))	
+	to_chat(src, span_notice("In-Belly spawn attempts [enable_inbelly_spawn_attempts ? "enabled! Middle-Mouse click on your pred to request a spawn (if they have it set up!) This is generally for ease of continuing a scene, you will spawn without any gear or stats and skills." : "disabled! Middle-Mouse clicks will revert to their usual actions."]"))	
 
 /mob/dead/observer/MiddleClickOn(atom/A, params)
 	if(enable_inbelly_spawn_attempts && isliving(A))
