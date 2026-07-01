@@ -526,7 +526,7 @@
 	ambush_mobs = null 
 	deathsight_message = "a maze of the unredeemed"
 
-/area/rogue/under/cave/Dunelord
+/area/rogue/under/cave/dunelord
 	name = "Dunelords Hideout"
 	first_time_text = "Dunelords Hideout"
 	ambush_times = null 
