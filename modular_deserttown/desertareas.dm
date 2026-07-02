@@ -498,6 +498,7 @@
 	name = "The WasteMire"
 	first_time_text = "The WasteMire"
 	deathsight_message = "a filthy swamp, far beneath the dunes"
+	var/list/recent_intruders = list()
 
 /area/rogue/under/underdarker/undermire/Entered(atom/movable/AM)
 	..()
