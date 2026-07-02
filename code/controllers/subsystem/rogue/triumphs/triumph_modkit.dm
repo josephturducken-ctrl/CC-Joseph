@@ -864,3 +864,8 @@
 	name = "valorian iron visored sallet"
 	desc = "An iron 'sallet'-styled helmet with an adjustable visor. What will they remember of you, once the dust has settled?"
 	icon_state = "isalletclassic_visor"
+
+/obj/item/clothing/head/roguetown/helmet/skullcap/old
+	name = "aged skull cap"
+	desc = "An aged helmet which covers the top of the head."
+	icon_state = "skullcapold"

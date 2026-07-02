@@ -443,6 +443,21 @@
 	created_item = /obj/item/clothing/mask/rogue/facemask/bronze
 	display_category = ITEM_CAT_ARMOR_MASKS
 
+/datum/anvil_recipe/armor/bronze/duelist
+	name = "Duelist's Goggles"
+	req_bar = /obj/item/ingot/bronze
+	created_item = /obj/item/clothing/mask/rogue/spectacles/duelist/bronze
+	display_category = ITEM_CAT_ARMOR_MASKS
+	createditem_num = 2
+
+/datum/anvil_recipe/armor/bronze/goggles
+	name = "Bronze Goggles (+1 Glass)"
+	req_bar = /obj/item/ingot/bronze
+	additional_items = list(/obj/item/natural/glass)
+	created_item = /obj/item/clothing/mask/rogue/spectacles/bronze
+	display_category = ITEM_CAT_ARMOR_MASKS
+	createditem_num = 2
+
 /datum/anvil_recipe/armor/bronze/maskclassic
 	name = "Mask, Ornate, Bronze (+1 Cured Leather)"
 	req_bar = /obj/item/ingot/bronze
@@ -595,12 +610,35 @@
 	display_category = ITEM_CAT_ARMOR_MASKS
 	createditem_num = 1
 
-/datum/anvil_recipe/armor/iron/wildguard
-	name = "Wild Guard, Iron"
+/datum/anvil_recipe/armor/iron/maskmaille
+	name = "Maille Mask, Iron"
 	req_bar = /obj/item/ingot/iron
 	req_blade = /obj/item/blade/iron_plate
 	created_item = /obj/item/clothing/mask/rogue/wildguard
 	createditem_num = 1
+
+/datum/anvil_recipe/armor/iron/maskmaillefluted
+	name = "Maille Mask, Iron"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/clothing/mask/rogue/flutedmailleiron
+	display_category = ITEM_CAT_ARMOR_MASKS
+	createditem_num = 1
+
+
+/datum/anvil_recipe/armor/iron/goggles
+	name = "Goggles, Iron (+1 Glass)"
+	req_bar = /obj/item/ingot/iron
+	additional_items = list(/obj/item/natural/glass)
+	created_item = /obj/item/clothing/mask/rogue/spectacles/iron
+	display_category = ITEM_CAT_ARMOR_MASKS
+	createditem_num = 2
+
+/datum/anvil_recipe/armor/iron/duelist
+	name = "Duelist Goggles, Iron"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/clothing/mask/rogue/spectacles/duelist
+	display_category = ITEM_CAT_ARMOR_MASKS
+	createditem_num = 2
 
 /datum/anvil_recipe/armor/iron/chaincoif
 	name = "Chain Coif, Iron"
@@ -953,6 +991,115 @@
 	display_category = ITEM_CAT_ARMOR_CHESTPIECES
 	craftdiff = 2
 
+/datum/anvil_recipe/armor/iron/helmetnasal
+	name = "Nasal Helmet, Iron"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/clothing/head/roguetown/helmet/nasal/iron
+	display_category = ITEM_CAT_ARMOR_HELMETS
+
+/datum/anvil_recipe/armor/iron/helmetwinged
+	name = "Winged Helmet, Iron"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/clothing/head/roguetown/helmet/winged/iron
+	display_category = ITEM_CAT_ARMOR_HELMETS
+
+/datum/anvil_recipe/armor/iron/helmetbuc
+	name = "Bucket Helmet, Iron (+1 Iron)"
+	req_bar = /obj/item/ingot/iron
+	additional_items = list(/obj/item/ingot/iron)
+	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/bucket/iron
+	display_category = ITEM_CAT_ARMOR_HELMETS
+
+/datum/anvil_recipe/armor/iron/helmetpig
+	name = "Bascinet, Pigface, Iron (+1 Iron)"
+	req_bar = /obj/item/ingot/iron
+	additional_items = list(/obj/item/ingot/iron)
+	created_item = /obj/item/clothing/head/roguetown/helmet/bascinet/pigface/iron
+	display_category = ITEM_CAT_ARMOR_HELMETS
+
+/datum/anvil_recipe/armor/iron/helmethounskull
+	name = "Bascinet, Hounskull, Iron (+1 Iron)"
+	req_bar = /obj/item/ingot/iron
+	additional_items = list(/obj/item/ingot/iron)
+	created_item = /obj/item/clothing/head/roguetown/helmet/bascinet/pigface/hounskull/iron
+	display_category = ITEM_CAT_ARMOR_HELMETS
+
+/datum/anvil_recipe/armor/iron/helmetroundface
+	name = "Bascinet, Roundface, Iron (+1 Iron)"
+	req_bar = /obj/item/ingot/iron
+	additional_items = list(/obj/item/ingot/iron)
+	created_item = /obj/item/clothing/head/roguetown/helmet/bascinet/pigface/roundface/iron
+	display_category = ITEM_CAT_ARMOR_HELMETS
+
+/datum/anvil_recipe/armor/iron/etruscanbascinet
+	name = "Bascinet, Klappvisier, Iron (+1 Iron)"
+	req_bar = /obj/item/ingot/iron
+	additional_items = list(/obj/item/ingot/iron)
+	created_item = /obj/item/clothing/head/roguetown/helmet/bascinet/etruscan/iron
+	display_category = ITEM_CAT_ARMOR_HELMETS
+
+/datum/anvil_recipe/armor/iron/helmetarmet
+	name = "Armet, Iron (+1 Iron)"
+	req_bar = /obj/item/ingot/iron
+	additional_items = list(/obj/item/ingot/iron)
+	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/knight/armet/iron
+	display_category = ITEM_CAT_ARMOR_HELMETS
+
+/datum/anvil_recipe/armor/iron/slittedkettle
+	name = "Slitted Kettle, Iron (+1 Iron)"
+	req_bar = /obj/item/ingot/iron
+	additional_items = list(/obj/item/ingot/iron)
+	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/knight/skettle/iron
+	display_category = ITEM_CAT_ARMOR_HELMETS
+
+/datum/anvil_recipe/armor/iron/savoyard
+	name = "Savoyard Helmet, Iron (+1 Iron)"
+	req_bar = /obj/item/ingot/iron
+	additional_items = list(/obj/item/ingot/iron)
+	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/guard/iron
+	display_category = ITEM_CAT_ARMOR_HELMETS
+
+/datum/anvil_recipe/armor/iron/bogman
+	name = "Bogman Helmet, Iron (+1 Iron)"
+	req_bar = /obj/item/ingot/iron
+	additional_items = list(/obj/item/ingot/iron)
+	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/guard/bogman/iron
+	display_category = ITEM_CAT_ARMOR_HELMETS
+
+/datum/anvil_recipe/armor/iron/barredhelm
+	name = "Barred Helmet, Iron (+1 Iron)"
+	req_bar = /obj/item/ingot/iron
+	additional_items = list(/obj/item/ingot/iron)
+	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/sheriff/iron
+	display_category = ITEM_CAT_ARMOR_HELMETS
+
+/datum/anvil_recipe/armor/iron/beakhelm
+	name = "Beak Helmet, Iron (+1 Iron)"
+	req_bar = /obj/item/ingot/iron
+	additional_items = list(/obj/item/ingot/iron)
+	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/beakhelm/iron
+	display_category = ITEM_CAT_ARMOR_HELMETS
+
+/datum/anvil_recipe/armor/iron/helmetbarbute
+	name = "Barbute, Iron"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/barbute/iron
+	display_category = ITEM_CAT_ARMOR_HELMETS
+
+/datum/anvil_recipe/armor/iron/helmetbarbutevisor
+	name = "Barbute, Visored, Iron (+1 Iron)"
+	req_bar = /obj/item/ingot/iron
+	additional_items = list(/obj/item/ingot/iron)
+	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/barbute/visor/iron
+	display_category = ITEM_CAT_ARMOR_HELMETS
+
+/datum/anvil_recipe/armor/iron/helmetbuc
+	name = "Bucket Helmet, Iron (+1 Iron)"
+	req_bar = /obj/item/ingot/iron
+	additional_items = list(/obj/item/ingot/iron)
+	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/bucket/iron
+	display_category = ITEM_CAT_ARMOR_HELMETS
+
 /datum/anvil_recipe/armor/iron/horseshoes
 	name = "Horseshoes, Iron"
 	req_bar = /obj/item/ingot/iron
@@ -1303,6 +1450,12 @@
 	created_item = /obj/item/clothing/neck/roguetown/gorget/cursed_collar
 	display_category = ITEM_CAT_ARMOR_NECK
 
+/datum/anvil_recipe/armor/steel/skullcaps
+	name = "Skullcap, Steel"
+	req_bar = /obj/item/ingot/steel
+	created_item = /obj/item/clothing/head/roguetown/helmet/skullcap/steel
+	display_category = ITEM_CAT_ARMOR_HELMETS
+
 /datum/anvil_recipe/armor/steel/helmetsall
 	name = "Sallet, Steel"
 	req_bar = /obj/item/ingot/steel
@@ -1469,6 +1622,35 @@
 	req_bar = /obj/item/ingot/steel
 	req_blade = /obj/item/blade/steel_plate
 	created_item = /obj/item/clothing/mask/rogue/facemask/steel
+	display_category = ITEM_CAT_ARMOR_MASKS
+	createditem_num = 1
+
+/datum/anvil_recipe/armor/steel/goggles
+	name = "Goggles, Steel (+1 Glass)"
+	req_bar = /obj/item/ingot/steel
+	additional_items = list(/obj/item/natural/glass)
+	created_item = /obj/item/clothing/mask/rogue/spectacles/steel
+	display_category = ITEM_CAT_ARMOR_MASKS
+	createditem_num = 2
+
+/datum/anvil_recipe/armor/steel/duelist
+	name = "Duelist Goggles, Steel"
+	req_bar = /obj/item/ingot/steel
+	created_item = /obj/item/clothing/mask/rogue/spectacles/duelist/steel
+	display_category = ITEM_CAT_ARMOR_MASKS
+	createditem_num = 2
+
+/datum/anvil_recipe/armor/steel/maillemask
+	name = "Maille Mask, Steel"
+	req_bar = /obj/item/ingot/steel
+	created_item = /obj/item/clothing/mask/rogue/maillesteel
+	display_category = ITEM_CAT_ARMOR_MASKS
+	createditem_num = 1
+
+/datum/anvil_recipe/armor/steel/maillemask
+	name = "Fluted Maille Mask, Steel"
+	req_bar = /obj/item/ingot/steel
+	created_item = /obj/item/clothing/mask/rogue/flutedsteelmaille
 	display_category = ITEM_CAT_ARMOR_MASKS
 	createditem_num = 1
 
