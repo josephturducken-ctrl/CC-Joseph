@@ -642,9 +642,9 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		else
 			normal_count++
 
-		list_to_use -= path
-		if(!length(list_to_use))
+		if(!length(list_to_use) || !amount) // Caustic Edit. If the list is empty, or there isn't an item set, set the amount to 0 to prevent a runtime and corpses not finishing butchering.
 			amount = 0
+		list_to_use -= path
 
 		// Spawn the item(s)
 		for(var/j in 1 to amount)
