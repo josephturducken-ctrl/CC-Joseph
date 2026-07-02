@@ -499,7 +499,7 @@
 	first_time_text = "The WasteMire"
 	deathsight_message = "a filthy swamp, far beneath the dunes"
 
-/area/rogue/under/underdarker/undermire/Entered(atom/moveable/AM)
+/area/rogue/under/underdarker/undermire/Entered(atom/movable/AM)
 	..()
 	if(!GLOB.active_hags.len)
 		return
