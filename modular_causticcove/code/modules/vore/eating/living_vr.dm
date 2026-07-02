@@ -818,10 +818,6 @@
 	if(!I)
 		to_chat(src, span_notice("You are not holding anything."))
 		return
-	
-	if(length(vore_selected.contents) >= 6) //Lets add a limiter to how many items can be in one belly, sure someone can abuse it by making many... but that's a player issue we can deal with.
-		to_chat(src, span_notice("Your [vore_selected.name] is already filled with objects!"))
-		return
 
 	//if(I.) //Caustic - Potential Whitelist can go here.
 
