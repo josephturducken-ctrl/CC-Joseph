@@ -14,14 +14,13 @@
 
 /obj/item/reagent_containers/peppermill/attackby(obj/item/P, mob/living/user, params)
     if(istype(P, /obj/item/reagent_containers/food/snacks/pepper))
-        if(do_after(src, 30))
+        if(do_after(user, 30))
             src.reagents.add_reagent(/datum/reagent/consumable/blackpepper, 3)
             user.visible_message("<span class='notice'>[user] fills the [src] with [P].</span>")
             qdel(P)
             return
         else
             to_chat(user, "<span class='warning'>I need to stand still to fill the peppermill!</span>")
-    else
         return ..()
 
 /obj/item/reagent_containers/peppermill/innkeeper
