@@ -39,7 +39,7 @@
 /datum/emote/living/con_squeak
 	key = "con_squeak"
 	key_third_person = "squeaks like a toy."
-	message = "Squeaks like a toy!"
+	message = "squeaks like a toy!"
 	emote_type = EMOTE_AUDIBLE
 	message_muffled = "makes a muffled squeak!"
 
