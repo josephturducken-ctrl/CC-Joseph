@@ -33,7 +33,8 @@
 	/datum/skill/combat/shields, \
 	/datum/skill/combat/slings, \
 	/datum/skill/combat/staves, \
-	/datum/skill/combat/firearms \
+	/datum/skill/combat/firearms, \
+	/datum/skill/combat/arcyne \
 )
 
 #define TAT_SKILLS_WANDERING list( \
