@@ -1108,7 +1108,6 @@ GLOBAL_LIST(teleport_runes)
 	pixel_y = -32
 	pixel_z = 0
 	can_be_scribed = TRUE
-	requires_leyline = TRUE
 	rituals = list()
 	var/listkey
 
