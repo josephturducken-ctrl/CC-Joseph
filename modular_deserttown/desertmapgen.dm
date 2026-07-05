@@ -34,7 +34,7 @@
 							/obj/structure/leyline/normal/coast = 0.1,
 							/obj/structure/leyline/normal/decap = 0.1,
 							/obj/structure/leyline/normal/grove = 0.1,
-							/obj/structure/leyline/normal/bog = 0.05,
+							/obj/structure/leyline/normal/powerful = 0.05,
 							/obj/structure/voidstoneobelisk = 0.05,
 							/obj/structure/flora/roguegrass/herb/manabloom = 0.05,
 							/obj/item/magic/manacrystal = 0.05,
