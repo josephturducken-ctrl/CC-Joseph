@@ -140,10 +140,23 @@
 		if("macebearer")
 			var/mace_weapons = list("Steel Mace", "Steel Warhammer & Shield")
 			var/mace_choice = input(H, "Choose your weapon.", "TAKE UP ARMS") as anything in mace_weapons
+			var/picked_axe = FALSE
 			switch(mace_choice)
 				if("Steel Mace")
 					r_hand = /obj/item/rogueweapon/mace/steel
 				if("Steel Warhammer & Shield")
 					r_hand = /obj/item/rogueweapon/mace/warhammer/steel
 					backl = /obj/item/rogueweapon/shield/tower/raneshen
+				if("Grand Mace")
+					r_hand = /obj/item/rogueweapon/mace/goden/steel
+					backl = /obj/item/rogueweapon/scabbard/gwstrap
+				if("Battle Axe")
+					r_hand = /obj/item/rogueweapon/stoneaxe/battle
+					picked_axe = TRUE
+				if("Steel Greataxe")
+					r_hand = /obj/item/rogueweapon/greataxe/steel
+					backl = /obj/item/rogueweapon/scabbard/gwstrap
+					picked_axe = TRUE
+			if(picked_axe)
+				H.adjust_skillrank_up_to(/datum/skill/combat/axes, SKILL_LEVEL_EXPERT, TRUE)
 	H.merctype = 4
