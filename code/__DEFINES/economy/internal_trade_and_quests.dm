@@ -42,6 +42,7 @@
 #define TRADE_REGION_TOWN_PLACEHOLDER "town_placeholder" //Within the town itself for easy quests. Doesn't offer much resources.
 #define TRADE_REGION_INNER_DUNES_PLACEHOLDER "dunes_placeholder" //Inner Dunes
 #define TRADE_REGION_DEEP_DUNES_PLACEHOLDER "deep_dunes_placeholder" //Deep Dunes
+//CC Edit End
 
 #define STANDING_ORDER_DURATION 2
 #define URGENT_ORDER_DURATION 1
@@ -59,7 +60,7 @@
 #define STANDING_ORDER_POP_SCALE_PER_PLAYER 0
 #define STANDING_ORDER_POP_SCALE_MAX 3.0
 
-#define STANDING_ORDER_BASE_BONUS 0.75
+#define STANDING_ORDER_BASE_BONUS 1.0
 
 // Partial Fulfillment: Let players fulfill an order with 50% by VALUE for 85% payout
 // So that steward / towners are still soft encouraged to fulfill the whole order
@@ -146,17 +147,6 @@
 #define COMMISSION_BONUS_PAY_FULL 2
 #define COMMISSION_BONUS_PAY_LIGHT_MULT 1.25
 #define COMMISSION_BONUS_PAY_MULT 1.5
-#define BLOCKADE_FELLOWSHIP_REQUIREMENT 3
-#define BLOCKADE_WAVE_TIMER_DS (10 MINUTES)
-
-#define BLOCKADE_ARM_TIMEOUT_DS (30 MINUTES)
-#define BLOCKADE_RECALL_WINDOW_DS (15 MINUTES)
-
-#define BLOCKADE_TOTAL_WAVES 3
-#define BLOCKADE_WAVE_1_TP 72
-#define BLOCKADE_WAVE_2_TP 72
-#define BLOCKADE_WAVE_3_TP 104
-
 
 #define PETITIONS_PER_DAY 3
 #define PETITION_TAX_MULT 0.80
@@ -175,4 +165,3 @@
 #define PETITION_COST_LUXURIES 350
 #define PETITION_COST_ALCHEMY 350
 #define PETITION_COST_MASTERWORK 400
-

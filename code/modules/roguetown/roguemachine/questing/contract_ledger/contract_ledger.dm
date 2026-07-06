@@ -140,13 +140,14 @@
 /// Jobs that can access the Steward commission panel. The Steward is the primary commissioner;
 /// the rest are substitutes so that blockade defense doesn't get crippled when the Steward is
 /// absent, dead, or otherwise occupied. Expand here if more authority roles need standing.
-GLOBAL_LIST_INIT(contract_ledger_commission_roles, list(
+GLOBAL_LIST_INIT(crown_authority_roles, list(
 	"Steward",
 	"Grand Duke",
 	"Hand",
 	"Clerk",
 	"Marshal",
 	"Councillor",
+	"Prince",
 ))
 
 GLOBAL_LIST_INIT(contract_proxy_officials, list(
@@ -160,7 +161,7 @@ GLOBAL_LIST_INIT(contract_proxy_officials, list(
 /obj/structure/roguemachine/contractledger/proc/can_commission(mob/user)
 	if(!user)
 		return FALSE
-	if(user.job in GLOB.contract_ledger_commission_roles)
+	if(user.job in GLOB.crown_authority_roles)
 		return TRUE
 	if(SSticker?.regentmob == user)
 		return TRUE
