@@ -576,9 +576,9 @@ GLOBAL_LIST_EMPTY(species_list)
 //				rendered_message = "[turf_link] [message]"
 				rendered_message = "[message]"
 
-			to_chat(M, rendered_message)
+			to_chat(M, rendered_message, MESSAGE_TYPE_INFO)
 		else
-			to_chat(M, message)
+			to_chat(M, message, MESSAGE_TYPE_INFO)
 
 //Used in chemical_mob_spawn. Generates a random mob based on a given gold_core_spawnable value.
 /proc/create_random_mob(spawn_location, mob_class = HOSTILE_SPAWN)
@@ -658,11 +658,11 @@ GLOBAL_LIST_EMPTY(species_list)
 	if(!existing)
 		lobbyer.close_spawn_windows()
 		var/obj/effect/landmark/observer_start/O = locate(/obj/effect/landmark/observer_start) in GLOB.landmarks_list
-		to_chat(src, span_notice("Now teleporting."))
+		to_chat(src, span_notice("Now teleporting."), MESSAGE_TYPE_INFO)
 		if (O)
 			observer.forceMove(O.loc)
 		else
-			to_chat(src, span_notice("Teleporting failed. Ahelp an admin please"))
+			to_chat(src, span_notice("Teleporting failed. Ahelp an admin please"), MESSAGE_TYPE_INFO)
 			stack_trace("There's no freaking observer landmark available on this map or you're making observers before the map is initialised")
 
 	observer.key = key

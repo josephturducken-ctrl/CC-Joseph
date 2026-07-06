@@ -5,7 +5,7 @@
 
 /datum/class_register/proc/add_listener(mob/listener)
 	for(var/msg in registered_messages)
-		to_chat(listener, span_notice(msg))
+		to_chat(listener, span_notice(msg), MESSAGE_TYPE_INFO)
 	listening_mobs += listener
 
 /datum/class_register/proc/remove_listener(mob/listener)
@@ -15,5 +15,5 @@
 	for(var/mob/listener as anything in listening_mobs)
 		if(listener == invoker)
 			continue
-		to_chat(listener, span_notice(msg))
+		to_chat(listener, span_notice(msg), MESSAGE_TYPE_INFO)
 	registered_messages += msg

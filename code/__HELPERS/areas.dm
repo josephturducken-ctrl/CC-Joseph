@@ -45,10 +45,10 @@
 		))
 	var/list/turfs = detect_room(get_turf(creator), area_or_turf_fail_types, BP_MAX_ROOM_SIZE*2)
 	if(!turfs)
-		to_chat(creator, "<span class='warning'>The new area must be completely airtight and not a part of a shuttle.</span>")
+		to_chat(creator, "<span class='warning'>The new area must be completely airtight and not a part of a shuttle.</span>", MESSAGE_TYPE_LOCALCHAT)
 		return
 	if(turfs.len > BP_MAX_ROOM_SIZE)
-		to_chat(creator, "<span class='warning'>The room you're in is too big. It is [turfs.len >= BP_MAX_ROOM_SIZE *2 ? "more than 100" : ((turfs.len / BP_MAX_ROOM_SIZE)-1)*100]% larger than allowed.</span>")
+		to_chat(creator, "<span class='warning'>The room you're in is too big. It is [turfs.len >= BP_MAX_ROOM_SIZE *2 ? "more than 100" : ((turfs.len / BP_MAX_ROOM_SIZE)-1)*100]% larger than allowed.</span>", MESSAGE_TYPE_LOCALCHAT)
 		return
 	var/list/areas = list("New Area" = /area)
 	for(var/i in 1 to turfs.len)
@@ -62,7 +62,7 @@
 	area_choice = areas[area_choice]
 
 	if(!area_choice)
-		to_chat(creator, "<span class='warning'>No choice selected. The area remains undefined.</span>")
+		to_chat(creator, "<span class='warning'>No choice selected. The area remains undefined.</span>", MESSAGE_TYPE_LOCALCHAT)
 		return
 	var/area/newA
 	if(!isarea(area_choice))
@@ -70,7 +70,7 @@
 		if(!str || !length(str)) //cancel
 			return
 		if(length(str) > 50)
-			to_chat(creator, "<span class='warning'>The given name is too long. The area remains undefined.</span>")
+			to_chat(creator, "<span class='warning'>The given name is too long. The area remains undefined.</span>", MESSAGE_TYPE_LOCALCHAT)
 			return
 		newA = new area_choice
 		newA.setup(str)
@@ -86,7 +86,7 @@
 
 	newA.reg_in_areas_in_z()
 
-	to_chat(creator, "<span class='notice'>I have created a new area, named [newA.name]. It is now weather proof, and constructing an APC will allow it to be powered.</span>")
+	to_chat(creator, "<span class='notice'>I have created a new area, named [newA.name]. It is now weather proof, and constructing an APC will allow it to be powered.</span>", MESSAGE_TYPE_LOCALCHAT)
 	return TRUE
 
 #undef BP_MAX_ROOM_SIZE

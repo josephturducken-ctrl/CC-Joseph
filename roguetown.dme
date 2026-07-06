@@ -3067,8 +3067,10 @@
 #include "code\modules\spells\roguetown\acolyte\pestra\pestra_status_effects.dm"
 #include "code\modules\spells\roguetown\necromancer\bone_chill.dm"
 #include "code\modules\spells\roguetown\necromancer\bone_mend.dm"
+#include "code\modules\spells\roguetown\necromancer\covert_the_downtrodden.dm"
 #include "code\modules\spells\roguetown\necromancer\eyebite.dm"
 #include "code\modules\spells\roguetown\necromancer\gravemark.dm"
+#include "code\modules\spells\roguetown\necromancer\lacrima.dm"
 #include "code\modules\spells\roguetown\necromancer\raise_undead_formation.dm"
 #include "code\modules\spells\roguetown\necromancer\raise_undead_guard.dm"
 #include "code\modules\spells\roguetown\necromancer\ray_of_sickness.dm"
@@ -3580,6 +3582,7 @@
 #include "modular_causticcove\code\game\objects\items\clothes\stockings.dm"
 #include "modular_causticcove\code\game\objects\items\rogueitems\leash.dm"
 #include "modular_causticcove\code\game\objects\items\rogueitems\util.dm"
+#include "modular_causticcove\code\game\objects\items\rogueitems\plumb.dm"
 #include "modular_causticcove\code\game\objects\items\weapons\ranged\ammo_bullets.dm"
 #include "modular_causticcove\code\game\objects\items\weapons\ranged\blackpowder.dm"
 #include "modular_causticcove\code\game\objects\structures\staircase_helper.dm"
@@ -3756,6 +3759,7 @@
 #include "modular_causticcove\code\modules\events\adventure\random_patrols\random_patrols.dm"
 #include "modular_causticcove\code\modules\events\adventure\random_bosses\random_boss.dm"
 #include "modular_causticcove\code\game\objects\items\clothes\causthats.dm"
+#include "modular_causticcove\code\game\objects\items\clothes\storage.dm"
 
 //Modular TA files
 #include "modular_twilight_axis\code\datums\tat_system\tat_defines.dm"

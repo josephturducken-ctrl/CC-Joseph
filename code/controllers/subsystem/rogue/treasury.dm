@@ -17,7 +17,7 @@
 		for(var/mob/living/carbon/human/X in GLOB.human_list)
 			if(X.real_name in names_to)
 				if(!X.stat)
-					to_chat(X, span_biginfo("[msg]"))
+					to_chat(X, span_biginfo("[msg]"), MESSAGE_TYPE_INFO)
 
 SUBSYSTEM_DEF(treasury)
 	name = "treasury"
@@ -649,7 +649,7 @@ SUBSYSTEM_DEF(treasury)
 
 /datum/controller/subsystem/treasury/proc/apply_rate_adjustments(list/adjustments, good_announcement_text, bad_announcement_text)
 	if(GLOB.dayspassed <= levy_rates_changed_day)
-		to_chat(usr, span_warning("Crown levies have already been adjusted today - come back tomorrow."))
+		to_chat(usr, span_warning("Crown levies have already been adjusted today - come back tomorrow."), MESSAGE_TYPE_INFO)
 		return
 	var/datum/decree/concordat = get_decree(DECREE_ZENITSTADT_CONCORDAT)
 	var/concordat_active = concordat?.active ? TRUE : FALSE
@@ -711,7 +711,7 @@ SUBSYSTEM_DEF(treasury)
 
 /datum/controller/subsystem/treasury/proc/apply_poll_rate_adjustments(list/adjustments, good_announcement_text, bad_announcement_text)
 	if(GLOB.dayspassed <= poll_rates_changed_day)
-		to_chat(usr, span_warning("Poll tax rates have already been adjusted today - come back tomorrow."))
+		to_chat(usr, span_warning("Poll tax rates have already been adjusted today - come back tomorrow."), MESSAGE_TYPE_INFO)
 		return
 	if(!islist(adjustments))
 		return
@@ -970,40 +970,40 @@ SUBSYSTEM_DEF(treasury)
 	if(!H || days <= 0)
 		return FALSE
 	if(SSticker?.round_start_time && (world.time - SSticker.round_start_time) < POLL_TAX_ADVANCE_LOCKOUT)
-		to_chat(H, span_warning("The Crown's ledgers have not yet opened for the day. Try again later."))
+		to_chat(H, span_warning("The Crown's ledgers have not yet opened for the day. Try again later."), MESSAGE_TYPE_INFO)
 		return FALSE
 	var/datum/fund/account = get_account(H)
 	if(!account)
 		return FALSE
 	var/category = get_poll_tax_category(H)
 	if(!category)
-		to_chat(H, span_warning("The Crown does not tax your class."))
+		to_chat(H, span_warning("The Crown does not tax your class."), MESSAGE_TYPE_INFO)
 		return FALSE
 	if(is_poll_tax_charter_exempt(H, category))
-		to_chat(H, span_warning("Your class is exempt from poll tax by decree."))
+		to_chat(H, span_warning("Your class is exempt from poll tax by decree."), MESSAGE_TYPE_INFO)
 		return FALSE
 	var/rate = get_poll_tax_rate_for(H, category)
 	if(rate < 0)
-		to_chat(H, span_warning("Your class currently receives a Crown subsidy - there is nothing to advance."))
+		to_chat(H, span_warning("Your class currently receives a Crown subsidy - there is nothing to advance."), MESSAGE_TYPE_INFO)
 		return FALSE
 	if(rate == 0)
 		rate = POLL_TAX_ADVANCE_FALLBACK_RATE
 	var/existing_advance = poll_tax_advance_days[H] || 0
 	var/room = POLL_TAX_MAX_ADVANCE_DAYS - existing_advance
 	if(room <= 0)
-		to_chat(H, span_warning("You already hold the maximum of [POLL_TAX_MAX_ADVANCE_DAYS] days of Poll Tax advance."))
+		to_chat(H, span_warning("You already hold the maximum of [POLL_TAX_MAX_ADVANCE_DAYS] days of Poll Tax advance."), MESSAGE_TYPE_INFO)
 		return FALSE
 	if(days > room)
 		days = room
 	var/total_cost = rate * days
 	if(account.balance < total_cost)
-		to_chat(H, span_warning("Insufficient balance. Need [total_cost]m for [days] days."))
+		to_chat(H, span_warning("Insufficient balance. Need [total_cost]m for [days] days."), MESSAGE_TYPE_INFO)
 		return FALSE
 	if(!transfer(account, discretionary_fund, total_cost, "Poll Tax advance ([days] days)"))
 		return FALSE
 	record_poll_tax_by_category(category, total_cost)
 	poll_tax_advance_days[H] = existing_advance + days
-	to_chat(H, span_notice("You have advanced [days] day[days == 1 ? "" : "s"] of Poll Tax ([total_cost]m total). Advance held: [poll_tax_advance_days[H]] day[poll_tax_advance_days[H] == 1 ? "" : "s"]."))
+	to_chat(H, span_notice("You have advanced [days] day[days == 1 ? "" : "s"] of Poll Tax ([total_cost]m total). Advance held: [poll_tax_advance_days[H]] day[poll_tax_advance_days[H] == 1 ? "" : "s"]."), MESSAGE_TYPE_INFO)
 	log_game("POLL TAX ADVANCE: [key_name(H)] prepaid [days] days ([total_cost]m) of poll tax as [category]")
 	return TRUE
 
@@ -1051,7 +1051,7 @@ SUBSYSTEM_DEF(treasury)
 				continue
 			// Record as a negative against the category - the breakdown shows net Crown intake.
 			record_poll_tax_by_category(category, -subsidy)
-			to_chat(owner, span_notice("<b>POLL SUBSIDY:</b> [subsidy]m granted by the Crown."))
+			to_chat(owner, span_notice("<b>POLL SUBSIDY:</b> [subsidy]m granted by the Crown."), MESSAGE_TYPE_INFO)
 			continue
 
 		var/advance = poll_tax_advance_days[owner] || 0
@@ -1061,7 +1061,7 @@ SUBSYSTEM_DEF(treasury)
 				poll_tax_advance_days -= owner
 			else
 				poll_tax_advance_days[owner] = advance
-			to_chat(owner, span_notice("<b>POLL TAX:</b> Covered by advance. [advance] day[advance == 1 ? "" : "s"] remaining."))
+			to_chat(owner, span_notice("<b>POLL TAX:</b> Covered by advance. [advance] day[advance == 1 ? "" : "s"] remaining."), MESSAGE_TYPE_INFO)
 			continue
 
 		var/owed_this_tick = rate + (poll_tax_owed[owner] || 0)
@@ -1079,12 +1079,12 @@ SUBSYSTEM_DEF(treasury)
 
 		if(paid > 0)
 			record_poll_tax_by_category(category, paid)
-			to_chat(owner, span_notice("<b>POLL TAX:</b> [paid]m collected."))
+			to_chat(owner, span_notice("<b>POLL TAX:</b> [paid]m collected."), MESSAGE_TYPE_INFO)
 
 		if(owed_this_tick > 0)
 			poll_tax_owed[owner] = owed_this_tick
 			poll_tax_debt_days[owner] = (poll_tax_debt_days[owner] || 0) + 1
-			to_chat(owner, span_danger("<b>POLL TAX:</b> You owe the Crown [owed_this_tick]m. [poll_tax_debt_days[owner]] day\s overdue."))
+			to_chat(owner, span_danger("<b>POLL TAX:</b> You owe the Crown [owed_this_tick]m. [poll_tax_debt_days[owner]] day\s overdue."), MESSAGE_TYPE_INFO)
 			if(poll_tax_debt_days[owner] >= POLL_TAX_DEBT_DAYS_TO_DEBTOR && !HAS_TRAIT(owner, TRAIT_ARREARS))
 				ADD_TRAIT(owner, TRAIT_ARREARS, TRAIT_GENERIC)
 		else

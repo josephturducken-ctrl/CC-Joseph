@@ -314,7 +314,7 @@ SUBSYSTEM_DEF(vote)
 			text += "<b>Vote Result: Inconclusive - No Votes!</b>"
 	log_vote(text)
 	remove_action_buttons()
-	to_chat(world, "\n<font color='purple'>[text]</font>")
+	to_chat(world, "\n<font color='purple'>[text]</font>", MESSAGE_TYPE_OOC)
 	return .
 
 /datum/controller/subsystem/vote/proc/result()
@@ -342,7 +342,7 @@ SUBSYSTEM_DEF(vote)
 				else
 					log_game("LOG VOTE: ELSE  [REALTIMEOFDAY]")
 					log_game("LOG VOTE: ROUNDVOTEEND [REALTIMEOFDAY]")
-					to_chat(world, "\n<font color='purple'>[ROUND_END_TIME_VERBAL]</font>")
+					to_chat(world, "\n<font color='purple'>[ROUND_END_TIME_VERBAL]</font>", MESSAGE_TYPE_OOC)
 					SSgamemode.roundvoteend = TRUE
 					SSgamemode.round_ends_at = world.time + ROUND_END_TIME
 			if("storyteller")
@@ -364,7 +364,7 @@ SUBSYSTEM_DEF(vote)
 		if(!active_admins)
 			SSticker.Reboot("Restart vote successful.", "restart vote")
 		else
-			to_chat(world, "<span style='boldannounce'>Notice:Restart vote will not restart the server automatically because there are active gamemasters on.</span>")
+			to_chat(world, "<span style='boldannounce'>Notice:Restart vote will not restart the server automatically because there are active gamemasters on.</span>", MESSAGE_TYPE_OOC)
 			message_admins("A restart vote has passed, but there are active admins on with +server, so it has been canceled. If you wish, you may restart the server.")
 
 	return .
@@ -534,7 +534,7 @@ SUBSYSTEM_DEF(vote)
 		if(started_time && initiator_key)
 			var/next_allowed_time = (started_time + CONFIG_GET(number/vote_delay))
 			if(mode)
-				to_chat(usr, span_warning("There is already a vote in progress! please wait for it to finish."))
+				to_chat(usr, span_warning("There is already a vote in progress! please wait for it to finish."), MESSAGE_TYPE_OOC)
 				return FALSE
 
 			var/admin = FALSE
@@ -543,7 +543,7 @@ SUBSYSTEM_DEF(vote)
 				admin = TRUE
 
 			if(next_allowed_time > world.time && !admin)
-				to_chat(usr, span_warning("A vote was initiated recently, you must wait [DisplayTimeText(next_allowed_time-world.time)] before a new vote can be started!"))
+				to_chat(usr, span_warning("A vote was initiated recently, you must wait [DisplayTimeText(next_allowed_time-world.time)] before a new vote can be started!"), MESSAGE_TYPE_OOC)
 				return FALSE
 
 		reset()
@@ -605,7 +605,7 @@ SUBSYSTEM_DEF(vote)
 				SEND_SOUND(M, vote_alert)
 		if(mode == "storyteller")
 			save_storyteller_vote_log(null, "active")
-		to_chat(world, "\n<font color='purple'><b>[text]</b>\nClick <a href='?src=[REF(src)]'>here</a> to place your vote.\nYou have [DisplayTimeText(vp)] to vote.</font>")
+		to_chat(world, "\n<font color='purple'><b>[text]</b>\nClick <a href='?src=[REF(src)]'>here</a> to place your vote.\nYou have [DisplayTimeText(vp)] to vote.</font>", MESSAGE_TYPE_OOC)
 		for(var/client/C in GLOB.clients)
 			if(!isliving(C.mob))
 				show_vote(C)
@@ -622,7 +622,7 @@ SUBSYSTEM_DEF(vote)
 	if(mode == "custom")
 		text += "\n[question]"
 	var/remaining_time = time_remaining * 10
-	to_chat(C, "\n<font color='purple'><b>[text]</b>\nClick <a href='?src=[REF(src)]'>here</a> to place your vote.\nYou have [DisplayTimeText(remaining_time)] to vote.</font>")
+	to_chat(C, "\n<font color='purple'><b>[text]</b>\nClick <a href='?src=[REF(src)]'>here</a> to place your vote.\nYou have [DisplayTimeText(remaining_time)] to vote.</font>", MESSAGE_TYPE_OOC)
 	if(!isliving(C.mob))
 		show_vote(C)
 

@@ -46,7 +46,7 @@
 	if(href_list[VV_HK_ADD_ABITRARY_TRAIT])
 		var/arbitrary_input = input("What is the trait's string?", "Adding abitrary trait") as null|text
 		if(!arbitrary_input)
-			to_chat(usr,span_info("Input empty, cancelling"))
+			to_chat(usr,span_info("Input empty, cancelling"), MESSAGE_TYPE_INFO)
 			return TRUE
 		ADD_TRAIT(src,arbitrary_input,TRAIT_GENERIC)
 		message_admins("Admin [key_name_admin(usr)] add trait [arbitrary_input] to [src]!")

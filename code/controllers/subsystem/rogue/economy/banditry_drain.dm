@@ -83,9 +83,9 @@
 			continue
 		if(H.client)
 			if(outpost_reduction > 0)
-				to_chat(H, span_notice("Your troops at the outpost helped reduce losses from banditry by [outpost_reduction] mammon."))
+				to_chat(H, span_notice("Your troops at the outpost helped reduce losses from banditry by [outpost_reduction] mammon."), MESSAGE_TYPE_INFO)
 			else
-				to_chat(H, span_notice("Your troops at the outpose were mobilized, but failed to influence the situation due to high banditry."))
+				to_chat(H, span_notice("Your troops at the outpose were mobilized, but failed to influence the situation due to high banditry."), MESSAGE_TYPE_INFO)
 
 	var/list/outpost_candidates = list()
 	var/outpost_info = get_outpost_banditry_support()
@@ -103,4 +103,4 @@
 					daily_report_diff["outpost_threat_reduction_amount"] = reduction_amount
 				for(var/mob/living/carbon/human/H in outpost_info["owners"])
 					if(H.client)
-						to_chat(H, span_notice("Your troops at the outpost helped reducing the danger of [TR.region_name].")) //СС + TA EDIT END
+						to_chat(H, span_notice("Your troops at the outpost helped reducing the danger of [TR.region_name]."), MESSAGE_TYPE_INFO) //СС + TA EDIT END

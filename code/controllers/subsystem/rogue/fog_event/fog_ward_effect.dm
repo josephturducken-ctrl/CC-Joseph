@@ -22,22 +22,22 @@
 /datum/status_effect/buff/fog_ward/process()
 	. = ..()
 	if(QDELETED(caster) || caster.stat == DEAD || !caster.has_status_effect(/datum/status_effect/buff/fog_ward_caster))
-		to_chat(owner, span_warning("Woe! The ward fades!"))
+		to_chat(owner, span_warning("Woe! The ward fades!"), MESSAGE_TYPE_INFO)
 		owner.remove_status_effect(/datum/status_effect/buff/fog_ward)
 		return
 
 	// should this cause lag, remind me to make this component based instead.
 	if(get_dist(owner, caster) > range)
 		if(!grace_period)
-			to_chat(owner, span_warning("You have stepped out of the holy ward! Return to the light!"))
+			to_chat(owner, span_warning("You have stepped out of the holy ward! Return to the light!"), MESSAGE_TYPE_INFO)
 			grace_period = world.time + 5 SECONDS
 
 		if(world.time > grace_period)
-			to_chat(owner, span_danger("The holy protection fades as you wander too far from the caster for too long."))
+			to_chat(owner, span_danger("The holy protection fades as you wander too far from the caster for too long."), MESSAGE_TYPE_INFO)
 			owner.remove_status_effect(/datum/status_effect/buff/fog_ward)
 	else
 		if(grace_period)
-			to_chat(owner, span_notice("You are back within the safety of the ward."))
+			to_chat(owner, span_notice("You are back within the safety of the ward."), MESSAGE_TYPE_INFO)
 			grace_period = 0
 
 /datum/status_effect/buff/fog_ward/on_remove()

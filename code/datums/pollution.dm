@@ -111,9 +111,9 @@
 				smell_string = "The unmistakable [dominant_pollutant.descriptor] of [dominant_pollutant.scent] bombards your nostrils."
 
 	if(dominant_pollutant.descriptor == SCENT_DESC_ODOR)
-		to_chat(sniffer, span_warning(smell_string))
+		to_chat(sniffer, span_warning(smell_string), MESSAGE_TYPE_INFO)
 	else
-		to_chat(sniffer, span_notice(smell_string))
+		to_chat(sniffer, span_notice(smell_string), MESSAGE_TYPE_INFO)
 
 	dominant_pollutant.on_smell(sniffer)
 

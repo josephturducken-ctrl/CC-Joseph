@@ -9,7 +9,7 @@
 	body_part = HEAD
 	w_class = WEIGHT_CLASS_NORMAL //Quite a hefty load
 	slowdown = 1 //Balancing measure
-	throw_range = 2 //No head bowling
+	//throw_range = 2 //Caustic Edit - Lets revert this? People won't really abuse pitching heads here.
 	px_x = 0
 	px_y = -8
 	stam_damage_coeff = 1
@@ -44,7 +44,7 @@
 	subtargets = list(BODY_ZONE_PRECISE_R_EYE, BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_NOSE, BODY_ZONE_PRECISE_MOUTH, BODY_ZONE_PRECISE_SKULL, BODY_ZONE_PRECISE_EARS, BODY_ZONE_PRECISE_NECK)
 	//grabtargets for grabs
 	grabtargets = list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_R_EYE, BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_NOSE, BODY_ZONE_PRECISE_MOUTH, BODY_ZONE_PRECISE_SKULL, BODY_ZONE_PRECISE_EARS, BODY_ZONE_PRECISE_NECK)
-	resistance_flags = FLAMMABLE
+	resistance_flags = LAVA_PROOF | ACID_PROOF //Caustic Edit - Lets just set heads to be unable to be burned at all so they can't get perma-deleted.
 	
 	grid_width = 64
 	grid_height = 64

@@ -428,13 +428,13 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 		if(ASPECT_MAJOR)
 			if(LAZYLEN(major_aspects) >= max_majors)
 				if(current)
-					to_chat(current, span_warning("I cannot attune to another major aspect."))
+					to_chat(current, span_warning("I cannot attune to another major aspect."), MESSAGE_TYPE_INFO)
 				return FALSE
 			LAZYADD(major_aspects, aspect)
 		if(ASPECT_MINOR)
 			if(LAZYLEN(minor_aspects) >= max_minors)
 				if(current)
-					to_chat(current, span_warning("I cannot attune to another minor aspect."))
+					to_chat(current, span_warning("I cannot attune to another minor aspect."), MESSAGE_TYPE_INFO)
 				return FALSE
 			LAZYADD(minor_aspects, aspect)
 	// Grant choice spell first so it appears first on the action bar
@@ -611,7 +611,7 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 
 	if(creator.mind.special_role)
 		message_admins("[ADMIN_LOOKUPFLW(current)] has been created by [ADMIN_LOOKUPFLW(creator)], an antagonist.")
-		to_chat(current, span_danger("Despite my creators current allegiances, my true master remains [creator.real_name]. If their loyalties change, so do yours. This will never change unless my creator's body is destroyed."))
+		to_chat(current, span_danger("Despite my creators current allegiances, my true master remains [creator.real_name]. If their loyalties change, so do yours. This will never change unless my creator's body is destroyed."), MESSAGE_TYPE_INFO)
 
 /datum/mind/proc/show_memory(mob/recipient, window=1)
 	if(!recipient)
@@ -642,7 +642,7 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 	if(window)
 		recipient << browse(output,"window=memory")
 	else if(all_objectives.len || memory || personal_objectives.len)
-		to_chat(recipient, "<i>[output]</i>")
+		to_chat(recipient, "<i>[output]</i>", MESSAGE_TYPE_INFO)
 
 /// output current targets to the player
 /datum/mind/proc/recall_targets(mob/recipient, window=1)
@@ -731,7 +731,7 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 	if(href_list["remove_antag"])
 		var/datum/antagonist/A = locate(href_list["remove_antag"]) in antag_datums
 		if(!istype(A))
-			to_chat(usr,span_warning("Invalid antagonist ref to be removed."))
+			to_chat(usr,span_warning("Invalid antagonist ref to be removed."), MESSAGE_TYPE_ADMINLOG)
 			return
 		A.admin_remove(usr)
 
@@ -762,7 +762,7 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 					objective_pos = A.objectives.Find(old_objective)
 					break
 			if(!old_objective)
-				to_chat(usr,"Invalid objective.")
+				to_chat(usr,"Invalid objective.", MESSAGE_TYPE_ADMINLOG)
 				return
 		else
 			if(href_list["target_antag"])
@@ -827,7 +827,7 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 				A.objectives -= objective
 				break
 		if(!objective)
-			to_chat(usr,"Invalid objective.")
+			to_chat(usr,"Invalid objective.", MESSAGE_TYPE_ADMINLOG)
 			return
 		//qdel(objective) Needs cleaning objective destroys
 		message_admins("[key_name_admin(usr)] removed an objective for [current]: [objective.explanation_text]")
@@ -841,7 +841,7 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 				objective = objective
 				break
 		if(!objective)
-			to_chat(usr,"Invalid objective.")
+			to_chat(usr,"Invalid objective.", MESSAGE_TYPE_ADMINLOG)
 			return
 		objective.completed = !objective.completed
 		log_admin("[key_name(usr)] toggled the win state for [current]'s objective: [objective.explanation_text]")
@@ -879,10 +879,10 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 	var/obj_count = 1
 	for(var/datum/antagonist/antag_datum_ref in antag_datums)
 		if(length(antag_datum_ref.objectives))
-			to_chat(current, span_notice("Your [antag_datum_ref.name] objectives:"))
+			to_chat(current, span_notice("Your [antag_datum_ref.name] objectives:"), MESSAGE_TYPE_INFO)
 			for(var/datum/objective/O in antag_datum_ref.objectives)
 				O.update_explanation_text()
-				to_chat(current, "<B>[O.flavor] #[obj_count]</B>: [O.explanation_text]")
+				to_chat(current, "<B>[O.flavor] #[obj_count]</B>: [O.explanation_text]", MESSAGE_TYPE_INFO)
 				obj_count++
 
 /// Announces only personal objectives
@@ -891,7 +891,7 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 		var/personal_count = 1
 		for(var/datum/objective/O in personal_objectives)
 			O.update_explanation_text()
-			to_chat(current, "<B>Personal Goal #[personal_count]</B>: [O.explanation_text]")
+			to_chat(current, "<B>Personal Goal #[personal_count]</B>: [O.explanation_text]", MESSAGE_TYPE_INFO)
 			personal_count++
 
 /// Announce all objectives (both types)
@@ -911,6 +911,12 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 	// New action-based spell system
 	if(istype(spell_or_action, /datum/action/cooldown/spell))
 		var/datum/action/cooldown/spell/new_spell = spell_or_action
+
+		// check exclusivity
+		for(var/datum/action/cooldown/spell/S in spell_list)
+			if(S.exclusive_group && S.exclusive_group == new_spell.exclusive_group)
+				return // already have one of this group
+
 		for(var/datum/action/cooldown/spell/present in spell_list)
 			if(present.name == new_spell.name && present.type == new_spell.type)
 				return
@@ -985,7 +991,7 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 
 /datum/mind/proc/show_spell_tip()
 	if(current)
-		to_chat(current, span_nicegreen("Tip: You can Ctrl-Click your hotkey bar to unlock it, then drag to rearrange your spells. Re-arranging them change which hotkeys they are bound to in order from left to right (Alt 1 to Alt 9 default). You can shift click your spells to learn more about them."))
+		to_chat(current, span_nicegreen("Tip: You can Ctrl-Click your hotkey bar to unlock it, then drag to rearrange your spells. Re-arranging them change which hotkeys they are bound to in order from left to right (Alt 1 to Alt 9 default). You can shift click your spells to learn more about them."), MESSAGE_TYPE_INFO)
 
 /datum/mind/proc/setup_mage_aspects(list/config)
 	mage_aspect_config = config

@@ -69,7 +69,7 @@
 		holder?.hud_used?.bloodpool?.set_value((100 / (max_devotion / devotion)) / 100, 1 SECONDS)
 	//Max devotion limit
 	if((devotion >= max_devotion) && !silent)
-		to_chat(holder, span_warning("I have reached the limit of my devotion..."))
+		to_chat(holder, span_warning("I have reached the limit of my devotion..."), MESSAGE_TYPE_INFO)
 	if(!prog_amt) // no point in the rest if it's just an expenditure
 		return TRUE
 	progression = clamp(progression + prog_amt, 0, max_progression)
@@ -116,7 +116,7 @@
 					//CC Edit
 					var/obj/effect/proc_holder/spell/newspell = new spell_type
 					if(!silent)
-						to_chat(holder, span_boldnotice("I have unlocked a new spell: [newspell]"))
+						to_chat(holder, span_boldnotice("I have unlocked a new spell: [newspell]"), MESSAGE_TYPE_INFO)
 					if(!is_npc)
 						holder.mind.AddSpell(newspell, holder)
 						LAZYADD(granted_spells, newspell)
@@ -128,7 +128,7 @@
 				var/required_tier = patron.traits_tier[trait]
 				if(required_tier <= level)
 					if(!silent)
-						to_chat(holder, span_boldnotice("I have unlocked a new trait: [trait]"))
+						to_chat(holder, span_boldnotice("I have unlocked a new trait: [trait]"), MESSAGE_TYPE_INFO)
 					ADD_TRAIT(holder, trait, ROUNDSTART_TRAIT)
 
 
@@ -178,7 +178,7 @@
 	if(!devotion)
 		return FALSE
 
-	to_chat(src,"My devotion is [devotion.devotion].")
+	to_chat(src,"My devotion is [devotion.devotion].", MESSAGE_TYPE_INFO)
 	return TRUE
 
 /mob/living/carbon/human/proc/clericpray()
@@ -190,7 +190,7 @@
 	//CC Edit Begin
 	//Witch's all have a god complex. Their patron still loves them however.
 	if(HAS_TRAIT(src, TRAIT_WITCH))
-		to_chat(src, span_warning("My patron has blessed me enough as is, I can do things on my own."))
+		to_chat(src, span_warning("My patron has blessed me enough as is, I can do things on my own."), MESSAGE_TYPE_INFO)
 		return FALSE
 	//CC Edit End
 
@@ -198,7 +198,7 @@
 	visible_message("[src] kneels their head in prayer to the Gods.", "I kneel my head in prayer to [devotion.patron.name].")
 	for(var/i in 1 to 50)
 		if(devotion.devotion >= devotion.max_devotion)
-			to_chat(src, span_warning("I have reached the limit of my devotion..."))
+			to_chat(src, span_warning("I have reached the limit of my devotion..."), MESSAGE_TYPE_INFO)
 			break
 		if(!do_after(src, 30))
 			break
@@ -209,7 +209,7 @@
 		devotion.update_devotion(prayer_effectiveness, prayer_effectiveness)
 		prayersesh += prayer_effectiveness
 	visible_message("[src] concludes their prayer.", "I conclude my prayer.")
-	to_chat(src, "<font color='purple'>I gained [prayersesh] devotion!</font>")
+	to_chat(src, "<font color='purple'>I gained [prayersesh] devotion!</font>", MESSAGE_TYPE_INFO)
 	return TRUE
 
 /mob/living/carbon/human/proc/changevoice()
@@ -263,7 +263,7 @@
 		REMOVE_TRAIT(src, TRAIT_COMBAT_AWARE, TRAIT_VIRTUE) 
 	else
 		ADD_TRAIT(src, TRAIT_COMBAT_AWARE, TRAIT_VIRTUE)
-	to_chat(src, "I will see [HAS_TRAIT(src, TRAIT_COMBAT_AWARE) ? "more" : "less"] combat information now.")
+	to_chat(src, "I will see [HAS_TRAIT(src, TRAIT_COMBAT_AWARE) ? "more" : "less"] combat information now.", MESSAGE_TYPE_INFO)
 
 
 /mob/living/carbon/human/proc/toggle_descriptors()
@@ -271,7 +271,7 @@
 	set category = "VIRTUES"
 
 	show_descriptors = !show_descriptors
-	to_chat(src, "My identifying features are [show_descriptors ? "no longer " : ""]obscured.")
+	to_chat(src, "My identifying features are [show_descriptors ? "no longer " : ""]obscured.", MESSAGE_TYPE_INFO)
 	if(show_descriptors)
 		voicecolor_override = null
 	else
@@ -285,7 +285,7 @@
 		REMOVE_TRAIT(src, TRAIT_DECEIVING_MEEKNESS, TRAIT_VIRTUE) 
 	else
 		ADD_TRAIT(src, TRAIT_DECEIVING_MEEKNESS, TRAIT_VIRTUE)
-	to_chat(src, "I have [HAS_TRAIT(src, TRAIT_DECEIVING_MEEKNESS) ? "raised" : "lowered"] my guard around others.")
+	to_chat(src, "I have [HAS_TRAIT(src, TRAIT_DECEIVING_MEEKNESS) ? "raised" : "lowered"] my guard around others.", MESSAGE_TYPE_INFO)
 
 
 // Not actually a virtue, but kept in the category for convenience. Miner-role only. Component handles all of the messaging and logic, this is just a wrapper, basically.

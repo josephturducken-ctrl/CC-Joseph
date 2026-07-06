@@ -33,8 +33,8 @@ GLOBAL_LIST_EMPTY(mindlinks)
 		var/mob/living/recipient = (speaker == owner ? target : owner)
 		speaker.playsound_local(speaker, 'sound/magic/message.ogg', 75, TRUE)
 		recipient.playsound_local(recipient, 'sound/magic/message.ogg', 75, TRUE)
-		to_chat(recipient, span_notice("The bond is broken by one of the parties."))
-		to_chat(speaker, span_notice("The bond is broken by one of the parties."))
+		to_chat(recipient, span_notice("The bond is broken by one of the parties."), MESSAGE_TYPE_INFO)
+		to_chat(speaker, span_notice("The bond is broken by one of the parties."), MESSAGE_TYPE_INFO)
 		active = FALSE
 		GLOB.mindlinks -= src
 		speech_args[SPEECH_MESSAGE] = null

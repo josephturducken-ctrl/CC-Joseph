@@ -154,6 +154,22 @@
 		return TRUE
 	return ..()
 
+// Caustic Edit
+/obj/machinery/light/rogue/campfire/fireplace/OnCrafted(dirin)
+	pixel_x = 0
+	pixel_y = 0
+	switch(dirin)
+		if(NORTH)
+			pixel_y = 32
+		if(SOUTH)
+			pixel_y = -32
+		if(EAST)
+			pixel_x = 32
+		if(WEST)
+			pixel_x = -32
+	. = ..()
+// Caustic Edit End
+
 /obj/machinery/light/rogue/candle
 	name = "candles"
 	desc = "Tiny flames flicker to the slightest breeze and offer enough light to see."
@@ -164,6 +180,8 @@
 	cookonme = FALSE
 	pixel_y = 32
 	soundloop = null
+
+	var/move_on_craft = TRUE // Caustic Edit
 
 /obj/machinery/light/rogue/candle/off
 	name = "candles"
@@ -186,15 +204,16 @@
 /obj/machinery/light/rogue/candle/OnCrafted(dirin)
 	pixel_x = 0
 	pixel_y = 0
-	switch(dirin)
-		if(NORTH)
-			pixel_y = 32
-		if(SOUTH)
-			pixel_y = -32
-		if(EAST)
-			pixel_x = 32
-		if(WEST)
-			pixel_x = -32
+	if(move_on_craft) // Caustic Edit. Allows floor candles to not shift 1 tile forwards on crafting
+		switch(dirin)
+			if(NORTH)
+				pixel_y = 32
+			if(SOUTH)
+				pixel_y = -32
+			if(EAST)
+				pixel_x = 32
+			if(WEST)
+				pixel_x = -32
 	. = ..()
 
 /obj/machinery/light/rogue/candle/attack_hand(mob/user)
@@ -244,6 +263,8 @@
 	layer = TABLE_LAYER
 	cookonme = FALSE
 
+	move_on_craft = FALSE // Caustic Edit
+
 /obj/machinery/light/rogue/candle/floorcandle/alt
 	icon_state = "floorcandlee1"
 	base_state = "floorcandlee"
@@ -271,6 +292,8 @@
 	crossfire = FALSE
 	plane = GAME_PLANE_UPPER
 	cookonme = FALSE
+
+	var/move_on_craft = TRUE // Caustic Edit
 
 //CC Edit: Optimizing torches to only be in SSobj when off a torch holder
 /obj/machinery/light/rogue/torchholder/Entered(atom/movable/arrived, atom/old_loc)
@@ -319,6 +342,13 @@
 
 /obj/machinery/light/rogue/torchholder/OnCrafted(dirin, user)
 	dirin = turn(dirin, 180)
+	// Caustic Edit / Actually offsets crafted sconces
+	if(move_on_craft)
+		switch(dirin)
+			if(SOUTH)
+				pixel_y = 32
+	// Caustic Edit end
+	. = ..()
 	QDEL_NULL(torchy)
 	on = FALSE
 	set_light(0)
