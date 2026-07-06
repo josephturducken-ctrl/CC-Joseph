@@ -21,9 +21,6 @@
 #define GLOW_COLOR_ASTRATA "#F9B362" //Astratan Yellow/Orange
 #define GLOW_COLOR_RAVOX "#7A1E30" //Ravox Crimson
 
-//Gods - Ascendant
-#define GLOW_COLOR_GRAGGAR "#19345E" //Graggar Dark Blue
-
 // Constants for spell glow intensity. These are literally 1 2 3 4 but it is for documenting design purposes
 #define GLOW_INTENSITY_LOW 1 // For spam projectiles or generic buffs
 #define GLOW_INTENSITY_MEDIUM 2 // Anything that would hurt quite a bit

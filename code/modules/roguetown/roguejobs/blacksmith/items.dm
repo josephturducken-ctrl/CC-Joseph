@@ -105,7 +105,7 @@
 	. = ..()
 	if(glaze_bonus_pct > 0)
 		if(glazed)
-			. += span_info("Glazed in a dyebin - its value is increased by [glaze_bonus_pct]%.")
+			. += span_info("Glazed - its value is increased by [glaze_bonus_pct]%.") //Caustic Edit - Since we have our own pottery glazing as well as this, slight adjustment to the text here
 		else
 			. += span_info("Can be glazed in a dyebin to increase its value by [glaze_bonus_pct]%.")
 

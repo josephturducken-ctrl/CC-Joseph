@@ -709,7 +709,7 @@
 	icon_state = "pumpkinball3"
 	faretype = FARE_FINE
 	filling_color = "#d17624"
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_HALF_MEAL)
 	w_class = WEIGHT_CLASS_SMALL
 	bitesize = 3
 	portable = TRUE
@@ -753,7 +753,7 @@
 	slices_num = 6
 	portable = FALSE
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/pumpkinloafslice
-	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_AVERAGE)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_MEAL_AND_HALF)
 	faretype = FARE_FINE
 	w_class = WEIGHT_CLASS_NORMAL
 	tastes = list("sweetbread" = 1,"pumpkin" = 1)

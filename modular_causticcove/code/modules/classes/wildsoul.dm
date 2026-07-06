@@ -177,11 +177,16 @@
 	give_feral_eyes(H)
 	if(H.mind)
 		H.mind.AddSpell(new /datum/action/cooldown/spell/nondetection) // Makes sense for them to have the tools to be hidden.
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/blindness)
+		H.mind.AddSpell(new /datum/action/cooldown/spell/noc/blindness/wildsoul)
 	if(H.age == AGE_OLD)
 		H.adjust_skillrank_up_to(/datum/skill/magic/arcane, SKILL_LEVEL_EXPERT, TRUE)
 		H.mind.mage_aspect_config["utilities"] += 2
 	H.dna.species.soundpack_m = new /datum/voicepack/male/wizard()
+
+/datum/action/cooldown/spell/noc/blindness/wildsoul
+	primary_resource_type = SPELL_COST_STAMINA
+
+	secondary_resource_cost = 0
 
 /datum/advclass/wildsoul/zad
 	name = "Soul of the Zad"

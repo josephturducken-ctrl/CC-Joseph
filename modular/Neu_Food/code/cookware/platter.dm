@@ -14,7 +14,7 @@
 
 	// Caustic Edit start
 	var/glazeable // For things that can be glazed or painted. Currently only clay containers
-	var/glazed
+	//var/glazed //This apparently got added to the base obj in the Econ 3 Update, glazing things in a dyevat or through this will increase prices I think?
 	// Caustic Edit end
 
 /obj/item/cooking/platter/get_mechanics_examine(mob/user)

@@ -84,11 +84,13 @@
 		playsound(spelltarget, 'sound/magic/PSY.ogg', 100, FALSE, -1)
 		return FALSE
 
-	if(user.patron?.undead_hater && (target.mob_biotypes & MOB_UNDEAD))
-		target.visible_message(span_danger("[target] is burned by holy light!"), span_userdanger("I'm burned by holy light!"))//cc Edit
-		target.adjustFireLoss(10)
-		target.fire_act(1, 10)//cc edit end
+	//Caustic Edit - Re-add healing causing burns for the undead
+	if(H.patron?.undead_hater && (spelltarget.mob_biotypes & MOB_UNDEAD))
+		spelltarget.visible_message(span_danger("[target] is burned by holy light!"), span_userdanger("I'm burned by holy light!"))
+		spelltarget.adjustFireLoss(10)
+		spelltarget.fire_act(1, 10)
 		return TRUE
+	//Caustic Edit End
 
 	if(spelltarget.has_status_effect(/datum/status_effect/buff/healing))
 		to_chat(owner, span_warning("They are already under the effects of a healing aura!"))

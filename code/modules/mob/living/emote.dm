@@ -899,7 +899,7 @@
 	key = "drown"
 	emote_type = EMOTE_AUDIBLE
 	nomsg = TRUE
-	only_forced_audio = TRUE
+	//only_forced_audio = TRUE //Caustic Edit - Allow the Drowning sound on command if you wish for RP purposes
 	ignore_silent = TRUE
 	show_runechat = FALSE
 
