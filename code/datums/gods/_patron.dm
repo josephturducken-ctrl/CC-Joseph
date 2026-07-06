@@ -39,7 +39,7 @@ GLOBAL_LIST_EMPTY(prayers)
 	for(var/trait in mob_traits)
 		ADD_TRAIT(pious, trait, "[type]")
 	if(HAS_TRAIT(pious, TRAIT_XYLIX))
-		pious.grant_language(/datum/language/tricksterscant)
+		pious.grant_language(/datum/language/thievescant)
 		add_verb(pious, /mob/living/carbon/human/proc/emote_ffsalute)
 	if(HAS_TRAIT(pious, TRAIT_CABAL))
 		pious.faction |= "cabal"

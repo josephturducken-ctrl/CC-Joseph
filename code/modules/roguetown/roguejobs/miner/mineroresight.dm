@@ -66,6 +66,10 @@
 					fxtype = /obj/effect/temp_visual/medqualityore
 				if(/turf/closed/mineral/random/rogue/high, /turf/closed/mineral/rogue/cinnabar, /turf/closed/mineral/rogue/iron, /turf/closed/mineral/rogue/gold, /turf/closed/mineral/rogue/silver)
 					fxtype = /obj/effect/temp_visual/highqualityore
+				if(/turf/closed/mineral/random/rogue/sandstone/med, /turf/closed/mineral/rogue/sandstone/copper, /turf/closed/mineral/rogue/sandstone/tin, /turf/closed/mineral/rogue/sandstone/coal) //Caustic Edit - Add handling for the Sandstone Rocktypes in Desert Town!
+					fxtype = /obj/effect/temp_visual/medqualityore
+				if(/turf/closed/mineral/random/rogue/sandstone/high, /turf/closed/mineral/rogue/sandstone/cinnabar, /turf/closed/mineral/rogue/sandstone/iron, /turf/closed/mineral/rogue/sandstone/gold, /turf/closed/mineral/rogue/sandstone/silver)
+					fxtype = /obj/effect/temp_visual/highqualityore //Caustic Edit End
 				if(/turf/closed/mineral/rogue/gem)
 					fxtype = /obj/effect/temp_visual/gemqualityore
 				if(/turf/closed/mineral/rogue/bedrock)
