@@ -34,126 +34,6 @@
 /obj/item/reagent_containers/food/snacks/rogue/examine(mob/user)
 	. = ..()
 	if(active_recipe && current_step <= active_recipe.ingredients.len)
-		var/next_path = active_recipe.ingredients[current_step]
-		. += span_smallnotice("Recipe: <b>[active_recipe.name]</b>. Next step: Add [initial(next_path:name)].")
-
-	var/list/possible = SScooking.recipe_index[src.type]
-	if(possible && possible.len)
-		var/list/recipe_names = list()
-		for(var/datum/food_recipe/R in possible)
-			var/ingredient = R.ingredients[1]
-			recipe_names += "[R.name] (starts with [initial(ingredient:name)])"
-		. += span_smallnotice("This could be used to prepare: [recipe_names.Join(", ")].")
-
-	if(cooked_type)
-		var/obj/item/CT = cooked_type
-		. += span_smallnotice("It is prepared and ready to be <b>cooked</b> into [initial(CT.name)].")
-	if(fried_type)
-		var/obj/item/FT = fried_type
-		. += span_smallnotice("It is prepared and ready to be <b>fried</b> into [initial(FT.name)].")
-	if(slice_path)
-		var/obj/item/ST = slice_path
-		. += span_smallnotice("It is prepared and ready to be <b>sliced</b> into [initial(ST.name)].")
-
-/obj/item/reagent_containers/food/snacks/rogue/MiddleClick(mob/user)
-	. = ..()
-
-	if(!active_recipe)
-		to_chat(user, span_warning("There is no recipe currently active on [src]."))
-		return
-
-	var/confirmation = tgui_alert(user, "Are you sure you want to reset the preparation for [active_recipe.name]?", "Reset Recipe", list("Yes", "No"))
-	if(confirmation != "Yes" || !active_recipe)
-		return
-
-	to_chat(user, span_notice("You clear the preparation progress for [active_recipe.name] from [src]."))
-	active_recipe = null
-	current_step = 1
-	cut_overlays()
-
-/obj/item/reagent_containers/food/snacks/rogue/attackby(obj/item/I, mob/living/user)
-	if(!active_recipe)
-		var/datum/food_recipe/R = SScooking.get_recipe(src, I)
-		if(R)
-			active_recipe = R
-		else
-			return ..()
-
-	var/obj/structure/table/T = locate() in loc
-	if(!T)
-		to_chat(user, span_warning("You need a table to prepare [src.name]."))
-		return
-
-	var/requirement = active_recipe.ingredients[current_step]
-
-	if(ispath(requirement, /datum/reagent))
-		var/amt = active_recipe.ingredients[requirement]
-		if(I.reagents && I.reagents.has_reagent(requirement, amt))
-			do_cooking_step(I, user, requirement, amt)
-			return
-		else
-			to_chat(user, span_warning("You need at least [amt] units of [initial(requirement:name)]!"))
-			return
-
-	if(current_step <= active_recipe.ingredients.len && istype(I, active_recipe.ingredients[current_step]))
-		do_cooking_step(I, user)
-		return
-
-	return ..()
-
-/obj/item/reagent_containers/food/snacks/rogue/proc/do_cooking_step(obj/item/I, mob/living/user, req_reagent, req_amt)
-	if(!do_after(user, get_cooking_do_time(user, active_recipe.time_per_step), target = src))
-		if(current_step == 1)
-			active_recipe = null
-		return
-
-	playsound(src, 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE)
-	
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		H.mind.add_sleep_experience(/datum/skill/craft/cooking, H.STAINT * active_recipe.experience_per_step)
-	if(req_reagent)
-		// Re-verify reagent exists after the timer
-		if(!I.reagents || !I.reagents.has_reagent(req_reagent, req_amt))
-			return
-		I.reagents.remove_reagent(req_reagent, req_amt)
-		playsound(src, 'modular/Creechers/sound/milking1.ogg', 50, TRUE)
-	else
-		playsound(src, 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE)
-		I.moveToNullspace()
-
-	if(current_step < active_recipe.ingredients.len || active_recipe.needs_cooking)
-		var/image/over = image(I.icon, I.icon_state)
-		over.transform = matrix() * 0.7 
-		switch(current_step)
-			if(1) { over.pixel_x = -7; over.pixel_y = 7 }   // NW
-			if(2) { over.pixel_x = 7;  over.pixel_y = 7 }   // NE
-			if(3) { over.pixel_x = 7;  over.pixel_y = -7 }  // SE
-			if(4) { over.pixel_x = -7; over.pixel_y = -7 }  // SW
-		add_overlay(over)
-
-	if(!req_reagent)
-		qdel(I)
-	current_step++
-	if(current_step > active_recipe.ingredients.len)
-		if(!active_recipe.needs_cooking)
-			finalize_cooking()
-		else
-			to_chat(user, span_nicegreen("[name] is ready to be cooked."))
-			cooked_type = active_recipe.result_type
-			fried_type = active_recipe.result_type
-
-/obj/item/reagent_containers/food/snacks/rogue/proc/finalize_cooking()
-	var/res_type = active_recipe.result_type
-	var/turf/T = get_turf(src)
-	cut_overlays()
-	new res_type(T)
-	active_recipe = null
-	qdel(src)
-
-/obj/item/reagent_containers/food/snacks/rogue/examine(mob/user)
-	. = ..()
-	if(active_recipe && current_step <= active_recipe.ingredients.len)
 		var/entry = active_recipe.ingredients[current_step]
 		. += span_smallnotice("Recipe: <b>[active_recipe.name]</b>. Next step: [active_recipe.step_label(entry)].")
 
@@ -271,6 +151,9 @@
 		if(current_step == 1)
 			active_recipe = null
 			current_step = 1
+		return
+
+	if(!active_recipe)
 		return
 
 	playsound(src, 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE)
@@ -413,26 +296,6 @@
 			return 1
 		else if(slice(W, user))
 			return 1
-	update_cooktime(user)
-	//CC EDIT Sauce application code
-	if(istype(W, /obj/item/reagent_containers/glass) && W.reagents)
-		for(var/datum/reagent/R in W.reagents.reagent_list)
-			if(istype(R, /datum/reagent/consumable/sauce))
-				var/datum/component/sauced_food/sauced = src.GetComponent(/datum/component/sauced_food)
-				if(sauced)
-					to_chat(user, "Already has sauce!")
-					return
-				playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
-				to_chat(user, "Applying sauce...")
-				if(do_after(user,short_cooktime, target = src))
-					var/datum/reagent/consumable/sauce/typecastedR = R
-					var/new_sauce_level = typecastedR.sauce_level
-					var/new_sauce_type = typecastedR.sauce_type
-					src.AddComponent(/datum/component/sauced_food, new_sauce_level, new_sauce_type)
-					src.name = src.name + " with " + typecastedR.name
-					src.desc = src.desc + " " + typecastedR.description
-					W.reagents.remove_reagent(R.type, 5)
-					return
 	..()
 
 /* added to proc
@@ -475,7 +338,7 @@
 	icon_state = "flour"
 	list_reagents = list(/datum/reagent/floure = 1)
 	volume = 1
-	sellprice = 5
+	sellprice = 0
 	var/water_added
 	experimental_inhand = TRUE
 
@@ -509,6 +372,12 @@
 		return TRUE
 	return ..()
 
+/obj/item/reagent_containers/powder/flour/proc/make_wet()
+	name = "wet flour"
+	desc = "Destined for greatness, at your hands."
+	water_added = TRUE
+	color = "#d9d0cb"
+
 /obj/item/reagent_containers/powder/flour/proc/wet(obj/item/I, mob/living/user)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	var/obj/item/reagent_containers/R = I
@@ -527,12 +396,9 @@
 	playsound(get_turf(user), 'modular/Neu_Food/sound/splishy.ogg', 100, TRUE, -1)
 	if(do_after(user, short_cooktime, target = src))
 		add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
-		name = "wet flour"
-		desc = "Destined for greatness, at your hands."
 		if(is_container)
 			R.reagents.remove_reagent(/datum/reagent/water, 10)
-		water_added = TRUE
-		color = "#d9d0cb"
+		make_wet()
 	return TRUE
 
 /obj/item/reagent_containers/powder/flour/attack_hand(mob/living/user)
@@ -553,7 +419,7 @@
 	icon_state = "salt"
 	list_reagents = list(/datum/reagent/floure = 1)
 	volume = 1
-	sellprice = 5
+	sellprice = 0
 
 /obj/item/reagent_containers/powder/salt/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	new /obj/effect/decal/cleanable/food/flour(get_turf(src))
@@ -616,7 +482,7 @@
 	list_reagents = list(/datum/reagent/floure = 1)
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/preserved/rice_cooked
 	volume = 1
-	sellprice = 5
+	sellprice = 0
 
 /obj/item/reagent_containers/powder/mineral
 	name = "coarse minerals"
@@ -625,7 +491,7 @@
 	icon_state = "salt"
 	list_reagents = list(/datum/reagent/floure = 1)
 	volume = 1
-	sellprice = 5
+	sellprice = 0
 	var/water_added
 
 /obj/item/reagent_containers/powder/coarse_salt
@@ -635,7 +501,7 @@
 	icon_state = "salt"
 	list_reagents = list(/datum/reagent/floure = 1)
 	volume = 1
-	sellprice = 3
+	sellprice = 0
 	color = "#999797"
 	mill_result = /obj/item/reagent_containers/powder/salt
 
@@ -694,16 +560,19 @@
 	list_reagents = list(/datum/reagent/consumable/pumpkinspice = 1)
 	grind_results = list(/datum/reagent/consumable/pumpkinspice = 10)
 	volume = 1
-	sellprice = 8
+	sellprice = 0
 
 /datum/reagent/consumable/pumpkinspice
 	name = "pumpkin spice"
 	description = "Spiced delight."
 	color = "#ffffff"
 
+//
+//Caustic Additions Below - Sauces
+//
+
 /* ------------- SAUCE APPLYING CODE --------------*/
 
-//Sauce stuff
 
 /datum/component/sauced_food
 	dupe_mode = COMPONENT_DUPE_UNIQUE
@@ -745,7 +614,7 @@
 /obj/item/reagent_containers/food/snacks/rogue/sauce/spicy
 	name = "spicy spice"
 	tastes = list("rice" = 1, "cheese" = 1, "egg" = 1)
-	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_GOOD)
+	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_QUARTER_MEAL)
 	desc = "A mound of spicy spice"
 	icon = 'modular/Neu_Food/icons/cooked/cooked_rice.dmi'
 	icon_state = "riceeggcheese"
