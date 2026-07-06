@@ -8,6 +8,7 @@ SUBSYSTEM_DEF(economy)
 	var/list/daily_report_diff = null
 	var/last_petition_day = -1
 	var/petitions_today = 0
+	var/blockade_replenish_spent = 0
 	var/list/event_path_cooldowns = list()
 	var/list/goods_with_producers = list()
 	var/list/goods_with_demand = list()
@@ -226,7 +227,8 @@ SUBSYSTEM_DEF(economy)
 
 	expire_economic_events()
 	roll_economic_events()
-	//tick_banditry_drain()
+	tick_blockade_replenish()
+	tick_banditry_drain()
 
 	// Runs after events/blockades so auto-import sees the day's fresh price_mods, blockade
 	// flags, and produces_today values. Happens before standing-order rolls - the rolls
@@ -266,18 +268,28 @@ SUBSYSTEM_DEF(economy)
 			else
 				instantiate_standing_order(template, region, order_size_mult)
 
+	var/list/fired_shortages = daily_report_diff["fired_shortage_names"]
+	var/list/fired_gluts = daily_report_diff["fired_glut_names"]
+	var/list/relieved_today = daily_report_diff["events_relieved"]
 	var/list/by_region = daily_report_diff["regular_orders_by_region"]
-	if(length(by_region))
-		var/total_regular = 0
-		var/list/region_parts = list()
-		for(var/region_name in by_region)
-			var/count = by_region[region_name]
-			total_regular += count
-			region_parts += "[count] at [region_name]"
-		scom_announce("<font color='#7eb84a'>[total_regular] new standing order\s posted at the noticeboard this dawn: [jointext(region_parts, ", ")].</font>")
 	var/list/urgents_today = daily_report_diff["urgent_orders_today"]
-	for(var/list/U as anything in urgents_today)
-		scom_announce("<font color='#c44'>URGENT at [U["region"]]: [U["items"]]. 1d, [U["payout"]]m.</font>")
+	var/list/dawn_parts = list()
+	if(length(by_region) || length(urgents_today))
+		var/total_regular = 0
+		for(var/region_name in by_region)
+			total_regular += by_region[region_name]
+		var/order_line = "[total_regular] new standing order\s"
+		if(length(urgents_today))
+			order_line += " ([length(urgents_today)] URGENT)"
+		dawn_parts += order_line
+	if(length(fired_shortages))
+		dawn_parts += "<font color='#c44'>Shortages: [jointext(fired_shortages, ", ")]</font>"
+	if(length(fired_gluts))
+		dawn_parts += "<font color='#5cb85c'>Gluts: [jointext(fired_gluts, ", ")]</font>"
+	if(length(dawn_parts))
+		scom_announce("[jointext(dawn_parts, " - ")].")
+	if(length(relieved_today))
+		scom_announce("<font color='#5cb85c'>RELIEF eases [jointext(relieved_today, ", ")]. Prices return to normal.</font>")
 
 	print_steward_report(daily_report_diff)
 	daily_report_diff = null
@@ -335,6 +347,12 @@ SUBSYSTEM_DEF(economy)
 	if(daily_report_diff)
 		var/list/fired = daily_report_diff["events_fired"]
 		fired += "[E.name] ([E.event_type == ECON_EVENT_SHORTAGE ? "shortage" : "glut"])"
+		var/bucket_key = E.event_type == ECON_EVENT_SHORTAGE ? "fired_shortage_names" : "fired_glut_names"
+		var/list/bucket = daily_report_diff[bucket_key]
+		if(!bucket)
+			bucket = list()
+			daily_report_diff[bucket_key] = bucket
+		bucket += E.name
 	if(E.event_type == ECON_EVENT_SHORTAGE)
 		spawn_urgent_for_event(E)
 	return TRUE
@@ -758,6 +776,7 @@ SUBSYSTEM_DEF(economy)
 /datum/controller/subsystem/economy/proc/consume_stockpile_payload(list/avail)
 	for(var/good_id in avail)
 		var/list/entry = avail[good_id]
+		var/delivered = entry["delivered_units"]
 		var/datum/roguestock/stockpile_entry = find_stockpile_by_trade_good(good_id)
 		if(stockpile_entry)
 			stockpile_entry.stockpile_amount -= delivered
@@ -917,7 +936,6 @@ SUBSYSTEM_DEF(economy)
 	var/export_label = user ? "Manual Export" : "Auto Export"
 	SStreasury.dirty_market_view()
 	SStreasury.mint(SStreasury.discretionary_fund, total_revenue, "[export_label]: [quantity] [tg.name] to [region.name][actor_suffix]")
-	SStreasury.mint(SStreasury.discretionary_fund, total_revenue, "Manual Export: [quantity] [tg.name] to [region.name]")
 	SStreasury.total_export += total_revenue
 	SStreasury.economic_output += total_revenue
 	credit_economic_event_saturation(good_id, quantity)
