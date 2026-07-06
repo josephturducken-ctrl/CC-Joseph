@@ -54,6 +54,7 @@
 #define TRADE_GOOD_GRAIN "GRAIN"
 #define TRADE_GOOD_OATS "OATS"
 #define TRADE_GOOD_RICE "RICE"
+#define TRADE_GOOD_MAIZE "MAIZE"
 
 #define TRADE_GOOD_MEAT "MEAT"
 #define TRADE_GOOD_PORK "PORK"
@@ -263,6 +264,7 @@
 #define SELLPRICE_GRAIN 3
 #define SELLPRICE_OATS 3
 #define SELLPRICE_RICE 3
+#define SELLPRICE_MAIZE 3
 
 // Animal foods
 #define SELLPRICE_MEAT 4
