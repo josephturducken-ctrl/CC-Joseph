@@ -283,10 +283,6 @@
 		/datum/action/cooldown/spell/arcyne_forge,
 		/datum/action/cooldown/spell/mending,
 	)
-	choice_spells = list(
-		/datum/action/cooldown/spell/projectile/stygian_efflorescence,
-		/datum/action/cooldown/spell/projectile/arcyne_lance,
-	)
 	variants = list(
 		"mastery" = list(
 			VARIANT_ADDITIVE =/datum/action/cooldown/spell/blade_dance,
