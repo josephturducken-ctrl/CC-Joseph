@@ -250,6 +250,15 @@ SUBSYSTEM_DEF(treasury)
 /datum/controller/subsystem/treasury/proc/get_rural_tax_amount()
 	return RURAL_TAX
 
+// Mark the cached stewardry market / region / arbitrage
+// View as needing rebuild on next read.
+/datum/controller/subsystem/treasury/proc/dirty_market_view()
+	market_view_dirty = TRUE
+	auto_import_view_dirty = TRUE
+
+/datum/controller/subsystem/treasury/proc/dirty_auto_import_view()
+	auto_import_view_dirty = TRUE
+
 /datum/controller/subsystem/treasury/proc/get_expected_wage_outlay()
 	if(!steward_machine || !steward_machine.daily_payments)
 		return 0
