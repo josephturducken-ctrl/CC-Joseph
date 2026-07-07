@@ -109,6 +109,15 @@
 	target_items = list(/obj/item/rogueweapon/sword/long)
 	result_item = /obj/item/rogueweapon/sword/long/triumph
 
+/obj/item/enchantingkit/triumph_armorkit_agedskullcap
+	name = "'Aged Skull Cap' morphing elixir"
+	desc = "A small container of special morphing dust, perfect to make a specific item. It can be used to alter the appearance of a Skull Cap."
+	target_items = list(
+		/obj/item/clothing/head/roguetown/helmet/skullcap/steel				= /obj/item/clothing/head/roguetown/helmet/skullcap/old,
+		/obj/item/clothing/head/roguetown/helmet/skullcap					= /obj/item/clothing/head/roguetown/helmet/skullcap/old
+		)
+	result_item = null
+
 /obj/item/enchantingkit/triumph_weaponkit_wide
 	name = "'Wideguard' morphing elixir"
 	desc = "A small container of special morphing dust, perfect to make a specific item. It can be used to alter the appearance of a Steel Longsword, or a Rapier."
@@ -308,6 +317,28 @@
 		/obj/item/rogueweapon/sword/long,
 		)
 	result_item = /obj/item/rogueweapon/example/clericsword
+
+/obj/item/enchantingkit/triumph_armorkit_oldhelmets
+	name = "'Valorian Steel Helmet' morphing elixir"
+	desc = "A small container of special morphing dust, perfect to make a specific item. It can restore the original appearance of a Steel Sallet, a Steel Visored Sallet, a Steel Kettlehelm, or a Steel Knight's Armet."
+	target_items = list(
+		/obj/item/clothing/head/roguetown/helmet/heavy/knight			= /obj/item/clothing/head/roguetown/helmet/heavy/knight/old,
+		/obj/item/clothing/head/roguetown/helmet/sallet/visored 		= /obj/item/clothing/head/roguetown/helmet/sallet/visored/legacy,
+		/obj/item/clothing/head/roguetown/helmet/sallet					= /obj/item/clothing/head/roguetown/helmet/sallet/legacy,
+		/obj/item/clothing/head/roguetown/helmet/kettle	  				= /obj/item/clothing/head/roguetown/helmet/kettle/legacy
+		)
+	result_item = null
+
+/obj/item/enchantingkit/triumph_armorkit_ironoldhelmets
+	name = "'Valorian Iron Helmet' morphing elixir"
+	desc = "A small container of special morphing dust, perfect to make a specific item. It can restore the original appearance of an Iron Sallet, an Iron Visored Sallet, an Iron Kettlehelm, or an Iron Knight's Armet."
+	target_items = list(
+		/obj/item/clothing/head/roguetown/helmet/heavy/knight/iron			= /obj/item/clothing/head/roguetown/helmet/heavy/knight/old/iron,
+		/obj/item/clothing/head/roguetown/helmet/sallet/visored/iron 		= /obj/item/clothing/head/roguetown/helmet/sallet/visored/iron/legacy,
+		/obj/item/clothing/head/roguetown/helmet/sallet/iron				= /obj/item/clothing/head/roguetown/helmet/sallet/iron/legacy,
+		/obj/item/clothing/head/roguetown/helmet/kettle/iron	  			= /obj/item/clothing/head/roguetown/helmet/kettle/iron/legacy
+		)
+	result_item = null
 
 //////////////////////////////
 // TRIUMPH-RESKIN EXAMPLES! //
