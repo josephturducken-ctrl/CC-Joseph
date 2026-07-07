@@ -233,7 +233,10 @@ Somewhat fitting, considering the broadness of their domains. I also just think 
 
 /obj/effect/proc_holder/spell/self/noc_spell_bundle
 	name = "Arcyne Affinity"
-	desc = "Allows you to learn a set of empowering, utility or combat spells."
+	desc = "Allows you to learn a set of spells. \n \
+	<b>MAGISTER</b>: Greater Arcyne Force Wall, Arcyne Ward, Blink, Message, Create Campfire \n \
+	<b>ENCHANTER</b>: Gravel Blast, Dragon Hide, Mending, Arcyne Forge, Hawk Eyes, Stoneskin\n \
+	<b>SEER</b>: Crystal Hide, Giants Strength, Guidance, Haste, Fortitude, Mindlink"
 	action_icon = 'icons/mob/actions/nocmiracles.dmi'
 	overlay_icon = 'icons/mob/actions/nocmiracles.dmi'
 	overlay_state = "spellpack"
@@ -246,48 +249,50 @@ Somewhat fitting, considering the broadness of their domains. I also just think 
 	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
 	associated_skill = /datum/skill/magic/holy
 	var/chosen_bundle
-	var/list/utility_bundle = list(	//Utility means exactly that. Nothing offensive and nothing that can affect another person negatively. (Barring Fetch)
-		/datum/action/cooldown/spell/message,
-		/datum/action/cooldown/spell/leap,
-		/datum/action/cooldown/spell/lesser_knock,
-		/datum/action/cooldown/spell/mending,
-		/datum/action/cooldown/spell/projectile/fetch,
-		/datum/action/cooldown/spell/blink,
+	var/list/magister_bundle = list(
+		/datum/action/cooldown/spell/projectile/greater_arcyne_bolt, //Offensive Tool
+		/datum/action/cooldown/spell/forcewall,
+		/datum/action/cooldown/spell/conjure_arcyne_ward,
+		/datum/action/cooldown/spell/phase,
+		/datum/action/cooldown/spell/message, //Utility
+		/datum/action/cooldown/spell/create_campfire //Buff
 	)
-	var/list/offensive_bundle = list(	//This is not meant to make them combat-capable. A weak offensive, and mostly defensive option.
-		/datum/action/cooldown/spell/projectile/greater_arcyne_bolt,
+	var/list/enchanter_bundle = list(
+		/datum/action/cooldown/spell/projectile/gravel_blast, //Offensive Tool
 		/datum/action/cooldown/spell/conjure_arcyne_ward/dragonhide,
-		/datum/action/cooldown/spell/arcyne_forge,
+		/datum/action/cooldown/spell/mending,
+		/datum/action/cooldown/spell/arcyne_forge, //Utility
+		/datum/action/cooldown/spell/augment_buff/attune_hawk,
+		/datum/action/cooldown/spell/augment_buff/stoneskin //Buff
 	)
-	var/list/buff_bundle = list(	//Buffs! An Acolyte being a supportive caster is 100% what they already are, so this fits neatly. No debuffs -- every patron already has a plethora of those.
-		/datum/action/cooldown/spell/hawks_eyes::name 			= /datum/action/cooldown/spell/hawks_eyes,
-		/datum/action/cooldown/spell/giants_strength::name 	= /datum/action/cooldown/spell/giants_strength,
-		/datum/action/cooldown/spell/guidance::name 			= /datum/action/cooldown/spell/guidance,
-		/datum/action/cooldown/spell/haste::name 				= /datum/action/cooldown/spell/haste,
-		/datum/action/cooldown/spell/stoneskin::name 			= /datum/action/cooldown/spell/stoneskin,
-		/datum/action/cooldown/spell/fortitude::name 			= /datum/action/cooldown/spell/fortitude, // Picking the most expensive options adds up to 12 points
+	var/list/seer_bundle = list(
+		/datum/action/cooldown/spell/conjure_arcyne_ward/crystalhide,
+		/datum/action/cooldown/spell/augment_buff/attune_giant,
+		/datum/action/cooldown/spell/augment_buff/guidance,
+		/datum/action/cooldown/spell/augment_buff/attune_haste,
+		/datum/action/cooldown/spell/augment_buff/fortitude,
+		/datum/action/cooldown/spell/mindlink
 	)
 /obj/effect/proc_holder/spell/self/noc_spell_bundle/cast(list/targets, mob/user)
 	. = ..()
 	var/choice = chosen_bundle
 	if(!chosen_bundle)
-		choice = alert(user, "What type of spells has Noc blessed you with?", "CHOOSE PATH", "Utility", "Offense", "Buffs")
+		choice = alert(user, "What type of spells has Noc blessed you with?", "CHOOSE PATH", "Magister", "Enchanter", "Seer")
 		chosen_bundle = choice
 	switch(choice)
-		if("Utility")
-			if(!user.mind?.has_spell(/obj/effect/proc_holder/spell/invoked/diagnose/secular))
-				var/secular_diagnose = new /obj/effect/proc_holder/spell/invoked/diagnose/secular
-				user.mind?.AddSpell(secular_diagnose)
-			add_spells(user, utility_bundle, grant_all = TRUE)
+		if("Magister")
+			add_spells(user, magister_bundle, grant_all = TRUE)
 			user.mind?.RemoveSpell(src.type)
-		if("Offense")
-			add_spells(user, offensive_bundle, grant_all = TRUE)
+			return TRUE
+		if("Enchanter")
+			add_spells(user, enchanter_bundle, grant_all = TRUE)
 			user.mind?.RemoveSpell(src.type)
-		if("Buffs")
-			add_spells(user, buff_bundle, choice_count = 4)
+			return TRUE
+		if("Seer")
+			add_spells(user, seer_bundle, grant_all = TRUE)
 			user.mind?.RemoveSpell(src.type)
-		else
-			revert_cast()
+			return TRUE
+	return FALSE
 
 
 /obj/effect/proc_holder/spell/self/noc_spell_bundle/proc/add_spells(mob/user, list/spells, choice_count = 1, grant_all = FALSE)
