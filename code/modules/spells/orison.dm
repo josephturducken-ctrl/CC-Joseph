@@ -75,7 +75,7 @@
 /obj/item/melee/new_touch_attack/orison
 	name = "\improper lesser prayer"
 	desc = "Holy energy crackles at your fingertips, ready to serve you. Touch yourself to dismiss."
-	possible_item_intents = list(/datum/intent/hand/light, /datum/intent/fill, /datum/intent/hand/voice)
+	possible_item_intents = list(/datum/intent/hand/light, /datum/intent/fill, /datum/intent/hand/voice, /datum/intent/bless)
 	icon = 'icons/mob/roguehudgrabs.dmi'
 	icon_state = "grabbing_greyscale"
 	color = "#FFFFFF"
