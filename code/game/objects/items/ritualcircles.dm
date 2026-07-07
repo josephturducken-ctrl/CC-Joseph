@@ -2040,33 +2040,24 @@
 	head = selected_helm_path
 	neck = /obj/item/clothing/neck/roguetown/gorget/steel/graggar
 	cloak = /obj/item/clothing/cloak/graggar
-	switch(selected_weapon_choice)
-		if("Vicious Tomahawk and Shield")
-			r_hand = /obj/item/rogueweapon/stoneaxe/woodcut/steel/graggar
-			l_hand = /obj/item/rogueweapon/shield/iron/graggar
-		else
-			r_hand = /obj/item/rogueweapon/greataxe/steel/doublehead/graggar
+	r_hand = /obj/item/rogueweapon/greataxe/steel/doublehead/graggar
 
 	H.mind.RemoveSpell(new /datum/action/cooldown/spell/mending/lesser)
 
 /datum/outfit/job/roguetown/viciousrite/heavy/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	..()
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/full/graggar
-	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/graggar/heavy
-	pants = /obj/item/clothing/under/roguetown/platelegs/graggar/heavy
-	shoes = /obj/item/clothing/shoes/roguetown/boots/armor/graggar/heavy
+	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/graggar
+	pants = /obj/item/clothing/under/roguetown/platelegs/graggar
+	shoes = /obj/item/clothing/shoes/roguetown/boots/armor/graggar
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/graggar/heavy
 	gloves = /obj/item/clothing/gloves/roguetown/plate/graggar/heavy
 	head = selected_helm_path
 	mask = /obj/item/clothing/mask/rogue/facemask/steel/graggar
-	neck = /obj/item/clothing/neck/roguetown/gorget/steel/graggar/heavy
+	neck = /obj/item/clothing/neck/roguetown/gorget/steel/graggar
 	cloak = /obj/item/clothing/cloak/graggar/heavy
-	switch(selected_weapon_choice)
-		if("Vicious Tomahawk and Shield")
-			r_hand = /obj/item/rogueweapon/stoneaxe/woodcut/steel/graggar
-			l_hand = /obj/item/rogueweapon/shield/iron/graggar
-		else
-			r_hand = /obj/item/rogueweapon/greataxe/steel/doublehead/graggar
+	r_hand = /obj/item/rogueweapon/stoneaxe/woodcut/steel/graggar
+	l_hand = /obj/item/rogueweapon/shield/iron/graggar
 
 	H.mind.AddSpell(new /datum/action/cooldown/spell/mending/lesser)
 
