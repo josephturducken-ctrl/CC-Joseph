@@ -1,6 +1,7 @@
 #define PRESTI_CLEAN "presti_clean"
 #define PRESTI_SPARK "presti_spark"
 #define PRESTI_MOTE "presti_mote"
+#define PRESTI_SENSE "presti_sense"
 
 /datum/action/cooldown/spell/touch/prestidigitation
 	name = "Prestidigitation"
@@ -53,7 +54,7 @@
 				handle_presti_cost(caster, PRESTI_MOTE)
 		if(/datum/intent/hand/sense)
 			if(presti_hand.sense_leylines(caster))
-				handle_presti_cost(caster, PRESTI_SENSE)*/
+				handle_presti_cost(caster, PRESTI_SENSE)
 
 	return FALSE // don't consume the hand
 
@@ -112,7 +113,7 @@
 	QDEL_NULL(mote)
 	return ..()
 
-/*/obj/item/melee/new_touch_attack/prestidigitation/proc/sense_leylines(mob/living/carbon/human/user) //Caustic Edit - We don't have the typed leylines, so lets remove this for now
+/obj/item/melee/new_touch_attack/prestidigitation/proc/sense_leylines(mob/living/carbon/human/user)
 	if(!length(GLOB.leyline_sites))
 		to_chat(user, span_warning("You reach out through the veil but sense nothing. No leylines exist in this world."))
 		return FALSE
@@ -193,7 +194,7 @@
 	else
 		var/charges = get_leyline_charges(user)
 		to_chat(user, span_info("You have enough mana for <b>[charges]</b> more ritual[charges != 1 ? "s" : ""]."))
-	return TRUE*/
+	return TRUE
 
 /obj/item/melee/new_touch_attack/prestidigitation/proc/handle_mote(mob/living/carbon/human/user)
 	if(!mote)

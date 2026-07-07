@@ -193,15 +193,10 @@
 	. = ..()
 	if(slot == SLOT_HEAD || slot == SLOT_WEAR_MASK)
 		ADD_TRAIT(user, TRAIT_PACIFISM, "peaceflower_[REF(src)]")
-		if(user.patron.type != /datum/patron/divine/eora)
-			user.AddComponent(/datum/component/peaceflower_tracker, src)
 
 /obj/item/clothing/head/peaceflower/dropped(mob/living/carbon/human/user)
 	..()
 	REMOVE_TRAIT(user, TRAIT_PACIFISM, "peaceflower_[REF(src)]")
-	var/datum/component/peaceflower_tracker/T = user.GetComponent(/datum/component/peaceflower_tracker)
-	if(T)
-		qdel(T)
 
 /obj/item/clothing/head/peaceflower/proc/peace_check(mob/living/user)
 	// return true if we should be unequippable, return false if not
