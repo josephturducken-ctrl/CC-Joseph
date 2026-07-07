@@ -230,8 +230,6 @@
 	duration = -1
 
 /datum/action/cooldown/spell/touch/orison/proc/thaumaturgy(obj/item/melee/new_touch_attack/hand, atom/victim, mob/living/carbon/caster, list/modifiers)
-	var/holy_skill = caster.get_skill_level(/datum/skill/magic/holy)
-	var/cast_time = 35 - (holy_skill * 3)
 	var/mob/living/carbon/human/H = caster
 	var/use_devotion = 0
 

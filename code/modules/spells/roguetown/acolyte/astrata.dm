@@ -47,6 +47,7 @@
 	charge_required = FALSE
 	cooldown_time = 10 SECONDS
 
+	spell_flags = SPELL_PSYDON
 	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC | SPELL_REQUIRES_HUMAN | SPELL_REQUIRES_SAME_Z
 
 /datum/action/cooldown/spell/astrata/ignition/cast(atom/cast_on)
@@ -74,10 +75,11 @@
 			return TRUE
 		spelltarget.adjust_fire_stacks(2)
 		spelltarget.ignite_mob()
+		log_combat(owner, spelltarget, "ignited", addition="with the miracle [name]")
 		return TRUE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// T0 - Astratan Gaze - Removes cone vision for a dynamic duration. Adds PERCEPTION based on holy skill and time of day. //
+// T1 - Astratan Gaze - Removes cone vision for a dynamic duration. Adds PERCEPTION based on holy skill and time of day. //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /datum/action/cooldown/spell/astrata/astrata_gaze
@@ -98,7 +100,7 @@
 	invocation_type = INVOCATION_WHISPER
 
 	charge_required = FALSE
-	cooldown_time = 2 MINUTES
+	cooldown_time = 3 MINUTES
 
 	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC | SPELL_REQUIRES_HUMAN | SPELL_REQUIRES_SAME_Z
 
@@ -117,7 +119,7 @@
 /datum/status_effect/buff/astrata_gaze
 	id = "astratagaze"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/astrata_gaze
-	duration = 25 SECONDS
+	duration = 40 SECONDS
 	var/skill_level = 0
 	status_type = STATUS_EFFECT_REPLACE
 
@@ -127,11 +129,11 @@
 	.=..()
 
 /datum/status_effect/buff/astrata_gaze/on_apply()
-	// Reset base values because the miracle can 
+	// Reset base values because the miracle can
 	// now actually be recast at high enough skill and during day time
 	// This is a safeguard because buff code makes my head hurt
 	var/per_bonus = 0
-	duration = 25 SECONDS
+	duration = 20 SECONDS
 
 	if(skill_level > SKILL_LEVEL_NOVICE)
 		per_bonus++
@@ -164,7 +166,7 @@
 		H.update_cone_show()
 
 //////////////////////////////////////////////////////////
-// T1 - Sacred Flame - Deals damage and ignites target. //
+// T2 - Sacred Flame - Deals damage and ignites target. //
 //////////////////////////////////////////////////////////
 
 /datum/action/cooldown/spell/projectile/sacred_flame
@@ -196,10 +198,10 @@
 	ignore_armor_penalty = TRUE
 	charge_required = TRUE
 	charge_time = CHARGETIME_MAJOR
-	charge_drain = 1
+	hold_drain = 1
 	charge_slowdown = CHARGING_SLOWDOWN_MEDIUM
 	charge_sound = 'sound/magic/holycharging.ogg'
-	cooldown_time = 40 SECONDS
+	cooldown_time = 45 SECONDS
 
 	associated_stat = null
 	associated_skill = /datum/skill/magic/holy
@@ -209,6 +211,7 @@
 
 	spell_impact_intensity = SPELL_IMPACT_MEDIUM
 
+	spell_flags = SPELL_PSYDON
 	required_items = list(/obj/item/clothing/neck/roguetown/psicross/astrata, /obj/item/clothing/neck/roguetown/psicross/silver/astrata, /obj/item/clothing/neck/roguetown/psicross/undivided, /obj/item/clothing/neck/roguetown/psicross/silver/undivided)
 
 /obj/projectile/magic/sacred_flame
@@ -240,356 +243,21 @@
 			return BULLET_ACT_BLOCK
 		if(isliving(target))
 			var/mob/living/L = target
+			if(out_of_effective_range())
+				return
 			L.electrocute_act(1, src, 1, SHOCK_NOSTUN)
 			if(HAS_TRAIT(L, TRAIT_SILVER_WEAK))
 				L.adjust_fire_stacks(4, /datum/status_effect/fire_handler/fire_stacks/sunder)
+				L.Immobilize(0.5 SECONDS)
 				L.ignite_mob()
 			else
 				L.adjust_fire_stacks(4)
-				L.ignite_mob()
-			// Lightning Adaptation: all CC effects gated behind the adaptation timer
-			if(!L.mob_timers[MT_LIGHTNING_ADAPTATION] || world.time > L.mob_timers[MT_LIGHTNING_ADAPTATION] + LIGHTNING_ADAPTATION_COOLDOWN)
 				L.Immobilize(0.5 SECONDS)
-				L.apply_status_effect(/datum/status_effect/buff/lightningstruck, 6 SECONDS)
-				L.balloon_alert_to_viewers("<font color='#ffcc00'>shocked! (6s)</font>")
-				L.mob_timers[MT_LIGHTNING_ADAPTATION] = world.time
-			else
-				var/remaining = round((L.mob_timers[MT_LIGHTNING_ADAPTATION] + LIGHTNING_ADAPTATION_COOLDOWN - world.time) / 10)
-				L.balloon_alert_to_viewers("<font color='#ffcc00'>shock adapted ([remaining]s)</font>")
+				L.ignite_mob()
 	else if(isatom(target))
 		var/atom/A = target
 		A.fire_act()
 	qdel(src)
-
-////////////////////////////////////////////////////////////////
-// T2 - Solar BLade / Fist - Choose between one or the other. //
-////////////////////////////////////////////////////////////////
-
-/datum/action/cooldown/spell/astrata/bladeorfist
-	name = "Solar Blade/Fist"
-	desc = "Choose between Solar Blade (SWORD) or Solar Grasp (UNARMED)."
-	button_icon_state = "blade_grasp"
-	sound = 'sound/items/firelight.ogg'
-	sparks_amt = 2
-
-	click_to_activate = FALSE
-	cast_range = SPELL_RANGE_ADJACENT
-
-	primary_resource_cost = SPELLCOST_MIRACLE_MINOR
-
-	secondary_resource_cost = SPELLCOST_MINOR_PROJECTILE
-
-	invocation_type = INVOCATION_NONE //It has seperate message ON USE
-
-	charge_required = FALSE
-	cooldown_time = 10 SECONDS//Does not matter it's single use
-
-	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC | SPELL_REQUIRES_HUMAN | SPELL_REQUIRES_SAME_Z
-
-	var/chosen_spell
-	var/solar_blade = /datum/action/cooldown/spell/astrata/scepter
-	var/solar_fist = /datum/action/cooldown/spell/astrata/fist
-	var/choosingspell = FALSE
-
-/datum/intent/mace/strike/astrata
-	hitsound = list('sound/items/firelight.ogg', 'sound/misc/frying.ogg', 'sound/misc/explode/incendiary (1).ogg', 'sound/misc/explode/incendiary (2).ogg')
-
-/datum/intent/mace/smash/astrata
-	hitsound = list('sound/items/firelight.ogg', 'sound/misc/frying.ogg', 'sound/misc/explode/incendiary (1).ogg', 'sound/misc/explode/incendiary (2).ogg')
-
-/datum/action/cooldown/spell/astrata/bladeorfist/cast(atom/cast_on)
-	. = ..()
-	if(choosingspell == TRUE)
-		to_chat(owner, span_warning("I'm already choosing a spell!"))
-	else
-		var/choice = chosen_spell
-		choosingspell = TRUE
-		if(!chosen_spell)
-			choice = alert(owner, "BLADE or FIST", "ORDER OR ANARCHY", "Blade", "Fist")
-			chosen_spell = choice
-		switch(choice)
-			if("Blade")
-				owner.mind?.AddSpell(new solar_blade, owner)
-				owner.mind?.RemoveSpell(src.type)
-			if("Fist")
-				owner.mind?.AddSpell(new solar_fist, owner)
-				owner.mind?.RemoveSpell(src.type)
-			else
-				return FALSE
-
-//////////////////////////////////////////////
-// T2 - Solar Blade - Summon a flame sword. //
-//////////////////////////////////////////////
-
-/datum/action/cooldown/spell/astrata/scepter
-	name = "Solar Scepter"
-	desc = "Conjure a flaming scepter to strike down your enemies with, doubles as a cautery and can ignite objects."
-	button_icon_state = "blade"
-	sound = 'sound/magic/whiteflame.ogg'
-	spell_color = GLOW_COLOR_ASTRATA
-	glow_intensity = GLOW_INTENSITY_MEDIUM
-
-	click_to_activate = TRUE
-	self_cast_possible = TRUE
-
-	primary_resource_type = SPELL_COST_DEVOTION
-	primary_resource_cost = SPELLCOST_MIRACLE
-
-	secondary_resource_type = SPELL_COST_STAMINA
-	secondary_resource_cost = SPELLCOST_CONJURE
-
-	invocations = list("Astrata, grant me your fury!")
-	invocation_type = INVOCATION_SHOUT
-
-	charge_required = TRUE
-	charge_time = 2 SECONDS
-	charge_drain = 1
-	charge_slowdown = CHARGING_SLOWDOWN_HEAVY
-	charge_sound = 'sound/magic/holycharging.ogg'
-	cooldown_time = 90 SECONDS
-
-	ignore_armor_penalty = TRUE
-	associated_stat = null
-	associated_skill = /datum/skill/magic/holy
-	spell_tier = 0
-	spell_impact_intensity = SPELL_IMPACT_NONE
-
-	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC | SPELL_REQUIRES_HUMAN | SPELL_REQUIRES_SAME_Z
-
-	var/obj/item/rogueweapon/sword/astrata_sword/conjured_weapon
-
-/datum/action/cooldown/spell/astrata/scepter/cast(atom/cast_on)
-	. = ..()
-	var/mob/living/carbon/human/H = owner
-	if(!istype(H))
-		return FALSE
-
-	if(H.get_num_arms() <= 0)
-		to_chat(H, span_warning("I don't have any usable hands!"))
-		return FALSE
-
-	// Destroy previous conjured shield
-	if(conjured_weapon && !QDELETED(conjured_weapon))
-		conjured_weapon.visible_message(span_warning("[conjured_weapon] flickers and fades away!"))
-		qdel(conjured_weapon)
-
-	var/obj/item/rogueweapon/sword/astrata_sword/S = new(H.drop_location())
-	S.linked_spell = src
-	S.caster_ref = WEAKREF(H)
-	S.AddComponent(/datum/component/conjured_item, null, TRUE)
-	H.put_in_hands(S)
-	conjured_weapon = S
-	H.visible_message("[H] conjures a shimmering shield of arcyne energy!")
-	return TRUE
-
-/datum/action/cooldown/spell/astrata/scepter/Destroy()
-	if(conjured_weapon && !QDELETED(conjured_weapon))
-		conjured_weapon.visible_message(span_warning("[conjured_weapon] flickers and fades away!"))
-		qdel(conjured_weapon)
-	conjured_weapon = null
-	return ..()
-
-// The conjured weapon
-/obj/item/rogueweapon/sword/astrata_sword
-	name = "solar scepter"
-	desc = "A scepter of flames conjured by righteous hatred of its user. Astrata's unbridled rage at display."
-	force = 10			//more comparable to a dagger than a sword, for it is ultimately a tool
-	force_wielded = 15
-	damtype = BURN
-	possible_item_intents = list(/datum/intent/mace/strike/astrata, /datum/intent/mace/smash/astrata)//Oversized cautery
-	gripped_intents = list(/datum/intent/mace/strike/astrata, /datum/intent/mace/smash/astrata)
-	alt_grips = null
-	max_blade_int = 100
-	max_integrity = 50
-	minstr = 6
-	wdefense = 5
-	wdefense_wbonus = 3 //8 total. 1 better than a basic arming sword
-	tool_behaviour = TOOL_CAUTERY //The Main Gimmick here
-	smeltresult = null
-
-	icon = 'icons/roguetown/weapons/special/astratablade.dmi'
-	icon_state = "solar_blade"
-	var/datum/action/cooldown/spell/astrata/scepter/linked_spell
-	var/datum/weakref/caster_ref
-
-/obj/item/rogueweapon/sword/astrata_sword/Initialize()
-	. = ..()
-	set_light(5, 4, l_color = LIGHT_COLOR_WHITE)
-
-/obj/item/rogueweapon/sword/astrata_sword/obj_break()
-	. = ..()
-	if(!QDELETED(src))
-		dispel()
-
-/obj/item/rogueweapon/sword/astrata_sword/attack_hand(mob/living/user)
-	. = ..()
-	if(!QDELETED(src) && !(user.get_active_held_item() == src || user.get_inactive_held_item() == src))
-		dispel()
-
-/obj/item/rogueweapon/sword/astrata_sword/dropped(mob/living/user)
-	. = ..()
-	if(QDELETED(src))
-		return
-	var/mob/caster = caster_ref?.resolve()
-	// Only dispel if dropped on the ground (not held by the caster)
-	if(!caster || loc != caster)
-		dispel()
-
-/obj/item/rogueweapon/sword/astrata_sword/proc/dispel()
-	if(QDELETED(src))
-		return
-	visible_message(span_warning("[src] shatters into motes of divine light!"))
-	playsound(get_turf(src), 'sound/magic/magic_nulled.ogg', 80)
-	if(linked_spell)
-		linked_spell.conjured_weapon = null
-	qdel(src)
-
-////////////////////////////////////////////
-// T2 - Solar Fist - Summon a flame fist. //
-////////////////////////////////////////////
-
-/datum/action/cooldown/spell/astrata/fist
-	name = "Solar Fist"
-	desc = "Conjure a flaming fist of fury to strike down your enemies with, doubles as a cautery and can ignite objects."
-	button_icon_state = "grasp"
-	sound = 'sound/magic/whiteflame.ogg'
-	spell_color = GLOW_COLOR_ASTRATA
-	glow_intensity = GLOW_INTENSITY_MEDIUM
-
-	click_to_activate = TRUE
-	self_cast_possible = TRUE
-
-	primary_resource_type = SPELL_COST_DEVOTION
-	primary_resource_cost = SPELLCOST_MIRACLE
-
-	secondary_resource_type = SPELL_COST_STAMINA
-	secondary_resource_cost = SPELLCOST_CONJURE
-
-	invocations = list("Astrata, grant me your fury!")
-	invocation_type = INVOCATION_SHOUT
-
-	charge_required = TRUE
-	charge_time = 2 SECONDS
-	charge_drain = 1
-	charge_slowdown = CHARGING_SLOWDOWN_HEAVY
-	charge_sound = 'sound/magic/holycharging.ogg'
-	cooldown_time = 90 SECONDS
-
-	ignore_armor_penalty = TRUE
-	associated_stat = null
-	associated_skill = /datum/skill/magic/holy
-	spell_tier = 0
-	spell_impact_intensity = SPELL_IMPACT_NONE
-
-	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC | SPELL_REQUIRES_HUMAN | SPELL_REQUIRES_SAME_Z
-
-	var/obj/item/rogueweapon/solar_fist/conjured_weapon
-
-/datum/action/cooldown/spell/astrata/fist/cast(atom/cast_on)
-	. = ..()
-	var/mob/living/carbon/human/H = owner
-	if(!istype(H))
-		return FALSE
-
-	if(H.get_num_arms() <= 0)
-		to_chat(H, span_warning("I don't have any usable hands!"))
-		return FALSE
-
-	// Destroy previous conjured shield
-	if(conjured_weapon && !QDELETED(conjured_weapon))
-		conjured_weapon.visible_message(span_warning("[conjured_weapon] flickers and fades away!"))
-		qdel(conjured_weapon)
-
-	var/obj/item/rogueweapon/solar_fist/S = new(H.drop_location())
-	S.linked_spell = src
-	S.caster_ref = WEAKREF(H)
-	S.AddComponent(/datum/component/conjured_item, null, TRUE)
-	H.put_in_hands(S)
-	conjured_weapon = S
-	H.visible_message("[H] conjures a shimmering shield of arcyne energy!")
-	return TRUE
-
-/datum/action/cooldown/spell/astrata/fist/Destroy()
-	if(conjured_weapon && !QDELETED(conjured_weapon))
-		conjured_weapon.visible_message(span_warning("[conjured_weapon] flickers and fades away!"))
-		qdel(conjured_weapon)
-	conjured_weapon = null
-	return ..()
-
-// The conjured weapon
-/obj/item/rogueweapon/solar_fist
-	name = "solar fist"
-	desc = "A fist of flames conjured by righteous hatred of its user. Astrata's unbridled rage at display."
-	icon = 'icons/roguetown/misc/miraclestuff.dmi'
-	mob_overlay_icon = 'icons/roguetown/misc/miraclestuff.dmi'
-	lefthand_file = 'icons/roguetown/misc/miraclestuff.dmi'
-	righthand_file = 'icons/roguetown/misc/miraclestuff.dmi'
-	sleeved = 'icons/roguetown/misc/miraclestuff.dmi'
-	icon_state = "flamei"
-	item_state = "flameh"
-	color = GLOW_COLOR_ASTRATA
-	possible_item_intents = list(/datum/intent/knuckles/sear, /datum/intent/knuckles/strike, /datum/intent/mace/smash, /datum/intent/knuckles/strike/wallop)
-	gripsprite = FALSE
-	wlength = WLENGTH_SHORT
-	w_class = WEIGHT_CLASS_SMALL
-	parrysound = list('sound/combat/hits/punch/punch_hard (1).ogg', 'sound/combat/hits/punch/punch_hard (2).ogg', 'sound/combat/hits/punch/punch_hard (3).ogg')
-	sharpness = IS_BLUNT
-	max_integrity = 100
-	swingsound = list('sound/combat/wooshes/punch/punchwoosh (1).ogg','sound/combat/wooshes/punch/punchwoosh (2).ogg','sound/combat/wooshes/punch/punchwoosh (3).ogg')
-	associated_skill = /datum/skill/combat/unarmed
-	pickup_sound = 'sound/magic/whiteflame.ogg'
-	force = 25
-	throwforce = 12
-	wdefense = 0	//Meant to be used with bracers
-	wbalance = WBALANCE_NORMAL
-	damtype = BURN
-	thrown_bclass = BCLASS_BURN
-	anvilrepair = /datum/skill/magic/holy
-	smeltresult = null
-	tool_behaviour = TOOL_CAUTERY
-	var/datum/action/cooldown/spell/astrata/fist/linked_spell
-	var/datum/weakref/caster_ref
-
-/obj/item/rogueweapon/solar_fist/obj_break()
-	. = ..()
-	if(!QDELETED(src))
-		dispel()
-
-/obj/item/rogueweapon/solar_fist/attack_hand(mob/living/user)
-	. = ..()
-	if(!QDELETED(src) && !(user.get_active_held_item() == src || user.get_inactive_held_item() == src))
-		dispel()
-
-/obj/item/rogueweapon/solar_fist/dropped(mob/living/user)
-	. = ..()
-	if(QDELETED(src))
-		return
-	var/mob/caster = caster_ref?.resolve()
-	// Only dispel if dropped on the ground (not held by the caster)
-	if(!caster || loc != caster)
-		dispel()
-
-/obj/item/rogueweapon/solar_fist/proc/dispel()
-	if(QDELETED(src))
-		return
-	visible_message(span_warning("[src] shatters into motes of divine light!"))
-	playsound(get_turf(src), 'sound/magic/magic_nulled.ogg', 80)
-	if(linked_spell)
-		linked_spell.conjured_weapon = null
-	qdel(src)
-
-/obj/item/rogueweapon/solar_fist/Initialize()
-	. = ..()
-	item_flags |= SURGICAL_TOOL
-
-/obj/item/rogueweapon/solar_fist/pre_attack(atom/target, mob/living/user, params)
-	if(isliving(target))
-		var/mob/living/L = target
-		L.spark_act()
-	if(isobj(target))
-		var/obj/O = target
-		O.fire_act()
-	return ..()
 
 ///////////////////////////
 // T2 - Astratan Fortify //
@@ -623,10 +291,10 @@
 
 	charge_required = TRUE
 	charge_time = 3 SECONDS
-	charge_drain = 1
+	hold_drain = 1
 	charge_slowdown = CHARGING_SLOWDOWN_MEDIUM
 	charge_sound = 'sound/magic/holycharging.ogg'
-	cooldown_time = 3 MINUTES
+	cooldown_time = 10 MINUTES
 
 	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC | SPELL_REQUIRES_HUMAN | SPELL_REQUIRES_NO_MOVE | SPELL_REQUIRES_SAME_Z
 
@@ -644,7 +312,7 @@
 	if(!target || !target.Enter(owner) || is_type_in_list(target, turf_blacklist))
 		to_chat(owner, span_warning("This turf can't be on fiyaaaah! (It's blocked sire.)"))
 		return FALSE
-	
+
 	new /obj/machinery/light/rogue/campfire/miracle_pyre(target)
 
 	return TRUE
@@ -657,12 +325,12 @@
 	density = FALSE
 	layer = 2.8
 	brightness = 10
-	fueluse = 30 MINUTES
+	fueluse = 15 MINUTES
 	color = GLOW_COLOR_ASTRATA
 	bulb_colour = GLOW_COLOR_ASTRATA
 	max_integrity = 150
 	healing_range = 2
-	var/lifespan = 30 MINUTES
+	var/lifespan = 15 MINUTES
 
 /obj/machinery/light/rogue/campfire/miracle_pyre/process()
 	..()
@@ -751,7 +419,7 @@
 
 	charge_required = TRUE
 	charge_time = 1 SECONDS
-	charge_drain = 0
+	hold_drain = 0
 	charge_slowdown = CHARGING_SLOWDOWN_NONE
 	charge_sound = 'sound/magic/holycharging.ogg'
 	cooldown_time = 1.5 MINUTES
@@ -823,11 +491,6 @@
 		return FALSE
 
 	var/mob/living/target = targets[1]
-	//OV edit
-	if(istype(target, /mob/living/simple_animal/hostile/retaliate/rogue/ooze_blob/suffering))
-		target.revive()
-		return TRUE
-	//OV edit
 	if(!target.check_revive(user))
 		revert_cast()
 		return FALSE
@@ -884,341 +547,6 @@
 		return FALSE
 	return TRUE
 
-/obj/effect/proc_holder/spell/invoked/astrataspark
-	name = "Flame Order"
-	desc = "Casting on a fire-based light source will make a searing explosion in a 3x3 area around the light source. \n\
-	Casting on a burning mob will double their fire stacks.\n\
-	Casting on yourself will ignite any flammable object in a 3x3 area around yourself."
-	clothes_req = FALSE
-	overlay_state = "astraflame"
-	base_icon_state = "regalyscroll"
-	sound = 'sound/magic/whiteflame.ogg'
-	range = 8
-	releasedrain = 30
-	chargedrain = 1
-	chargetime = 15
-	recharge_time = 15 SECONDS
-	warnie = "spellwarning"
-	no_early_release = TRUE
-	movement_interrupt = FALSE
-	charging_slowdown = 3
-	chargedloop = /datum/looping_sound/invokeholy
-	glow_color = GLOW_COLOR_FIRE
-	glow_intensity = GLOW_INTENSITY_MEDIUM
-	invocations = list("Fulmen!")
-	invocation_type = "shout"
-	var/firemodificator = 2
-	devotion_cost = 50
-	miracle = TRUE
-
-/obj/effect/proc_holder/spell/invoked/astrataspark/cast(list/targets, mob/user = usr)
-	var/turf/T = get_turf(targets[1])
-	if(T.z != user.z)
-		to_chat(span_warning("You cannot cast this spell on a different z-level!"))
-		revert_cast()
-		return FALSE
-	for(var/obj/effect/hotspot/H in T.contents)
-		new /obj/effect/temp_visual/firewave/spark(T)
-		sleep(1 SECONDS)
-		explosion(T, -1, 0, 0, 0, 0, flame_range = 2, soundin = 'sound/misc/explode/incendiary (1).ogg')
-	for(var/obj/machinery/light/rogue/O in T.contents)
-		O.fire_act()
-		new /obj/effect/temp_visual/firewave/spark(T)
-		sleep(2 SECONDS)
-		explosion(T, -1, 0, 0, 0, 0, flame_range = 2, soundin = 'sound/misc/explode/incendiary (1).ogg')
-		sleep(12 SECONDS)
-		O.extinguish()
-	for(var/mob/living/L in T.contents) //doubles firestacks
-		if(L == user)
-			var/checkrange = 3 + user.get_skill_level(/datum/skill/magic/holy)
-			for(var/obj/machinery/light/rogue/O in range(checkrange, user))
-				O.fire_act()
-			return TRUE
-		if(L.anti_magic_check())
-			L.visible_message(span_warning("The magic fades away around [L]!"))
-			playsound(L, 'sound/magic/magic_nulled.ogg', 100)
-			return
-		if(spell_guard_check(L, TRUE))
-			L.visible_message(span_warning("[L] resists the flame order!"))
-			return TRUE
-		if(L.fire_stacks != 0)
-			if(L.fire_stacks >= 20) //cap
-				firemodificator = 0 //any*0 = 0
-			if(!L.mind || istype(L, /mob/living/simple_animal)) //PVE stuff. Fire not effective weapon.
-				L.adjustFireLoss(10*L.fire_stacks) //Simple or carbon-AI creatures take 10 damage * 1 firestack.
-				if(iscarbon(L)) //Carbon AI momentaly removes their firestaks.
-					var/mob/living/carbon/C = L
-					C.adjustFireLoss(C.getFireLoss()) //Double burn damage.
-			var/firest = L.fire_stacks*firemodificator
-			new /obj/effect/temp_visual/firewave/spark(T)
-			sleep(1 SECONDS)
-			L.adjust_fire_stacks(round(firest))
-	if(istype(T, /turf/open/lava))
-		new /obj/effect/temp_visual/firewave/spark(T)
-		sleep(2 SECONDS)
-		explosion(T, -1, 0, 0, 0, 0, flame_range = 3, soundin = 'sound/misc/explode/incendiary (1).ogg')
-	return TRUE
-
-/obj/effect/temp_visual/firewave/spark
-	icon_state = "flame"
-	duration = 20
-
-//T0. Removes cone vision for a dynamic duration.
-/obj/effect/proc_holder/spell/self/astrata_gaze
-	name = "Astratan Gaze"
-	desc = "Removes the limit on your vision, letting you see behind you for a time, lasts longer during the dae and gives a perception bonus to those skilled and holy arts."
-	overlay_state = "astrata_gaze"
-	base_icon_state = "regalyscroll"
-	releasedrain = 10
-	chargedrain = 0
-	chargetime = 0
-	chargedloop = /datum/looping_sound/invokeholy
-	sound = 'sound/magic/astrata_choir.ogg'
-	associated_skill = /datum/skill/magic/holy
-	antimagic_allowed = FALSE
-	invocations = list("Astrata show me true.")
-	invocation_type = "shout"
-	recharge_time = 90 SECONDS
-	devotion_cost = 30
-	miracle = TRUE
-
-/obj/effect/proc_holder/spell/self/astrata_gaze/cast(list/targets, mob/user)
-	if(!ishuman(user))
-		revert_cast()
-		return FALSE
-	var/mob/living/carbon/human/H = user
-	var/skill_level = H.get_skill_level(associated_skill)
-	H.apply_status_effect(/datum/status_effect/buff/astrata_gaze, skill_level)
-	return TRUE
-
-/atom/movable/screen/alert/status_effect/buff/astrata_gaze
-	name = "Astratan's Gaze"
-	desc = "She shines through me, illuminating all injustice."
-	icon_state = "astrata_gaze"
-
-/datum/status_effect/buff/astrata_gaze
-	id = "astratagaze"
-	alert_type = /atom/movable/screen/alert/status_effect/buff/astrata_gaze
-	duration = 20 SECONDS
-	var/skill_level = 0
-	status_type = STATUS_EFFECT_REPLACE
-
-/datum/status_effect/buff/astrata_gaze/on_creation(mob/living/new_owner, slevel)
-	// Only store skill level here
-	skill_level = slevel
-	.=..()
-
-/datum/status_effect/buff/astrata_gaze/on_apply()
-	// Reset base values because the miracle can 
-	// now actually be recast at high enough skill and during day time
-	// This is a safeguard because buff code makes my head hurt
-	var/per_bonus = 0
-	duration = 20 SECONDS
-
-	if(skill_level > SKILL_LEVEL_NOVICE)
-		per_bonus++
-
-	if(GLOB.tod == "dawn" || GLOB.tod == "day" || GLOB.tod == "dusk")
-		per_bonus++
-		duration *= 2
-
-	duration *= skill_level
-
-	if(per_bonus)
-		effectedstats = list(STATKEY_PER = per_bonus)
-
-	if(ishuman(owner))
-		var/mob/living/carbon/human/H = owner
-		H.viewcone_override = TRUE
-		H.hide_cone()
-		H.update_cone_show()
-
-	to_chat(owner, span_info("She shines through me! I can perceive all clear as dae!"))
-
-	return ..()
-
-/datum/status_effect/buff/astrata_gaze/on_remove()
-	. = ..()
-	if(ishuman(owner))
-		var/mob/living/carbon/human/H = owner
-		H.viewcone_override = FALSE
-		H.hide_cone()
-		H.update_cone_show()
-
-/obj/effect/proc_holder/spell/self/astrata_fireresist
-	name = "Flame Body"
-	desc = "Grants you a temporary resistance to flame... for a small price of your constitution."
-	overlay_state = "createlight"
-	base_icon_state = "regalyscroll"
-	releasedrain = 10
-	chargedrain = 0
-	chargetime = 0
-	chargedloop = /datum/looping_sound/invokeholy
-	sound = 'sound/magic/astrata_choir.ogg'
-	associated_skill = /datum/skill/magic/holy
-	antimagic_allowed = FALSE
-	invocations = list("Accincti flammis.")
-	invocation_type = "whisper"
-	recharge_time = 0
-	devotion_cost = 30
-	miracle = TRUE
-
-/obj/effect/proc_holder/spell/self/astrata_fireresist/cast(mob/living/carbon/human/user)
-	var/skill = user.get_skill_level(/datum/skill/magic/holy)
-	playsound(get_turf(user), 'sound/magic/haste.ogg', 80, TRUE, soundping = TRUE)
-
-	if(user.has_status_effect(/datum/status_effect/buff/dragonhide/fireresist))
-		user.remove_status_effect(/datum/status_effect/buff/dragonhide/fireresist)
-		user.remove_status_effect(/datum/status_effect/buff/dragonhide/fireresist/buff)
-		user.fire_stacks = 0
-		return TRUE
-	else
-		user.visible_message("[user] mutters an incantation and their skin hardens like coal.")
-		if(skill >= 4) //Expert++
-			user.apply_status_effect(/datum/status_effect/buff/dragonhide/fireresist/buff)
-		else
-			user.apply_status_effect(/datum/status_effect/buff/dragonhide/fireresist)
-	return TRUE
-
-/atom/movable/screen/alert/status_effect/buff/dragonhide/fireresist
-	name = "Fire Resistance"
-	desc = "Sacred flame shields me from the worst of the fire."
-	icon_state = "fire"
-
-/datum/status_effect/buff/dragonhide/fireresist
-	id = "fireresist"
-	examine_text = "<font color='red'>SUBJECTPRONOUN is shielded by a veil of sacred flame!</font>"
-	alert_type = /atom/movable/screen/alert/status_effect/buff/dragonhide/fireresist
-	effectedstats = list(STATKEY_CON = -1) //Target body loosing CON, but getting fireresist.
-	duration = 11 SECONDS
-
-/datum/status_effect/buff/dragonhide/fireresist/on_apply()
-	. = ..()
-	addtimer(CALLBACK(src, PROC_REF(continue_proc)), wait = (10 SECONDS))
-
-/datum/status_effect/buff/dragonhide/fireresist/proc/continue_proc()
-	if(QDELETED(src) || QDELING(src) || !owner || QDELETED(owner))
-		return
-	var/mob/living/carbon/human/user = owner
-	var/skill = user.get_skill_level(/datum/skill/magic/holy)
-	var/cost = 30 //Novice
-	switch(skill)
-		if(2)
-			cost = 25
-		if(3)
-			cost = 20
-		if(4)
-			cost = 10
-		if(5)
-			cost = 5
-		if(6)
-			cost = 0
-	if(user.has_status_effect(/datum/status_effect/buff/dragonhide/fireresist) || user.has_status_effect(/datum/status_effect/buff/dragonhide/fireresist/buff))
-		if((user.devotion?.devotion - cost) < 0)
-			to_chat(user, span_warning("I do not have enough devotion!"))
-			return
-		user.devotion?.update_devotion(-cost)
-		if(cost != 0)
-			to_chat(user, "<font color='purple'>I lose [cost] devotion!</font>")
-		if(skill >= 4) //Expert++
-			user.apply_status_effect(/datum/status_effect/buff/dragonhide/fireresist/buff)
-		else
-			user.apply_status_effect(/datum/status_effect/buff/dragonhide/fireresist)
-		addtimer(CALLBACK(src, PROC_REF(continue_proc)), wait = (10 SECONDS))
-	else
-		return
-
-/datum/status_effect/buff/dragonhide/fireresist/buff //you can step on lava
-
-/datum/status_effect/buff/dragonhide/fireresist/buff/on_apply()
-	. = ..()
-	addtimer(CALLBACK(src, PROC_REF(continue_proc)), wait = (15 SECONDS))
-	owner.weather_immunities += "lava"
-
-/datum/status_effect/buff/dragonhide/fireresist/buff/on_remove()
-	. = ..()
-	owner.weather_immunities -= "lava"
-
-/obj/effect/proc_holder/spell/targeted/touch/summonrogueweapon/astratagrasp // ASTRATAN HERETIC EXCLUSIVE
-	name = "Astrata's Grasp"
-	desc = "HER fire burnet eaternae. Summon Her flame from your soul and let it envelop your hand. Use on ashes, fire dust and fyritius flowers to convert them into devotion. Can ignite objects. Consumes fire stacks on people to do extra damage."
-	clothes_req = FALSE
-	drawmessage = "I prepare to perform a divine incantation."
-	dropmessage = "I release my divine focus."
-	overlay_state = "astratagrasp"
-	base_icon_state = "regalyscroll"
-	chargedrain = 0
-	chargetime = 0
-	releasedrain = 5 // this influences -every- cost involved in the spell's functionality, if you want to edit specific features, do so in handle_cost
-	chargedloop = /datum/looping_sound/invokegen
-	associated_skill = /datum/skill/magic/holy
-	hand_path = /obj/item/melee/touch_attack/rogueweapon/astratagrasp
-	devotion_cost = 30
-	miracle = TRUE
-	range = -1
-
-/obj/item/melee/touch_attack/rogueweapon/astratagrasp
-	name = "Burning Hand"
-	desc = "The Sacred Flame of Astrata"
-	icon = 'icons/roguetown/misc/miraclestuff.dmi'
-	mob_overlay_icon = 'icons/roguetown/misc/miraclestuff.dmi'
-	lefthand_file = 'icons/roguetown/misc/miraclestuff.dmi'
-	righthand_file = 'icons/roguetown/misc/miraclestuff.dmi'
-	sleeved = 'icons/roguetown/misc/miraclestuff.dmi'
-	icon_state = "flamei"
-	item_state = "flameh"
-	color = "#ffbb00ff"
-	possible_item_intents = list(/datum/intent/mace/strike/astrata, /datum/intent/mace/smash/astrata, /datum/intent/use)
-	tool_behaviour = TOOL_CAUTERY
-	parrysound = list('sound/magic/magic_nulled.ogg')
-	swingsound = list('sound/items/firelight.ogg')
-	attached_spell = /obj/effect/proc_holder/spell/targeted/touch/summonrogueweapon/astratagrasp
-	wbalance = WBALANCE_HEAVY
-	force = 0
-	damtype = BURN
-	wdefense = 0
-	associated_skill = /datum/skill/magic/holy //EHEHEHEHEHEH
-	can_parry = TRUE
-	var/takespeed = 5
-	var/fprob = 0
-	var/cooldown = FALSE
-
-/datum/intent/mace/strike/astrata
-	hitsound = list('sound/items/firelight.ogg', 'sound/misc/frying.ogg', 'sound/misc/explode/incendiary (1).ogg', 'sound/misc/explode/incendiary (2).ogg')
-
-/datum/intent/mace/smash/astrata
-	hitsound = list('sound/items/firelight.ogg', 'sound/misc/frying.ogg', 'sound/misc/explode/incendiary (1).ogg', 'sound/misc/explode/incendiary (2).ogg')
-
-/obj/item/melee/touch_attack/rogueweapon/astratagrasp/Initialize()
-	. = ..()
-	addtimer(CALLBACK(src, PROC_REF(skillcheck), src), wait = 1)
-	ADD_TRAIT(src, TRAIT_NODROP, ABSTRACT_ITEM_TRAIT)
-	item_flags |= SURGICAL_TOOL
-
-/obj/item/melee/touch_attack/rogueweapon/astratagrasp/attack(mob/target, mob/living/carbon/user)
-	if(!iscarbon(user)) //Look ma, no hands
-		return
-	if(!(user.mobility_flags & MOBILITY_USE))
-		to_chat(user, "<span class='warning'>I cannot reach out!</span>")
-		return
-	..()
-
-/obj/item/melee/touch_attack/rogueweapon/astratagrasp/proc/skillcheck()
-	var/skill = usr.get_skill_level(/datum/skill/magic/holy)
-	wdefense += skill
-	wdefense_dynamic += skill
-	fprob = 10 * skill
-	if(skill <= 4)
-		force = 5 * skill
-	else
-		force = 20
-
-/obj/item/melee/touch_attack/rogueweapon/astratagrasp/attack_self()
-	attached_spell.remove_hand()
-	qdel(src)
-
-/obj/item/melee/touch_attack/rogueweapon/astratagrasp/proc/cooldown()
-	cooldown = FALSE
 
 
 
