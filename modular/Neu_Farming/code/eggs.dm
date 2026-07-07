@@ -14,7 +14,7 @@
 
 	var/fertile = FALSE
 
-obj/item/reagent_containers/food/snacks/rogue/egg/rot()
+/obj/item/reagent_containers/food/snacks/rogue/egg/rot()
 	..()
 	if(fertile)
 		if(isturf(loc))
@@ -27,7 +27,7 @@ obj/item/reagent_containers/food/snacks/rogue/egg/rot()
 			qdel(src)
 
 
-obj/item/reagent_containers/food/snacks/rogue/egg/become_rotten()
+/obj/item/reagent_containers/food/snacks/rogue/egg/become_rotten()
 	. = ..()
 	if(.)
 		fertile = FALSE
