@@ -447,7 +447,7 @@
 	/obj/item/reagent_containers/food/snacks/rogue/meat/poultry = 4,\
 	/obj/item/reagent_containers/food/snacks/rogue/meat/crab = 3,\
 	/obj/item/reagent_containers/food/snacks/rogue/meat/rabbit = 4,\
-	/obj/item/reagent_containers/food/snacks/rogue/meat/steak/wolf = 2,\
+	/obj/item/reagent_containers/food/snacks/rogue/meat/wolf = 2,\
 	/obj/item/reagent_containers/food/snacks/rogue/meat/fish = 5,\
 	/obj/item/reagent_containers/food/snacks/rogue/meat/shellfish = 4,\
 )
