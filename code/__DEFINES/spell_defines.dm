@@ -140,6 +140,7 @@
 #define ASPECT_NAME_GEOMANCY    "Stone"
 #define ASPECT_NAME_KINESIS     "Force"
 #define ASPECT_NAME_FERRAMANCY  "Metal"
+#define ASPECT_NAME_SPELLSWORD  "Spellsword"
 #define ASPECT_NAME_AUGMENTATION "Enhancement"
 #define ASPECT_NAME_BATTLEWARDRY "Wards"
 #define ASPECT_NAME_TELOMANCY   "Trajectory"

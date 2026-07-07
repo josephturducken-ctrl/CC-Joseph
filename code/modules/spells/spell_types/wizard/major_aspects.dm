@@ -251,7 +251,7 @@
 	)
 
 /datum/magic_aspect/Ferramancy
-	name = "Spellsword"
+	name = "Ferramancy"
 	latin_name = "Maior Aspectus Ferri"
 	desc = "Ferramancy is a second-order magical school. Amongst the many major aspects, it is likely the youngest - \
 	though this merely puts it as younger than the other aspects by only a millennium or so. Ferramancers conceptualize primal matters \
@@ -296,7 +296,7 @@
 	latin_name = "Maior Aspectus Ferri"
 	desc = "An often overlooked art in the modern dae and age of magical combat."
 	aspect_type = ASPECT_MAJOR
-	attuned_name = ASPECT_NAME_FERRAMANCY
+	attuned_name = ASPECT_NAME_SPELLSWORD
 	school_color = GLOW_COLOR_METAL
 	binding_chants = list(
 		"Invoco chalybem indomitum!",
