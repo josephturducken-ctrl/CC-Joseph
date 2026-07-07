@@ -482,13 +482,11 @@
 /datum/wound/slime/on_bodypart_gain(obj/item/bodypart/affected)
 	. = ..()
 	affected.temporary_crit_paralysis(20 SECONDS)
-	affected.owner.add_movespeed_modifier(MOVESPEED_ID_FRACTURE_SKULL, multiplicative_slowdown = FRACTURED_ADD_SLOWDOWN)
 
 /datum/wound/slime/on_bodypart_loss(obj/item/bodypart/affected)
 	. = ..()
 	if(!affected.owner)
 		return
-	affected.owner.remove_movespeed_modifier(MOVESPEED_ID_FRACTURE_SKULL)
 
 /datum/wound/slime/can_stack_with(datum/wound/other)
 	if(istype(other, /datum/wound/slime) && (type == other.type))
