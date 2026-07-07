@@ -80,6 +80,7 @@ GLOBAL_LIST_INIT(t4rune_types, generate_t4rune_types())
 
 /// List of all teleport runes
 GLOBAL_LIST(teleport_runes)
+GLOBAL_LIST(leyline_teleport_runes)
 
 /// Returns an associated list of rune types. [rune.cultist_name] = [typepath]
 /proc/generate_rune_types()
@@ -1116,7 +1117,7 @@ GLOBAL_LIST(teleport_runes)
 	var/area/A = get_area(src)
 	var/locname = initial(A.name)
 	listkey = set_keyword ? "[set_keyword] [locname]":"[locname]"
-	LAZYADD(GLOB.teleport_runes, src)
+	LAZYADD(GLOB.leyline_teleport_runes, src)
 
 /obj/effect/decal/cleanable/roguerune/arcyne/teleport_alt/attack_hand(mob/living/user)
 	if(!isarcyne(user))
@@ -1130,7 +1131,7 @@ GLOBAL_LIST(teleport_runes)
 	rune_in_use = FALSE
 
 /obj/effect/decal/cleanable/roguerune/arcyne/teleport_alt/Destroy()
-	LAZYREMOVE(GLOB.teleport_runes, src)
+	LAZYREMOVE(GLOB.leyline_teleport_runes, src)
 	return ..()
 
 /// Find a leyline within range 5 of this rune
@@ -1157,7 +1158,7 @@ GLOBAL_LIST(teleport_runes)
 	// --- Build destination list (filter by leyline proximity + cooldown) ---
 	var/list/potential_runes = list()
 	var/list/teleportnames = list()
-	for(var/obj/effect/decal/cleanable/roguerune/arcyne/teleport_alt/teleport_rune as anything in GLOB.teleport_runes)
+	for(var/obj/effect/decal/cleanable/roguerune/arcyne/teleport_alt/teleport_rune as anything in GLOB.leyline_teleport_runes)
 		if(teleport_rune == src)
 			continue
 		var/obj/structure/leyline/dest_ley = teleport_rune.find_nearby_leyline()
