@@ -319,6 +319,7 @@
 
 /obj/item/needle/bone
 	name = "bone needle"
+	icon = 'modular_causticcove/icons/roguetown/items/boneneedle.dmi'
 	icon_state = "boneneedle"
 	desc = "A sharp piece of worked bone. Perfect for stitching hide and skin alike."
 	stringamt = 10
