@@ -32,9 +32,18 @@
 	var/tech_unlocked = TRUE // Set to TRUE when the required tech is unlocked
 	var/rotations_required = 1
 	var/display_category = ITEM_CAT_SMITHING_MISC
+	var/skip_quality = FALSE
+	var/min_input_quality = null
 
-/datum/anvil_recipe/New(datum/P, using_blade = FALSE, ...)
+/datum/anvil_recipe/New(datum/P, ...)
+	parent = P
 	. = ..()
+
+/datum/anvil_recipe/proc/track_input_quality(obj/item/I)
+	if(!istype(I) || !I.has_item_quality)
+		return
+	if(min_input_quality == null || I.item_quality < min_input_quality)
+		min_input_quality = I.item_quality
 
 /datum/anvil_recipe/proc/advance(mob/user, breakthrough = FALSE, advance_multiplier = 1, obj/machinery/anvil/source)
 	if(!isliving(user))
@@ -224,6 +233,12 @@
 	if(tier == null)
 		return
 
+	if(skip_quality)
+		if(!initial(I.has_item_quality) || min_input_quality == null)
+			return
+		I.apply_quality(null, null, min_input_quality)
+		return
+
 	I.has_item_quality = TRUE
 	I.apply_quality(null, null, tier)
 	if(tier == ITEM_QUALITY_MASTERWORK)
@@ -275,7 +290,7 @@
 		html += "Combat Properties<br>"
 		if(bookweapon.minstr)
 			html += "\n<b>MIN.STR:</b> [bookweapon.minstr]<br>"
-		
+
 		if(bookweapon.force)
 			html += "\n<b>FORCE:</b> [bookweapon.force]<br>"
 		if(bookweapon.gripped_intents && !bookweapon.wielded)
@@ -288,7 +303,7 @@
 				html += "Heavy<br>"
 			if(bookweapon.wbalance == WBALANCE_SWIFT)
 				html += "Swift<br>"
-			
+
 
 		if(bookweapon.wlength != WLENGTH_NORMAL)
 			html += "\n<b>LENGTH:</b> "
@@ -300,7 +315,7 @@
 				if(WLENGTH_GREAT)
 					html += "Great<br>"
 
-		if(bookweapon.has_altgrip_modes())
+		if(!ispath(bookweapon) && bookweapon.has_altgrip_modes())
 			var/alt_grip_names = bookweapon.get_altgrip_names()
 			html += "\n<b>GRIP: ALT-GRIP (Inhand RMB / Hotkey)"
 			if(alt_grip_names)
@@ -319,11 +334,11 @@
 			html += "\n<b>DEFENSE:</b> [bookweapon.wdefense]<br>"
 		if(bookweapon.associated_skill && bookweapon.associated_skill.name)
 			html += "\n<b>SKILL:</b> [bookweapon.associated_skill.name]<br>"
-		
+
 		if(bookweapon.intdamage_factor != 1 && bookweapon.force >= 5)
 			html += "\n<b>INTEGRITY DAMAGE:</b> [bookweapon.intdamage_factor * 100]%<br>"
 
-	
+
 	if(craftdiff > 0)
 		html += "<h1></h1>For those of [SSskills.level_names_plain[craftdiff]] skills<br>"
 	else
