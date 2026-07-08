@@ -4,7 +4,7 @@
 	tutorial = "You are the Jester of Heartfelt, a bringer of laughter in brighter days. \
 	Though grief weighs heavy beneath your painted smile, you turn your steps toward the Peak—hoping your wit, charm, and cunning may yet carve out a place for joy."
 	allowed_sexes = list(MALE, FEMALE)
-	forbidden_races = list(RACES_CONSTRUCT RACES_DESPISED)
+	forbidden_races = list(RACES_CONSTRUCT) //Caustic Edit - Just a global tweak to remove 'races_despised' from this check everywhere
 	outfit = /datum/outfit/job/roguetown/heartfelt/retinue/jester
 	maximum_possible_slots = 1
 	pickprob = 100

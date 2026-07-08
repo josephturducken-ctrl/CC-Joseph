@@ -8,7 +8,7 @@
 	spawn_positions = 1
 	display_order = 6
 	selection_color = JCOLOR_BURGHER
-	forbidden_races = list(RACES_DESPISED)
+	forbidden_races = list() //Caustic Edit - Just a global tweak to remove 'races_despised' from this check everywhere
 	display_order = JDO_TAILOR
 	job_traits = list(TRAIT_SEWING_EXPERT)
 	outfit = /datum/outfit/job/roguetown/tailor

@@ -6,7 +6,7 @@
 	total_positions = 1
 	spawn_positions = 1
 
-	forbidden_races = list(RACES_DESPISED)
+	forbidden_races = list() //Caustic Edit - Just a global tweak to remove 'races_despised' from this check everywhere
 
 	tutorial = "The Grenzelhofts were known for their Jesters, wisemen with a tongue just as sharp as their wit. \
 		You command a position of a fool, envious of the position your superiors have upon you. \

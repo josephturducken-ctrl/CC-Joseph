@@ -6,7 +6,7 @@
 	total_positions = 1
 	spawn_positions = 1
 
-	forbidden_races = list(RACES_DESPISED)
+	forbidden_races = list() //Caustic Edit - Just a global tweak to remove 'races_despised' from this check everywhere
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_ADULT)
 	is_quest_giver = TRUE

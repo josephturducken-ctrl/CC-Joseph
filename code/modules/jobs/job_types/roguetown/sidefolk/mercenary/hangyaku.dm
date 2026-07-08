@@ -104,7 +104,7 @@
 	name = "Hangyaku-Chonin"
 	tutorial = "Once, you were a farmer, a miner, a seamstress, a commoner. Now the sword is your plow and war your field. You’ve hammered your scythes into spears and recast your knives into swords. Past the door, your daimyo is calling - and destiny awaits."
 	allowed_sexes = list(MALE, FEMALE)
-	forbidden_races = list(RACES_CONSTRUCT)//do they have constructs in kazengun?
+	forbidden_races = list() //Caustic Edit - Just a global tweak to remove 'races_despised' from this check everywhere
 	outfit = /datum/outfit/job/roguetown/mercenary/chonin
 	subclass_languages = list(/datum/language/kazengunese)
 	class_select_category = CLASS_CAT_KAZENGUN

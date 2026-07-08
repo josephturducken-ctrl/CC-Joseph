@@ -31,7 +31,7 @@
 	name = "Knight"
 	tutorial = "You are a knight from a distant land, a scion of a noble house visiting Azuria for one reason or another."
 	allowed_sexes = list(MALE, FEMALE)
-	forbidden_races = list(RACES_CONSTRUCT RACES_DESPISED)
+	forbidden_races = list(RACES_CONSTRUCT) //Caustic Edit - Just a global tweak to remove 'races_despised' from this check everywhere
 	outfit = /datum/outfit/job/roguetown/adventurer/knighte_expert
 	traits_applied = list(TRAIT_NOBLE, TRAIT_HEAVYARMOR, TRAIT_STEELHEARTED)
 	category_tags = list(CTAG_KJ_KNIGHT)
