@@ -26,8 +26,8 @@
 			continue
 		if(is_type_in_list(I, disallowed_types)) //Drops all items of the disallowed type
 			dropItemToGround(I)
-		else if(I.has_armor_value()) //Drop armor
-			dropItemToGround(I)
+		//else if(I.has_armor_value()) //Drop armor
+		//	dropItemToGround(I)
 
 /mob/living/carbon/human/proc/wildshape_transformation(shapepath, list/allowed_equipment, list/disallowed_equipment)
 	if(!mind)
