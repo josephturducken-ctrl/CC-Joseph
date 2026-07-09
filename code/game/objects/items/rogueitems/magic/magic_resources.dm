@@ -2,6 +2,8 @@
 #define T2SELLPRICE 15
 #define T3SELLPRICE 50
 #define T4SELLPRICE 250
+#define LEYLINE_SELLPRICE 30
+#define VOIDSTONE_SELLPRICE 40
 
 // Magical resources for the Ratwood ported Mage Gameplay Loop system
 // Chose to not use /natural typepath because it didn't make much sense and this
@@ -244,3 +246,5 @@
 #undef T2SELLPRICE
 #undef T3SELLPRICE
 #undef T4SELLPRICE
+#undef LEYLINE_SELLPRICE
+#undef VOIDSTONE_SELLPRICE
