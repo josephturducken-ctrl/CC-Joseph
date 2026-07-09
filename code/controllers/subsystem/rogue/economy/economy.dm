@@ -228,7 +228,7 @@ SUBSYSTEM_DEF(economy)
 	expire_economic_events()
 	roll_economic_events()
 	tick_blockade_replenish()
-	tick_banditry_drain()
+	//tick_banditry_drain() //Caustic Edit - Disabling banditry for now
 
 	// Runs after events/blockades so auto-import sees the day's fresh price_mods, blockade
 	// flags, and produces_today values. Happens before standing-order rolls - the rolls
