@@ -1392,42 +1392,20 @@
 	var/riteselection = input(user, "Rituals of Love", src) as null|anything in peacerites
 	switch(riteselection) // put ur rite selection here
 		if("Rite of Pacification")
-			if(do_after(user, 50))
-				user.say("#Blessed be your weary head...")
-				if(do_after(user, 50))
-					user.say("#Full of strife and pain...")
-					if(do_after(user, 50))
-						user.say("#Let Her ease your fear...")
-						if(do_after(user, 50))
-							icon_state = "eora_active"
-							pacify(src)
-							user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
-							spawn(120)
-								icon_state = "eora_chalky"
-		if("Rite of the Open Hearth")
-			var/onrune = view(1, loc)
-			var/list/folksonrune = list()
-			for(var/mob/living/carbon/human/persononrune in onrune)
-				if(HAS_TRAIT(persononrune, TRAIT_EXTEROCEPTION))//Only works on Eorans
-					folksonrune += persononrune
-			var/target = input(user, "Choose a host") as null|anything in folksonrune
-			if(!target)
-				return
-			user.say("I stand before you Mother to beg your ear and swear an oath!!")
 			if(!do_after(user, 5 SECONDS))
 				return
-			user.say("To stoke no anguish! To cause no pain!!")
+			user.say("#Blessed be your weary head...")
 			if(!do_after(user, 5 SECONDS))
 				return
-			user.say("To mend what is frayed and redeem what has strayed!!")
+			user.say("#Full of strife and pain...")
 			if(!do_after(user, 5 SECONDS))
 				return
-			user.say("To shelter the lost and warm the forgotten!!")
+			user.say("#Let Her ease your fear...")
 			if(!do_after(user, 5 SECONDS))
 				return
 			icon_state = "eora_active"
+			pacify(src)
 			user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
-			eoranaura(target)
 			spawn(120)
 				icon_state = "eora_chalky"
 		if("Rite of the Open Hearth")
