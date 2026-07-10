@@ -74,6 +74,8 @@
 
 /// Finds a bed we are having fun on, if any
 /datum/sex_session/proc/find_bed()
+	if(!target) //Caustic Edit - Somehow this is null sometimes? So lets just not runtime.
+		return
 	if(bed)
 		if(target.loc == bed.loc)
 			target_on_bed = TRUE

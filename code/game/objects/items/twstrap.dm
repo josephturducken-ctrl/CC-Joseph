@@ -28,6 +28,7 @@
 		/obj/item/throwing_star,
 		/obj/item/rogueweapon/huntingknife
 	)
+	var/armor_class = ARMOR_CLASS_NONE //Caustic Edit - Lets just add this here, though it PROBABLY should be a child of the clothing type?
 
 /obj/item/twstrap/attackby(obj/A, mob/living/carbon/user, params)
 	var/obj/item/I = A
