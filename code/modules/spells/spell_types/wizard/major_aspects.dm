@@ -20,17 +20,17 @@
 	)
 	fixed_spells = list(
 		/datum/action/cooldown/spell/projectile/spitfire,
-		/datum/action/cooldown/spell/projectile/fireball,
-		/datum/action/cooldown/spell/fire_blast,
+		/datum/action/cooldown/spell/telegraphed_strike/dragons_breath,
+		/datum/action/cooldown/spell/projectile/fireball/barrage,
 		/datum/action/cooldown/spell/fire_curtain,
 		/datum/action/cooldown/spell/create_campfire,
 	)
 	variants = list(
 		"mastery" = list(
-			VARIANT_ADDITIVE =/datum/action/cooldown/spell/projectile/fireball/greater,
+			VARIANT_ADDITIVE =/datum/action/cooldown/spell/projectile/pyroclasm,
 		),
-		"grenzelhoftian" = list(
-			/datum/action/cooldown/spell/projectile/fireball = /datum/action/cooldown/spell/projectile/fireball/artillery,
+		"gefechtsgelehrter" = list(
+			VARIANT_ADDITIVE = /datum/action/cooldown/spell/fire_strike,	
 		),
 	)
 
@@ -57,9 +57,16 @@
 	)
 	fixed_spells = list(
 		/datum/action/cooldown/spell/projectile/frost_bolt,
-		/datum/action/cooldown/spell/frost_blast,
-		/datum/action/cooldown/spell/projectile/ice_burst,
-		/datum/action/cooldown/spell/snap_freeze,
+		/datum/action/cooldown/spell/projectile/rimecast,
+		/datum/action/cooldown/spell/forcewall/ice,
+		/datum/action/cooldown/spell/verglas,
+		/datum/action/cooldown/spell/fridigitation,
+	)
+	spell_order = list(
+		/datum/action/cooldown/spell/projectile/frost_bolt,
+		/datum/action/cooldown/spell/projectile/rimecast,
+		/datum/action/cooldown/spell/forcewall/ice,
+		/datum/action/cooldown/spell/verglas,
 		/datum/action/cooldown/spell/fridigitation,
 	)
 	variants = list(
@@ -90,8 +97,8 @@
 	fixed_spells = list(
 		/datum/action/cooldown/spell/projectile/arc_bolt,
 		/datum/action/cooldown/spell/projectile/lightning_bolt,
-		/datum/action/cooldown/spell/heavens_strike,
-		/datum/action/cooldown/spell/thunderstrike,
+		/datum/action/cooldown/spell/fulmination,
+		/datum/action/cooldown/spell/levinstroke,
 		/datum/action/cooldown/spell/light,
 	)
 	variants = list(
@@ -131,6 +138,9 @@
 		"mastery" = list(
 			VARIANT_ADDITIVE =/datum/action/cooldown/spell/meteor_strike,
 		),
+		"gefechtsgelehrter" = list(
+			VARIANT_ADDITIVE = /datum/action/cooldown/spell/grenzel_meteor,
+		),
 	)
 
 /datum/magic_aspect/kinesis
@@ -155,11 +165,11 @@
 		"Vis, a me discedere!",
 	)
 	fixed_spells = list(
+		/datum/action/cooldown/spell/projectile/basic_offensive,
 		/datum/action/cooldown/spell/crush,
 		/datum/action/cooldown/spell/gravity,
-		/datum/action/cooldown/spell/gravity_anchor,
+		/datum/action/cooldown/spell/telegraphed_strike/kinetic_burst,
 		/datum/action/cooldown/spell/greater_cleaning,
-		/datum/action/cooldown/spell/projectile/basic_offensive,
 	)
 	variants = list(
 		"mastery" = list(
@@ -188,8 +198,8 @@
 	fixed_spells = list(
 		/datum/action/cooldown/spell/projectile/basic_offensive,
 		/datum/action/cooldown/spell/projectile/arcyne_salvo,
-		/datum/action/cooldown/spell/energetic_blast,
-		/datum/action/cooldown/spell/projectile/seeker_volley,
+		/datum/action/cooldown/spell/telegraphed_strike/crossing_blast,
+		/datum/action/cooldown/spell/arcyne_burst,
 		/datum/action/cooldown/spell/greater_cleaning, // placeholder free utility - replace with Recall once implemented
 	)
 	variants = list(
@@ -322,6 +332,9 @@
 		"mastery" = list(
 			VARIANT_ADDITIVE =/datum/action/cooldown/spell/blade_dance,
 		),
+		"gefechtsgelehrter" = list(
+			VARIANT_ADDITIVE = /datum/action/cooldown/spell/form_blade/form_hammer,
+		),
 	)
 
 /datum/magic_aspect/battlewardry
@@ -356,4 +369,40 @@
 		"mastery" = list(
 			VARIANT_ADDITIVE =/datum/action/cooldown/spell/arcyne_fortress,
 		),
+	)
+
+/datum/magic_aspect/conjuration
+	name = "Conjuration"
+	latin_name = "Maior Aspectus Vocationis"
+	desc = "A school devoted to tapping into the leyline, and calling forth the elements or others as one's servants. \
+	Where other magi hurl mana formed into elements, Conjurer commands their servants from behind to fight. Though, an artificial mind is often lacking in intellect and technique - many a conjurer therefore practice Projection, taking over their conjured servants to assault their enemies directly. \
+	Such magick cannot be maintained over a long range, and no conjurer can conjure a servant more powerful than fighting themselves. But the lack of long term risk is a major benefit, even if the conjurer suffers a horrific recoil once their conjured summons are taken down."
+	aspect_type = ASPECT_MAJOR
+	attuned_name = ASPECT_NAME_CONJURATION
+	school_color = GLOW_COLOR_ARCANE
+	binding_chants = list(
+		"Invoco famulos ex arcano!",
+		"I call forth a servant to stand at my side, arise!",
+		"Vocatio, in me ligare!",
+	)
+	unbinding_chants = list(
+		"Solvo vocationem vinctam!",
+		"I dismiss the servant I have called, return whence you came.",
+		"Vocatio, a me discedere!",
+	)
+	fixed_spells = list(
+		/datum/action/cooldown/spell/minion_order/conjurer,
+		/datum/action/cooldown/spell/minion_mark,
+		/datum/action/cooldown/spell/conjure_dismiss,
+		/datum/action/cooldown/spell/augment_buff/grasp,
+		/datum/action/cooldown/spell/forcewall,
+		/datum/action/cooldown/spell/augment_buff/surge,
+		/datum/action/cooldown/spell/augment_buff/guidance,
+		/datum/action/cooldown/spell/augment_buff/blood_rush,
+	)
+	choice_spells = list(
+		/datum/action/cooldown/spell/conjure_summon/primordial,
+		/datum/action/cooldown/spell/conjure_summon/champion,
+		/datum/action/cooldown/spell/conjure_summon/champion/goblin,
+		/datum/action/cooldown/spell/conjure_summon/hordes,
 	)

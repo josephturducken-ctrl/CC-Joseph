@@ -1,14 +1,15 @@
 /datum/action/cooldown/spell/augment_buff/precognition
 	name = "Precognition"
-	desc = "Peer a few moments into the future for yourself or an ally, readying them before the moment arrives. Cuts 30 seconds from the remaining cooldown of the target's Defend and Special."
+	desc = "Peer a few moments into the future for yourself or an ally, readying them before the moment arrives. Cuts 15 seconds from the remaining cooldown of the target's Defend and Special."
 	button_icon_state = "readomen"
 
 	primary_resource_cost = SPELLCOST_UTILITY_BUFF
 
 	invocations = list("Praevidere.")
 
-	charge_time = 0.5 SECONDS
+	charge_required = FALSE
 	cooldown_time = 75 SECONDS
+	other_cast_cooldown_reduction = 0 // Does not benefit from ally-cast cooldown reduction
 
 	point_cost = 1
 
@@ -29,7 +30,7 @@
 	target.vis_contents += V
 
 	if(hastened)
-		target.balloon_alert_to_viewers("<font color='#66ffcc'>cooldowns -30s!</font>")
+		target.balloon_alert_to_viewers("<font color='#66ffcc'>cooldowns -15s!</font>")
 		to_chat(target, span_notice("I glimpse the moments ahead, and ready myself for the next move."))
 	else
 		to_chat(target, span_notice("I glimpse the moments ahead, but there is nothing left to hasten."))
@@ -39,7 +40,7 @@
 	var/datum/status_effect/S = target.has_status_effect(effect_type)
 	if(!S)
 		return FALSE
-	S.duration -= 30 SECONDS
+	S.duration -= amount
 	if(S.duration <= world.time)
 		target.remove_status_effect(effect_type)
 	return TRUE

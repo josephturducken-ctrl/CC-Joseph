@@ -28,6 +28,7 @@
 	invocation_type = INVOCATION_SHOUT
 
 	charge_required = TRUE
+	charge_swingdelay_type = SWINGDELAY_CANCEL
 	charge_time = 6 SECONDS
 	charge_slowdown = 3
 	charge_sound = 'sound/magic/charging.ogg'
@@ -148,6 +149,7 @@
 	dismiss_invocation = "Draconis Dissipo!"
 	regen_invocation = "Draconis Restauro!"
 	point_cost = 4
+	exclusive_group = "arcyne_ward"
 	ward_type = /obj/item/clothing/suit/roguetown/armor/manual/arcyne_ward/dragonhide
 	regen_spell_type = /datum/action/cooldown/spell/regenerate_arcyne_ward/dragonhide
 
@@ -165,6 +167,7 @@
 	charge_time = 5 SECONDS
 	point_cost = 4
 	spell_tier = 3
+	exclusive_group = "arcyne_ward"
 	ward_type = /obj/item/clothing/suit/roguetown/armor/manual/arcyne_ward/crystalhide
 	regen_spell_type = /datum/action/cooldown/spell/regenerate_arcyne_ward/crystalhide
 
@@ -188,6 +191,7 @@
 	primary_resource_cost = SPELLCOST_CONJURE
 
 	charge_required = TRUE
+	charge_swingdelay_type = SWINGDELAY_CANCEL
 	charge_time = 6 SECONDS
 	hold_drain = 1
 	charge_slowdown = 3

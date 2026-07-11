@@ -30,6 +30,7 @@
 	charge_time = CHARGETIME_HEAVY
 	hold_drain = 1
 	charge_slowdown = CHARGING_SLOWDOWN_HEAVY
+	charge_swingdelay_type = SWINGDELAY_CANCEL
 	charge_sound = 'sound/magic/charging_fire.ogg'
 	cooldown_time = 60 SECONDS
 

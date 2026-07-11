@@ -779,6 +779,70 @@ GLOBAL_LIST(leyline_teleport_runes)
 			to_chat(living_invoker,  span_italics("[src] saps your strength!"))
 	do_invoke_glow()
 
+/obj/effect/decal/cleanable/roguerune/arcyne/verglas
+	name = "verglas accession matrix"
+	desc = "arcane symbols litter the ground- a slick sheen of frost spreads from the sigil."
+	icon_state = "wall"
+	tier = 2
+	invocation = "Glacies Surgat!"
+	can_be_scribed = TRUE
+	color = GLOW_COLOR_ICE
+	var/field_radius = 3 // Slippery sliddery (Match spell for ice rink fight)
+	var/list/field = list()
+
+/obj/effect/decal/cleanable/roguerune/arcyne/verglas/New()
+	. = ..()
+	rituals += GLOB.verglasrunerituallist
+
+/obj/effect/decal/cleanable/roguerune/arcyne/verglas/Destroy()
+	QDEL_LIST_CONTENTS(field)
+	field = null
+	return ..()
+
+/obj/effect/decal/cleanable/roguerune/arcyne/verglas/attack_hand(mob/living/user)
+	if(active)
+		QDEL_LIST_CONTENTS(field)
+		to_chat(user, span_warning("You deactivate the [src]!"))
+		playsound(usr, 'sound/magic/teleport_diss.ogg', 75, TRUE)
+		active = FALSE
+		return
+	. = ..()
+
+/obj/effect/decal/cleanable/roguerune/arcyne/verglas/invoke(list/invokers, datum/runeritual/runeritual)
+	if(!..())
+		return
+	var/turf/centerpoint = get_turf(src)
+	var/mob/living/user = usr
+	if(istype(user))
+		var/turf/front = get_step(centerpoint, user.dir)
+		if(front)
+			front = get_step(front, user.dir)
+		if(front)
+			centerpoint = front
+	playsound(centerpoint, 'sound/spellbooks/crystal.ogg', 80, TRUE)
+	for(var/turf/T in get_hear(field_radius, centerpoint))
+		if(T.density)
+			continue
+		if(locate(/obj/effect/verglas) in T)
+			continue
+		field += new /obj/effect/verglas(T, 0)
+	active = TRUE
+
+	if(ritual_result)
+		pickritual.cleanup_atoms(selected_atoms)
+	invoke_cleanup()
+
+	for(var/atom/invoker in invokers)
+		if(!isliving(invoker))
+			continue
+		var/mob/living/living_invoker = invoker
+		if(invocation)
+			living_invoker.say(invocation, language = /datum/language/common, ignore_spam = TRUE, forced = "cult invocation")
+		if(invoke_damage)
+			living_invoker.apply_damage(invoke_damage, BRUTE)
+			to_chat(living_invoker,  span_italics("[src] saps your strength!"))
+	do_invoke_glow()
+
 /obj/effect/decal/cleanable/roguerune/arcyne/wallgreater
 	name = "fortress accession matrix"
 	desc = "A massive sigil- is that a wall in the center?"
