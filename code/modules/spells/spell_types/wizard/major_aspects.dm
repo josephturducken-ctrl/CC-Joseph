@@ -260,7 +260,7 @@
 		/datum/action/cooldown/spell/nondetection,
 	)
 
-/datum/magic_aspect/Ferramancy
+/datum/magic_aspect/ferramancy
 	name = "Ferramancy"
 	latin_name = "Maior Aspectus Ferri"
 	desc = "Ferramancy is a second-order magical school. Amongst the many major aspects, it is likely the youngest - \
