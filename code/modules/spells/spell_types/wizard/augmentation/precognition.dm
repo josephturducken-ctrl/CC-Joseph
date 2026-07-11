@@ -36,7 +36,7 @@
 		to_chat(target, span_notice("I glimpse the moments ahead, but there is nothing left to hasten."))
 	return TRUE
 
-/datum/action/cooldown/spell/augment_buff/precognition/proc/reduce_intent_cooldown(mob/living/target, effect_type)
+/proc/reduce_intent_cooldown(mob/living/target, effect_type, amount = 15 SECONDS)
 	var/datum/status_effect/S = target.has_status_effect(effect_type)
 	if(!S)
 		return FALSE
