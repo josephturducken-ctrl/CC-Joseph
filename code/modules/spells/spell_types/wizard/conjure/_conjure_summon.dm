@@ -150,7 +150,7 @@
 	return
 
 /datum/action/cooldown/spell/conjure_summon/proc/get_summon_tier(mob/living/user)
-	var/lvl = user?.get_skill_level(/datum/skill/combat/arcyne)
+	var/lvl = user?.get_skill_level(/datum/skill/magic/arcane)
 	if(lvl >= SKILL_LEVEL_MASTER)
 		return 3
 	if(lvl >= SKILL_LEVEL_EXPERT)
