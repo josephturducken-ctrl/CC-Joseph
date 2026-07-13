@@ -130,9 +130,9 @@
 	)
 	fixed_spells = list(
 		/datum/action/cooldown/spell/projectile/gravel_blast,
-		/datum/action/cooldown/spell/emergence,
-		/datum/action/cooldown/spell/projectile/boulder_strike,
-		/datum/action/cooldown/spell/ensnare,
+		/datum/action/cooldown/spell/tumult,
+		/datum/action/cooldown/spell/menhir,
+		/datum/action/cooldown/spell/geas,
 		/datum/action/cooldown/spell/magicians_stone,
 	)
 	variants = list(

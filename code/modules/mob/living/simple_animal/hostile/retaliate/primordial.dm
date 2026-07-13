@@ -122,8 +122,8 @@
 	attack_sound = list('sound/misc/explode/incendiary (1).ogg','sound/misc/explode/incendiary (2).ogg')
 
 	base_intents = list(/datum/intent/simple/claw/primordial)
-	health = 400
-	maxHealth = 400
+	health = 300
+	maxHealth = 300
 	melee_damage_lower = 20
 	melee_damage_upper = 30
 	vision_range = 10
@@ -142,9 +142,6 @@
 	retreat_health = 0
 	food = 0
 	next_ability_use
-
-	AIStatus = AI_OFF
-	can_have_ai = FALSE
 	ai_controller = /datum/ai_controller/flame_primordial
 
 /mob/living/simple_animal/hostile/retaliate/rogue/primordial/fire/ability(turf/target_location, mob/living/user)
@@ -209,8 +206,8 @@
 
 	base_intents = list(/datum/intent/simple/claw/primordial)
 
-	health = 500
-	maxHealth = 500
+	health = 400
+	maxHealth = 400
 	melee_damage_lower = 15
 	melee_damage_upper = 25
 	vision_range = 10
@@ -227,8 +224,6 @@
 	retreat_health = 0
 	food = 0
 
-	AIStatus = AI_OFF
-	can_have_ai = FALSE
 	ai_controller = /datum/ai_controller/water_primordial
 
 /mob/living/simple_animal/hostile/retaliate/rogue/primordial/water/ability(turf/target_location, mob/living/user)
@@ -321,8 +316,8 @@
 
 	base_intents = list(/datum/intent/simple/claw/primordial)
 
-	health = 450
-	maxHealth = 450
+	health = 250
+	maxHealth = 250
 	melee_damage_lower = 25
 	melee_damage_upper = 35
 	vision_range = 10
@@ -340,8 +335,6 @@
 	retreat_health = 0
 	food = 0
 
-	AIStatus = AI_OFF
-	can_have_ai = FALSE
 	ai_controller = /datum/ai_controller/air_primordial
 
 /mob/living/simple_animal/hostile/retaliate/rogue/primordial/air/ability(turf/target_location, mob/living/user)
@@ -401,4 +394,3 @@
 	layer = ABOVE_MOB_LAYER
 	anchored = TRUE
 	duration = 8
-

@@ -1,10 +1,6 @@
 #define TARGET_CLOSEST 1
 #define TARGET_RANDOM 2
 #define MAGIC_XP_MULTIPLIER 0.3 //used to miltuply the amount of xp gained from spells
-#define FATIGUE_REDUCTION_PER_SKILL 0.05 // The amount of fatigue reduction per skill level.
-#define MEDIUM_ARMOR_STAM_PENALTY 0.15 // Multiplier on base stamina cost for wearing medium armor
-#define HEAVY_ARMOR_STAM_PENALTY 0.3 // Multiplier on base stamina cost for wearing heavy armor
-#define UNTRAINED_ARMOR_STAM_PENALTY 80 // Flat stamina penalty for wearing armor you're not trained in
 
 /obj/effect/proc_holder
 	var/panel = "Debug"//What panel the proc holder needs to go on.
@@ -82,11 +78,12 @@
 	return releasedrain
 
 GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for the badmin verb for now
-GLOBAL_LIST_INIT(action_spells, typesof(/datum/action/cooldown/spell)) //Caustic Edit - See if we can add the action-spells to the admin verb!
 
 /obj/effect/proc_holder/Destroy()
 	if (action)
 		qdel(action)
+	if(mob_charge_effect)
+		QDEL_NULL(mob_charge_effect)
 	if(ranged_ability_user)
 		remove_ranged_ability()
 	return ..()
@@ -194,8 +191,6 @@ GLOBAL_LIST_INIT(action_spells, typesof(/datum/action/cooldown/spell)) //Caustic
 	var/refundable = FALSE // If true, the spell can be refunded. This is modified at the point it is added to the user's mind by learnspell.
 	var/source_aspect // Aspect type path this spell was granted by, if any. Used by the aspect picker to attribute pointbuy spells back to their source aspect for budget accounting.
 	var/zizo_spell = FALSE // If this spell is fucked up & evil and can only be learned by heretics.
-
-	var/animagus_incompatible = FALSE // For excluding certain spells from being castable by witches, and possibly other classes with access to the animagus spell
 
 	var/overlay = 0
 	var/overlay_icon = 'icons/obj/wizard.dmi'
@@ -406,7 +401,7 @@ GLOBAL_LIST_INIT(action_spells, typesof(/datum/action/cooldown/spell)) //Caustic
 				return FALSE
 
 	else
-		if(clothes_req || human_req || animagus_incompatible) // CC Edit
+		if(clothes_req || human_req)
 			to_chat(user, span_warning("This spell can only be cast by humans!"))
 			return FALSE
 		if(nonabstract_req && (isbrain(user)))
@@ -570,16 +565,18 @@ GLOBAL_LIST_INIT(action_spells, typesof(/datum/action/cooldown/spell)) //Caustic
 			var/atom/A = targets[1]
 			var/turf/target_turf = get_turf(A)
 			var/turf/source_turf = get_turf(user)
-			//CC Edit: No more up and down turf checks, instead get the eye and see it's view
-			if(!(A in view(user.client.eye)))
+			if(A.z > user.z)
+				source_turf = get_step_multiz(source_turf, UP)
+			if(A.z < user.z)
+				source_turf = get_step_multiz(source_turf, DOWN)
+			if(!(target_turf in view(source_turf)))
 				to_chat(user, span_warning("I do not have line of sight! Casting on nearest tile."))
 				var/list/possible_targets = getline(source_turf, target_turf)
 				for(var/i = possible_targets.len; i > 0; i--) // Since turfs added by the getline are in ordered by distance, we need to start from the end
 					var/atom/closest_tile = possible_targets[i]
-					if(closest_tile in view(user.client.eye))//Same here, eye view.
+					if(closest_tile in view(source_turf))
 						targets[1] = closest_tile
 						break; // Found furthest tile, do not self-frag
-			//CC Edit End
 
 	before_cast(targets, user = user)
 	if(user && user.ckey)
@@ -614,9 +611,7 @@ GLOBAL_LIST_INIT(action_spells, typesof(/datum/action/cooldown/spell)) //Caustic
 				var/mob/living/carbon/human/H = user
 				H.bad_guard(span_warning("I can't focus while casting spells!"), cheesy = TRUE)
 			if(!ignore_combat_tag)
-				L.apply_status_effect(/datum/status_effect/combat_tag)
-				if(L.get_skill_level(/datum/skill/misc/sneaking) >= SKILL_LEVEL_JOURNEYMAN || HAS_TRAIT(L, TRAIT_LIGHT_STEP))
-					L.apply_status_effect(/datum/status_effect/stealth_revealed)
+				L.changeNext_inCombat(IN_COMBAT_DELAY)
 		if(action)
 			action.build_all_button_icons()
 		return TRUE
@@ -697,7 +692,7 @@ GLOBAL_LIST_INIT(action_spells, typesof(/datum/action/cooldown/spell)) //Caustic
 		var/datum/action/spell_action/SA = action
 		SA?.update_all_maptext(0)
 		action.build_all_button_icons()
-	if(user?.mmb_intent && user?.mmb_intent.mob_light) //CC edit
+	if(user.mmb_intent && user.mmb_intent.mob_light)
 		QDEL_NULL(user.mmb_intent.mob_light)
 
 /obj/effect/proc_holder/spell/proc/adjust_var(mob/living/target = usr, type, amount) //handles the adjustment of the var when the spell is used. has some hardcoded types
@@ -819,7 +814,7 @@ GLOBAL_LIST_INIT(action_spells, typesof(/datum/action/cooldown/spell)) //Caustic
 	perform(targets,user=user)
 
 /obj/effect/proc_holder/spell/proc/can_be_cast_by(mob/caster)
-	if((human_req || clothes_req || animagus_incompatible) && !ishuman(caster) || isanimagus(caster)) // CC Edit
+	if((human_req || clothes_req) && !ishuman(caster))
 		return 0
 	return 1
 
@@ -837,6 +832,12 @@ GLOBAL_LIST_INIT(action_spells, typesof(/datum/action/cooldown/spell)) //Caustic
 
 /obj/effect/proc_holder/spell/proc/can_cast(mob/user = usr, feedback = TRUE)
 	if(((!user.mind) || !(src in user.mind.spell_list)) && !(src in user.mob_spell_list))
+		return FALSE
+
+	// deny horsespellers
+	if(user.client && user.buckled && isliving(user.buckled))
+		if(feedback)
+			to_chat(user, span_warning("I'm too distracted riding [user.buckled] to cast!"))
 		return FALSE
 
 	if(!charge_check(user, feedback))
@@ -864,12 +865,7 @@ GLOBAL_LIST_INIT(action_spells, typesof(/datum/action/cooldown/spell)) //Caustic
 				return FALSE
 			if(!H.has_active_hand())
 				return FALSE
-// CC Edit Start
-	if(isanimagus(user))
-		if(animagus_incompatible)
-			return FALSE
-// CC Edit End
-
+	
 	if((invocation_type == "whisper" || invocation_type == "shout") && isliving(user))
 		var/mob/living/living_user = user
 		if(!living_user.can_speak_vocal())
@@ -917,60 +913,7 @@ GLOBAL_LIST_INIT(action_spells, typesof(/datum/action/cooldown/spell)) //Caustic
 /obj/effect/proc_holder/spell/proc/spell_guard_check(mob/living/target, no_message = FALSE, mob/living/attacker)
 	if(!isliving(target))
 		return FALSE
-	// Check for active guard
-	var/datum/status_effect/buff/clash/guard = target.has_status_effect(/datum/status_effect/buff/clash)
-	if(guard)
-		if(isarcyne(target))
-			if(!no_message)
-				target.visible_message(span_warning("[target] deflects [name] with a reactive ward!"))
-				to_chat(target, span_notice("My ward deflects the incoming spell!"))
-			playsound(get_turf(target), pick('sound/combat/parry/shield/magicshield (1).ogg', 'sound/combat/parry/shield/magicshield (2).ogg', 'sound/combat/parry/shield/magicshield (3).ogg'), 100)
-		else
-			if(!no_message)
-				target.visible_message(span_warning("[target] deflects [name]!"))
-				to_chat(target, span_notice("My guard deflects the incoming spell!"))
-			var/obj/item/held = target.get_active_held_item()
-			if(held?.parrysound)
-				playsound(get_turf(target), pick(held.parrysound), 100)
-			else
-				playsound(get_turf(target), pick(target.parry_sound), 100)
-		target.apply_status_effect(/datum/status_effect/buff/parry_buffer)
-		target.apply_status_effect(/datum/status_effect/buff/adrenaline_rush)
-		guard.deflected_spell = TRUE
-		target.remove_status_effect(/datum/status_effect/buff/clash)
-		// Pseudo-melee punishment: expose the attacker if provided
-		if(attacker && ishuman(attacker))
-			// Parry sound at attacker so they hear they got deflected
-			var/obj/item/attacker_weapon = arcyne_get_weapon(attacker)
-			if(attacker_weapon?.parrysound)
-				playsound(get_turf(attacker), pick(attacker_weapon.parrysound), 100)
-			else
-				playsound(get_turf(attacker), pick(attacker.parry_sound), 100)
-			// Weapon durability damage — riposte-level punishment
-			if(attacker_weapon)
-				if(attacker_weapon.max_blade_int)
-					attacker_weapon.remove_bintegrity((attacker_weapon.blade_int * RIPOSTE_SHARPNESS_FACTOR), attacker)
-				else
-					var/integdam = max((attacker_weapon.max_integrity / RIPOSTE_INTEG_DIVISOR), (INTEG_PARRY_DECAY_NOSHARP * 5))
-					attacker_weapon.take_damage(integdam, BRUTE, attacker_weapon.d_type)
-			// Remove first so chain-deflections replay the overhead visual and reset the timer
-			attacker.remove_status_effect(/datum/status_effect/debuff/exposed)
-			attacker.apply_status_effect(/datum/status_effect/debuff/exposed, 5 SECONDS)
-			// Match melee riposte: lock out attacks and slow the attacker down
-			attacker.apply_status_effect(/datum/status_effect/debuff/clickcd, 3 SECONDS)
-			attacker.Slowdown(3)
-			// Dump all momentum — you swung into a guard, you lose your edge
-			var/datum/status_effect/buff/arcyne_momentum/momentum = attacker.has_status_effect(/datum/status_effect/buff/arcyne_momentum)
-			if(momentum && momentum.stacks > 0)
-				momentum.consume_all_stacks()
-				to_chat(attacker, span_danger("My arcyne strike was deflected — I'm exposed and my momentum is gone!"))
-			else
-				to_chat(attacker, span_danger("My arcyne strike was deflected — I'm exposed!"))
-		return TRUE
-	// Check for parry buffer (from a recent deflection) — silent, no chat spam for multi-hit spells
-	if(target.has_status_effect(/datum/status_effect/buff/parry_buffer))
-		return TRUE
-	return FALSE
+	return target.guard_deflect_spell(name, no_message, attacker)
 
 /obj/effect/proc_holder/spell/proc/generate_wiki_html(mob/user)
 	var/s_range
@@ -1007,7 +950,3 @@ GLOBAL_LIST_INIT(action_spells, typesof(/datum/action/cooldown/spell)) //Caustic
 #undef TARGET_CLOSEST
 #undef TARGET_RANDOM
 #undef MAGIC_XP_MULTIPLIER
-#undef FATIGUE_REDUCTION_PER_SKILL
-#undef MEDIUM_ARMOR_STAM_PENALTY
-#undef HEAVY_ARMOR_STAM_PENALTY
-#undef UNTRAINED_ARMOR_STAM_PENALTY

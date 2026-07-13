@@ -241,3 +241,6 @@
 	var/max_breath = 100
 	var/last_breath_spent = 0
 	var/client/swimming_filter_client = null
+
+	/// "In Combat" timer that is used to prevent stealth and a few other mechanics while active.
+	var/in_combat_until

@@ -825,6 +825,8 @@ GLOBAL_LIST(leyline_teleport_runes)
 	for(var/turf/T in get_hear(field_radius, centerpoint))
 		if(T.density)
 			continue
+		if(istype(T, /turf/open/water))
+			continue
 		if(locate(/obj/effect/verglas) in T)
 			continue
 		field += new /obj/effect/verglas(T, 0)

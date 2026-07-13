@@ -152,7 +152,7 @@
 	 * Drained every SSfastprocess tick (wait = 2, i.e. 5x/second) from the moment
 	 * the charge bar completes until the spell is cast or dropped.
 	 */
-	var/hold_drain = 0
+	var/hold_drain = 1
 	/// Time to charge.
 	var/charge_time = 0
 	/// Slowdown while charging.
@@ -208,9 +208,6 @@
 	
 	/// A parent variable to store devotion cost. -- Kuan's Note: This is kinda needed if we want to shift Miracles from proc_holder to spell/cooldown
 	var/devotion_cost = null
-
-	/// SHIM CUZ OF TM FUUUCCCK REMOVE THIS
-	var/charge_drain = 0
 
 /datum/action/cooldown/spell/New(Target)
 	. = ..()
@@ -914,9 +911,7 @@
 			H.bad_guard(span_warning("I can't focus while casting spells!"), cheesy = TRUE)
 
 		if(!ignore_combat_tag)
-			H.apply_status_effect(/datum/status_effect/combat_tag)
-			if(H.get_skill_level(/datum/skill/misc/sneaking) >= SKILL_LEVEL_JOURNEYMAN || HAS_TRAIT(H, TRAIT_LIGHT_STEP))
-				H.apply_status_effect(/datum/status_effect/stealth_revealed)
+			H.changeNext_inCombat(IN_COMBAT_DELAY)
 
 	// Sparks and smoke can only occur if there's an owner to source them from.
 	if(sparks_amt)
@@ -1679,50 +1674,7 @@
 /datum/action/cooldown/spell/proc/spell_guard_check(mob/living/target, no_message = FALSE, mob/living/attacker)
 	if(!isliving(target))
 		return FALSE
-	var/datum/status_effect/buff/clash/guard = target.has_status_effect(/datum/status_effect/buff/clash)
-	if(guard)
-		if(isarcyne(target))
-			if(!no_message)
-				target.visible_message(span_warning("[target] deflects [name] with a reactive ward!"))
-				to_chat(target, span_notice("My ward deflects the incoming spell!"))
-			playsound(get_turf(target), pick('sound/combat/parry/shield/magicshield (1).ogg', 'sound/combat/parry/shield/magicshield (2).ogg', 'sound/combat/parry/shield/magicshield (3).ogg'), 100)
-		else
-			if(!no_message)
-				target.visible_message(span_warning("[target] deflects [name]!"))
-				to_chat(target, span_notice("My guard deflects the incoming spell!"))
-			var/obj/item/held = target.get_active_held_item()
-			if(held?.parrysound)
-				playsound(get_turf(target), pick(held.parrysound), 100)
-			else
-				playsound(get_turf(target), pick(target.parry_sound), 100)
-		target.apply_status_effect(/datum/status_effect/buff/parry_buffer)
-		target.apply_status_effect(/datum/status_effect/buff/adrenaline_rush)
-		guard.deflected_spell = TRUE
-		target.remove_status_effect(/datum/status_effect/buff/clash)
-		if(attacker && ishuman(attacker))
-			var/obj/item/attacker_weapon = arcyne_get_weapon(attacker)
-			if(attacker_weapon?.parrysound)
-				playsound(get_turf(attacker), pick(attacker_weapon.parrysound), 100)
-			else
-				playsound(get_turf(attacker), pick(attacker.parry_sound), 100)
-			if(attacker_weapon)
-				if(attacker_weapon.max_blade_int)
-					attacker_weapon.remove_bintegrity((attacker_weapon.blade_int * RIPOSTE_SHARPNESS_FACTOR), attacker)
-				else
-					var/integdam = max((attacker_weapon.max_integrity / RIPOSTE_INTEG_DIVISOR), (INTEG_PARRY_DECAY_NOSHARP * 5))
-					attacker_weapon.take_damage(integdam, BRUTE, attacker_weapon.d_type)
-			attacker.remove_status_effect(/datum/status_effect/debuff/exposed)
-			attacker.apply_status_effect(/datum/status_effect/debuff/exposed, 5 SECONDS)
-			var/datum/status_effect/buff/arcyne_momentum/momentum = attacker.has_status_effect(/datum/status_effect/buff/arcyne_momentum)
-			if(momentum && momentum.stacks > 0)
-				momentum.consume_all_stacks()
-				to_chat(attacker, span_danger("My arcyne strike was deflected — I'm exposed and my momentum is gone!"))
-			else
-				to_chat(attacker, span_danger("My arcyne strike was deflected — I'm exposed!"))
-		return TRUE
-	if(target.has_status_effect(/datum/status_effect/buff/parry_buffer))
-		return TRUE
-	return FALSE
+	return target.guard_deflect_spell(name, no_message, attacker)
 
 /datum/action/cooldown/spell/proc/signal_cancel()
 	SIGNAL_HANDLER
@@ -1781,7 +1733,7 @@
 	vis_contents |= wave
 	wave.color = spell_color
 
-/// Override on spells that have an alt mode (e.g. cycling ward types). Called by the Alt Mode keybind (Ctrl+G).
+/// Override on spells that have an alt mode (e.g. cycling ward types). Called by the Alt Mode keybind (Shift+G).
 /// Return TRUE if handled.
 /datum/action/cooldown/spell/proc/toggle_alt_mode(mob/user)
 	return FALSE
@@ -1793,4 +1745,3 @@
 
 	if(spell_rune)
 		QDEL_NULL(spell_rune)
-
