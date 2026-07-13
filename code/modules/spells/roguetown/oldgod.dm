@@ -817,7 +817,7 @@
 
 /obj/effect/proc_holder/spell/invoked/psydonabsolve/cast(list/targets, mob/living/user)
 
-	if(!ishuman(targets[1]))
+	if(!ishuman(targets[1]) || HAS_TRAIT(targets[1], TRAIT_IRONMAN)) //Caustic Edit - Lets just... not Absolve Constructs?
 		to_chat(user, span_warning("ABSOLUTION is for those who walk in HIS image!"))
 		revert_cast()
 		return FALSE
