@@ -341,16 +341,6 @@
 
 	grant_grenzel_option(H)
 
-	var/list/grenzel_options = list("Fire Strike", "Meteor Strike", "Form Hammer")
-	var/grenzel_choice = input(H, "Choose your Ultimate.", "Grenzel Ultimate") as anything in grenzel_options
-	switch(grenzel_choice)
-		if("Fire Strike")
-			H.mind.AddSpell(new /datum/action/cooldown/spell/fire_strike)
-		if("Meteor Strike")
-			H.mind.AddSpell(new  /datum/action/cooldown/spell/grenzel_meteor)
-		if("Form Hammer")
-			H.mind.AddSpell(new /datum/action/cooldown/spell/form_blade/form_hammer)
-
 /datum/advclass/mercenary/grenzelhoft/arquebusier 
 	name = "Armbrustschutze Garten"
 	tutorial = "You are a former veteran arbalest, outfitted with the latest technologies known to man. Your weapons remain as deadly to the enemy as to you, but your training should overcome it. Run them down, with fire and sword."
