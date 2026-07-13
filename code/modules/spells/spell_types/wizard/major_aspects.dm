@@ -30,9 +30,6 @@
 		"mastery" = list(
 			VARIANT_ADDITIVE =/datum/action/cooldown/spell/projectile/pyroclasm,
 		),
-		"gefechtsgelehrter" = list(
-			VARIANT_ADDITIVE = /datum/action/cooldown/spell/fire_strike,	
-		),
 	)
 
 /datum/magic_aspect/cryomancy
@@ -138,9 +135,6 @@
 	variants = list(
 		"mastery" = list(
 			VARIANT_ADDITIVE =/datum/action/cooldown/spell/meteor_strike,
-		),
-		"gefechtsgelehrter" = list(
-			VARIANT_ADDITIVE = /datum/action/cooldown/spell/grenzel_meteor,
 		),
 	)
 
@@ -281,9 +275,6 @@
 	variants = list(
 		"mastery" = list(
 			VARIANT_ADDITIVE =/datum/action/cooldown/spell/blade_dance,
-		),
-		"gefechtsgelehrter" = list(
-			VARIANT_ADDITIVE = /datum/action/cooldown/spell/form_blade/form_hammer,
 		),
 	)
 
