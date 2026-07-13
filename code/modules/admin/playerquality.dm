@@ -341,12 +341,12 @@
 	return bonus
 
 /client/proc/recalc_pq_bulk()
-	set category = "Server"
+	set category = "🖳︎ SERVER"
 	set name = "PQ - Recalc From Commends (Bulk)"
 	set waitfor = FALSE
 	if(!holder || !check_rights(R_ADMIN, 0))
 		return
-	if(alert(src, "This will scan every player save and grant missing PQ from existing commends using the rework formula. Only players already at PQ 100+ are affected. Each ckey is processed once. Continue?", "PQ Bulk Recalc", "Yes", "No") != "Yes")
+	if(alert(src, "This will scan every player save and grant missing PQ from existing commends using the rework formula. Each ckey is processed once. Continue?", "PQ Bulk Recalc", "Yes", "No") != "Yes")
 		return
 	var/total_players = 0
 	var/total_bonus = 0
@@ -372,7 +372,7 @@
 	log_admin(bulk_msg)
 
 /client/proc/recalc_pq_single()
-	set category = "Server"
+	set category = "🖳︎ SERVER"
 	set name = "PQ - Recalc From Commends (Single)"
 	if(!holder || !check_rights(R_ADMIN, 0))
 		return
@@ -389,7 +389,7 @@
 		fdel(marker)
 	var/granted = recalc_pq_from_commends(the_ckey, src.ckey)
 	if(granted <= 0)
-		to_chat(src, span_boldwarning("No PQ granted to [the_ckey] (sub-100, no commends, or already processed)."))
+		to_chat(src, span_boldwarning("No PQ granted to [the_ckey] (no commends, or already processed)."))
 		return
 	var/single_msg = "[src.ckey] recalc'd [the_ckey]'s PQ from commends: +[round(granted, 0.01)]."
 	to_chat(world, "<span class=\"admin\"><span class=\"prefix\">ADMIN LOG:</span> <span class=\"message linkify\">[single_msg]</span></span>")
