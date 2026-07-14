@@ -16,7 +16,7 @@
 	. += span_info("Left-clicking the machine with an item will load it into the stockpile, rewarding you coinage in turn. Make sure to register an account with the MEISTER, first, or you won't receive any coinage.")
 	. += span_info("Right-clicking the machine will automatically load all adjacent items into the stockpile at once.")
 	. += span_info("The vomitorium's stockpile naturally refills over time. Loaded items are added to the stockpile's quantities, which can then be vended by others or exported by the Steward for profit.")
-	. += span_info("The vomitorium can also accept treasures, gemstones, and many other valuables that're particularly expensive; a portion of it is always taxed and returned to the Steward's treasury.")
+	. += span_info("The vomitorium can also accept treasures and many other valuables that're particularly expensive; a portion of it is always taxed and returned to the Steward's treasury.")
 
 /obj/structure/roguemachine/stockpile/Initialize()
 	. = ..()
