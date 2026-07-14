@@ -64,6 +64,7 @@
 	force = 15
 	throwforce = 20
 	wdefense = 3
+	associated_skill = /datum/skill/combat/arcyne
 	w_class = WEIGHT_CLASS_TINY
 	slot_flags = ITEM_SLOT_MOUTH
 	possible_item_intents = list(/datum/intent/dagger/thrust, /datum/intent/dagger/thrust/pick)
