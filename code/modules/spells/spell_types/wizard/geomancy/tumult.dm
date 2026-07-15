@@ -4,9 +4,9 @@
 /datum/action/cooldown/spell/tumult
 	button_icon = 'icons/mob/actions/mage_geomancy.dmi'
 	name = "Tumult"
-	desc = "Two forms of one spell, switched with Shift-G.\n\
-	CAIRN erupts stone from a spot you choose, battering those caught, leaving them Vulnerable, spraying gravel, and heaving up a stone cairn. You are unharmed by the spell.\n\
-	RAMSTAM folds you into a rolling mass of stone that hurtles to a marked spot, battering aside anyone in the way. Slam a wall to burst gravel, crack it, and ricochet back, roll through a stone pillar to shatter it into a spray you are immune to. A Riposte stops you and leaves you Exposed. You cannot steer once begun."
+	desc = "Erupts stone from the ground, or become one yourself and bowls through your foes! switch mode with Shift-G.\n\
+	CAIRN erupts a cairn from a spot you choose, hitting those caught and leaving them Vulnerable, with more damage in the center. It sprays gravel around. You are unharmed by the spell.\n\
+	RAMSTAM turns you into a rolling boulders that hurtle to a marked destination, restricted to the cardinal and diagonal direction. You batter asides anyone in the way for a small amount of damage. If you hit a wall, you will burst out gravel around you, deals damage to it, and ricochet to the spot you came from. If you are riposted, it will halt and exposes you. If you rolls through a stone pillar, you will shatter it for gravel bursts that you are immune to. You cannot steer once begun."
 	button_icon_state = "cairn"
 	sound = 'sound/combat/hits/onstone/stonedeath.ogg'
 	spell_color = GLOW_COLOR_EARTHEN
@@ -43,7 +43,7 @@
 	var/geo_mode = TUMULT_MODE_ERUPT
 	var/static/list/mode_labels = list(TUMULT_MODE_ERUPT = "CAIRN", TUMULT_MODE_CHARGE = "RAMSTAM")
 	var/erupt_cooldown = 10 SECONDS
-	var/charge_cooldown = 18 SECONDS
+	var/charge_cooldown = 12 SECONDS
 
 	var/telegraph_delay = TELEGRAPH_SKILLSHOT
 	var/erupt_direct = 80
@@ -60,7 +60,6 @@
 	var/roll_speed = 1
 	var/barrel_damage = 15
 	var/knock_dist = 1
-	var/expose_duration = 5 SECONDS
 	var/charge_frag_count = 8
 	var/charge_frag_damage = 12
 	var/crash_structure_damage = 100
@@ -278,7 +277,7 @@
 		for(var/mob/living/L in next)
 			if(L == H)
 				continue
-			if(is_riposting(L))
+			if(spell_guard_check(L, TRUE, H))
 				riposte_counter(H, L)
 				countered = TRUE
 				break
@@ -341,7 +340,7 @@
 		return
 	if(ishuman(L))
 		arcyne_strike(H, L, null, barrel_damage, H.zone_selected || BODY_ZONE_CHEST, BCLASS_BLUNT, \
-			spell_name = name, damage_type = BRUTE, npc_simple_damage_mult = 1.5, skip_animation = TRUE)
+			spell_name = "Ramstam", damage_type = BRUTE, npc_simple_damage_mult = 1.5, skip_animation = TRUE)
 	else
 		L.adjustBruteLoss(barrel_damage * (L.mind ? 1 : 1.5))
 	new /obj/effect/temp_visual/spell_impact(get_turf(L), spell_color, spell_impact_intensity)
@@ -373,16 +372,8 @@
 		frag.preparePixelProjectile(ftarget, from)
 		frag.fire()
 
-/datum/action/cooldown/spell/tumult/proc/is_riposting(mob/living/L)
-	if(!ishuman(L))
-		return FALSE
-	var/mob/living/carbon/human/HL = L
-	return istype(HL.rmb_intent, /datum/rmb_intent/riposte)
-
 /datum/action/cooldown/spell/tumult/proc/riposte_counter(mob/living/carbon/human/H, mob/living/L)
-	H.apply_status_effect(/datum/status_effect/debuff/exposed, expose_duration)
 	H.visible_message(span_warning("[L] braces and turns [H]'s charge aside - [H] sprawls, exposed!"), span_userdanger("[L] catches my charge - I am thrown off and left exposed!"))
-	playsound(get_turf(H), 'sound/combat/parry/parrygen.ogg', 70, TRUE)
 
 /obj/effect/ramstam_boulder
 	icon = 'icons/obj/magic_projectiles.dmi'
