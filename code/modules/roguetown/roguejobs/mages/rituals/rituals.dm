@@ -31,3 +31,14 @@
 
 /datum/runeritual/teleport/on_finished_recipe(mob/living/user, list/selected_atoms, turf/loc)
 	return TRUE
+
+/datum/runeritual/other/verglas
+	name = "verglas field"
+	tier = 2
+	required_atoms = list(/obj/item/magic/elemental/shard = 1)
+
+/datum/runeritual/other/verglas/on_finished_recipe(mob/living/user, list/selected_atoms, turf/loc)
+	if(!locate(/obj/effect/decal/cleanable/roguerune/arcyne/verglas) in loc)
+		to_chat(user, span_warning("The ritual fizzles!"))
+		return FALSE
+	return TRUE

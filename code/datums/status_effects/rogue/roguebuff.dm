@@ -1657,6 +1657,11 @@
 	desc = span_notice("A brief window of deflection lingers from my guard.")
 	icon_state = "clash"
 
+/datum/status_effect/buff/emberward
+	id = "emberward"
+	duration = 1 SECONDS
+	alert_type = null
+
 /atom/movable/screen/alert/status_effect/buff/clash/limbguard
 	name = "Limb Guard"
 	desc = span_notice("I have focused my attention to guarding one limb. I shall deflect projectiles and blows to that limb with ease.")
@@ -1951,8 +1956,20 @@
 	desc = "The gambit worked! I can do anything! My heart races, the throb of my wounds wavers."
 	icon_state = "adrrush"
 
+/datum/status_effect/buff/magic/knowledge
+	id = "intelligence"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/magic/knowledge
+	effectedstats = list("intelligence" = 2)
+	duration = 10 MINUTES
+
+/atom/movable/screen/alert/status_effect/buff/magic/knowledge
+	name = "runic cunning"
+	desc = "I am magically astute."
+	icon_state = "buff"
+
 /datum/status_effect/buff/adrenaline_rush
 	id = "adrrush"
+	status_type = STATUS_EFFECT_REPLACE
 	alert_type = /atom/movable/screen/alert/status_effect/buff/adrenaline_rush
 	duration = 18 SECONDS
 	examine_text = "SUBJECTPRONOUN is amped up!"
@@ -1971,21 +1988,23 @@
 
 /datum/status_effect/buff/adrenaline_rush/on_remove()
 	. = ..()
+	clear_adrenaline_rush()
+
+/datum/status_effect/buff/adrenaline_rush/be_replaced()
+	clear_adrenaline_rush()
+	return ..()
+
+/datum/status_effect/buff/adrenaline_rush/proc/clear_adrenaline_rush()
 	REMOVE_TRAIT(owner, TRAIT_ADRENALINE_RUSH, INNATE_TRAIT)
 	var/mob/living/carbon/human/human = owner
 	if(istype(human))
 		human.pain_threshold -= 50
 
-/datum/status_effect/buff/magic/knowledge
-	id = "intelligence"
-	alert_type = /atom/movable/screen/alert/status_effect/buff/magic/knowledge
-	effectedstats = list("intelligence" = 2)
-	duration = 10 MINUTES
+/datum/status_effect/buff/adrenaline_rush/ranged
+	effectedstats = list(STATKEY_SPD = 2)
 
-/atom/movable/screen/alert/status_effect/buff/magic/knowledge
-	name = "runic cunning"
-	desc = "I am magically astute."
-	icon_state = "buff"
+/datum/status_effect/buff/adrenaline_rush/melee
+	effectedstats = list(STATKEY_WIL = 1, STATKEY_CON = 1)
 
 /datum/status_effect/buff/nocblessing
 	id = "nocblessing"

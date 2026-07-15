@@ -8,6 +8,7 @@
 	spell_color = GLOW_COLOR_ARCANE
 	glow_intensity = GLOW_INTENSITY_MEDIUM
 	attunement_school = ASPECT_NAME_AUGMENTATION
+	var/telegraph_type = /obj/effect/temp_visual/trap_wall
 
 	click_to_activate = TRUE
 	cast_range = SPELL_RANGE_GROUND

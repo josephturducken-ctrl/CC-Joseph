@@ -8,12 +8,13 @@
 	self_cast_possible = FALSE
 
 	primary_resource_type = SPELL_COST_ENERGY
-	primary_resource_cost = 100
+	primary_resource_cost =  SPELLCOST_SURGE
 
 	invocations = list("Impetus!")
 	invocation_type = INVOCATION_SHOUT
 
 	charge_required = FALSE
+	other_cast_cooldown_reduction = 0 // Does not benefit from ally-cast cooldown reduction
 
 	point_cost = 1
 	spell_impact_intensity = SPELL_IMPACT_MEDIUM
@@ -39,8 +40,8 @@
 	if(iscarbon(target))
 		var/mob/living/carbon/carbon_target = target
 		carbon_target.stam_paralyzed = FALSE
-	target.stamina_reset()
 	target.set_resting(FALSE)
+	target.stamina_add(-10) // restore a burst of stamina (green bar) rather than a full reset
 
 	target.balloon_alert_to_viewers("<font color='[spell_color]'>surge!</font>")
 	target.visible_message(span_warning("[target] surges back up, wreathed in energy!"), span_notice("Arcyne energy floods my body - I rise!"))

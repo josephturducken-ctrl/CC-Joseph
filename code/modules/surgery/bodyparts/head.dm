@@ -62,7 +62,7 @@
 
 /obj/item/bodypart/head/examine()
 	. = ..()
-	if(sellprice)
+	if(sellprice && !no_head_bounty)
 		. += span_notice("This head seems to be wanted by the Judiciary of Azuria. It can be turned in at a HEADEATER.")
 
 /obj/item/bodypart/head/drop_limb(special)

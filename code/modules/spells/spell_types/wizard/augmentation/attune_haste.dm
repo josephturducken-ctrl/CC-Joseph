@@ -6,6 +6,7 @@
 	invocations = list("Festinatio!")
 	invocation_type = INVOCATION_SHOUT
 	shared_cooldown = "augment_attunement"
+	other_cast_cooldown_reduction = 0.33 // Casting on an ally cuts a third off the cooldown
 
 	point_cost = 2
 
