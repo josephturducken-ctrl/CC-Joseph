@@ -272,7 +272,6 @@
 			return
 
 	if(M.attacked_by(src, user))
-		if(user.used_intent == cached_intent)
 		var/tempsound = cached_intent?.hitsound
 		if(tempsound)
 			playsound(M.loc, tempsound, 100, FALSE, -1)
