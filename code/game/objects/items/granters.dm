@@ -328,12 +328,6 @@ UNDER NO CIRCUMSTANCE SHOULD ANY OF THE BOOKS BE GIVEN OUT INTO SPAWNERS OR TO B
 	spell = /datum/action/cooldown/spell/projectile/lightning_bolt
 	spellname = "Lightning Bolt"
 
-/obj/item/book/granter/spell/noc/boulderstrike
-	name = "Scroll of Boulder Strike"
-	desc = "Teaches you how to cast Boulder Strike."
-	spell = /datum/action/cooldown/spell/projectile/boulder_strike
-	spellname = "Boulder Strike"
-
 /obj/item/book/granter/spell/noc/message
 	name = "Scroll of Message"
 	desc = "Teaches you how to cast Message."
