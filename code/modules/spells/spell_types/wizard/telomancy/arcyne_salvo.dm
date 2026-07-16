@@ -54,13 +54,13 @@
 	nodamage = FALSE
 	damage_type = BRUTE
 	woundclass = BCLASS_BLUNT
-	flag = "blunt"
+	flag = "force"
 	range = SPELL_RANGE_PROJECTILE
 	speed = MAGE_PROJ_FAST
 	accuracy = 60
 	guard_deflectable = TRUE
 	npc_simple_damage_mult = 1.5
-	intdamfactor = BLUNT_DEFAULT_INT_DAMAGEFACTOR
+	intdamfactor = 1
 	hitsound = 'sound/combat/hits/blunt/shovel_hit2.ogg'
 	ricochets_max = 2
 	ricochet_chance = 100

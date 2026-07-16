@@ -133,13 +133,13 @@
 	nodamage = FALSE
 	damage_type = BRUTE
 	woundclass = BCLASS_BLUNT
-	flag = "blunt"
+	flag = "force"
 	range = 30
 	speed = 3
 	accuracy = 60
 	guard_deflectable = TRUE
 	npc_simple_damage_mult = 1.5
-	intdamfactor = BLUNT_DEFAULT_INT_DAMAGEFACTOR
+	intdamfactor = 1
 	movement_type = UNSTOPPABLE
 	ricochets_max = 5
 	ricochet_chance = 100
