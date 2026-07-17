@@ -143,7 +143,7 @@
 		if(spell_guard_check(victim, TRUE))
 			victim.visible_message(span_warning("[victim] braces against the eruption!"))
 			continue
-		arcyne_strike(caster, victim, null, erupt_direct, target_zone, BCLASS_FORCE, \
+		arcyne_strike(caster, victim, null, erupt_direct, target_zone, BCLASS_BLUNT, \
 			spell_name = "Cairn", damage_type = BRUTE, npc_simple_damage_mult = erupt_npc_mult, skip_animation = TRUE)
 		victim.apply_status_effect(/datum/status_effect/debuff/vulnerable, vuln_duration)
 		to_chat(victim, span_userdanger("Stone erupts beneath me!"))
@@ -162,7 +162,7 @@
 				continue
 			if(spell_guard_check(victim, TRUE))
 				continue
-			arcyne_strike(caster, victim, null, erupt_aoe, target_zone, BCLASS_FORCE, \
+			arcyne_strike(caster, victim, null, erupt_aoe, target_zone, BCLASS_BLUNT, \
 				spell_name = "Cairn", damage_type = BRUTE, npc_simple_damage_mult = erupt_npc_mult, skip_animation = TRUE)
 			victim.apply_status_effect(/datum/status_effect/debuff/vulnerable, vuln_duration)
 			var/push_dir = get_dir(T, victim) || get_dir(caster, victim) || pick(GLOB.cardinals)

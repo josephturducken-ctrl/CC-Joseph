@@ -26,6 +26,7 @@
 	if(LAZYACCESS(controller.current_behaviors, GET_AI_BEHAVIOR(/datum/ai_behavior/ranged_attack_bow)))
 		return SUBTREE_RETURN_FINISH_PLANNING
 	AI_THINK(pawn, "BOW: ranged_attack_bow setup FAILED - could not enter bow stance")
+	_restore_stashed_weapon(controller, pawn)
 
 // A skirmisher, not a turret. The archer is always backpedalling away from its mark - before,
 // during and after every shot - so it never roots in place. It fires on the move whenever a shot
@@ -57,14 +58,18 @@
 			AI_THINK(pawn, "BOW-STANCE: could not draw bow, active hand blocked by [blocker || "nothing"][blocker && HAS_TRAIT(blocker, TRAIT_NODROP) ? " (NODROP)" : ""]")
 			return FALSE
 
-	var/turf/retreat = _archer_retreat_turf(pawn, target)
+	var/turf/retreat
+	if(get_dist(pawn, target) <= ARCHER_NPC_KITE_RANGE)
+		retreat = _archer_retreat_turf(pawn, target)
 	set_movement_target(controller, retreat || get_turf(pawn))
 	SEND_SIGNAL(controller.pawn, COMSIG_COMBAT_TARGET_SET, TRUE)
 	if(istype(bow, /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow))
 		controller.set_blackboard_key(BB_ARCHER_NPC_NEXT_SHOT, world.time)
 	else
-		_chamber_from_quiver(pawn, bow)
-		controller.set_blackboard_key(BB_ARCHER_NPC_NEXT_SHOT, world.time + bow.get_npc_chargetime(pawn))
+		if(!_chamber_from_quiver(pawn, bow))
+			return FALSE
+		if(controller.blackboard[BB_ARCHER_NPC_NEXT_SHOT] < world.time) // a future stamp is a draw already in progress - replanning must not restart it
+			controller.set_blackboard_key(BB_ARCHER_NPC_NEXT_SHOT, world.time + bow.get_npc_chargetime(pawn))
 	return TRUE
 
 /datum/ai_behavior/ranged_attack_bow/perform(delta_time, datum/ai_controller/controller, target_key)
@@ -96,8 +101,9 @@
 
 	pawn.face_atom(target)
 
+	var/has_los = can_see(pawn, target, ARCHER_NPC_SHOOT_RANGE)
 	// Loose the instant a shot is ready; we never stop moving to do it (move-and-perform).
-	if(bow.chambered && world.time >= controller.blackboard[BB_ARCHER_NPC_NEXT_SHOT] && can_see(pawn, target, ARCHER_NPC_SHOOT_RANGE))
+	if(bow.chambered && world.time >= controller.blackboard[BB_ARCHER_NPC_NEXT_SHOT] && has_los)
 		_loose_arrow(pawn, target, bow)
 		if(is_crossbow)
 			controller.set_blackboard_key(BB_ARCHER_NPC_NEXT_SHOT, world.time)
@@ -123,7 +129,11 @@
 		return
 	controller.clear_blackboard_key(BB_ARCHER_NPC_REPOSITION_TURF)
 	if(dist > ARCHER_NPC_KITE_RANGE)
-		controller.ai_movement.stop_moving_towards(controller) // in the pocket (kite < dist <= shoot) - hold and loose
+		if(has_los)
+			controller.ai_movement.stop_moving_towards(controller) // in the pocket (kite < dist <= shoot) - hold and loose
+			return
+		var/turf/vantage = _archer_los_turf(pawn, target)
+		set_movement_target(controller, vantage || target) // sight blocked - sidestep for an angle, or push in until one opens
 		return
 	var/turf/retreat = _archer_retreat_turf(pawn, target)
 	if(retreat)
@@ -146,6 +156,8 @@
 		var/turf/next = get_step(probe, away)
 		if(!next || next.is_blocked_turf(exclude_mobs = TRUE))
 			break
+		if(get_dist(next, target) > ARCHER_NPC_KITE_RANGE + 2)
+			break
 		best = next
 		probe = next
 	if(best)
@@ -166,6 +178,7 @@
 	var/cur_dist = get_dist(pawn, target)
 	var/list/dirs = GLOB.alldirs.Copy()
 	dirs -= get_dir(pawn, target)
+	dirs -= get_dir(target, pawn)
 	shuffle_inplace(dirs)
 	for(var/dir in dirs)
 		var/turf/best = null
@@ -176,8 +189,26 @@
 				break
 			best = next
 			probe = next
-		if(best && get_dist(best, target) >= cur_dist)
+		if(best && get_dist(best, target) >= cur_dist && get_dist(best, target) <= ARCHER_NPC_SHOOT_RANGE)
 			return best
+	return null
+
+/proc/_archer_los_turf(mob/living/carbon/human/pawn, atom/target)
+	var/list/dirs = GLOB.alldirs.Copy()
+	dirs -= get_dir(pawn, target)
+	dirs -= get_dir(target, pawn)
+	shuffle_inplace(dirs)
+	for(var/dir in dirs)
+		var/turf/probe = get_turf(pawn)
+		for(var/i in 1 to 3)
+			var/turf/next = get_step(probe, dir)
+			if(!next || next.is_blocked_turf(exclude_mobs = TRUE))
+				break
+			probe = next
+			if(get_dist(probe, target) > ARCHER_NPC_SHOOT_RANGE)
+				break
+			if(can_see(probe, target, ARCHER_NPC_SHOOT_RANGE))
+				return probe
 	return null
 
 /proc/_bow_draw_slowdown(obj/item/gun/ballistic/revolver/grenadelauncher/bow)

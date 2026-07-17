@@ -37,6 +37,7 @@
 	charge_required = TRUE
 	weapon_cast_penalized = TRUE
 	charge_time = CHARGETIME_MAJOR
+	charge_swingdelay_type = SWINGDELAY_CANCEL
 	charge_slowdown = CHARGING_SLOWDOWN_MEDIUM
 	charge_sound = 'sound/magic/charging_fire.ogg'
 	cooldown_time = SPELL_COOLDOWN_BIG_WHOOPER
@@ -214,7 +215,7 @@
 	for(var/turf/T in range(pillar_radius, epicenter))
 		new /obj/effect/temp_visual/pillar_warning/fadein(T, pillar_delay)
 	playsound(epicenter, 'sound/magic/charging_fire.ogg', 80, TRUE)
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(pillar_of_flame_erupt), epicenter, owner, pillar_radius, pillar_damage, 2), pillar_delay)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(pillar_of_flame_erupt), epicenter, owner, pillar_radius, pillar_damage, 2, owner.zone_selected), pillar_delay)
 	return TRUE
 
 /obj/effect/temp_visual/pillar_warning
@@ -243,7 +244,7 @@
 	duration = 1 SECONDS
 	layer = MASSIVE_OBJ_LAYER
 
-/proc/pillar_of_flame_erupt(turf/epicenter, mob/living/carbon/human/caster, radius, damage, npc_mult)
+/proc/pillar_of_flame_erupt(turf/epicenter, mob/living/carbon/human/caster, radius, damage, npc_mult, aim_zone)
 	if(!epicenter)
 		return
 	new /obj/effect/temp_visual/explosion(epicenter)
@@ -251,7 +252,7 @@
 	playsound(epicenter, pick('sound/misc/explode/incendiary (1).ogg', 'sound/misc/explode/incendiary (2).ogg'), 100, TRUE, 5)
 	for(var/turf/T in range(radius, epicenter))
 		new /obj/effect/temp_visual/dragonfire(T)
-		new /obj/effect/curtain_fire(T, PILLAR_OF_FLAME_CURTAIN_LIFE, caster)
+		new /obj/effect/curtain_fire(T, PILLAR_OF_FLAME_CURTAIN_LIFE, caster, aim_zone)
 		for(var/mob/living/L in T)
 			if(L.stat == DEAD)
 				continue
@@ -260,7 +261,7 @@
 			if(L.guard_deflect_spell("Pillar of Flame", TRUE, caster))
 				continue
 			if(istype(caster) && !QDELETED(caster))
-				arcyne_strike(caster, L, null, damage, BODY_ZONE_CHEST, BCLASS_BURN, spell_name = "Pillar of Flame", damage_type = BURN, npc_simple_damage_mult = npc_mult, skip_animation = TRUE)
+				arcyne_strike(caster, L, null, damage, aim_zone || BODY_ZONE_CHEST, BCLASS_BURN, spell_name = "Pillar of Flame", damage_type = BURN, npc_simple_damage_mult = npc_mult, skip_animation = TRUE, exact_zone = TRUE)
 			else
 				L.adjustFireLoss(damage)
 			apply_scorch_stack(L, 2)
