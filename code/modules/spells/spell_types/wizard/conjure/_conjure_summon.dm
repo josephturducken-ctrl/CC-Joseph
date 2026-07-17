@@ -20,7 +20,7 @@
 	attunement_school = ASPECT_NAME_CONJURATION
 
 	click_to_activate = TRUE
-	cast_range = SPELL_RANGE_ADJACENT
+	cast_range = 2
 
 	primary_resource_type = SPELL_COST_STAMINA
 	primary_resource_cost = SPELLCOST_CONJURE
@@ -222,6 +222,7 @@
 		to_chat(summoner, span_warning("A cold recoil ripples through me as I unbind my servant."))
 
 	summoner.apply_status_effect(/datum/status_effect/debuff/conjure_backlash, scale, base_stats, base_duration, block)
+	summoner.apply_status_effect(/datum/status_effect/debuff/exposed, 10 SECONDS)
 
 /datum/status_effect/debuff/conjure_backlash
 	id = "conjure_backlash"

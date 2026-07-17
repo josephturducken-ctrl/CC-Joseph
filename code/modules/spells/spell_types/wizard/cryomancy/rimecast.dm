@@ -77,6 +77,7 @@
 
 /obj/projectile/magic/ice_lance
 	name = "ice lance"
+	expose_caster_on_deflect = TRUE
 	icon_state = "u_laser"
 	damage = 75
 	npc_simple_damage_mult = 2
@@ -128,6 +129,7 @@
 
 /obj/projectile/magic/ice_burst
 	name = "ice burst"
+	expose_caster_on_deflect = TRUE
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "wipe"
 	speed = MAGE_PROJ_VERY_SLOW
