@@ -515,24 +515,6 @@
 		return
 	if(W)
 		W.melee_attack_chain(src, A, params)
-		if(isliving(src))
-			var/mob/living/L = src
-
-
-			if(HAS_TRAIT(L, TRAIT_DUALWIELDER) && L.last_used_double_attack <= world.time)
-				var/obj/item/offh = L.get_inactive_held_item()
-				var/dual_wielding = offh && (istype(W, offh) || istype(offh, W)) && W != offh && !L.check_arm_grabbed(L.get_inactive_hand_index())
-				if(dual_wielding && !L.is_swinging())
-					var/forceoffhand = L.dualwieldpitystacks >= L.dualwieldpitythreshhold
-					if(forceoffhand)
-						L.dualwieldpitystacks = 0
-						if(L.stamina_add(3))
-							L.last_used_double_attack = world.time + 2.5 SECONDS
-							to_chat(L, span_warning("An opening! I strike with my off-hand."), MESSAGE_TYPE_COMBAT)
-							offh.melee_attack_chain(src, A, params)
-					else
-						L.dualwieldpitystacks++
-
 	else
 		if(ismob(A))
 			var/adf = used_intent.clickcd
@@ -541,6 +523,7 @@
 			else if(istype(rmb_intent, /datum/rmb_intent/swift))
 				adf = max(round(adf * CLICK_CD_MOD_SWIFT), CLICK_CD_INTENTCAP)
 			changeNext_move(adf)
+
 		UnarmedAttack(A,1,params)
 
 	var/invis_timer = mob_timers[MT_INVISIBILITY]

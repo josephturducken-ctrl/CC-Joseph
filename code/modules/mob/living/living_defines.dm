@@ -171,6 +171,8 @@
 	///The NAME (not the reference) of the mob's summoner and probable master.
 	var/summoner = null
 
+	/// This is for highlighting marks in track.dm
+	var/mob/living/current_mark
 
 	var/datum/component/personal_crafting/craftingthing
 
@@ -249,6 +251,13 @@
 	var/max_breath = 100
 	var/last_breath_spent = 0
 	var/client/swimming_filter_client = null
+
+	/// Had to put this here because attack() is not used solely by humans. That's fucked up, manne.
+	var/dualwield_attack_count = 0
+	var/dualwield_processing = FALSE
+	var/dualwield_finisher = FALSE
+	var/dualwield_resets_in = 0
+	var/dualwield_buff_cd = 0
 
 	/// "In Combat" timer that is used to prevent stealth and a few other mechanics while active.
 	var/in_combat_until
